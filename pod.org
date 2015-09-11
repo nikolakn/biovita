@@ -1,1 +1,3 @@
  sudo dpkg-reconfigure keyboard-configuration
+sudo apt-get install python-dev python-pip
+sudo pip install wiringpi2
