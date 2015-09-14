@@ -14,7 +14,9 @@ wiringpi.mcp23s17Setup(81,0,0x21) # first pin,spi port,i2c address
 
 for i in pins:
     wiringpi.pinMode(i,1)     # sets pin of mcp23s17-0 to output
- 
+for i in pins2:
+    wiringpi.pinMode(i,1)
+     
 try:
  while True:
   for i in pins:   
