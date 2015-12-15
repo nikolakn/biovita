@@ -23,12 +23,12 @@ wiringpi.wiringPiSetup()
 #rezervise adrese pocevsi od 65 pa nadalje za expander podesen na 0x20
 wiringpi.mcp23s17Setup(65,0,0x20) # first pin,spi port,i2c address
 #adrese od 81 pa navise za expander na 1
-wiringpi.mcp23s17Setup(81,0,0x21) # first pin,spi port,i2c address
+wiringpi.mcp23s17Setup(81,1,0x20) # first pin,spi port,i2c address
 
 for i in pins:
     wiringpi.pinMode(i,1)     # sets pin of mcp23s17-0 to output
 for i in pins2:
-    wiringpi.pinMode(i,1)
+    wiringpi.pinMode(i,0)
 
 class Example(QtGui.QMainWindow):
     
@@ -79,7 +79,7 @@ class Example(QtGui.QMainWindow):
         
         self.statusBar()
         
-        self.setGeometry(300, 300, 600, 400)
+        self.setGeometry(300, 300, 450, 300)
         self.setWindowTitle('Event sender')
         self.show()
         
@@ -87,11 +87,13 @@ class Example(QtGui.QMainWindow):
         sender = self.sender()
         if self.sl1== False:
             sender.setStyleSheet("background-color: green")
-            wiringpi.digitalWrite(dioda1,1)
+            #wiringpi.digitalWrite(dioda1,1)
+            val = wiringpi.digitalRead(dioda1);
+            print(val)
             self.sl1 = True
         else:
             sender.setStyleSheet("background-color: #696969")
-            wiringpi.digitalWrite(dioda1,0)
+            #wiringpi.digitalWrite(dioda1,0)
             self.sl1 = False			
         
     def l2Clicked(self):  
