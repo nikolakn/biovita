@@ -11,8 +11,8 @@ from time import sleep
 pins = [65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80]
 pins2 = [81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96]
 
-dioda1=81
-dioda2=82
+dioda1=95
+dioda2=96
 
 rele1=65
 rele2=66
@@ -28,7 +28,7 @@ wiringpi.mcp23s17Setup(81,1,0x20) # first pin,spi port,i2c address
 for i in pins:
     wiringpi.pinMode(i,1)     # sets pin of mcp23s17-0 to output
 for i in pins2:
-    wiringpi.pinMode(i,0)
+    wiringpi.pinMode(i,1)
 
 class Example(QtGui.QMainWindow):
     
@@ -87,13 +87,11 @@ class Example(QtGui.QMainWindow):
         sender = self.sender()
         if self.sl1== False:
             sender.setStyleSheet("background-color: green")
-            #wiringpi.digitalWrite(dioda1,1)
-            val = wiringpi.digitalRead(dioda1);
-            print(val)
+            wiringpi.digitalWrite(dioda1,1)
             self.sl1 = True
         else:
             sender.setStyleSheet("background-color: #696969")
-            #wiringpi.digitalWrite(dioda1,0)
+            wiringpi.digitalWrite(dioda1,0)
             self.sl1 = False			
         
     def l2Clicked(self):  
