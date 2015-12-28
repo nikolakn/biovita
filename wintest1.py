@@ -14,17 +14,17 @@ pins2 = [81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96]
 dioda1=95
 dioda2=96
 
-rele1=65
-rele2=66
-rele3=67
-rele4=68
+rele1=80
+rele2=79
+rele3=78
+rele4=77
 
 wiringpi.wiringPiSetup()
 #rezervise adrese pocevsi od 65 pa nadalje za expander podesen na 0x20
-wiringpi.mcp23s17Setup(65,0,0x20) # first pin,spi port,i2c address
+wiringpi.mcp23s17Setup(65,0,1) # first pin,spi port,i2c address
 #adrese od 81 pa navise za expander na 1
-wiringpi.mcp23s17Setup(81,1,0x20) # first pin,spi port,i2c address
-
+wiringpi.mcp23s17Setup(81,0,0) # first pin,spi port,i2c address
+#wiringpi.mcp23s17Setup(81,0,1)
 for i in pins:
     wiringpi.pinMode(i,1)     # sets pin of mcp23s17-0 to output
 for i in pins2:

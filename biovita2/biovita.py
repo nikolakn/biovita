@@ -5,7 +5,7 @@
 import sys
 from PyQt4 import QtGui, QtCore
 #from time import sleep
-from expanderi import Expanderi
+from expanderi import expanderi
 
 class idQCheckBox(QtGui.QCheckBox):
     def setId(self,cid):
@@ -16,7 +16,7 @@ class Glavna(QtGui.QMainWindow):
     
     def __init__(self):
         super(Glavna, self).__init__()
-        self.expanderi = Expanderi()
+        self.expanderi = expanderi.Expanderi()
         self.initUI()
         
     def initUI(self):      
