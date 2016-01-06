@@ -11,10 +11,12 @@ GPIO.setup(27,GPIO.OUT)
 def readlineCR(port):
     rv = ""
     p = True
-    port.flushInput()
+    port.flushInput()	
     while True:
+
         ch = port.read()
-        
+        if (ch!=''):
+            print(ch)
         if (ch == '\n') and p == False:
             return rv
         if ch == '\n' and p==True:
@@ -34,21 +36,15 @@ try:
       GPIO.output(27,GPIO.LOW)
       time.sleep(0.1)
       rcv = readlineCR(port)
-      try:
-        r= float(rcv+"\r")
-        print(r)
-      except:
-          pass
+      print(rcv)
+
       #Turn LEDs off
       GPIO.output(17,GPIO.LOW)
       GPIO.output(27,GPIO.HIGH)
       time.sleep(0.1)
       rc2 = readlineCR(port)
-      try:
-        r= float(rc2+"\r")
-        print(r)
-      except:
-          pass   
+      print(rc2)
+ 
 except:
   print("reska seriski port")
   port.close()
