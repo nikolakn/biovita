@@ -5,7 +5,7 @@
 import sys
 from PyQt4 import QtGui, QtCore
 #from time import sleep
-#from expanderi import expanderi
+from expanderi import expanderi
 from led import Led
 
 class idQCheckBox(QtGui.QCheckBox):
@@ -17,7 +17,7 @@ class Glavna(QtGui.QMainWindow):
     
     def __init__(self):
         super(Glavna, self).__init__()
-        #self.expanderi = expanderi.Expanderi()
+        self.expanderi = expanderi.Expanderi()
         self.initUI()
         
     def initUI(self):      
@@ -44,26 +44,37 @@ class Glavna(QtGui.QMainWindow):
             x = x + 1
             if (x >=16):
                 x = 0
-                y =y +40
-        #btn1.clicked.connect(self.l1Clicked)            
+                y =y +40          
         
         self.statusBar()
         
         self.setGeometry(300, 300, 450, 400)
         self.setWindowTitle('Event sender')
         self.show()
- 
+        self.ctimer = QtCore.QTimer()
+        QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.ulaziUpdate)
+        self.ctimer.start(1000)
+        
+    def ulaziUpdate(self):
+        u = self.expanderi.getUlazi()
+        n = 0;        
+        for i in self.ulazi:
+            if (u[n]==1):
+                i.on();
+            else:
+                i.off();
+            n = n + 1;
     def state_changed(self,ii):
         sender = self.sender()
         if(sender.isChecked()==True):
-            #self.expanderi.ukljuci(sender.getId())
+            self.expanderi.ukljuci(sender.getId())
             pass
         else:
             pass
-            #self.expanderi.iskljuci(sender.getId()) 
+            self.expanderi.iskljuci(sender.getId()) 
 
     def closeEvent(self, event):
-        #self.expanderi.close()
+        self.expanderi.close()
         pass
 
 def main():
