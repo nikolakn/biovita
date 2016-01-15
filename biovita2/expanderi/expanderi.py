@@ -52,6 +52,7 @@ class Expanderi:
             wiringpi.pinMode(int(i),0)    
             
     def getUlazi(self):
+        self.proveriUlaze();
         return self.ulazi;
     def proveriUlaze(self):
         n = 0;

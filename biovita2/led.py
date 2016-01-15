@@ -9,19 +9,19 @@ class Led(QtGui.QWidget):
         self.crna = QtGui.QColor(0, 0, 0)
         self.crvena = QtGui.QColor(255, 0, 0)
         self.bela = QtGui.QColor(255, 255, 255)
-        self.on = False;
+        self.ukljuceno = False;
         self.dx = 10;
         self.dy = 10;
         self.setMinimumSize(self.dx, self.dy)
     def on(self):
-        self.on = True;    
+        self.ukljuceno = True;    
     def off(self):
-        self.on = False;
+        self.ukljuceno = False;
     def paintEvent(self, e):
 
         qp = QtGui.QPainter()
         qp.begin(self)
-        if (self.on == True):
+        if (self.ukljuceno == True):
             qp.setPen(self.crna)
             qp.setBrush(self.crvena)
             qp.drawEllipse(self.dx/2, self.dy/2, self.dx, self.dy)

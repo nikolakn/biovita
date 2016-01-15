@@ -7,6 +7,7 @@ from PyQt4 import QtGui, QtCore
 #from time import sleep
 from expanderi import expanderi
 from led import Led
+import serial 
 
 class idQCheckBox(QtGui.QCheckBox):
     def setId(self,cid):
@@ -19,7 +20,13 @@ class Glavna(QtGui.QMainWindow):
         super(Glavna, self).__init__()
         self.expanderi = expanderi.Expanderi()
         self.initUI()
-        
+        try:
+            self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
+            self.port.open()
+        except:
+            print("reska seriski port")
+            self.port.close()     
+   
     def initUI(self):      
         self.komande = []
         x = 0;
@@ -53,7 +60,7 @@ class Glavna(QtGui.QMainWindow):
         self.show()
         self.ctimer = QtCore.QTimer()
         QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.ulaziUpdate)
-        self.ctimer.start(1000)
+        self.ctimer.start(100)
         
     def ulaziUpdate(self):
         u = self.expanderi.getUlazi()
@@ -64,6 +71,9 @@ class Glavna(QtGui.QMainWindow):
             else:
                 i.off();
             n = n + 1;
+        ch = self.port.readline();
+        print(ch)
+        self.repaint()      
     def state_changed(self,ii):
         sender = self.sender()
         if(sender.isChecked()==True):
