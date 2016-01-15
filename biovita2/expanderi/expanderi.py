@@ -31,8 +31,8 @@ class Expanderi:
         self.svi =self.svi+ self.led_pins1        
         
         self.svi_ulazi = []
-        self.svi_ulazi=self.svi+ self.input_pins1 
-        self.svi_ulazi =self.svi+ self.input_pins2
+        self.svi_ulazi=self.svi_ulazi + self.input_pins1 
+        self.svi_ulazi =self.svi_ulazi + self.input_pins2
         
         
         wiringpi.wiringPiSetup()
@@ -59,7 +59,7 @@ class Expanderi:
             self.ulazi[n] = wiringpi.digitalRead(i);
             n = n + 1;
          
-    def ukljuci(self, port):            
+    def ukljuci(self, port):          
         wiringpi.digitalWrite(self.svi[port],1)    
     def iskljuci(self, port):            
         wiringpi.digitalWrite(self.svi[port],0)       

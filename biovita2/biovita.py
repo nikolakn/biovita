@@ -67,15 +67,12 @@ class Glavna(QtGui.QMainWindow):
     def state_changed(self,ii):
         sender = self.sender()
         if(sender.isChecked()==True):
-            self.expanderi.ukljuci(sender.getId())
-            pass
+            self.expanderi.ukljuci(sender.getId())   
         else:
-            pass
             self.expanderi.iskljuci(sender.getId()) 
 
     def closeEvent(self, event):
         self.expanderi.close()
-        pass
 
 def main():
     
