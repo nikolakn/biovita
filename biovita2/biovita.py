@@ -21,11 +21,12 @@ class Glavna(QtGui.QMainWindow):
         self.expanderi = expanderi.Expanderi()
         self.initUI()
         try:
-            self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
-            self.port.open()
+            #self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
+            #self.port.open()
+            pass
         except:
-            print("reska seriski port")
-            self.port.close()     
+            print("Greska seriski port")
+            sys.exit(0)     
    
     def initUI(self):      
         self.komande = []
@@ -71,8 +72,8 @@ class Glavna(QtGui.QMainWindow):
             else:
                 i.off();
             n = n + 1;
-        ch = self.port.readline();
-        print(ch)
+        #ch = self.port.readline();
+        #print(ch)
         self.repaint()      
     def state_changed(self,ii):
         sender = self.sender()
