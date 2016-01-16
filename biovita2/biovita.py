@@ -21,17 +21,24 @@ class Glavna(QtGui.QMainWindow):
         self.expanderi = expanderi.Expanderi()
         self.initUI()
         try:
-            #self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
-            #self.port.open()
-            pass
+            self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
+            self.port.open()
         except:
             print("Greska seriski port")
             sys.exit(0)     
    
-    def initUI(self):      
+    def initUI(self):       
         self.komande = []
         x = 0;
-        y = 10
+        y = 60;
+        lab1 = QtGui.QLabel("Vaga:",self)
+        lab1.move(5,0);
+        self.com1 =  QtGui.QLineEdit(self)
+        self.com1.move(35,0);
+        lab2 = QtGui.QLabel("Releji:",self)
+        lab2.move(5,40);
+        lab3 = QtGui.QLabel("Senzori:",self)
+        lab3.move(5,210);
         for i in range(0,64):         
             temp = idQCheckBox(self)
             temp.move(x*25+10, y)
@@ -43,7 +50,7 @@ class Glavna(QtGui.QMainWindow):
                 x = 0
                 y =y +40
         self.ulazi = []
-        y = 200;
+        y = 240;
         x = 0;
         for i in range(0,32): 
             temp = Led(self)
@@ -57,7 +64,7 @@ class Glavna(QtGui.QMainWindow):
         self.statusBar()
         
         self.setGeometry(300, 300, 450, 400)
-        self.setWindowTitle('Event sender')
+        self.setWindowTitle('Biovita')
         self.show()
         self.ctimer = QtCore.QTimer()
         QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.ulaziUpdate)
@@ -72,8 +79,9 @@ class Glavna(QtGui.QMainWindow):
             else:
                 i.off();
             n = n + 1;
-        #ch = self.port.readline();
-        #print(ch)
+        ch = self.port.readline();
+        print(ch)
+        self.com1.setText("nikola")
         self.repaint()      
     def state_changed(self,ii):
         sender = self.sender()
