@@ -357,7 +357,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 4</string>
              </property>
             </widget>
            </item>
@@ -371,7 +371,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 5</string>
              </property>
             </widget>
            </item>
@@ -385,7 +385,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>ZA EKSTRUDER</string>
              </property>
             </widget>
            </item>
@@ -413,7 +413,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>ASPIRATER</string>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">buttonGroup</string>
@@ -430,7 +430,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>REDLER IZNAD SILOSA</string>
              </property>
              <attribute name="buttonGroup">
               <string notr="true">buttonGroup</string>
@@ -463,7 +463,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 1</string>
              </property>
             </widget>
            </item>
@@ -477,7 +477,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 2</string>
              </property>
             </widget>
            </item>
@@ -491,7 +491,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 3</string>
              </property>
             </widget>
            </item>
@@ -505,7 +505,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 4</string>
              </property>
             </widget>
            </item>
@@ -519,7 +519,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 5</string>
              </property>
             </widget>
            </item>
@@ -533,7 +533,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>SILOS 6</string>
              </property>
             </widget>
            </item>
@@ -562,16 +562,16 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_11">
            <item>
-            <widget class="QRadioButton" name="radioButton_14">
+            <widget class="QCheckBox" name="checkBox_14">
              <property name="text">
-              <string>RadioButton</string>
+              <string>C20 TRAKA 2</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_13">
+            <widget class="QCheckBox" name="checkBox_13">
              <property name="text">
-              <string>RadioButton</string>
+              <string>c24 TRAKA 1</string>
              </property>
             </widget>
            </item>
@@ -624,7 +624,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>REDLER IZNAD SILOSA</string>
              </property>
             </widget>
            </item>
@@ -638,7 +638,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>ASPIRATER</string>
              </property>
             </widget>
            </item>
@@ -652,7 +652,7 @@
               </font>
              </property>
              <property name="text">
-              <string>RadioButton</string>
+              <string>UTOVARNA RAMPA</string>
              </property>
             </widget>
            </item>
@@ -892,6 +892,12 @@
                 <height>20</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="text">
                <string>START</string>
               </property>
@@ -917,6 +923,12 @@
                 <width>80</width>
                 <height>20</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
               </property>
               <property name="text">
                <string>STOP</string>
@@ -1119,6 +1131,20 @@
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_5">
+             <property name="text">
+              <string>UKLJUCI</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_4">
+             <property name="text">
+              <string>ISKLJUCI</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1187,24 +1213,10 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>40</height>
+            <height>200</height>
            </size>
           </property>
          </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="text">
-           <string>UKLJUCI</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_4">
-          <property name="text">
-           <string>ISKLJUCI</string>
-          </property>
-         </widget>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_35">
