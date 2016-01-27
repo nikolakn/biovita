@@ -319,6 +319,19 @@
            </item>
           </layout>
          </item>
+         <item>
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
         </layout>
        </widget>
       </item>
@@ -457,7 +470,7 @@
             <widget class="QRadioButton" name="radioButton_12">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -471,7 +484,7 @@
             <widget class="QRadioButton" name="radioButton_11">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -485,7 +498,7 @@
             <widget class="QRadioButton" name="radioButton_10">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -499,7 +512,7 @@
             <widget class="QRadioButton" name="radioButton_9">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -513,7 +526,7 @@
             <widget class="QRadioButton" name="radioButton_8">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -527,7 +540,7 @@
             <widget class="QRadioButton" name="radioButton_7">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1009,7 +1022,7 @@
             <widget class="QRadioButton" name="radioButton_22">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1023,7 +1036,7 @@
             <widget class="QRadioButton" name="radioButton_23">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1037,7 +1050,7 @@
             <widget class="QRadioButton" name="radioButton_24">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1051,7 +1064,7 @@
             <widget class="QRadioButton" name="radioButton_25">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1065,7 +1078,7 @@
             <widget class="QRadioButton" name="radioButton_26">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1079,7 +1092,7 @@
             <widget class="QRadioButton" name="radioButton_27">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1093,7 +1106,7 @@
             <widget class="QRadioButton" name="radioButton_28">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1107,7 +1120,7 @@
             <widget class="QRadioButton" name="radioButton_29">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1121,7 +1134,7 @@
             <widget class="QRadioButton" name="radioButton_30">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>7</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1591,7 +1604,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_52">
              <property name="text">
-              <string>CheckBox</string>
+              <string>Silos 2 ispust otvo</string>
              </property>
             </widget>
            </item>
@@ -1605,7 +1618,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_53">
              <property name="text">
-              <string>CheckBox</string>
+              <string>Silos 3 ispust otvo</string>
              </property>
             </widget>
            </item>
@@ -1619,7 +1632,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_56">
              <property name="text">
-              <string>CheckBox</string>
+              <string>Silos 4 ispust otvo</string>
              </property>
             </widget>
            </item>
@@ -1633,7 +1646,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_54">
              <property name="text">
-              <string>CheckBox</string>
+              <string>Silos 5 ispust otvo</string>
              </property>
             </widget>
            </item>
@@ -1651,35 +1664,35 @@
            <item>
             <widget class="QCheckBox" name="checkBox_61">
              <property name="text">
-              <string>CheckBox</string>
+              <string/>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="checkBox_64">
              <property name="text">
-              <string>CheckBox</string>
+              <string>Silos 2 zasun</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="checkBox_68">
              <property name="text">
-              <string>CheckBox</string>
+              <string/>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="checkBox_63">
              <property name="text">
-              <string>CheckBox</string>
+              <string>Silos 1 zasun</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="checkBox_67">
              <property name="text">
-              <string>CheckBox</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -1693,7 +1706,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_65">
              <property name="text">
-              <string>CheckBox</string>
+              <string>ISPUST REGL 1/6</string>
              </property>
             </widget>
            </item>
@@ -1707,7 +1720,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_60">
              <property name="text">
-              <string>CheckBox</string>
+              <string>USMERIVAC 1/6</string>
              </property>
             </widget>
            </item>
@@ -1815,7 +1828,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_76">
              <property name="text">
-              <string>CheckBox</string>
+              <string>USMERIVAC 2/5</string>
              </property>
             </widget>
            </item>
@@ -1846,7 +1859,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_79">
              <property name="text">
-              <string>CheckBox</string>
+              <string>GOT MAT2/ZATV/OTV</string>
              </property>
             </widget>
            </item>
@@ -1874,7 +1887,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_82">
              <property name="text">
-              <string>CheckBox</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -1888,7 +1901,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_85">
              <property name="text">
-              <string>CheckBox</string>
+              <string>ISPUST REGL 3/4</string>
              </property>
             </widget>
            </item>
@@ -1902,7 +1915,7 @@
            <item>
             <widget class="QCheckBox" name="checkBox_86">
              <property name="text">
-              <string>CheckBox</string>
+              <string>USMERIVAC 3/4</string>
              </property>
             </widget>
            </item>
@@ -1943,14 +1956,14 @@
            <item>
             <widget class="QCheckBox" name="checkBox_89">
              <property name="text">
-              <string>P26</string>
+              <string>P26 got_mat4 zasun</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QCheckBox" name="checkBox_88">
              <property name="text">
-              <string>CheckBox</string>
+              <string/>
              </property>
             </widget>
            </item>
