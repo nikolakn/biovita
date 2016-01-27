@@ -1226,7 +1226,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_35">
           <item>
-           <widget class="QCheckBox" name="checkBox_98">
+           <widget class="QCheckBox" name="srednji_30">
             <property name="text">
              <string>30 PUZ ZA PUNJENJE BINOVA</string>
             </property>
@@ -1253,14 +1253,14 @@
            </spacer>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_99">
+           <widget class="QCheckBox" name="srednji_19">
             <property name="text">
              <string>19 PUZ I PNEUMATIKA ZA 8/9</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="checkBox_100">
+           <widget class="QCheckBox" name="srednji_27">
             <property name="text">
              <string>27 REZERVA</string>
             </property>
@@ -1378,14 +1378,14 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_23">
            <item>
-            <widget class="QCheckBox" name="checkBox_26">
+            <widget class="QCheckBox" name="donji_p1">
              <property name="text">
               <string>P1</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_25">
+            <widget class="QCheckBox" name="donji_p1e">
              <property name="text">
               <string>E1 Aspirater/Puz binova</string>
              </property>
@@ -1408,14 +1408,14 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_41">
+            <widget class="QCheckBox" name="donji_p3">
              <property name="text">
               <string>P3</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_27">
+            <widget class="QCheckBox" name="donji_p3e">
              <property name="text">
               <string>E1 Zatvor/Rampa</string>
              </property>
@@ -1438,14 +1438,14 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_28">
+            <widget class="QCheckBox" name="donji_p11">
              <property name="text">
               <string>P11</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_29">
+            <widget class="QCheckBox" name="donji_p11e">
              <property name="text">
               <string>Red. Iznad silosa zatvo.</string>
              </property>
@@ -1465,14 +1465,14 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_58">
+            <widget class="QCheckBox" name="donji_p6">
              <property name="text">
               <string>P6</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_59">
+            <widget class="QCheckBox" name="donji_p6e">
              <property name="text">
               <string>Silos 6 ispu. otvoren</string>
              </property>
@@ -1499,70 +1499,70 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_22">
            <item>
-            <widget class="QCheckBox" name="checkBox_32">
+            <widget class="QCheckBox" name="donji_p7">
              <property name="text">
               <string>P7</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_31">
+            <widget class="QCheckBox" name="donji_p7e">
              <property name="text">
               <string>E2 Zatv/S5</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_33">
+            <widget class="QCheckBox" name="donji_p8">
              <property name="text">
               <string>P8</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_34">
+            <widget class="QCheckBox" name="donji_p8e">
              <property name="text">
               <string>E2 zatv/kod Pere</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_35">
+            <widget class="QCheckBox" name="donji_p4">
              <property name="text">
               <string>P4</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_36">
+            <widget class="QCheckBox" name="donji_p4e">
              <property name="text">
               <string>E2 Zatv/ Puz za bin</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_37">
+            <widget class="QCheckBox" name="donji_p2">
              <property name="text">
               <string>P2</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_38">
+            <widget class="QCheckBox" name="donji_p2e">
              <property name="text">
               <string>E2 Regl/aspirater</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_39">
+            <widget class="QCheckBox" name="donji_p5">
              <property name="text">
               <string>P5</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_40">
+            <widget class="QCheckBox" name="donji_p5e">
              <property name="text">
               <string>E2 Zatv/silos 4</string>
              </property>
@@ -1573,70 +1573,70 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_21">
            <item>
-            <widget class="QCheckBox" name="checkBox_49">
+            <widget class="QCheckBox" name="donji_p14">
              <property name="text">
               <string>P14</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_30">
+            <widget class="QCheckBox" name="donji_p14e">
              <property name="text">
               <string>Silos 1 ispust otvo</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_51">
+            <widget class="QCheckBox" name="donji_p15">
              <property name="text">
               <string>P15</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_52">
+            <widget class="QCheckBox" name="donji_p15e">
              <property name="text">
               <string>Silos 2 ispust otvo</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_50">
+            <widget class="QCheckBox" name="donji_p16">
              <property name="text">
               <string>P16</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_53">
+            <widget class="QCheckBox" name="donji_p16e">
              <property name="text">
               <string>Silos 3 ispust otvo</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_57">
+            <widget class="QCheckBox" name="donji_p12">
              <property name="text">
               <string>P12</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_56">
+            <widget class="QCheckBox" name="donji_p12e">
              <property name="text">
               <string>Silos 4 ispust otvo</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_55">
+            <widget class="QCheckBox" name="donji_p13">
              <property name="text">
               <string>P13</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_54">
+            <widget class="QCheckBox" name="donji_p13e">
              <property name="text">
               <string>Silos 5 ispust otvo</string>
              </property>
@@ -1647,70 +1647,70 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_20">
            <item>
-            <widget class="QCheckBox" name="checkBox_24">
+            <widget class="QCheckBox" name="donji_p25">
              <property name="text">
               <string>P25 Silos 3 zasun</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_61">
+            <widget class="QCheckBox" name="donji_p25e">
              <property name="text">
               <string/>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_64">
+            <widget class="QCheckBox" name="donji_s2">
              <property name="text">
               <string>Silos 2 zasun</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_68">
+            <widget class="QCheckBox" name="donji_s2e">
              <property name="text">
               <string/>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_63">
+            <widget class="QCheckBox" name="donji_s1">
              <property name="text">
               <string>Silos 1 zasun</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_67">
+            <widget class="QCheckBox" name="donji_s1e">
              <property name="text">
               <string/>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_66">
+            <widget class="QCheckBox" name="donji_p17">
              <property name="text">
               <string>P17</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_65">
+            <widget class="QCheckBox" name="donji_p17e">
              <property name="text">
               <string>ISPUST REGL 1/6</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_62">
+            <widget class="QCheckBox" name="donji_p32">
              <property name="text">
               <string>P32</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_60">
+            <widget class="QCheckBox" name="donji_p32e">
              <property name="text">
               <string>USMERIVAC 1/6</string>
              </property>
