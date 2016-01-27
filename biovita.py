@@ -20,12 +20,14 @@ class Glavna(QtGui.QMainWindow):
         super(Glavna, self).__init__()
         self.expanderi = expanderi.Expanderi()
         self.initUI()
+        '''
         try:
             self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
             self.port.open()
         except:
             print("Greska seriski port")
-            sys.exit(0)     
+            sys.exit(0) 
+        '''            
    
     def initUI(self):       
         self.komande = []
@@ -68,7 +70,7 @@ class Glavna(QtGui.QMainWindow):
         self.show()
         self.ctimer = QtCore.QTimer()
         QtCore.QObject.connect(self.ctimer, QtCore.SIGNAL("timeout()"), self.ulaziUpdate)
-        self.ctimer.start(100)
+        self.ctimer.start(200)
         
     def ulaziUpdate(self):
         u = self.expanderi.getUlazi()
@@ -79,9 +81,9 @@ class Glavna(QtGui.QMainWindow):
             else:
                 i.off();
             n = n + 1;
-        ch = self.port.readline();
-        print(ch)
-        self.com1.setText("nikola")
+        #ch = self.port.readline();
+        #print(ch)
+        self.com1.setText("vaga")
         self.repaint()      
     def state_changed(self,ii):
         sender = self.sender()
