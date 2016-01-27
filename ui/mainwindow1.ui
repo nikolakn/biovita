@@ -1223,7 +1223,7 @@
           <item>
            <widget class="QCheckBox" name="checkBox_98">
             <property name="text">
-             <string>PUZ ZA PUNJENJE BINOVA</string>
+             <string>30 PUZ ZA PUNJENJE BINOVA</string>
             </property>
            </widget>
           </item>
