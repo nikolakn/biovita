@@ -128,28 +128,28 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <widget class="QCheckBox" name="checkBox">
+              <widget class="QCheckBox" name="gornji_bin1">
                <property name="text">
                 <string>BIN1</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_2">
+              <widget class="QCheckBox" name="gornji_bin2">
                <property name="text">
                 <string>BIN2</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_3">
+              <widget class="QCheckBox" name="gornji_bin3">
                <property name="text">
                 <string>BIN3</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_4">
+              <widget class="QCheckBox" name="gornji_bin4">
                <property name="text">
                 <string>BIN4</string>
                </property>
@@ -160,28 +160,28 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_13">
              <item>
-              <widget class="QCheckBox" name="checkBox_11">
+              <widget class="QCheckBox" name="gornji_bin5">
                <property name="text">
                 <string>BIN5</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_12">
+              <widget class="QCheckBox" name="gornji_bin6">
                <property name="text">
                 <string>BIN6</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_13">
+              <widget class="QCheckBox" name="gornji_bin7">
                <property name="text">
                 <string>BIN7</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_14">
+              <widget class="QCheckBox" name="gornji_bin8">
                <property name="text">
                 <string>BIN8</string>
                </property>
@@ -192,14 +192,14 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_14">
              <item>
-              <widget class="QCheckBox" name="checkBox_15">
+              <widget class="QCheckBox" name="gornji_bin9">
                <property name="text">
                 <string>BIN9</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_16">
+              <widget class="QCheckBox" name="gornji_bin12">
                <property name="text">
                 <string>BIN12 premixi na vagu</string>
                </property>
@@ -225,14 +225,14 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QCheckBox" name="checkBox_17">
+            <widget class="QCheckBox" name="gornji_c15">
              <property name="text">
               <string>c15 elevator mlina</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_18">
+            <widget class="QCheckBox" name="gornji_c29">
              <property name="text">
               <string>c29 dotok materijala u mlin</string>
              </property>
@@ -263,14 +263,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_20">
+            <widget class="QCheckBox" name="gornji_22">
              <property name="text">
               <string>22 OTVORENA</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_19">
+            <widget class="QCheckBox" name="gornji_26">
              <property name="text">
               <string>26 ZATVORENA</string>
              </property>
@@ -304,14 +304,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_22">
+            <widget class="QCheckBox" name="gornji_17">
              <property name="text">
               <string>17 ZATVORENA</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox_21">
+            <widget class="QCheckBox" name="gornji_16">
              <property name="text">
               <string>16 OTVORENA</string>
              </property>
@@ -361,7 +361,7 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
-            <widget class="QRadioButton" name="radioButton_6">
+            <widget class="QRadioButton" name="srednji_ele2_1">
              <property name="font">
               <font>
                <pointsize>8</pointsize>
@@ -375,7 +375,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_5">
+            <widget class="QRadioButton" name="srednji_ele2_2">
              <property name="font">
               <font>
                <pointsize>8</pointsize>
@@ -389,7 +389,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_4">
+            <widget class="QRadioButton" name="srednji_ele2_3">
              <property name="font">
               <font>
                <pointsize>8</pointsize>
@@ -403,7 +403,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_3">
+            <widget class="QRadioButton" name="srednji_ele2_4">
              <property name="font">
               <font>
                <pointsize>8</pointsize>
@@ -417,7 +417,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton">
+            <widget class="QRadioButton" name="srednji_ele2_5">
              <property name="font">
               <font>
                <weight>50</weight>
@@ -430,7 +430,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_2">
+            <widget class="QRadioButton" name="srednji_ele2_6">
              <property name="font">
               <font>
                <weight>50</weight>
@@ -459,7 +459,7 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_10">
            <item>
-            <widget class="QRadioButton" name="radioButton_12">
+            <widget class="QRadioButton" name="srednji_ispusti_1">
              <property name="font">
               <font>
                <pointsize>7</pointsize>
@@ -473,7 +473,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_11">
+            <widget class="QRadioButton" name="srednji_ispusti_2">
              <property name="font">
               <font>
                <pointsize>7</pointsize>
@@ -487,7 +487,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_10">
+            <widget class="QRadioButton" name="srednji_ispusti_3">
              <property name="font">
               <font>
                <pointsize>7</pointsize>
@@ -501,7 +501,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_9">
+            <widget class="QRadioButton" name="srednji_ispusti_4">
              <property name="font">
               <font>
                <pointsize>7</pointsize>
@@ -515,7 +515,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_8">
+            <widget class="QRadioButton" name="srednji_ispusti_5">
              <property name="font">
               <font>
                <pointsize>7</pointsize>
@@ -529,7 +529,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_7">
+            <widget class="QRadioButton" name="srednji_ispusti_6">
              <property name="font">
               <font>
                <pointsize>7</pointsize>
@@ -551,12 +551,12 @@
            </item>
           </layout>
           <zorder>verticalLayoutWidget_7</zorder>
-          <zorder>radioButton_7</zorder>
-          <zorder>radioButton_8</zorder>
-          <zorder>radioButton_9</zorder>
-          <zorder>radioButton_10</zorder>
-          <zorder>radioButton_11</zorder>
-          <zorder>radioButton_12</zorder>
+          <zorder>srednji_ispusti_6</zorder>
+          <zorder>srednji_ispusti_5</zorder>
+          <zorder>srednji_ispusti_4</zorder>
+          <zorder>srednji_ispusti_3</zorder>
+          <zorder>srednji_ispusti_2</zorder>
+          <zorder>srednji_ispusti_1</zorder>
           <zorder>pushButton</zorder>
          </widget>
         </item>
