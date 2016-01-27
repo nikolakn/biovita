@@ -437,6 +437,9 @@
       </property>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QGroupBox" name="groupBox_3">
           <property name="font">
@@ -452,9 +455,15 @@
           <layout class="QVBoxLayout" name="verticalLayout_9">
            <item>
             <widget class="QRadioButton" name="srednji_ele2_1">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -466,9 +475,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele2_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -480,9 +495,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele2_3">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -494,9 +515,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele2_4">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -508,6 +535,12 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele2_5">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <weight>50</weight>
@@ -521,6 +554,12 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele2_6">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <weight>50</weight>
@@ -550,9 +589,15 @@
           <layout class="QVBoxLayout" name="verticalLayout_10">
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_1">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>7</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -564,9 +609,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>7</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -578,9 +629,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_3">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>7</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -592,9 +649,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_4">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>7</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -606,9 +669,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_5">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>7</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -620,9 +689,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_6">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>7</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -672,6 +747,19 @@
           </layout>
          </widget>
         </item>
+        <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </item>
       <item>
@@ -710,9 +798,15 @@
           <layout class="QVBoxLayout" name="verticalLayout_12">
            <item>
             <widget class="QRadioButton" name="srednji_ele1_1">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -724,9 +818,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele1_2">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -738,9 +838,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele1_3">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -752,9 +858,15 @@
            </item>
            <item>
             <widget class="QRadioButton" name="srednji_ele1_4">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -782,6 +894,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_23">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>23 ELEVATOR 1</string>
           </property>
@@ -789,6 +906,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_18">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>18 ELEVATOR 2</string>
           </property>
@@ -809,6 +931,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_21">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>21 VENTILATOR ASPIRATERA</string>
           </property>
@@ -816,6 +943,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_9">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>9 ASPIRATER PRECISTAC</string>
           </property>
@@ -823,6 +955,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_c3">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>C3 PUZ U ISTOVARNOJ JAMI</string>
           </property>
@@ -830,6 +967,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_c1">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>C1 REDLER U ISTOVARNOJ JAMI</string>
           </property>
@@ -846,7 +988,7 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>50</height>
+            <height>40</height>
            </size>
           </property>
          </spacer>
@@ -891,7 +1033,7 @@
             <widget class="QRadioButton" name="srednji_psilosa_1">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -905,7 +1047,7 @@
             <widget class="QRadioButton" name="srednji_psilosa_2">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -919,7 +1061,7 @@
             <widget class="QRadioButton" name="srednji_psilosa_3">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1045,6 +1187,11 @@
           </item>
           <item>
            <widget class="QCheckBox" name="srednji_25">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>25 ELEVATOR 3</string>
             </property>
@@ -1115,12 +1262,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1141,12 +1288,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1167,12 +1314,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1193,12 +1340,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1219,12 +1366,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1245,12 +1392,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1271,12 +1418,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1297,12 +1444,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1323,12 +1470,12 @@
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>12</height>
+               <height>13</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>9</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -1357,6 +1504,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_28">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>28 GOTOVA ROBA PREMA EXTRUDERU</string>
           </property>
@@ -1377,6 +1529,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_31">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>31 mesalica</string>
           </property>
@@ -1384,6 +1541,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="srednji_32">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>32 mlin</string>
           </property>
@@ -1409,6 +1571,9 @@
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_33">
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <spacer name="verticalSpacer_22">
           <property name="orientation">
@@ -1429,6 +1594,11 @@
          <layout class="QVBoxLayout" name="verticalLayout_35">
           <item>
            <widget class="QCheckBox" name="srednji_30">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>30 PUZ ZA PUNJENJE BINOVA</string>
             </property>
@@ -1456,6 +1626,11 @@
           </item>
           <item>
            <widget class="QCheckBox" name="srednji_19">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>19 PUZ I PNEUMATIKA ZA 8/9</string>
             </property>
@@ -1463,12 +1638,33 @@
           </item>
           <item>
            <widget class="QCheckBox" name="srednji_27">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>27 REZERVA</string>
             </property>
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>
