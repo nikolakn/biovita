@@ -273,6 +273,19 @@
           </layout>
          </item>
          <item>
+          <spacer name="horizontalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QCheckBox" name="gornji_c15">
@@ -437,6 +450,9 @@
       </property>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <property name="spacing">
+         <number>3</number>
+        </property>
         <property name="bottomMargin">
          <number>0</number>
         </property>
@@ -453,6 +469,9 @@
            <string>ELEVATOR 2</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
+           <property name="bottomMargin">
+            <number>2</number>
+           </property>
            <item>
             <widget class="QRadioButton" name="srednji_ele2_1">
              <property name="maximumSize">
@@ -587,6 +606,9 @@
            <string>ISPUSTI SILOSA</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_10">
+           <property name="bottomMargin">
+            <number>3</number>
+           </property>
            <item>
             <widget class="QRadioButton" name="srednji_ispusti_1">
              <property name="maximumSize">
@@ -730,8 +752,17 @@
            <string>TUNELI</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_11">
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
            <item>
             <widget class="QCheckBox" name="srednji_c20">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="text">
               <string>C20 TRAKA 2</string>
              </property>
@@ -739,6 +770,12 @@
            </item>
            <item>
             <widget class="QCheckBox" name="srednji_c24">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>13</height>
+              </size>
+             </property>
              <property name="text">
               <string>c24 TRAKA 1</string>
              </property>
@@ -1510,7 +1547,8 @@
            </font>
           </property>
           <property name="text">
-           <string>28 GOTOVA ROBA PREMA EXTRUDERU</string>
+           <string>28 GOTOVA ROBA 
+PREMA EXTRUDERU</string>
           </property>
          </widget>
         </item>
@@ -1762,7 +1800,7 @@
           <number>0</number>
          </property>
          <property name="leftMargin">
-          <number>0</number>
+          <number>10</number>
          </property>
          <property name="topMargin">
           <number>0</number>
