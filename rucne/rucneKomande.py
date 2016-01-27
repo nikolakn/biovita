@@ -1,4 +1,4 @@
-'''
+﻿'''
 Created on Nov 5, 2015
 
 @author: nikola
@@ -8,10 +8,10 @@ from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 #from database import dbhelpers
 
-class recepcijaProzor(QMainWindow):
+class rucneProzor(QMainWindow):
     
-    def __init__(self,login,name):
-        super(recepcijaProzor, self).__init__()
+    def __init__(self):
+        super(rucneProzor,self).__init__()
         self.initUI()
         
         menubar = self.menuBar()
@@ -235,13 +235,14 @@ class recepcijaProzor(QMainWindow):
         #self.ctimer.start(300)
         self.timervreme.start(1000)
         self.setCentralWidget(self.window);
+       
      
     def constantUpdatevreme(self):
         self.labelvreme.setText("Vreme: "+QTime.currentTime().toString("hh:mm"))    
     def initUI(self):
-        self.setWindowIcon(QIcon('../images/Pill.ico'))
+        self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
-        self.setWindowTitle('Bonadea')
+        self.setWindowTitle('Biovita')
         self.show()
             
    
