@@ -420,7 +420,6 @@
             <widget class="QRadioButton" name="radioButton">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -428,16 +427,12 @@
              <property name="text">
               <string>ASPIRATER</string>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">buttonGroup</string>
-             </attribute>
             </widget>
            </item>
            <item>
             <widget class="QRadioButton" name="radioButton_2">
              <property name="font">
               <font>
-               <pointsize>8</pointsize>
                <weight>50</weight>
                <bold>false</bold>
               </font>
@@ -445,9 +440,6 @@
              <property name="text">
               <string>REDLER IZNAD SILOSA</string>
              </property>
-             <attribute name="buttonGroup">
-              <string notr="true">buttonGroup</string>
-             </attribute>
             </widget>
            </item>
           </layout>
