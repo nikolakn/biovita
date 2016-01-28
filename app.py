@@ -5,7 +5,9 @@ Created on Jan 15, 2016
 '''
 
 from expanderi import expanderi
-            
+   
+#cuva podatke kroz celu applikaciju
+#samo ova klasa moze da ukljucuje i iskljucuje expandere   
 class AppState:
     
     def __init__(self):
@@ -124,3 +126,9 @@ class AppState:
                 self.ulazi[k] = 0
             n = n + 1;
         return self.ulazi.values()
+        
+    def ukljuciMotor(self,id):
+        id = 'm'+str(id)
+        self.motori[id] = 1
+        self.expanderi.ukljuci(id-1) 
+        

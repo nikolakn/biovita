@@ -1,5 +1,5 @@
 ﻿'''
-Created on Nov 5, 2015
+Created on Jan 15, 2016
 
 @author: nikola
 '''
@@ -7,18 +7,26 @@ Created on Nov 5, 2015
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import sys
-from PyQt4 import QtGui, QtCore
 import UiRucne
+import serial 
 
 class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
     
     def __init__(self,state, parent=None):
         super(rucneProzor,self).__init__()
         self.setupUi(self)
+        '''
+        try:
+            self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
+            self.port.open()
+        except:
+            print("Greska seriski port")
+            sys.exit(0) 
+        '''   
         self.state = state
         self.initUI()
-        self.ctimer = QtCore.QTimer()
-        QtCore.QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
+        self.ctimer = QTimer()
+        QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
         self.ctimer.start(200)
         self.senzori =[self.donji_p1e,self.donji_p3e,self.donji_p11e,self.donji_p7e,
                 self.donji_p8e,self.donji_p4e,self.donji_p2e,self.donji_p5e,self.donji_p6e,
@@ -35,6 +43,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.show()
             
     def ulaziUpdate(self):
+        #update senzore
         ulazi = self.state.updateSensors();
         n = 0
         for x in self.senzori:
@@ -43,6 +52,11 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
             else:
                 x.off();
             n = n + 1;
+        #update ostale kontrole na prozoru    
+        self.updateKomande()
         self.repaint() 
+        
+    def ulaziUpdate(self): 
+        pass
 
 
