@@ -46,7 +46,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
             self.gornji_22.setId(22),self.srednji_23.setId(23),self.srednji_c24.setId(24),
             self.srednji_25.setId(25),self.gornji_26.setId(26),self.srednji_27.setId(27),
             self.srednji_28.setId(28),self.gornji_c29.setId(29),self.srednji_30.setId(30),
-            self.srednji_31.setId(31),self.srednji_32.setId(32)]
+            self.srednji_31.setId(31),self.srednji_31.setId(32)]
         #p9,p21,p22,p23,p24 imaju drugacij aimena
         self.pneumatika = [self.donji_p1.setId(1) ,self.donji_p2.setId(2),self.donji_p3.setId(3),
                     self.donji_p4.setId(4),self.donji_p5.setId(5),self.donji_p6.setId(6),self.donji_p7.setId(7),

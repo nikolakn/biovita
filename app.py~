@@ -280,7 +280,7 @@ class AppState:
 
     def ukljuciPneumatiku(self,id):
         self.pneumatike[id] = 1
-        id = "p"+str(id)
+        id = "p"+str(id-1)
         if (id=='p1'):
             self.expanderi.ukljuci(48)
         if (id=='p2'):
@@ -348,7 +348,7 @@ class AppState:
         
     def iskljuciPneumatiku(self,id):
         self.pneumatike[id] = 0
-        id = "p"+str(id)
+        id = "p"+str(id-1)
         if (id=='p1'):
             self.expanderi.iskljuci(48)
         if (id=='p2'):
