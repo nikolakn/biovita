@@ -3,8 +3,14 @@ Created on Dec 25, 2015
 
 @author: nikola
 '''
-import wiringpi2 as wiringpi
 
+from sys import platform as _platform
+if _platform == "linux" or _platform == "linux2":
+    import wiringpi2 as wiringpi
+elif _platform == "darwin":
+    import wiringpi2 as wiringpi
+elif _platform == "win32":
+    from  wiringpi2fake import wiringpi2 as wiringpi
 
 class Expanderi:
     def __init__(self):

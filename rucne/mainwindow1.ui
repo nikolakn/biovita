@@ -1838,22 +1838,6 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>10</width>
-               <height>5</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="idQCheckBox" name="donji_p3">
              <property name="font">
               <font>
@@ -1876,22 +1860,6 @@ PREMA EXTRUDERU</string>
               <string>E1 Zatvor/Rampa</string>
              </property>
             </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_12">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>10</width>
-               <height>5</height>
-              </size>
-             </property>
-            </spacer>
            </item>
            <item>
             <widget class="idQCheckBox" name="donji_p11">
@@ -1930,46 +1898,6 @@ PREMA EXTRUDERU</string>
              </property>
             </spacer>
            </item>
-           <item>
-            <widget class="idQCheckBox" name="donji_p6">
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>P6</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Led" name="donji_p6e">
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Silos 6 ispu. otvoren</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_17">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Minimum</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </item>
          <item>
@@ -1981,6 +1909,12 @@ PREMA EXTRUDERU</string>
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2006,6 +1940,12 @@ PREMA EXTRUDERU</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2029,6 +1969,12 @@ PREMA EXTRUDERU</string>
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2054,6 +2000,12 @@ PREMA EXTRUDERU</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2077,6 +2029,12 @@ PREMA EXTRUDERU</string>
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2102,6 +2060,12 @@ PREMA EXTRUDERU</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2125,6 +2089,12 @@ PREMA EXTRUDERU</string>
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2150,6 +2120,12 @@ PREMA EXTRUDERU</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2173,6 +2149,12 @@ PREMA EXTRUDERU</string>
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
              </property>
              <property name="font">
               <font>
@@ -2198,6 +2180,12 @@ PREMA EXTRUDERU</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2214,12 +2202,67 @@ PREMA EXTRUDERU</string>
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="idQCheckBox" name="donji_p6">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>P6</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="Led" name="donji_p6e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Silos 6 ispu. otvoren</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_21">
            <item>
             <widget class="idQCheckBox" name="donji_p14">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2232,6 +2275,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p14e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2250,6 +2299,12 @@ PREMA EXTRUDERU</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2262,6 +2317,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p15e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2274,6 +2335,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="idQCheckBox" name="donji_p16">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2286,6 +2353,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p16e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2298,6 +2371,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="idQCheckBox" name="donji_p12">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2310,6 +2389,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p12e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2322,6 +2407,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="idQCheckBox" name="donji_p13">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2334,6 +2425,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p13e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>15</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2343,6 +2440,19 @@ PREMA EXTRUDERU</string>
               <string>Silos 5 ispust otvo</string>
              </property>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </item>
@@ -2475,6 +2585,12 @@ PREMA EXTRUDERU</string>
           <layout class="QVBoxLayout" name="verticalLayout_29">
            <item>
             <widget class="idQCheckBox" name="donji_p27">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>18</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2487,6 +2603,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p27e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>18</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2498,23 +2620,13 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <spacer name="verticalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+            <widget class="idQCheckBox" name="donji_p28">
+             <property name="maximumSize">
               <size>
-               <width>20</width>
-               <height>20</height>
+               <width>16777215</width>
+               <height>18</height>
               </size>
              </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="idQCheckBox" name="donji_p28">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2527,29 +2639,25 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p28e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>18</height>
+              </size>
+             </property>
              <property name="text">
               <string/>
              </property>
             </widget>
            </item>
            <item>
-            <spacer name="verticalSpacer_9">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+            <widget class="idQCheckBox" name="donji_p10">
+             <property name="maximumSize">
               <size>
-               <width>20</width>
-               <height>20</height>
+               <width>16777215</width>
+               <height>18</height>
               </size>
              </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="idQCheckBox" name="donji_p10">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2562,6 +2670,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p10e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>18</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2573,23 +2687,13 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <spacer name="verticalSpacer_10">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+            <widget class="idQCheckBox" name="donji_p20">
+             <property name="maximumSize">
               <size>
-               <width>20</width>
-               <height>20</height>
+               <width>16777215</width>
+               <height>18</height>
               </size>
              </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="idQCheckBox" name="donji_p20">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2602,6 +2706,12 @@ PREMA EXTRUDERU</string>
            </item>
            <item>
             <widget class="Led" name="donji_p20e">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>18</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2743,6 +2853,19 @@ PREMA EXTRUDERU</string>
               <string>USMERIVAC 3/4</string>
              </property>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </item>
