@@ -15,7 +15,10 @@ def main():
     state = AppState()
     app = QApplication(sys.argv)
     ex = rucneKomande.rucneProzor(state)
-    sys.exit(app.exec_())
+    rez = app.exec_()
+    state.close();
+    sys.exit(rez)
+    
 
 
 if __name__ == '__main__':
