@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1052</width>
+    <width>1083</width>
     <height>905</height>
    </rect>
   </property>
@@ -1826,7 +1826,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p1e">
+            <widget class="Led" name="donji_p1e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -1866,7 +1866,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p3e">
+            <widget class="Led" name="donji_p3e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -1906,7 +1906,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p11e">
+            <widget class="Led" name="donji_p11e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -1943,7 +1943,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p6e">
+            <widget class="Led" name="donji_p6e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -1999,7 +1999,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p7e">
+            <widget class="Led" name="donji_p7e">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2047,7 +2047,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p8e">
+            <widget class="Led" name="donji_p8e">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2095,7 +2095,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p4e">
+            <widget class="Led" name="donji_p4e">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2143,7 +2143,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p2e">
+            <widget class="Led" name="donji_p2e">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2191,7 +2191,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p5e">
+            <widget class="Led" name="donji_p5e">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2231,7 +2231,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p14e">
+            <widget class="Led" name="donji_p14e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2261,7 +2261,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p15e">
+            <widget class="Led" name="donji_p15e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2285,7 +2285,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p16e">
+            <widget class="Led" name="donji_p16e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2309,7 +2309,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p12e">
+            <widget class="Led" name="donji_p12e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2333,7 +2333,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p13e">
+            <widget class="Led" name="donji_p13e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2348,6 +2348,9 @@ PREMA EXTRUDERU</string>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_20">
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
            <item>
             <widget class="QCheckBox" name="donji_p25">
              <property name="font">
@@ -2361,7 +2364,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p25e">
+            <widget class="Led" name="donji_p25e">
              <property name="text">
               <string/>
              </property>
@@ -2380,7 +2383,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_s2e">
+            <widget class="Led" name="donji_s2e">
              <property name="text">
               <string/>
              </property>
@@ -2399,7 +2402,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_s1e">
+            <widget class="Led" name="donji_s1e">
              <property name="text">
               <string/>
              </property>
@@ -2418,7 +2421,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p17e">
+            <widget class="Led" name="donji_p17e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2442,7 +2445,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p32e">
+            <widget class="Led" name="donji_p32e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2452,6 +2455,19 @@ PREMA EXTRUDERU</string>
               <string>USMERIVAC 1/6</string>
              </property>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_24">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </item>
@@ -2470,7 +2486,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p27e">
+            <widget class="Led" name="donji_p27e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2510,7 +2526,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p28e">
+            <widget class="Led" name="donji_p28e">
              <property name="text">
               <string/>
              </property>
@@ -2545,7 +2561,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p10e">
+            <widget class="Led" name="donji_p10e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2585,7 +2601,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p20e">
+            <widget class="Led" name="donji_p20e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2626,7 +2642,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p18e">
+            <widget class="Led" name="donji_p18e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2650,7 +2666,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_gotovmat">
+            <widget class="Led" name="donji_gotovmat">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2674,7 +2690,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p19e">
+            <widget class="Led" name="donji_p19e">
              <property name="text">
               <string/>
              </property>
@@ -2693,7 +2709,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p31e">
+            <widget class="Led" name="donji_p31e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2717,7 +2733,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p30e">
+            <widget class="Led" name="donji_p30e">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2745,7 +2761,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_puz24">
+            <widget class="Led" name="donji_puz24">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2785,7 +2801,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p26e">
+            <widget class="Led" name="donji_p26e">
              <property name="text">
               <string/>
              </property>
@@ -2820,7 +2836,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_puz29">
+            <widget class="Led" name="donji_puz29">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2900,7 +2916,7 @@ PREMA EXTRUDERU</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1052</width>
+     <width>1083</width>
      <height>21</height>
     </rect>
    </property>
@@ -2936,6 +2952,13 @@ PREMA EXTRUDERU</string>
    <addaction name="menuProzori"/>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Led</class>
+   <extends>QCheckBox</extends>
+   <header>led</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
