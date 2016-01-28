@@ -59,7 +59,15 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         for m in self.motori:
             m.stateChanged.connect(self.motori_state_changed)
         for p in self.pneumatika:
-            p.stateChanged.connect(self.pne_state_changed)            
+            p.stateChanged.connect(self.pne_state_changed)    
+
+        self.srednji_ispusti_1.clicked.connect(lambda:self.btn_ispusti_1()) 
+        self.srednji_ispusti_2.clicked.connect(lambda:self.btn_ispusti_2()) 
+        self.srednji_ispusti_3.clicked.connect(lambda:self.btn_ispusti_3()) 
+        self.srednji_ispusti_4.clicked.connect(lambda:self.btn_ispusti_4()) 
+        self.srednji_ispusti_5.clicked.connect(lambda:self.btn_ispusti_5()) 
+        self.srednji_ispusti_6.clicked.connect(lambda:self.btn_ispusti_6())         
+    
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -68,7 +76,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
         self.ctimer.start(200)
-            
+
     def ulaziUpdate(self):
         #update senzore
         ulazi = self.state.updateSensors();
@@ -99,3 +107,47 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
             self.state.ukljuciPneumatiku(sender.getId())   
         else:
             self.state.iskljuciPneumatiku(sender.getId()) 
+            
+    def btn_ispusti_1(self):
+        self.donji_p14.setChecked(True);
+        self.donji_p15.setChecked(False);
+        self.donji_p16.setChecked(False);
+        self.donji_p12.setChecked(False);
+        self.donji_p13.setChecked(False);
+        self.donji_p6.setChecked(False);
+
+    def btn_ispusti_2(self):
+        self.donji_p14.setChecked(False);
+        self.donji_p15.setChecked(True);
+        self.donji_p16.setChecked(False);
+        self.donji_p12.setChecked(False);
+        self.donji_p13.setChecked(False);
+        self.donji_p6.setChecked(False);
+    def btn_ispusti_3(self):
+        self.donji_p14.setChecked(False);
+        self.donji_p15.setChecked(False);
+        self.donji_p16.setChecked(True);
+        self.donji_p12.setChecked(False);
+        self.donji_p13.setChecked(False);
+        self.donji_p6.setChecked(False);
+    def btn_ispusti_4(self):
+        self.donji_p14.setChecked(False);
+        self.donji_p15.setChecked(False);
+        self.donji_p16.setChecked(False);
+        self.donji_p12.setChecked(True);
+        self.donji_p13.setChecked(False);
+        self.donji_p6.setChecked(False);
+    def btn_ispusti_5(self):
+        self.donji_p14.setChecked(False);
+        self.donji_p15.setChecked(False);
+        self.donji_p16.setChecked(False);
+        self.donji_p12.setChecked(False);
+        self.donji_p13.setChecked(True);
+        self.donji_p6.setChecked(False);
+    def btn_ispusti_6(self):
+        self.donji_p14.setChecked(False);
+        self.donji_p15.setChecked(False);
+        self.donji_p16.setChecked(False);
+        self.donji_p12.setChecked(False);
+        self.donji_p13.setChecked(False);
+        self.donji_p6.setChecked(True);        
