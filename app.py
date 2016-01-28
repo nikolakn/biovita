@@ -117,10 +117,12 @@ class AppState:
         self.expanderi = expanderi.Expanderi()
     def updateSensors(self):
         u = self.expanderi.getUlazi()
-        n = 0;        
+        n = 0;  
+      
         for k,v in self.ulazi.iteritems():
             if (u[n]==1):
                 self.ulazi[k] = 1
+
             else:
                 self.ulazi[k] = 0
             n = n + 1;

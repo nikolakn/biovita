@@ -117,10 +117,12 @@ class AppState:
         self.expanderi = expanderi.Expanderi()
     def updateSensors(self):
         u = self.expanderi.getUlazi()
-        n = 0;        
+        n = 0;  
+        print("ulazi")      
         for k,v in self.ulazi.iteritems():
             if (u[n]==1):
                 self.ulazi[k] = 1
+
             else:
                 self.ulazi[k] = 0
             n = n + 1;
@@ -280,136 +282,136 @@ class AppState:
 
     def ukljuciPneumatiku(self,id):
         self.pneumatike[id] = 1
-        id = "p"+str(id-1)
+        id = "p"+str(id)
         if (id=='p1'):
-            self.expanderi.ukljuci(48)
-        if (id=='p2'):
-            self.expanderi.ukljuci(49)
-        if (id=='p3'):
-            self.expanderi.ukljuci(50)
-        if (id=='p4'):
-            self.expanderi.ukljuci(51)
-        if (id=='p5'):
-            self.expanderi.ukljuci(52)
-        if (id=='p6'):
-            self.expanderi.ukljuci(53)
-        if (id=='p7'):
-            self.expanderi.ukljuci(54)
-        if (id=='p8'):
-            self.expanderi.ukljuci(55)
-        if (id=='p9'):
-            self.expanderi.ukljuci(56)
-        if (id=='p10'):
-            self.expanderi.ukljuci(57)
-        if (id=='p11'):
-            self.expanderi.ukljuci(58)
-        if (id=='p12'):
-            self.expanderi.ukljuci(59)
-        if (id=='p13'):
-            self.expanderi.ukljuci(60)
-        if (id=='p14'):
-            self.expanderi.ukljuci(61)
-        if (id=='p15'):
-            self.expanderi.ukljuci(62)
-        if (id=='p16'):
             self.expanderi.ukljuci(63)
+        if (id=='p2'):
+            self.expanderi.ukljuci(62)
+        if (id=='p3'):
+            self.expanderi.ukljuci(61)
+        if (id=='p4'):
+            self.expanderi.ukljuci(60)
+        if (id=='p5'):
+            self.expanderi.ukljuci(59)
+        if (id=='p6'):
+            self.expanderi.ukljuci(58)
+        if (id=='p7'):
+            self.expanderi.ukljuci(57)
+        if (id=='p8'):
+            self.expanderi.ukljuci(56)
+        if (id=='p9'):
+            self.expanderi.ukljuci(55)
+        if (id=='p10'):
+            self.expanderi.ukljuci(54)
+        if (id=='p11'):
+            self.expanderi.ukljuci(53)
+        if (id=='p12'):
+            self.expanderi.ukljuci(52)
+        if (id=='p13'):
+            self.expanderi.ukljuci(51)
+        if (id=='p14'):
+            self.expanderi.ukljuci(50)
+        if (id=='p15'):
+            self.expanderi.ukljuci(49)
+        if (id=='p16'):
+            self.expanderi.ukljuci(48)
         if (id=='p17'):
-            self.expanderi.ukljuci(32)
+            self.expanderi.ukljuci(47)
         if (id=='p18'):
-            self.expanderi.ukljuci(33)
-        if (id=='p19'):
-            self.expanderi.ukljuci(34)
-        if (id=='p20'):
-            self.expanderi.ukljuci(35)
-        if (id=='p21'):
-            self.expanderi.ukljuci(36)
-        if (id=='p22'):
-            self.expanderi.ukljuci(37)
-        if (id=='p23'):
-            self.expanderi.ukljuci(38)
-        if (id=='p24'):
-            self.expanderi.ukljuci(39)
-        if (id=='p25'):
-            self.expanderi.ukljuci(40)
-        if (id=='p26'):
-            self.expanderi.ukljuci(41)
-        if (id=='p27'):
-            self.expanderi.ukljuci(42)
-        if (id=='p28'):
-            self.expanderi.ukljuci(43)
-        if (id=='p29'):
-            self.expanderi.ukljuci(44)
-        if (id=='p30'):
-            self.expanderi.ukljuci(45)
-        if (id=='p31'):
             self.expanderi.ukljuci(46)
+        if (id=='p19'):
+            self.expanderi.ukljuci(45)
+        if (id=='p20'):
+            self.expanderi.ukljuci(44)
+        if (id=='p21'):
+            self.expanderi.ukljuci(43)
+        if (id=='p22'):
+            self.expanderi.ukljuci(42)
+        if (id=='p23'):
+            self.expanderi.ukljuci(41)
+        if (id=='p24'):
+            self.expanderi.ukljuci(40)
+        if (id=='p25'):
+            self.expanderi.ukljuci(39)
+        if (id=='p26'):
+            self.expanderi.ukljuci(38)
+        if (id=='p27'):
+            self.expanderi.ukljuci(37)
+        if (id=='p28'):
+            self.expanderi.ukljuci(36)
+        if (id=='p29'):
+            self.expanderi.ukljuci(35)
+        if (id=='p30'):
+            self.expanderi.ukljuci(34)
+        if (id=='p31'):
+            self.expanderi.ukljuci(33)
         if (id=='p32'):
-            self.expanderi.ukljuci(47)  
+            self.expanderi.ukljuci(32)  
         
     def iskljuciPneumatiku(self,id):
         self.pneumatike[id] = 0
-        id = "p"+str(id-1)
+        id = "p"+str(id)
         if (id=='p1'):
-            self.expanderi.iskljuci(48)
-        if (id=='p2'):
-            self.expanderi.iskljuci(49)
-        if (id=='p3'):
-            self.expanderi.iskljuci(50)
-        if (id=='p4'):
-            self.expanderi.iskljuci(51)
-        if (id=='p5'):
-            self.expanderi.iskljuci(52)
-        if (id=='p6'):
-            self.expanderi.iskljuci(53)
-        if (id=='p7'):
-            self.expanderi.iskljuci(54)
-        if (id=='p8'):
-            self.expanderi.iskljuci(55)
-        if (id=='p9'):
-            self.expanderi.iskljuci(56)
-        if (id=='p10'):
-            self.expanderi.iskljuci(57)
-        if (id=='p11'):
-            self.expanderi.iskljuci(58)
-        if (id=='p12'):
-            self.expanderi.iskljuci(59)
-        if (id=='p13'):
-            self.expanderi.iskljuci(60)
-        if (id=='p14'):
-            self.expanderi.iskljuci(61)
-        if (id=='p15'):
-            self.expanderi.iskljuci(62)
-        if (id=='p16'):
             self.expanderi.iskljuci(63)
+        if (id=='p2'):
+            self.expanderi.iskljuci(62)
+        if (id=='p3'):
+            self.expanderi.iskljuci(61)
+        if (id=='p4'):
+            self.expanderi.iskljuci(60)
+        if (id=='p5'):
+            self.expanderi.iskljuci(59)
+        if (id=='p6'):
+            self.expanderi.iskljuci(58)
+        if (id=='p7'):
+            self.expanderi.iskljuci(57)
+        if (id=='p8'):
+            self.expanderi.iskljuci(56)
+        if (id=='p9'):
+            self.expanderi.iskljuci(55)
+        if (id=='p10'):
+            self.expanderi.iskljuci(54)
+        if (id=='p11'):
+            self.expanderi.iskljuci(53)
+        if (id=='p12'):
+            self.expanderi.iskljuci(52)
+        if (id=='p13'):
+            self.expanderi.iskljuci(51)
+        if (id=='p14'):
+            self.expanderi.iskljuci(50)
+        if (id=='p15'):
+            self.expanderi.iskljuci(49)
+        if (id=='p16'):
+            self.expanderi.iskljuci(48)
         if (id=='p17'):
-            self.expanderi.iskljuci(32)
+            self.expanderi.iskljuci(47)
         if (id=='p18'):
-            self.expanderi.iskljuci(33)
-        if (id=='p19'):
-            self.expanderi.iskljuci(34)
-        if (id=='p20'):
-            self.expanderi.iskljuci(35)
-        if (id=='p21'):
-            self.expanderi.iskljuci(36)
-        if (id=='p22'):
-            self.expanderi.iskljuci(37)
-        if (id=='p23'):
-            self.expanderi.iskljuci(38)
-        if (id=='p24'):
-            self.expanderi.iskljuci(39)
-        if (id=='p25'):
-            self.expanderi.iskljuci(40)
-        if (id=='p26'):
-            self.expanderi.iskljuci(41)
-        if (id=='p27'):
-            self.expanderi.iskljuci(42)
-        if (id=='p28'):
-            self.expanderi.iskljuci(43)
-        if (id=='p29'):
-            self.expanderi.iskljuci(44)
-        if (id=='p30'):
-            self.expanderi.iskljuci(45)
-        if (id=='p31'):
             self.expanderi.iskljuci(46)
+        if (id=='p19'):
+            self.expanderi.iskljuci(45)
+        if (id=='p20'):
+            self.expanderi.iskljuci(44)
+        if (id=='p21'):
+            self.expanderi.iskljuci(43)
+        if (id=='p22'):
+            self.expanderi.iskljuci(42)
+        if (id=='p23'):
+            self.expanderi.iskljuci(41)
+        if (id=='p24'):
+            self.expanderi.iskljuci(40)
+        if (id=='p25'):
+            self.expanderi.iskljuci(39)
+        if (id=='p26'):
+            self.expanderi.iskljuci(38)
+        if (id=='p27'):
+            self.expanderi.iskljuci(37)
+        if (id=='p28'):
+            self.expanderi.iskljuci(36)
+        if (id=='p29'):
+            self.expanderi.iskljuci(35)
+        if (id=='p30'):
+            self.expanderi.iskljuci(34)
+        if (id=='p31'):
+            self.expanderi.iskljuci(33)
         if (id=='p32'):
-            self.expanderi.iskljuci(47)              
+            self.expanderi.iskljuci(32)              

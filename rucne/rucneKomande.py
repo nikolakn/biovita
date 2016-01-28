@@ -25,9 +25,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         '''   
         self.state = state
         self.initUI()
-        self.ctimer = QTimer()
-        QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
-        self.ctimer.start(200)
+
         self.senzori =[self.donji_p1e,self.donji_p3e,self.donji_p11e,self.donji_p7e,
                 self.donji_p8e,self.donji_p4e,self.donji_p2e,self.donji_p5e,self.donji_p6e,
                 self.donji_p14e,self.donji_p15e,self.donji_p16e,self.donji_p12e,
@@ -66,6 +64,9 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('Biovita')
         self.show()
+        self.ctimer = QTimer()
+        QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
+        self.ctimer.start(200)
             
     def ulaziUpdate(self):
         #update senzore
@@ -81,7 +82,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.updateKomande()
         self.repaint() 
         
-    def ulaziUpdate(self): 
+    def updateKomande(self): 
         pass
 
     def motori_state_changed(self,ii):
