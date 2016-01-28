@@ -37,7 +37,16 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
                 self.donji_p19e,self.donji_p31e,self.donji_p30e,self.donji_puz24,
                 self.donji_p26e,self.donji_puz29]
         self.motori = [self.srednji_31.setId(31),self.srednji_31.setId(32)]
-        self.pneumatika = [self.donji_p1.setId(1) ,self.donji_p2.setId(2)]
+        #p9,p21,p22,p23,p24 imaju drugacij aimena
+        self.pneumatika = [self.donji_p1.setId(1) ,self.donji_p2.setId(2),self.donji_p3.setId(3),
+                    self.donji_p4.setId(4),self.donji_p5.setId(5),self.donji_p6.setId(6),self.donji_p7.setId(7),
+                    self.donji_p8.setId(8),self.donji_p10.setId(10),self.donji_p11.setId(11),self.donji_p12.setId(12),
+                    self.donji_p13.setId(13),self.donji_p14.setId(14),self.donji_p15.setId(15),self.donji_p16.setId(16),
+                    self.donji_p17.setId(17),self.donji_p18.setId(18),self.donji_p19.setId(19),self.donji_p20.setId(20),
+                    self.donji_p25.setId(25),self.donji_p26.setId(26),self.donji_p27.setId(27),self.donji_p28.setId(28),
+                    self.donji_b29.setId(29),self.donji_p30.setId(30),self.donji_p31.setId(31),self.donji_p32.setId(32),
+                    self.donji_s2.setId(9), self.donji_s1.setId(21) , self.donji_gotovpera.setId(22) ,
+                    self.donji_gotmat3.setId(23) , self.donji_gotmat4.setId(24) ]
         for m in self.motori:
             m.stateChanged.connect(self.motori_state_changed)
         for p in self.motori:
