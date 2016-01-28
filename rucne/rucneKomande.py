@@ -81,6 +81,9 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_ele1_3.clicked.connect(lambda:self.btn_ele1_3())
         self.srednji_ele1_4.clicked.connect(lambda:self.btn_ele1_4())
         
+        self.srednji_psilosa_1.clicked.connect(lambda:self.btn_psilosa_1())
+        self.srednji_psilosa_2.clicked.connect(lambda:self.btn_psilosa_2())
+        self.srednji_psilosa_3.clicked.connect(lambda:self.btn_psilosa_3())
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -238,3 +241,16 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.donji_p1.setChecked(True);
         self.donji_p3.setChecked(False);
         self.donji_p11.setChecked(False);        
+        
+    def btn_psilosa_1(self):
+        self.donji_s2.setChecked(False);
+        self.donji_s1.setChecked(True);
+        self.donji_p25.setChecked(False);    
+    def btn_psilosa_2(self):
+        self.donji_s2.setChecked(True);
+        self.donji_s1.setChecked(False);
+        self.donji_p25.setChecked(False); 
+    def btn_psilosa_3(self):
+        self.donji_s2.setChecked(False);
+        self.donji_s1.setChecked(False);
+        self.donji_p25.setChecked(True);         
