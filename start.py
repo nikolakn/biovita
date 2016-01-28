@@ -9,12 +9,12 @@ import sys
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 from rucne import rucneKomande
-
+from app import AppState
             
 def main():
-    
+    state = AppState()
     app = QApplication(sys.argv)
-    ex = rucneKomande.rucneProzor()
+    ex = rucneKomande.rucneProzor(state)
     sys.exit(app.exec_())
 
 
