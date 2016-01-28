@@ -128,7 +128,269 @@ class AppState:
         return self.ulazi.values()
         
     def ukljuciMotor(self,id):
-        id = 'm'+str(id)
         self.motori[id] = 1
-        self.expanderi.ukljuci(id-1) 
-        
+        if (id=='m1'):
+            self.expanderi.ukljuci(15)
+        if (id=='m2'):
+            self.expanderi.ukljuci(14)
+        if (id=='m3'):
+            self.expanderi.ukljuci(13)
+        if (id=='m4'):
+            self.expanderi.ukljuci(12)
+        if (id=='m5'):
+            self.expanderi.ukljuci(11)
+        if (id=='m6'):
+            self.expanderi.ukljuci(10)
+        if (id=='m7'):
+            self.expanderi.ukljuci(9)
+        if (id=='m8'):
+            self.expanderi.ukljuci(8)
+        if (id=='m9'):
+            self.expanderi.ukljuci(7)
+        if (id=='m10'):
+            self.expanderi.ukljuci(6)
+        if (id=='m11'):
+            self.expanderi.ukljuci(5)
+        if (id=='m12'):
+            self.expanderi.ukljuci(4)
+        if (id=='m13'):
+            self.expanderi.ukljuci(3)
+        if (id=='m14'):
+            self.expanderi.ukljuci(2)
+        if (id=='m15'):
+            self.expanderi.ukljuci(1)
+        if (id=='m16'):
+            self.expanderi.ukljuci(0)
+        if (id=='m17'):
+            self.expanderi.ukljuci(31)
+        if (id=='m18'):
+            self.expanderi.ukljuci(30)
+        if (id=='m19'):
+            self.expanderi.ukljuci(29)
+        if (id=='m20'):
+            self.expanderi.ukljuci(28)
+        if (id=='m21'):
+            self.expanderi.ukljuci(27)
+        if (id=='m22'):
+            self.expanderi.ukljuci(26)
+        if (id=='m23'):
+            self.expanderi.ukljuci(25)
+        if (id=='m24'):
+            self.expanderi.ukljuci(24)
+        if (id=='m25'):
+            self.expanderi.ukljuci(23)
+        if (id=='m26'):
+            self.expanderi.ukljuci(22)
+        if (id=='m27'):
+            self.expanderi.ukljuci(21)
+        if (id=='m28'):
+            self.expanderi.ukljuci(20)
+        if (id=='m29'):
+            self.expanderi.ukljuci(19)
+        if (id=='m30'):
+            self.expanderi.ukljuci(18)
+        if (id=='m31'):
+            self.expanderi.ukljuci(17)
+        if (id=='m32'):
+            self.expanderi.ukljuci(16)
+            
+    def iskljuciMotor(self,id):
+        self.motori[id] = 0
+        if (id=='m1'):
+            self.expanderi.iskljuci(15)
+        if (id=='m2'):
+            self.expanderi.iskljuci(14)
+        if (id=='m3'):
+            self.expanderi.iskljuci(13)
+        if (id=='m4'):
+            self.expanderi.iskljuci(12)
+        if (id=='m5'):
+            self.expanderi.iskljuci(11)
+        if (id=='m6'):
+            self.expanderi.iskljuci(10)
+        if (id=='m7'):
+            self.expanderi.iskljuci(9)
+        if (id=='m8'):
+            self.expanderi.iskljuci(8)
+        if (id=='m9'):
+            self.expanderi.iskljuci(7)
+        if (id=='m10'):
+            self.expanderi.iskljuci(6)
+        if (id=='m11'):
+            self.expanderi.iskljuci(5)
+        if (id=='m12'):
+            self.expanderi.iskljuci(4)
+        if (id=='m13'):
+            self.expanderi.iskljuci(3)
+        if (id=='m14'):
+            self.expanderi.iskljuci(2)
+        if (id=='m15'):
+            self.expanderi.iskljuci(1)
+        if (id=='m16'):
+            self.expanderi.iskljuci(0)
+        if (id=='m17'):
+            self.expanderi.iskljuci(31)
+        if (id=='m18'):
+            self.expanderi.iskljuci(30)
+        if (id=='m19'):
+            self.expanderi.iskljuci(29)
+        if (id=='m20'):
+            self.expanderi.iskljuci(28)
+        if (id=='m21'):
+            self.expanderi.iskljuci(27)
+        if (id=='m22'):
+            self.expanderi.iskljuci(26)
+        if (id=='m23'):
+            self.expanderi.iskljuci(25)
+        if (id=='m24'):
+            self.expanderi.iskljuci(24)
+        if (id=='m25'):
+            self.expanderi.iskljuci(23)
+        if (id=='m26'):
+            self.expanderi.iskljuci(22)
+        if (id=='m27'):
+            self.expanderi.iskljuci(21)
+        if (id=='m28'):
+            self.expanderi.iskljuci(20)
+        if (id=='m29'):
+            self.expanderi.iskljuci(19)
+        if (id=='m30'):
+            self.expanderi.iskljuci(18)
+        if (id=='m31'):
+            self.expanderi.iskljuci(17)
+        if (id=='m32'):
+            self.expanderi.iskljuci(16)   
+
+        def ukljuciPneumatiku(self,id):
+            self.pneumatike[id] = 1
+            if (id=='p1'):
+                self.expanderi.ukljuci(47)
+            if (id=='p2'):
+                self.expanderi.ukljuci(46)
+            if (id=='p3'):
+                self.expanderi.ukljuci(45)
+            if (id=='p4'):
+                self.expanderi.ukljuci(44)
+            if (id=='p5'):
+                self.expanderi.ukljuci(43)
+            if (id=='p6'):
+                self.expanderi.ukljuci(42)
+            if (id=='p7'):
+                self.expanderi.ukljuci(41)
+            if (id=='p8'):
+                self.expanderi.ukljuci(40)
+            if (id=='p9'):
+                self.expanderi.ukljuci(39)
+            if (id=='p10'):
+                self.expanderi.ukljuci(38)
+            if (id=='p11'):
+                self.expanderi.ukljuci(37)
+            if (id=='p12'):
+                self.expanderi.ukljuci(36)
+            if (id=='p13'):
+                self.expanderi.ukljuci(35)
+            if (id=='p14'):
+                self.expanderi.ukljuci(34)
+            if (id=='p15'):
+                self.expanderi.ukljuci(33)
+            if (id=='p16'):
+                self.expanderi.ukljuci(32)
+            if (id=='p17'):
+                self.expanderi.ukljuci(63)
+            if (id=='p18'):
+                self.expanderi.ukljuci(62)
+            if (id=='p19'):
+                self.expanderi.ukljuci(61)
+            if (id=='p20'):
+                self.expanderi.ukljuci(60)
+            if (id=='p21'):
+                self.expanderi.ukljuci(59)
+            if (id=='p22'):
+                self.expanderi.ukljuci(58)
+            if (id=='p23'):
+                self.expanderi.ukljuci(57)
+            if (id=='p24'):
+                self.expanderi.ukljuci(56)
+            if (id=='p25'):
+                self.expanderi.ukljuci(55)
+            if (id=='p26'):
+                self.expanderi.ukljuci(54)
+            if (id=='p27'):
+                self.expanderi.ukljuci(53)
+            if (id=='p28'):
+                self.expanderi.ukljuci(52)
+            if (id=='p29'):
+                self.expanderi.ukljuci(51)
+            if (id=='p30'):
+                self.expanderi.ukljuci(50)
+            if (id=='p31'):
+                self.expanderi.ukljuci(49)
+            if (id=='p32'):
+                self.expanderi.ukljuci(48)  
+            
+        def iskljuciPneumatiku(self,id):
+            self.pneumatike[id] = 0
+            if (id=='p1'):
+                self.expanderi.iskljuci(47)
+            if (id=='p2'):
+                self.expanderi.iskljuci(46)
+            if (id=='p3'):
+                self.expanderi.iskljuci(45)
+            if (id=='p4'):
+                self.expanderi.iskljuci(44)
+            if (id=='p5'):
+                self.expanderi.iskljuci(43)
+            if (id=='p6'):
+                self.expanderi.iskljuci(42)
+            if (id=='p7'):
+                self.expanderi.iskljuci(41)
+            if (id=='p8'):
+                self.expanderi.iskljuci(40)
+            if (id=='p9'):
+                self.expanderi.iskljuci(39)
+            if (id=='p10'):
+                self.expanderi.iskljuci(38)
+            if (id=='p11'):
+                self.expanderi.iskljuci(37)
+            if (id=='p12'):
+                self.expanderi.iskljuci(36)
+            if (id=='p13'):
+                self.expanderi.iskljuci(35)
+            if (id=='p14'):
+                self.expanderi.iskljuci(34)
+            if (id=='p15'):
+                self.expanderi.iskljuci(33)
+            if (id=='p16'):
+                self.expanderi.iskljuci(32)
+            if (id=='p17'):
+                self.expanderi.iskljuci(63)
+            if (id=='p18'):
+                self.expanderi.iskljuci(62)
+            if (id=='p19'):
+                self.expanderi.iskljuci(61)
+            if (id=='p20'):
+                self.expanderi.iskljuci(60)
+            if (id=='p21'):
+                self.expanderi.iskljuci(59)
+            if (id=='p22'):
+                self.expanderi.iskljuci(58)
+            if (id=='p23'):
+                self.expanderi.iskljuci(57)
+            if (id=='p24'):
+                self.expanderi.iskljuci(56)
+            if (id=='p25'):
+                self.expanderi.iskljuci(55)
+            if (id=='p26'):
+                self.expanderi.iskljuci(54)
+            if (id=='p27'):
+                self.expanderi.iskljuci(53)
+            if (id=='p28'):
+                self.expanderi.iskljuci(52)
+            if (id=='p29'):
+                self.expanderi.iskljuci(51)
+            if (id=='p30'):
+                self.expanderi.iskljuci(50)
+            if (id=='p31'):
+                self.expanderi.iskljuci(49)
+            if (id=='p32'):
+                self.expanderi.iskljuci(48)              
