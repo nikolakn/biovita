@@ -75,6 +75,12 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_ele2_4.clicked.connect(lambda:self.btn_ele2_4()) 
         self.srednji_ele2_5.clicked.connect(lambda:self.btn_ele2_5()) 
         self.srednji_ele2_6.clicked.connect(lambda:self.btn_ele2_6()) 
+        
+        self.srednji_ele1_1.clicked.connect(lambda:self.btn_ele1_1())
+        self.srednji_ele1_2.clicked.connect(lambda:self.btn_ele1_2())
+        self.srednji_ele1_3.clicked.connect(lambda:self.btn_ele1_3())
+        self.srednji_ele1_4.clicked.connect(lambda:self.btn_ele1_4())
+        
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -214,4 +220,21 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.donji_p8.setChecked(False);
         self.donji_p4.setChecked(False);
         self.donji_p2.setChecked(False);
-        self.donji_p5.setChecked(False);        
+        self.donji_p5.setChecked(False);  
+
+    def btn_ele1_1(self):
+        self.donji_p1.setChecked(False);
+        self.donji_p3.setChecked(False);
+        self.donji_p11.setChecked(False);
+    def btn_ele1_2(self):
+        self.donji_p1.setChecked(False);
+        self.donji_p3.setChecked(False);
+        self.donji_p11.setChecked(True);
+    def btn_ele1_3(self):
+        self.donji_p1.setChecked(False);
+        self.donji_p3.setChecked(True);
+        self.donji_p11.setChecked(False);
+    def btn_ele1_4(self):
+        self.donji_p1.setChecked(True);
+        self.donji_p3.setChecked(False);
+        self.donji_p11.setChecked(False);        
