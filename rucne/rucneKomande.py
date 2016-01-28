@@ -84,6 +84,10 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_psilosa_1.clicked.connect(lambda:self.btn_psilosa_1())
         self.srednji_psilosa_2.clicked.connect(lambda:self.btn_psilosa_2())
         self.srednji_psilosa_3.clicked.connect(lambda:self.btn_psilosa_3())
+        
+        self.srednji_dugme_start.clicked.connect(lambda:self.btn_start()) 
+        self.srednji_dugme_stop.clicked.connect(lambda:self.btn_stop()) 
+        
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -254,3 +258,13 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.donji_s2.setChecked(False);
         self.donji_s1.setChecked(False);
         self.donji_p25.setChecked(True);         
+        
+    def btn_start(self):
+        self.srednji_25.setChecked(True); 
+        self.srednji_dugme_start.setEnabled(False)
+        self.srednji_dugme_stop.setEnabled(True)
+    def btn_stop(self):
+        self.srednji_25.setChecked(False); 
+        self.srednji_dugme_start.setEnabled(True)
+        self.srednji_dugme_stop.setEnabled(False)        
+            
