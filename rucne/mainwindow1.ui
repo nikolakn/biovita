@@ -1566,7 +1566,7 @@ PREMA EXTRUDERU</string>
          </spacer>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_31">
+         <widget class="idQCheckBox" name="srednji_31">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -1578,7 +1578,7 @@ PREMA EXTRUDERU</string>
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_32">
+         <widget class="idQCheckBox" name="srednji_32">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -1814,7 +1814,7 @@ PREMA EXTRUDERU</string>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_23">
            <item>
-            <widget class="QCheckBox" name="donji_p1">
+            <widget class="idQCheckBox" name="donji_p1">
              <property name="font">
               <font>
                <pointsize>9</pointsize>
@@ -2119,7 +2119,7 @@ PREMA EXTRUDERU</string>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="donji_p2">
+            <widget class="idQCheckBox" name="donji_p2">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -2957,6 +2957,11 @@ PREMA EXTRUDERU</string>
    <class>Led</class>
    <extends>QCheckBox</extends>
    <header>led</header>
+  </customwidget>
+  <customwidget>
+   <class>idQCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>idcheckbox</header>
   </customwidget>
  </customwidgets>
  <resources/>

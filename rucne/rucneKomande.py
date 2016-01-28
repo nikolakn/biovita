@@ -36,6 +36,12 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
                 self.donji_p10e,self.donji_p20e,self.donji_p18e,self.donji_gotovmat,
                 self.donji_p19e,self.donji_p31e,self.donji_p30e,self.donji_puz24,
                 self.donji_p26e,self.donji_puz29]
+        self.motori = [self.srednji_31.setId(31),self.srednji_31.setId(32)]
+        self.pneumatika = [self.donji_p1.setId(1) ,self.donji_p2.setId(2)]
+        for m in self.motori:
+            m.stateChanged.connect(self.motori_state_changed)
+        for p in self.motori:
+            p.stateChanged.connect(self.pne_state_changed)            
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -59,4 +65,16 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
     def ulaziUpdate(self): 
         pass
 
-
+    def motori_state_changed(self,ii):
+        sender = self.sender()
+        if(sender.isChecked()==True):
+            self.state.ukljuciMotor(sender.getId())   
+        else:
+            self.state.iskljuciMotor(sender.getId()) 
+            
+    def pne_state_changed(self,ii):
+        sender = self.sender()
+        if(sender.isChecked()==True):
+            self.state.ukljuciPneumatiku(sender.getId())   
+        else:
+            self.state.iskljuciPneumatiku(sender.getId()) 
