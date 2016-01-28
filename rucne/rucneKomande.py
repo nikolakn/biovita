@@ -48,14 +48,14 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
             self.donji_p30e,self.donji_p31e,self.donji_p32e]            
         #p9,p21,p22,p23,p24 imaju drugacij aimena
         self.pneumatika = [self.donji_p1.setId(1) ,self.donji_p2.setId(2),self.donji_p3.setId(3),
-                    self.donji_p4.setId(4),self.donji_p5.setId(5),self.donji_p6.setId(6),self.donji_p7.setId(7),
-                    self.donji_p8.setId(8),self.donji_p10.setId(10),self.donji_p11.setId(11),self.donji_p12.setId(12),
-                    self.donji_p13.setId(13),self.donji_p14.setId(14),self.donji_p15.setId(15),self.donji_p16.setId(16),
-                    self.donji_p17.setId(17),self.donji_p18.setId(18),self.donji_p19.setId(19),self.donji_p20.setId(20),
-                    self.donji_p25.setId(25),self.donji_p26.setId(26),self.donji_p27.setId(27),self.donji_p28.setId(28),
-                    self.donji_b29.setId(29),self.donji_p30.setId(30),self.donji_p31.setId(31),self.donji_p32.setId(32),
-                    self.donji_s2.setId(21), self.donji_s1.setId(22) , self.donji_gotovpera.setId(9) ,
-                    self.donji_gotmat3.setId(23) , self.donji_gotmat4.setId(24) ]
+            self.donji_p4.setId(4),self.donji_p5.setId(5),self.donji_p6.setId(6),self.donji_p7.setId(7),
+            self.donji_p8.setId(8),self.donji_p10.setId(10),self.donji_p11.setId(11),self.donji_p12.setId(12),
+            self.donji_p13.setId(13),self.donji_p14.setId(14),self.donji_p15.setId(15),self.donji_p16.setId(16),
+            self.donji_p17.setId(17),self.donji_p18.setId(18),self.donji_p19.setId(19),self.donji_p20.setId(20),
+            self.donji_p25.setId(25),self.donji_p26.setId(26),self.donji_p27.setId(27),self.donji_p28.setId(28),
+            self.donji_b29.setId(29),self.donji_p30.setId(30),self.donji_p31.setId(31),self.donji_p32.setId(32),
+            self.donji_s2.setId(21), self.donji_s1.setId(22) , self.donji_gotovpera.setId(9) ,
+            self.donji_gotmat3.setId(23) , self.donji_gotmat4.setId(24) ]
         for m in self.motori:
             m.stateChanged.connect(self.motori_state_changed)
         for p in self.pneumatika:
@@ -88,6 +88,18 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_dugme_start.clicked.connect(lambda:self.btn_start()) 
         self.srednji_dugme_stop.clicked.connect(lambda:self.btn_stop()) 
         
+        self.srednji_bin1.clicked.connect(lambda:self.btn_bin1())
+        self.srednji_bin2.clicked.connect(lambda:self.btn_bin2())
+        self.srednji_bin3.clicked.connect(lambda:self.btn_bin3())
+        self.srednji_bin4.clicked.connect(lambda:self.btn_bin4())
+        self.srednji_bin5.clicked.connect(lambda:self.btn_bin5())
+        self.srednji_bin6.clicked.connect(lambda:self.btn_bin6())
+        self.srednji_bin7.clicked.connect(lambda:self.btn_bin7())
+        self.srednji_bin8.clicked.connect(lambda:self.btn_bin8())
+        self.srednji_bin9.clicked.connect(lambda:self.btn_bin9())
+        
+        self.srednji_dugme_ukljuci.clicked.connect(lambda:self.btn_ukljuci()) 
+        self.srednji_dugme_iskljuci.clicked.connect(lambda:self.btn_iskljuci())
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -267,4 +279,105 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_25.setChecked(False); 
         self.srednji_dugme_start.setEnabled(True)
         self.srednji_dugme_stop.setEnabled(False)        
-            
+
+    def btn_bin1(self):
+        self.donji_p17.setChecked(True);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+        
+    def btn_bin2(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(True);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+
+    def btn_bin3(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(True);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+    def btn_bin4(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(True);
+        self.donji_p30.setChecked(True);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+    def btn_bin5(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(True);
+        self.donji_p20.setChecked(True);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+    def btn_bin6(self):
+        self.donji_p17.setChecked(True);
+        self.donji_p32.setChecked(True);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+    def btn_bin7(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(False);
+    def btn_bin8(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(False);
+        self.srednji_19.setChecked(True);
+    def btn_bin9(self):
+        self.donji_p17.setChecked(False);
+        self.donji_p32.setChecked(False);
+        self.donji_p10.setChecked(False);
+        self.donji_p20.setChecked(False);
+        self.donji_p31.setChecked(False);
+        self.donji_p30.setChecked(False);
+           
+        self.donji_b29.setChecked(True);
+        self.srednji_19.setChecked(True);        
+    def btn_ukljuci(self):
+        self.srednji_dugme_ukljuci.setEnabled(False);
+        self.srednji_dugme_iskljuci.setEnabled(True);
+        self.srednji_30.setChecked(True);
+
+    def btn_iskljuci(self):  
+        self.srednji_dugme_ukljuci.setEnabled(True);
+        self.srednji_dugme_iskljuci.setEnabled(False);
+        self.srednji_30.setChecked(False);   
