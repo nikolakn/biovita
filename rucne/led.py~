@@ -14,7 +14,7 @@ class Led(QtGui.QWidget):
         self.dy = 10;
         self.x = 4;
         self.y = 0;
-        self.setMinimumSize(self.dx, self.dy+13)
+        self.setMinimumSize(self.dx, self.dy+15)
     def on(self):
         self.ukljuceno = True; 
         self.repaint() 
@@ -23,7 +23,7 @@ class Led(QtGui.QWidget):
         self.repaint() 
     def setText(self,t):
         self.text = t
-        self.setMinimumSize(self.dx+t.size()*6.5, self.dy+13)
+        self.setMinimumSize(self.dx+t.size()*6.5, self.dy+15)
     def setIconSize(self,size):
         pass;
     def paintEvent(self, e):

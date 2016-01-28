@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1083</width>
+    <width>1163</width>
     <height>905</height>
    </rect>
   </property>
@@ -24,16 +24,7 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
+    <property name="margin">
      <number>0</number>
     </property>
     <item>
@@ -1025,7 +1016,7 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>40</height>
+            <height>10</height>
            </size>
           </property>
          </spacer>
@@ -1247,7 +1238,7 @@
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>40</height>
+            <height>10</height>
            </size>
           </property>
          </spacer>
@@ -1600,7 +1591,7 @@ PREMA EXTRUDERU</string>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>70</height>
+            <height>40</height>
            </size>
           </property>
          </spacer>
@@ -1699,7 +1690,7 @@ PREMA EXTRUDERU</string>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>40</height>
+            <height>10</height>
            </size>
           </property>
          </spacer>
@@ -3039,8 +3030,8 @@ PREMA EXTRUDERU</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1083</width>
-     <height>21</height>
+     <width>1163</width>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPregledi_i_izvestaji">

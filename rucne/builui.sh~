@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo pyuic4.bat -o UiRucne.py mainwindow1.ui
