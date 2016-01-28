@@ -128,7 +128,7 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <widget class="QCheckBox" name="gornji_bin1">
+              <widget class="idQCheckBox" name="gornji_bin1">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -140,7 +140,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin2">
+              <widget class="idQCheckBox" name="gornji_bin2">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -152,7 +152,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin3">
+              <widget class="idQCheckBox" name="gornji_bin3">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -164,7 +164,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin4">
+              <widget class="idQCheckBox" name="gornji_bin4">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -180,7 +180,7 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_13">
              <item>
-              <widget class="QCheckBox" name="gornji_bin5">
+              <widget class="idQCheckBox" name="gornji_bin5">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -192,7 +192,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin6">
+              <widget class="idQCheckBox" name="gornji_bin6">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -204,7 +204,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin7">
+              <widget class="idQCheckBox" name="gornji_bin7">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -216,7 +216,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin8">
+              <widget class="idQCheckBox" name="gornji_bin8">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -232,7 +232,7 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_14">
              <item>
-              <widget class="QCheckBox" name="gornji_bin9">
+              <widget class="idQCheckBox" name="gornji_bin9">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -244,7 +244,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="gornji_bin12">
+              <widget class="idQCheckBox" name="gornji_bin12">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -288,7 +288,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QCheckBox" name="gornji_c15">
+            <widget class="idQCheckBox" name="gornji_c15">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -300,7 +300,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="gornji_c29">
+            <widget class="idQCheckBox" name="gornji_c29">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -341,7 +341,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="gornji_22">
+            <widget class="idQCheckBox" name="gornji_22">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -353,7 +353,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="gornji_26">
+            <widget class="idQCheckBox" name="gornji_26">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -397,7 +397,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="gornji_17">
+            <widget class="idQCheckBox" name="gornji_17">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -409,7 +409,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="gornji_16">
+            <widget class="idQCheckBox" name="gornji_16">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -756,7 +756,7 @@
             <number>0</number>
            </property>
            <item>
-            <widget class="QCheckBox" name="srednji_c20">
+            <widget class="idQCheckBox" name="srednji_c20">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -769,7 +769,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="srednji_c24">
+            <widget class="idQCheckBox" name="srednji_c24">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -930,7 +930,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_23">
+         <widget class="idQCheckBox" name="srednji_23">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -942,7 +942,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_18">
+         <widget class="idQCheckBox" name="srednji_18">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -967,7 +967,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_21">
+         <widget class="idQCheckBox" name="srednji_21">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -979,7 +979,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_9">
+         <widget class="idQCheckBox" name="srednji_9">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -991,7 +991,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_c3">
+         <widget class="idQCheckBox" name="srednji_c3">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -1003,7 +1003,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_c1">
+         <widget class="idQCheckBox" name="srednji_c1">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -1112,7 +1112,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_c5">
+         <widget class="idQCheckBox" name="srednji_c5">
           <property name="text">
            <string>c5 REDLER IZNAD SILOSA</string>
           </property>
@@ -1223,7 +1223,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="srednji_25">
+           <widget class="idQCheckBox" name="srednji_25">
             <property name="font">
              <font>
               <pointsize>9</pointsize>
@@ -1540,7 +1540,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="srednji_28">
+         <widget class="idQCheckBox" name="srednji_28">
           <property name="font">
            <font>
             <pointsize>9</pointsize>
@@ -1631,7 +1631,7 @@ PREMA EXTRUDERU</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_35">
           <item>
-           <widget class="QCheckBox" name="srednji_30">
+           <widget class="idQCheckBox" name="srednji_30">
             <property name="font">
              <font>
               <pointsize>9</pointsize>
@@ -1663,7 +1663,7 @@ PREMA EXTRUDERU</string>
            </spacer>
           </item>
           <item>
-           <widget class="QCheckBox" name="srednji_19">
+           <widget class="idQCheckBox" name="srednji_19">
             <property name="font">
              <font>
               <pointsize>9</pointsize>
@@ -1675,7 +1675,7 @@ PREMA EXTRUDERU</string>
            </widget>
           </item>
           <item>
-           <widget class="QCheckBox" name="srednji_27">
+           <widget class="idQCheckBox" name="srednji_27">
             <property name="font">
              <font>
               <pointsize>9</pointsize>
