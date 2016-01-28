@@ -67,7 +67,14 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_ispusti_4.clicked.connect(lambda:self.btn_ispusti_4()) 
         self.srednji_ispusti_5.clicked.connect(lambda:self.btn_ispusti_5()) 
         self.srednji_ispusti_6.clicked.connect(lambda:self.btn_ispusti_6())         
-    
+        self.srednji_dugme_zatvorisve.clicked.connect(lambda:self.btn_ispusti_zatvorisve()) 
+        
+        self.srednji_ele2_1.clicked.connect(lambda:self.btn_ele2_1()) 
+        self.srednji_ele2_2.clicked.connect(lambda:self.btn_ele2_2()) 
+        self.srednji_ele2_3.clicked.connect(lambda:self.btn_ele2_3()) 
+        self.srednji_ele2_4.clicked.connect(lambda:self.btn_ele2_4()) 
+        self.srednji_ele2_5.clicked.connect(lambda:self.btn_ele2_5()) 
+        self.srednji_ele2_6.clicked.connect(lambda:self.btn_ele2_6()) 
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
@@ -150,4 +157,61 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.donji_p16.setChecked(False);
         self.donji_p12.setChecked(False);
         self.donji_p13.setChecked(False);
-        self.donji_p6.setChecked(True);        
+        self.donji_p6.setChecked(True);    
+        
+    def btn_ispusti_zatvorisve(self):
+        self.donji_p14.setChecked(False);
+        self.donji_p15.setChecked(False);
+        self.donji_p16.setChecked(False);
+        self.donji_p12.setChecked(False);
+        self.donji_p13.setChecked(False);
+        self.donji_p6.setChecked(False);  
+        self.srednji_ispusti_1.setCheckable(False);
+        self.srednji_ispusti_2.setCheckable(False);
+        self.srednji_ispusti_3.setCheckable(False);
+        self.srednji_ispusti_4.setCheckable(False);
+        self.srednji_ispusti_5.setCheckable(False);
+        self.srednji_ispusti_6.setCheckable(False);
+        self.srednji_ispusti_1.setCheckable(True);
+        self.srednji_ispusti_2.setCheckable(True);
+        self.srednji_ispusti_3.setCheckable(True);
+        self.srednji_ispusti_4.setCheckable(True);
+        self.srednji_ispusti_5.setCheckable(True);
+        self.srednji_ispusti_6.setCheckable(True);
+        
+    def btn_ele2_1(self):
+        self.donji_p7.setChecked(False);
+        self.donji_p8.setChecked(False);
+        self.donji_p4.setChecked(False);
+        self.donji_p2.setChecked(False);
+        self.donji_p5.setChecked(True);         
+    def btn_ele2_2(self):
+        self.donji_p7.setChecked(True);
+        self.donji_p8.setChecked(False);
+        self.donji_p4.setChecked(False);
+        self.donji_p2.setChecked(False);
+        self.donji_p5.setChecked(False);
+    def btn_ele2_3(self):
+        self.donji_p7.setChecked(False);
+        self.donji_p8.setChecked(True);
+        self.donji_p4.setChecked(False);
+        self.donji_p2.setChecked(False);
+        self.donji_p5.setChecked(False);
+    def btn_ele2_4(self):
+        self.donji_p7.setChecked(False);
+        self.donji_p8.setChecked(False);
+        self.donji_p4.setChecked(True);
+        self.donji_p2.setChecked(False);
+        self.donji_p5.setChecked(False);
+    def btn_ele2_5(self):
+        self.donji_p7.setChecked(False);
+        self.donji_p8.setChecked(False);
+        self.donji_p4.setChecked(False);
+        self.donji_p2.setChecked(True);
+        self.donji_p5.setChecked(False);
+    def btn_ele2_6(self):
+        self.donji_p7.setChecked(False);
+        self.donji_p8.setChecked(False);
+        self.donji_p4.setChecked(False);
+        self.donji_p2.setChecked(False);
+        self.donji_p5.setChecked(False);        
