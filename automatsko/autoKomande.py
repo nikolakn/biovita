@@ -10,6 +10,7 @@ import sys
 from ui import UiAuto
 from sys import platform as _platform
 import serial 
+from rucne import rucneKomande
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
@@ -42,12 +43,17 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(200)
+        self.ex = None
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):
         print("utovar");        
     def rucneWindow(self):
-        print("rucne");
+        if isinstance(self.ex, rucneKomande.rucneProzor):
+            self.ex.close()
+            self.ex = rucneKomande.rucneProzor(self.state)
+        else:
+            self.ex = rucneKomande.rucneProzor(self.state)
     def timerUpdate(self):
         ulazi = self.state.updateSensors();
         if _platform == "linux" or _platform == "linux2":
