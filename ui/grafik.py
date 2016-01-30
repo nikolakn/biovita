@@ -14,7 +14,6 @@ class NkGrafik(QtGui.QWidget):
         self.dy = 10;
         self.x = 4;
         self.y = 0;
-        self.setMinimumSize(500, 150)
 
     def paintEvent(self, e):
         h = self.height()
