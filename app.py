@@ -3,14 +3,18 @@ Created on Jan 15, 2016
 
 @author: nikola
 '''
-
+from PyQt4 import QtGui, QtCore
 from expanderi import expanderi
-   
+
+class Communicate(QtCore.QObject):
+    updated = QtCore.pyqtSignal(int,str)
+      
 #cuva podatke kroz celu applikaciju
 #samo ova klasa moze da ukljucuje i iskljucuje expandere   
-class AppState:
+class AppState(QtCore.QObject):
     
     def __init__(self):
+        QtCore.QObject.__init__(self)
         self.ulazi = {}
         self.motori = {}
         self.pneumatike = {}
@@ -113,8 +117,16 @@ class AppState:
         self.motori['m30']=0
         self.motori['m31']=0
         self.motori['m32']=0 
-        
+        self.c = Communicate()
         self.expanderi = expanderi.Expanderi()
+        
+        
+    def prijaviZaSignal(self,klasa):         
+        self.c.updated.connect(klasa.komanda)
+        
+    def odjaviseZaSignal(self,klasa):
+        self.c.updated.disconnect(klasa.komanda)
+        
     def updateSensors(self):
         u = self.expanderi.getUlazi()
         n = 0;  
@@ -148,10 +160,12 @@ class AppState:
     
     '''
     def ukljuciMotor(self,id):
+        num = id
         self.motori[id] = 1
         id = "m"+str(id)
         if (id=='m1'):
             self.expanderi.ukljuci(16)
+            self.c.updated.emit(num,id)
         if (id=='m2'):
             self.expanderi.ukljuci(17)
         if (id=='m3'):

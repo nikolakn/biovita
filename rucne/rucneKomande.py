@@ -16,8 +16,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.setupUi(self)
         self.state = state
         self.initUI()
-
-
+        self.state.prijaviZaSignal(self);
         self.motori = [self.srednji_c1.setId(1),self.gornji_bin3.setId(2),self.srednji_c3.setId(3),
             self.gornji_bin9.setId(4),self.srednji_c5.setId(5),self.gornji_bin6.setId(6),
             self.gornji_bin7.setId(7),self.gornji_bin4.setId(8),self.srednji_9.setId(9),
@@ -99,7 +98,14 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
         self.ctimer.start(200)
-
+        
+    @pyqtSlot(int, str)
+    def komanda(self, id, name):
+        print str(id)+" "+str(name)
+        
+    def closeEvent(self, event):
+         self.state.odjaviseZaSignal(self); 
+         print("zatvaram rucne komande")
     def ulaziUpdate(self):
         #update senzore
         ulazi = self.state.updateSensors();
