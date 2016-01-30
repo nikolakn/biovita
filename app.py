@@ -148,7 +148,19 @@ class AppState(QtCore.QObject):
         return self.motori[id];
     def getPneumatiku(self,id):
         id = "p"+str(id)
-        return self.pneumatike[id];        
+        return self.pneumatike[id]; 
+    def sim(self):
+        self.pneumatike['p2']=1
+        self.pneumatike['p1']=1
+        self.pneumatike['p29']=1 
+        self.pneumatike['p30']=1
+        self.pneumatike['p3']=1
+        self.pneumatike['p32']=1 
+        
+        self.motori['m1']=1
+        self.motori['m31']=1 
+        self.motori['m3']=1
+        self.motori['m32']=1        
     def close(self):
         self.expanderi.close();
         print('Izlaz')    

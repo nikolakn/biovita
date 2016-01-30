@@ -98,6 +98,9 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
         self.ctimer.start(200)
+        self.ctimer2 = QTimer()
+        QObject.connect(self.ctimer2, SIGNAL("timeout()"), self.updateKomande)
+        self.ctimer2.start(1000)
         
     @pyqtSlot(int, str)
     def komanda(self, id, name):
@@ -117,9 +120,8 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
                 x.off();
             n = n + 1;
         #update ostale kontrole na prozoru    
-        self.updateKomande()
         self.repaint() 
-        
+    #za transfer komandi iz prozora u prozor    
     def updateKomande(self): 
 
         for motor in self.motori:
@@ -137,7 +139,8 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
                 pneum.setChecked(False)
             if(uk == False and st==1):
                 pneum.setChecked(True)           
-
+        self.repaint()
+        
     def motori_state_changed(self,ii):
         sender = self.sender()
         if(sender.isChecked()==True):

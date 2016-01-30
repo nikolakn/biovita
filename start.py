@@ -13,6 +13,7 @@ from app import AppState
             
 def main():
     state = AppState()
+    #state.sim();
     app = QApplication(sys.argv)
     ex = rucneKomande.rucneProzor(state)
     rez = app.exec_()
