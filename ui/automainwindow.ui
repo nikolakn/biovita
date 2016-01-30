@@ -577,11 +577,17 @@ p, li { white-space: pre-wrap; }
       </property>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_6">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMinimumSize</enum>
+        </property>
         <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
           <item>
            <widget class="QLabel" name="label_9">
             <property name="sizePolicy">
@@ -629,6 +635,9 @@ p, li { white-space: pre-wrap; }
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Maximum</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
@@ -659,6 +668,9 @@ p, li { white-space: pre-wrap; }
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_7">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
         <property name="bottomMargin">
          <number>0</number>
         </property>
