@@ -33,11 +33,11 @@ class Led(QtGui.QWidget):
         if (self.ukljuceno == True):
             qp.setPen(self.crna)
             qp.setBrush(self.crvena)
-            qp.drawEllipse(self.dx/2-self.x, self.dy/2, self.dx, self.dy)
+            qp.drawEllipse(self.dx/2-self.x, self.dy/2-5, self.dx, self.dy)
         else:
             qp.setPen(self.bela)
             qp.setBrush(self.crna)
-            qp.drawEllipse(self.dx/2-self.x, self.dy/2, self.dx, self.dy)  
+            qp.drawEllipse(self.dx/2-self.x, self.dy/2-5, self.dx, self.dy)  
         qp.setPen(self.crna)            
-        qp.drawText(self.dx/2+self.x+5, self.dy/2+10,self.text)    
+        qp.drawText(self.dx/2+self.x+5, self.dy/2+5,self.text)    
         qp.end()       

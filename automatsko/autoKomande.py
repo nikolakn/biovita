@@ -7,7 +7,7 @@ Created on Jan 15, 2016
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import sys
-import UiAuto
+from ui import UiAuto
 import serial 
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):

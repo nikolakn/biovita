@@ -7,7 +7,7 @@ Created on Jan 15, 2016
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import sys
-import UiRucne
+from ui import UiRucne
 import serial 
 
 class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
