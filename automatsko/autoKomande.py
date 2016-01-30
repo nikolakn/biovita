@@ -29,12 +29,25 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)
-        self.setWindowTitle('Biovita')
+        self.setWindowTitle('BIOVITA')
         self.show()
+        meniUnos = self.menubar.addAction("Unos i promena podataka")
+        meniUtovar = self.menubar.addAction("UTOVAR")
+        meniPretovar = self.menubar.addAction("PRETOVAR")
+        meniRucne = self.menubar.addAction("RUCNE KOMANDE")
+        meniProzori = self.menubar.addAction("PROZORI")
+        meniRucne.triggered.connect(self.rucneWindow)
+        meniUnos.triggered.connect(self.unosWindow)
+        meniUtovar.triggered.connect(self.utovarWindow)
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(200)
-        
+    def unosWindow(self):
+        print("unos");
+    def utovarWindow(self):
+        print("utovar");        
+    def rucneWindow(self):
+        print("rucne");
     def timerUpdate(self):
         ulazi = self.state.updateSensors();
         if _platform == "linux" or _platform == "linux2":

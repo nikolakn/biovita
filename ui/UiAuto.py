@@ -26,19 +26,21 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(640, 480)
-        self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setObjectName(_fromUtf8("menubar"))
-        MainWindow.setMenuBar(self.menubar)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
-        self.statusbar.setObjectName(_fromUtf8("statusbar"))
-        MainWindow.setStatusBar(self.statusbar)
+        self.menubar = QtGui.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 21))
+        self.menubar.setObjectName(_fromUtf8("menubar"))
+        self.menuPregledi_i_izvestaji = QtGui.QMenu(self.menubar)
+        self.menuPregledi_i_izvestaji.setObjectName(_fromUtf8("menuPregledi_i_izvestaji"))
+        MainWindow.setMenuBar(self.menubar)
+        self.menubar.addAction(self.menuPregledi_i_izvestaji.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+        self.menuPregledi_i_izvestaji.setTitle(_translate("MainWindow", "Pregledi i izvestaji", None))
 
