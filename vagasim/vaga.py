@@ -44,7 +44,7 @@ class sim(QMainWindow):
         self.raste = False
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
-        self.ctimer.start(200)
+        self.ctimer.start(100)
         self.moving=True
     def l1Clicked(self):
         self.raste = True

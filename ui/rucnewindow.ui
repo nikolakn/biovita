@@ -3034,46 +3034,6 @@ PREMA EXTRUDERU</string>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1163</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuPregledi_i_izvestaji">
-    <property name="title">
-     <string>Pregledi i izvestaji</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuUnos_i_promena_podataka">
-    <property name="title">
-     <string>Unos i promena podataka</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuUtovar">
-    <property name="title">
-     <string>Utovar</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuPretovar">
-    <property name="title">
-     <string>Pretovar</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuProzori">
-    <property name="title">
-     <string>Prozori</string>
-    </property>
-   </widget>
-   <addaction name="menuPregledi_i_izvestaji"/>
-   <addaction name="menuUnos_i_promena_podataka"/>
-   <addaction name="menuUtovar"/>
-   <addaction name="menuPretovar"/>
-   <addaction name="menuProzori"/>
-  </widget>
  </widget>
  <customwidgets>
   <customwidget>
