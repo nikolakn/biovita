@@ -7,22 +7,13 @@ Created on Jan 15, 2016
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import sys
-from ui import UiRucne
-import serial 
+from ui import UiRucne 
 
 class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
     
     def __init__(self,state, parent=None):
         super(rucneProzor,self).__init__()
         self.setupUi(self)
-        '''
-        try:
-            self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
-            self.port.open()
-        except:
-            print("Greska seriski port")
-            sys.exit(0) 
-        '''   
         self.state = state
         self.initUI()
 
