@@ -49,9 +49,12 @@ class NkGrafik(QtGui.QWidget):
         inc = (h-25-20)/6.0
         dy=20
         
-        for i in range(1400,0,-200):
+        for i in range(1200,0,-200):
             qp.drawLine(55, dy, w-25, dy)
-            #qp.drawText(dx-10, h-10 ,str(i)) 
+            if(i>=1000):
+                qp.drawText(30, dy+4 ,str(i)) 
+            else:
+                qp.drawText(35, dy+4 ,str(i)) 
             dy = dy + inc 
         #qp.setPen(self.crna)
         #qp.setBrush(self.crvena)
