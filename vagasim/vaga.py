@@ -58,7 +58,7 @@ class sim(QMainWindow):
         self.moving=False
     def timerUpdate(self):
         if (self.raste):
-            self.num = self.num + 2
+            self.num = self.num + 0.33
         s=chr(2)
         q=chr(71)
         e=chr(77)

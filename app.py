@@ -127,7 +127,10 @@ class AppState:
                 self.ulazi[k] = 0
             n = n + 1;
         return self.ulazi.values()
-        
+    def getMotori(self):
+        return self.motori.values()
+    def getPneumatike(self):
+        self.pneumatike.values()
     def close(self):
         self.expanderi.close();
         print('Izlaz')    
