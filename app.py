@@ -140,9 +140,15 @@ class AppState(QtCore.QObject):
             n = n + 1;
         return self.ulazi.values()
     def getMotori(self):
-        return self.motori.values()
+        return self.motori
     def getPneumatike(self):
-        self.pneumatike.values()
+        return self.pneumatike
+    def getMotor(self,id):
+        id = "m"+str(id)
+        return self.motori[id];
+    def getPneumatiku(self,id):
+        id = "p"+str(id)
+        return self.pneumatike[id];        
     def close(self):
         self.expanderi.close();
         print('Izlaz')    
@@ -161,11 +167,11 @@ class AppState(QtCore.QObject):
     '''
     def ukljuciMotor(self,id):
         num = id
-        self.motori[id] = 1
         id = "m"+str(id)
+        self.motori[id] = 1
+        
         if (id=='m1'):
             self.expanderi.ukljuci(16)
-            self.c.updated.emit(num,id)
         if (id=='m2'):
             self.expanderi.ukljuci(17)
         if (id=='m3'):
@@ -228,10 +234,11 @@ class AppState(QtCore.QObject):
             self.expanderi.ukljuci(14)
         if (id=='m32'):
             self.expanderi.ukljuci(15)
-            
+
     def iskljuciMotor(self,id):
-        self.motori[id] = 0
         id = "m"+str(id)
+        self.motori[id] = 0
+        
         if (id=='m1'):
             self.expanderi.iskljuci(16)
         if (id=='m2'):
@@ -298,8 +305,9 @@ class AppState(QtCore.QObject):
             self.expanderi.iskljuci(15)   
 
     def ukljuciPneumatiku(self,id):
-        self.pneumatike[id] = 1
         id = "p"+str(id)
+        self.pneumatike[id] = 1
+        
         if (id=='p1'):
             self.expanderi.ukljuci(63)
         if (id=='p2'):
@@ -364,10 +372,14 @@ class AppState(QtCore.QObject):
             self.expanderi.ukljuci(33)
         if (id=='p32'):
             self.expanderi.ukljuci(32)  
-        
+            
+        #for x in self.pneumatike.values():
+        #    print x,
+        #print ' '
     def iskljuciPneumatiku(self,id):
-        self.pneumatike[id] = 0
         id = "p"+str(id)
+        self.pneumatike[id] = 0
+        
         if (id=='p1'):
             self.expanderi.iskljuci(63)
         if (id=='p2'):

@@ -101,11 +101,11 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         
     @pyqtSlot(int, str)
     def komanda(self, id, name):
-        print str(id)+" "+str(name)
-        
+        #print str(id)+" "+str(name)
+        pass
     def closeEvent(self, event):
-         self.state.odjaviseZaSignal(self); 
-         print("zatvaram rucne komande")
+        #self.state.odjaviseZaSignal(self); 
+        print("zatvaram rucne komande")
     def ulaziUpdate(self):
         #update senzore
         ulazi = self.state.updateSensors();
@@ -121,7 +121,22 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.repaint() 
         
     def updateKomande(self): 
-        pass
+
+        for motor in self.motori:
+            uk = motor.isChecked()
+            st = self.state.getMotor(motor.getId())
+            if(uk == True and st==0):
+                motor.setChecked(False)
+            if(uk == False and st==1):
+                motor.setChecked(True)
+            
+        for pneum in self.pneumatika:
+            uk = pneum.isChecked()
+            st = self.state.getPneumatiku(pneum.getId())
+            if(uk == True and st==0):
+                pneum.setChecked(False)
+            if(uk == False and st==1):
+                pneum.setChecked(True)           
 
     def motori_state_changed(self,ii):
         sender = self.sender()
