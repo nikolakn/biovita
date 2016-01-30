@@ -31,6 +31,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('Biovita')
         self.show()
-        #self.ctimer = QTimer()
-        #QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
-        #self.ctimer.start(200)
+        self.ctimer = QTimer()
+        QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
+        self.ctimer.start(200)
+        
+    def timerUpdate(self):
+        ulazi = self.state.updateSensors();
+        if _platform == "linux" or _platform == "linux2":
+            ch = self.port.readline();
+            print(ch)
+            #self.com1.setText("vaga")
+        self.repaint()        
