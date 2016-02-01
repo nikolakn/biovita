@@ -113,3 +113,5 @@ class GlavniProzor(QWidget):
         #paint.drawRect(5, 110, 780, 25);
         paint.setBrush(Qt.green); 
         paint.drawRect(450, 245, 50, 15);
+        paint.setBrush(Qt.black);
+        paint.drawRect(450, 300, 50, 15);
