@@ -98,9 +98,9 @@ class GlavniProzor(QWidget):
         paint.drawRect(450, 250, 100, 60);
         paint.drawRect(450, 340, 100, 60);
         
-        paint.drawLine(200, 395, 380, 395);
-        paint.drawLine(380, 395, 380, 168);
-        paint.drawLine(380, 168, 500, 168);
+        #paint.drawLine(200, 395, 380, 395);
+        #paint.drawLine(380, 395, 380, 168);
+        #paint.drawLine(380, 168, 500, 168);
         #paint.drawText(30,20,"Bin12")
         paint.drawImage(QPoint(150,155),self.loadedImage)
         paint.drawImage(QPoint(500,155),self.loadedImage2)
