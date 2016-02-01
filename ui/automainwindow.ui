@@ -562,6 +562,9 @@
            </property>
            <item>
             <widget class="QTextEdit" name="vagamera_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="font">
               <font>
                <family>Times New Roman</family>
@@ -569,6 +572,9 @@
                <weight>75</weight>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="undoRedoEnabled">
+              <bool>false</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
