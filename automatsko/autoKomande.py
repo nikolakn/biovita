@@ -10,6 +10,7 @@ import sys
 from ui import UiAuto
 from sys import platform as _platform
 import serial 
+import time
 from rucne import rucneKomande
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
@@ -56,12 +57,17 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.ex = rucneKomande.rucneProzor(self.state)
     def timerUpdate(self):
         ulazi = self.state.updateSensors();
+        mera =''
         if _platform == "linux" or _platform == "linux2":
             ch = self.port.readline();
-            print(ch)
-            #self.com1.setText("vaga")
+            mera = self.vagaMera('');
+        if(mera!=''):
+            self.vagamera_2.setText(mera)
+        self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
+        self.labeldatum.setText('Datum: '+time.strftime("%d/%m/%Y"))
         self.repaint()    
 
-
+    def vagaMera(self,st):
+        return '123'
 
         
