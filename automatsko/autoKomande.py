@@ -88,7 +88,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             #self.vagamera_2.setPalette(palette)
             self.dobramera = False;
             return ''
-        if(e==-1 And Q==-1):
+        if(e==-1 and Q==-1):
             self.dobramera = True;
             palette.setColor(QPalette.Active, QPalette.Base, QColor(0, 255, 0))
             self.vagamera_2.setPalette(palette)
