@@ -1,7 +1,8 @@
 
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
-  
+import widgetBin 
+
 class GlavniProzor(QWidget):
     
     def __init__(self,parent=None):
@@ -10,12 +11,60 @@ class GlavniProzor(QWidget):
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)
         self.ukljuceno = False;
-        self.dx = 10;
-        self.dy = 10;
-        self.x = 4;
-        self.y = 0;
-
-
+        
+        
+        self.x = 28; #start
+        self.y = 47; #izmedju dve susedne
+        self.dx = 155; #izmedju dva para
+        #bin1
+        self.bin1 = widgetBin.Bin(self)
+        self.bin1.move(self.x,30);
+        
+        self.bin2 = widgetBin.Bin(self)
+        self.bin2.move(self.x+self.y,40);
+        #bin2
+        self.x = self.x + self.dx
+        
+        self.bin3 = widgetBin.Bin(self)
+        self.bin3.move(self.x,30);
+        
+        self.bin4 = widgetBin.Bin(self)
+        self.bin4.move(self.x+self.y,40);  
+        #bin3
+        self.x = self.x + self.dx
+        
+        self.bin3 = widgetBin.Bin(self)
+        self.bin3.move(self.x,30);
+        
+        self.bin4 = widgetBin.Bin(self)
+        self.bin4.move(self.x+self.y,40);
+        #bin4
+        self.x = self.x + self.dx
+        
+        self.bin3 = widgetBin.Bin(self)
+        self.bin3.move(self.x,30);
+        
+        self.bin4 = widgetBin.Bin(self)
+        self.bin4.move(self.x+self.y,40);
+        self.bin4.move(self.x+self.y,40);
+        #bin5
+        self.x = self.x + self.dx
+        
+        self.bin3 = widgetBin.Bin(self)
+        self.bin3.move(self.x,30);
+        
+        self.bin4 = widgetBin.Bin(self)
+        self.bin4.move(self.x+self.y,40);
+        self.bin4.move(self.x+self.y,40);
+        #bin6
+        self.x = self.x + self.dx
+        
+        self.bin3 = widgetBin.Bin(self)
+        self.bin3.move(self.x,30);
+        
+        self.bin4 = widgetBin.Bin(self)
+        self.bin4.move(self.x+self.y,40);
+                
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)
         paint.setPen(Qt.black);

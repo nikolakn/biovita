@@ -41,6 +41,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         meniRucne.triggered.connect(self.rucneWindow)
         meniUnos.triggered.connect(self.unosWindow)
         meniUtovar.triggered.connect(self.utovarWindow)
+        
+      
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(100)
