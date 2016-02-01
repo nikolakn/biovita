@@ -102,7 +102,7 @@ class GlavniProzor(QWidget):
         
         paint.drawRect(450, 180, 100, 60);
         paint.drawRect(450, 250, 100, 60);
-        paint.drawRect(450, 340, 100, 60);
+        paint.drawRect(450, 335, 100, 60);
         
         #paint.drawLine(200, 395, 380, 395);
         #paint.drawLine(380, 395, 380, 168);
