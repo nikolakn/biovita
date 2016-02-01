@@ -43,7 +43,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         meniUtovar.triggered.connect(self.utovarWindow)
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
-        self.ctimer.start(200)
+        self.ctimer.start(100)
         self.ex = None
     def unosWindow(self):
         print("unos");
