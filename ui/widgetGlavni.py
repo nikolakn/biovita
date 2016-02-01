@@ -12,7 +12,10 @@ class GlavniProzor(QWidget):
         self.bela = QColor(255, 255, 255)
         self.ukljuceno = False;
         
-        
+        self.loadedImage = QImage()
+        self.loadedImage.load("images/el1.png")
+        self.loadedImage2 = QImage()
+        self.loadedImage2.load("images/el2.png")
         self.x = 28; #start
         self.y = 47; #izmedju dve susedne
         self.dx = 155; #izmedju dva para
@@ -87,9 +90,19 @@ class GlavniProzor(QWidget):
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)
         paint.setPen(Qt.black);
-        paint.setBrush(Qt.white);
-        #paint.drawRect(5, 5, 780, 25);
-        #paint.drawText(30,20,"Bin12")
+        #paint.setBrush(Qt.white);
+        paint.drawRect(180, 180, 100, 58);
+        paint.drawRect(140, 320, 100, 60);
         
+        paint.drawRect(450, 180, 100, 60);
+        paint.drawRect(450, 250, 100, 60);
+        paint.drawRect(450, 340, 100, 60);
+        
+        paint.drawLine(200, 395, 380, 395);
+        paint.drawLine(380, 395, 380, 168);
+        paint.drawLine(380, 168, 500, 168);
+        #paint.drawText(30,20,"Bin12")
+        paint.drawImage(QPoint(150,155),self.loadedImage)
+        paint.drawImage(QPoint(500,155),self.loadedImage2)
         #paint.drawRect(5, 110, 780, 25);
          
