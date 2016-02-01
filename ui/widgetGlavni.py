@@ -111,4 +111,5 @@ class GlavniProzor(QWidget):
         paint.drawImage(QPoint(150,155),self.loadedImage)
         paint.drawImage(QPoint(500,155),self.loadedImage2)
         #paint.drawRect(5, 110, 780, 25);
-         
+        paint.setBrush(Qt.green); 
+        paint.drawRect(450, 245, 50, 15);
