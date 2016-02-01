@@ -60,7 +60,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         mera =''
         if _platform == "linux" or _platform == "linux2":
             ch = self.port.readline();
-            mera = self.vagaMera('');
+            mera = self.vagaMera(ch);
+        else:
+            ch = chr(2)+"    43.2G"
+            mera = self.vagaMera(ch);
         if(mera!=''):
             self.vagamera_2.setText(mera)
         self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
@@ -68,6 +71,23 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.repaint()    
 
     def vagaMera(self,st):
-        return '123'
-
+        s= st.find(chr(2))
+        Q= st.find(chr(71));
+        e= st.find(chr(77));
+        if(s==-1):
+            self.dobramera = False;
+            return ''
+        mera = st[s+1:s+9]
+        try: 
+            self.mera = float(mera);
+        except :
+            self.mera = 0
+            self.dobramera = False;
+            return ' '
+        if(e==-1):
+            self.dobramera = True;
+            return str(self.mera)
+        else:
+            self.dobramera = False;
+            return str(self.mera)
         
