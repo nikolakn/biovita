@@ -83,11 +83,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         try: 
             self.mera = float(mera);
         except :
-            self.mera = 0         
-            palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
-            self.vagamera_2.setPalette(palette)
+            #self.mera = 0         
+            #palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
+            #self.vagamera_2.setPalette(palette)
             self.dobramera = False;
-            return ' '
+            return ''
         if(e==-1):
             self.dobramera = True;
             palette.setColor(QPalette.Active, QPalette.Base, QColor(0, 255, 0))
