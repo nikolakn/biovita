@@ -62,7 +62,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             ch = self.port.readline();
             mera = self.vagaMera(ch);
         else:
-            ch = chr(2)+"    43.2G"
+            ch = chr(2)+"    43.2M"
             mera = self.vagaMera(ch);
         if(mera!=''):
             self.vagamera_2.setText(mera)
@@ -78,16 +78,24 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.dobramera = False;
             return ''
         mera = st[s+1:s+9]
+        palette = self.vagamera_2.palette()
+        palette.setColor(QPalette.Active, QPalette.Text, QColor(255, 255, 255))
         try: 
             self.mera = float(mera);
         except :
-            self.mera = 0
+            self.mera = 0         
+            palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
+            self.vagamera_2.setPalette(palette)
             self.dobramera = False;
             return ' '
         if(e==-1):
             self.dobramera = True;
+            palette.setColor(QPalette.Active, QPalette.Base, QColor(0, 255, 0))
+            self.vagamera_2.setPalette(palette)
             return str(self.mera)
         else:
             self.dobramera = False;
+            palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
+            self.vagamera_2.setPalette(palette)
             return str(self.mera)
         
