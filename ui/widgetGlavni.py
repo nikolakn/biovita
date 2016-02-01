@@ -20,8 +20,8 @@ class GlavniProzor(QWidget):
         paint = QPainter(self)
         paint.setPen(Qt.black);
         paint.setBrush(Qt.white);
-        paint.drawRect(5, 5, 800, 25);
-        paint.drawText(30,20,"Bin12")
+        #paint.drawRect(5, 5, 780, 25);
+        #paint.drawText(30,20,"Bin12")
         
-        paint.drawRect(5, 110, 800, 25);
-        paint.drawText(30,125,"Bin1")          
+        #paint.drawRect(5, 110, 780, 25);
+         
