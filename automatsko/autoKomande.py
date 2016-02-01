@@ -94,8 +94,13 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.vagamera_2.setPalette(palette)
             return str(self.mera)
         else:
-            self.dobramera = False;
-            palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
-            self.vagamera_2.setPalette(palette)
-            return str(self.mera)
-        
+            if(Q!=-1):
+                self.dobramera = False;
+                palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
+                self.vagamera_2.setPalette(palette)
+                return str(self.mera)
+            else:
+                self.dobramera = True;
+                palette.setColor(QPalette.Active, QPalette.Base, QColor(0, 255, 0))
+                self.vagamera_2.setPalette(palette)
+                return str(self.mera)               
