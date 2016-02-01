@@ -234,7 +234,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAutoFillBackground(False)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
-        self.scrollAreaWidgetContents = QtGui.QWidget()
+        self.scrollAreaWidgetContents = GlavniProzor()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 950, 514))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -264,7 +264,7 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents.setPalette(palette)
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.groupBox_5 = QtGui.QGroupBox(self.scrollAreaWidgetContents)
-        self.groupBox_5.setGeometry(QtCore.QRect(90, 150, 151, 61))
+        self.groupBox_5.setGeometry(QtCore.QRect(10, 170, 151, 61))
         self.groupBox_5.setObjectName(_fromUtf8("groupBox_5"))
         self.verticalLayout_9 = QtGui.QVBoxLayout(self.groupBox_5)
         self.verticalLayout_9.setContentsMargins(-1, 5, 20, 5)
@@ -527,3 +527,4 @@ class Ui_MainWindow(object):
         self.menuPregledi_i_izvestaji.setTitle(_translate("MainWindow", "Pregledi i izvestaji", None))
 
 from grafik import NkGrafik
+from widgetGlavni import GlavniProzor

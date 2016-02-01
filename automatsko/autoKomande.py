@@ -60,4 +60,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             ch = self.port.readline();
             print(ch)
             #self.com1.setText("vaga")
-        self.repaint()        
+        self.repaint()    
+
+
+
+        

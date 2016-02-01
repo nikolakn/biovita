@@ -453,7 +453,7 @@
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
+        <widget class="GlavniProzor" name="scrollAreaWidgetContents">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -541,8 +541,8 @@
          <widget class="QGroupBox" name="groupBox_5">
           <property name="geometry">
            <rect>
-            <x>90</x>
-            <y>150</y>
+            <x>10</x>
+            <y>170</y>
             <width>151</width>
             <height>61</height>
            </rect>
@@ -1140,6 +1140,12 @@ p, li { white-space: pre-wrap; }
    <class>NkGrafik</class>
    <extends>QWidget</extends>
    <header>grafik</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GlavniProzor</class>
+   <extends>QWidget</extends>
+   <header>widgetGlavni</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
