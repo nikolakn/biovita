@@ -852,8 +852,8 @@ p, li { white-space: pre-wrap; }
           </property>
           <property name="minimumSize">
            <size>
-            <width>500</width>
-            <height>250</height>
+            <width>600</width>
+            <height>200</height>
            </size>
           </property>
          </widget>
