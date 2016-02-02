@@ -27,7 +27,7 @@ class Bin(QtGui.QWidget):
         self.repaint() 
         
     def animate(self):
-        self.nivo = self.nivo + 4
+        self.nivo = self.nivo + 2
         if (self.nivo > 50):
             self.nivo = 15;
         self.repaint()

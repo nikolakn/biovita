@@ -11,11 +11,20 @@ class GlavniProzor(QWidget):
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)
         self.ukljuceno = False;
-        
-        self.loadedImage = QImage()
-        self.loadedImage.load("images/el1.png")
-        self.loadedImage2 = QImage()
-        self.loadedImage2.load("images/el2.png")
+        self.slike1 = [QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),QImage()
+                      ,QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),
+                      QImage(),QImage(),QImage(),QImage()]
+        self.slike2 = [QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),QImage()
+                        ,QImage(),QImage(),QImage(),QImage(),QImage(),QImage()]              
+        for i in range(0,18):
+            self.slike1[i].load("images/el1_"+str(i+1)+".png")
+        #self.loadedImage2 = QImage()
+        for i in range(0,9):
+            self.slike2[i].load("images/el2_"+str(i+1)+".png")
+        #self.loadedImage2 = QImage()
+        self.slika1frame = 0;
+        self.slika2frame = 0;
+        #self.loadedImage2.load("images/el2.png")
         self.x = 28; #start
         self.y = 47; #izmedju dve susedne
         self.dx = 155; #izmedju dva para
@@ -68,7 +77,7 @@ class GlavniProzor(QWidget):
         
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
-        self.ctimer.start(250)    
+        self.ctimer.start(150)    
         self.bin1.on()
         self.bin2.on()
         self.bin3.on()
@@ -85,7 +94,13 @@ class GlavniProzor(QWidget):
         self.bin10.animate();
         self.bin11.animate();
         self.bin12.animate();
-        
+        self.slika1frame = self.slika1frame + 1
+        if(self.slika1frame>=18):
+            self.slika1frame = 0;
+        self.slika2frame = self.slika2frame + 1
+        if(self.slika2frame>=9):
+            self.slika2frame = 0;    
+        self.repaint() 
         
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)
@@ -108,8 +123,8 @@ class GlavniProzor(QWidget):
         #paint.drawLine(380, 395, 380, 168);
         #paint.drawLine(380, 168, 500, 168);
         #paint.drawText(30,20,"Bin12")
-        paint.drawImage(QPoint(150,155),self.loadedImage)
-        paint.drawImage(QPoint(500,155),self.loadedImage2)
+        paint.drawImage(QPoint(150,155),self.slike1[self.slika1frame])
+        paint.drawImage(QPoint(500,155),self.slike2[self.slika2frame])
         #paint.drawRect(5, 110, 780, 25);
         paint.setBrush(Qt.green); 
         paint.drawRect(450, 245, 50, 15);
