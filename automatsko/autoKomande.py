@@ -63,6 +63,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.dataTrenutniZadatak = self.baza.trenutniZadatakList()
         
         self.ucitajBinove()
+        self.ucitajZadatake()
         self.ucitajTrenutniZadatak() 
     def ucitajBinove(self):
         self.binlab = [self.label_bin1,self.label_bin2,self.label_bin3,
@@ -77,7 +78,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             else:
                 bin.setText('')
             index = index + 1    
-    def ucitajTrenutniZadatak(self):
+    def ucitajZadatake(self):
         n = 0
         self.tableWidget_2.setRowCount(len(self.dataZadaci))
         self.tableWidget_2.setColumnCount(5)
@@ -98,7 +99,26 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             newitem6 = QTableWidgetItem(str(zad.odradjeno))
             self.tableWidget_2.setItem(n, 4, newitem6)
             n += 1
-        self.repaint()
+    def ucitajTrenutniZadatak(self):
+        n = 0
+        self.tableWidget.setRowCount(len(self.dataTrenutniZadatak))
+        self.tableWidget.setColumnCount(4)
+        self.tableWidget.setHorizontalHeaderLabels(['Komponenta', 'Bin', 'Zadato', 'Izmereno'])
+        for zad in self.dataTrenutniZadatak:  
+            newitem2 = QTableWidgetItem(zad.komponenta)
+            self.tableWidget.setItem(n, 0, newitem2)
+            
+            newitem3 = QTableWidgetItem(str(zad.bin))
+            self.tableWidget.setItem(n, 1, newitem3)
+            
+            newitem4 = QTableWidgetItem(str(zad.zadato))
+            self.tableWidget.setItem(n, 2, newitem4)
+            
+            newitem5 = QTableWidgetItem(str(zad.izmereno))
+            self.tableWidget.setItem(n, 3, newitem5)
+            
+            n += 1
+        self.tableWidget.resizeColumnsToContents()    
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):
