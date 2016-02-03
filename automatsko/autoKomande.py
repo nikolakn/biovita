@@ -53,7 +53,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ex = None
         
         self.ucitajizBaze()
-        self.ucitajBinove()
+       
+        
     #ucitaj podatke iz baze
     def ucitajizBaze(self):    
         self.dataRecepture = self.baza.receptureList()
@@ -61,6 +62,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.dataBinovi = self.baza.getBinovi() 
         self.dataTrenutniZadatak = self.baza.trenutniZadatakList()
         
+        self.ucitajBinove()
+        self.ucitajTrenutniZadatak() 
     def ucitajBinove(self):
         self.binlab = [self.label_bin1,self.label_bin2,self.label_bin3,
                        self.label_bin4,self.label_bin5,self.label_bin6,
@@ -74,7 +77,28 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             else:
                 bin.setText('')
             index = index + 1    
-                
+    def ucitajTrenutniZadatak(self):
+        n = 0
+        self.tableWidget_2.setRowCount(len(self.dataZadaci))
+        self.tableWidget_2.setColumnCount(5)
+        self.tableWidget_2.setHorizontalHeaderLabels(['Ime', 'Kolicina', 'Odvaga', 'Poslednja odvaga', 'Odradjeno'])
+        for zad in self.dataZadaci:  
+            newitem2 = QTableWidgetItem(zad.ime)
+            self.tableWidget_2.setItem(n, 0, newitem2)
+            
+            newitem3 = QTableWidgetItem(str(zad.kolicina))
+            self.tableWidget_2.setItem(n, 1, newitem3)
+            
+            newitem4 = QTableWidgetItem(str(zad.odvaga))
+            self.tableWidget_2.setItem(n, 2, newitem4)
+            
+            newitem5 = QTableWidgetItem(str(zad.poslednja))
+            self.tableWidget_2.setItem(n, 3, newitem5)
+            
+            newitem6 = QTableWidgetItem(str(zad.odradjeno))
+            self.tableWidget_2.setItem(n, 4, newitem6)
+            n += 1
+        self.repaint()
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):
