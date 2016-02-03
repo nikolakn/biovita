@@ -12,7 +12,7 @@ from sys import platform as _platform
 import serial 
 import time
 from rucne import rucneKomande
-from database import dbhelpers,data
+from database import dbhelpers,data,zadatak
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
@@ -49,8 +49,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ctimer.start(100)
         self.ex = None
         self.baza = dbhelpers.db()
+        
         self.baza.open()
         zad = self.baza.zadaciList()
+        tt = zadatak.NkReceptura()
         sum = 0
         binovi = data.NkBinovi()
         for z in zad:
