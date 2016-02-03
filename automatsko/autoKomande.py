@@ -52,18 +52,25 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ctimer.start(100)
         self.ex = None
         
+        self.ucitajizBaze()
         self.ucitajBinove()
+    #ucitaj podatke iz baze
+    def ucitajizBaze(self):    
+        self.dataRecepture = self.baza.receptureList()
+        self.dataZadaci = self.baza.zadaciList()
+        self.dataBinovi = self.baza.getBinovi() 
+        self.dataTrenutniZadatak = self.baza.trenutniZadatakList()
         
     def ucitajBinove(self):
         self.binlab = [self.label_bin1,self.label_bin2,self.label_bin3,
                        self.label_bin4,self.label_bin5,self.label_bin6,
                        self.label_bin7,self.label_bin8,self.label_bin9,
                        self.label_bin10,self.label_bin11,self.label_bin12]
-        self.binovi = self.baza.getBinovi() 
+        
         index = 1;
         for bin in self.binlab:
-            if(self.binovi.getBin(index).artikl != None):
-                bin.setText(self.binovi.getBin(index).artikl)
+            if(self.dataBinovi.getBin(index).artikl != None):
+                bin.setText(self.dataBinovi.getBin(index).artikl)
             else:
                 bin.setText('')
             index = index + 1    
