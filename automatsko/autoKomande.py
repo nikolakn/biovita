@@ -12,6 +12,7 @@ from sys import platform as _platform
 import serial 
 import time
 from rucne import rucneKomande
+from database import dbhelpers
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
@@ -23,7 +24,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
                 self.port.open()
             except:
-                print("Greska seriski port")
+                print("Greska seriski port ")
                 sys.exit(0)   
         self.state = state
         self.initUI()
@@ -47,6 +48,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(100)
         self.ex = None
+        self.baza = dbhelpers.db()
+        self.baza.open()
+        zad = self.baza.zadaciList()
+        for z in zad:
+            print z
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):
