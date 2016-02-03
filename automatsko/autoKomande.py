@@ -51,8 +51,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.baza = dbhelpers.db()
         self.baza.open()
         zad = self.baza.zadaciList()
+        sum = 0
         for z in zad:
+            sum = sum + z.kolicina
             print z
+        print sum
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):
