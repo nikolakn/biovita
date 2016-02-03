@@ -43,19 +43,31 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         meniUnos.triggered.connect(self.unosWindow)
         meniUtovar.triggered.connect(self.utovarWindow)
         
-      
+        #baza
+        self.baza = dbhelpers.db()
+        self.baza.open()
+        #timer
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(100)
         self.ex = None
-        #baza
-        self.baza = dbhelpers.db()
-        self.baza.open()
-        gg = self.baza.trenutniZadatakList()
-        recept = self.baza.receptureList()
-        for r in recept:
-            print str(r)
         
+        self.ucitajBinove()
+        
+    def ucitajBinove(self):
+        self.binlab = [self.label_bin1,self.label_bin2,self.label_bin3,
+                       self.label_bin4,self.label_bin5,self.label_bin6,
+                       self.label_bin7,self.label_bin8,self.label_bin9,
+                       self.label_bin10,self.label_bin11,self.label_bin12]
+        self.binovi = self.baza.getBinovi() 
+        index = 1;
+        for bin in self.binlab:
+            if(self.binovi.getBin(index).artikl != None):
+                bin.setText(self.binovi.getBin(index).artikl)
+            else:
+                bin.setText('')
+            index = index + 1    
+                
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):

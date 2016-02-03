@@ -75,13 +75,13 @@ class NkReceptura:
         rez = rez +'suma: '+ str(sum)    
         return rez;
         
-    class NkGotoveOdvage:
-        def __init__(self):
-            self.id = -1
-            self.ime = ''
-            self.zadataKolicina = 0.0
-            self.tezinaOdvage = 0.0
-            self.vreme = ''
-            self.datum = ''
+class NkGotoveOdvage:
+    def __init__(self):
+        self.id = -1
+        self.ime = ''
+        self.zadataKolicina = 0.0
+        self.tezinaOdvage = 0.0
+        self.vreme = ''
+        self.datum = ''
         
      
