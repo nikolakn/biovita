@@ -48,13 +48,13 @@ class NkTrenutniZadatak:
 class NkKomponenta:
     def __init__(self):
         self.ime = ''
-        self.procenat = 0.0
+        self.procenat = float(0.0)
    
  
 class NkReceptura:
-    def __init__(self):
-        self.id = -1
-        self.ime = ''
+    def __init__(self,id,ime):
+        self.id = id
+        self.ime = ime
         self.komponente= []  
         for b in range(0,12):
             self.komponente.append(NkKomponenta()) 
@@ -67,6 +67,21 @@ class NkReceptura:
         rez = 'Receptura \n'
         rez = rez + 'id: ' +str(self.id) +'\n'
         rez = rez +  'ime: ' +self.ime+'\n'
+        sum = 0.0
         for b in self.komponente:
-            rez = rez + b.ime +" "+b.procenat+'\n '
+            rez = rez + str(b.ime) +" "+str(b.procenat)+'\n'
+            if (b.procenat != None):
+                sum = sum + b.procenat
+        rez = rez +'suma: '+ str(sum)    
         return rez;
+        
+    class NkGotoveOdvage:
+        def __init__(self):
+            self.id = -1
+            self.ime = ''
+            self.zadataKolicina = 0.0
+            self.tezinaOdvage = 0.0
+            self.vreme = ''
+            self.datum = ''
+        
+     

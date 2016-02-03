@@ -51,8 +51,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         #baza
         self.baza = dbhelpers.db()
         self.baza.open()
-        binovi = self.baza.getBinovi()
-        print binovi
+        gg = self.baza.trenutniZadatakList()
+        recept = self.baza.receptureList()
+        for r in recept:
+            print str(r)
         
     def unosWindow(self):
         print("unos");

@@ -51,7 +51,46 @@ class db(object):
             row = self.cur.fetchone() 
             i = i + 1
         return rez  
+
+    def receptureList(self):
+        list = []
+        self.cur.execute("SELECT * FROM recepture")
+        row = self.cur.fetchone()
+        while row is not None:
+            data = zadatak.NkReceptura(row[0],row[1])
+            for b in range(0,12):
+                data.addKomponente(b,row[2*b+2],row[2*b+3])
+            list.append(data)
+            row = self.cur.fetchone()   
+        return list
         
+    def gotoveOdvageList(self):
+        list = []
+        self.cur.execute("SELECT * FROM gotoveOdvage")
+        row = self.cur.fetchone()
+        while row is not None:
+            data = zadatak.NkGotoveOdvage()
+            data.id=row[0]
+            data.ime=row[1]
+            data.zadataKolicina=row[2]
+            data.tezinaOdvage=row[3]
+            data.vreme=row[4]
+            data.datum=row[5]
+            list.append(data)
+            row = self.cur.fetchone()   
+        return list
+        
+    def trenutniZadatakList(self):
+        list = []
+        self.cur.execute("SELECT * FROM trenutniZadatak")
+        row = self.cur.fetchone()
+        while row is not None:
+            data = zadatak.NkTrenutniZadatak()
+            data.set=(row[0],row[1],row[2],row[3],row[4])
+            list.append(data)
+            row = self.cur.fetchone()   
+        return list        
+###        
     def login(self,ime,password):
         self.cur.execute("SELECT * FROM osoblje WHERE UNAME='"+ime+"'")
         rows = self.cur.fetchall()
