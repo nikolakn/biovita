@@ -48,18 +48,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(100)
         self.ex = None
+        #baza
         self.baza = dbhelpers.db()
-        
         self.baza.open()
-        zad = self.baza.zadaciList()
-        tt = zadatak.NkReceptura()
-        sum = 0
-        binovi = data.NkBinovi()
-        for z in zad:
-            sum = sum + z.kolicina
-            print z
-        print sum
+        binovi = self.baza.getBinovi()
         print binovi
+        
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):

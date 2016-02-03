@@ -3,6 +3,7 @@
 import sqlite3 as lite
 import sys
 import zadatak
+import data
 
 class db(object):
     '''
@@ -35,11 +36,22 @@ class db(object):
         row = self.cur.fetchone()
         while row is not None:
             data = zadatak.NkZadatak()
-            data.append(row[0],row[1],row[2],row[3],row[4],row[5])
+            data.set(row[0],row[1],row[2],row[3],row[4],row[5])
             list.append(data)
             row = self.cur.fetchone()   
         return list
-    
+        
+    def getBinovi(self):
+        rez = data.NkBinovi()
+        self.cur.execute("SELECT * FROM binovi")
+        row = self.cur.fetchone()
+        i = 0
+        while row is not None:
+            rez.setBin(i,row[1],row[2],row[3],row[4])
+            row = self.cur.fetchone() 
+            i = i + 1
+        return rez  
+        
     def login(self,ime,password):
         self.cur.execute("SELECT * FROM osoblje WHERE UNAME='"+ime+"'")
         rows = self.cur.fetchall()
