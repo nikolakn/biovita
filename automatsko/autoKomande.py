@@ -12,7 +12,7 @@ from sys import platform as _platform
 import serial 
 import time
 from rucne import rucneKomande
-from database import dbhelpers
+from database import dbhelpers,data
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
@@ -52,10 +52,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.baza.open()
         zad = self.baza.zadaciList()
         sum = 0
+        binovi = data.NkBinovi()
         for z in zad:
             sum = sum + z.kolicina
             print z
         print sum
+        print binovi
     def unosWindow(self):
         print("unos");
     def utovarWindow(self):
