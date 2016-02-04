@@ -89,8 +89,29 @@ class db(object):
             data.set=(row[0],row[1],row[2],row[3],row[4])
             list.append(data)
             row = self.cur.fetchone()   
-        return list        
-###        
+        return list 
+
+    def obrisiZadatak(self,id):
+        try:
+            query = "DELETE FROM zadaci WHERE id ="+str(id)+""
+            self.cur.execute(query)
+            self.con.commit() 
+            return True
+        except:
+            print('greska , ne mogu da obrisem zadatak ',sys.exc_info())
+            return False        
+    def insertZadatak(self,zadatak):
+        try:
+            query = "INSERT INTO zadaci(ime,kolicina,odvaga,poslednja,odradjeno) VALUES(?,?,?,?,?)"
+            args = (zadatak.ime,zadatak.kolicina,zadatak.odvaga,zadatak.poslednja,zadatak.odradjeno)
+            self.cur.execute(query, args)
+            #self.cursor.executemany(query, books)
+            self.con.commit()
+            return True
+        except:
+            print('greska nije uspelo upisivanje u bazu',sys.exc_info())
+            return False    
+'''     
     def login(self,ime,password):
         self.cur.execute("SELECT * FROM osoblje WHERE UNAME='"+ime+"'")
         rows = self.cur.fetchall()
@@ -114,14 +135,5 @@ class db(object):
         except Error as error:
             print(error)
             return False
-
-    def delOsoblje(self,ime):
-        try:
-            query = "DELETE FROM osoblje WHERE UNAME = %s"
-            self.cursor.execute(query, (ime,))
-            self.cnx.commit()
-            return True
-        except Error as error:
-            print(error)
-            return False
+'''
 

@@ -1412,7 +1412,7 @@ p, li { white-space: pre-wrap; }
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_4">
+            <widget class="QPushButton" name="dugme_krajodvage">
              <property name="text">
               <string>Kraj odvage</string>
              </property>
@@ -1432,14 +1432,14 @@ p, li { white-space: pre-wrap; }
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_5">
+            <widget class="QPushButton" name="dugme_novizadatak">
              <property name="text">
               <string>Novi zadatak</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_6">
+            <widget class="QPushButton" name="dugme_brisizadatak">
              <property name="text">
               <string>Brisi zadatak</string>
              </property>

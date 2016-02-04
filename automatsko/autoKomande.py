@@ -13,7 +13,7 @@ import serial
 import time
 from rucne import rucneKomande
 from database import dbhelpers,data,zadatak
-
+import dialogRec
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
     def __init__(self,state, parent=None):
@@ -43,6 +43,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         meniUnos.triggered.connect(self.unosWindow)
         meniUtovar.triggered.connect(self.utovarWindow)
         
+        self.dugme_brisizadatak.clicked.connect(lambda:self.brisiZadatak())
+        self.dugme_novizadatak.clicked.connect(lambda:self.noviZadatak())
         #baza
         self.baza = dbhelpers.db()
         self.baza.open()
@@ -80,6 +82,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             index = index + 1    
     def ucitajZadatake(self):
         n = 0
+        self.tableWidget_2.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tableWidget_2.setSelectionMode(QAbstractItemView.SingleSelection);
         self.tableWidget_2.setRowCount(len(self.dataZadaci))
         self.tableWidget_2.setColumnCount(5)
         self.tableWidget_2.setHorizontalHeaderLabels(['Ime', 'Kolicina', 'Odvaga', 'Poslednja odvaga', 'Odradjeno'])
@@ -99,8 +103,39 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             newitem6 = QTableWidgetItem(str(zad.odradjeno))
             self.tableWidget_2.setItem(n, 4, newitem6)
             n += 1
+    def brisiZadatak(self):
+        x = self.tableWidget_2.selectedIndexes ()
+        if(len(x)==0):
+            return
+        x = self.tableWidget_2.selectionModel().selectedRows()[0].row();
+        id = self.dataZadaci[x].id
+        del self.dataZadaci[x]
+        #obrisati iz baze   
+        self.baza.obrisiZadatak(id)
+        self.dataZadaci = self.baza.zadaciList()
+        self.ucitajZadatake()
+
+            
+    def noviZadatak(self):
+        unos = dialogRec.dialogzaRecept(self,self.dataRecepture)
+        if( unos.exec_() == QDialog.Accepted):
+            zz = zadatak.NkZadatak()
+            zz.ime = unos.getIme()
+            zz.kolicina = unos.getKolicina()
+            if(zz.kolicina%600 == 0):
+                zz.odvaga = int(zz.kolicina/600)
+            else:    
+                zz.odvaga = int(zz.kolicina/600)+1
+            self.dataZadaci.append(zz) 
+                
+            self.baza.insertZadatak(zz)  
+            self.dataZadaci = self.baza.zadaciList()            
+            self.ucitajZadatake()
+        
     def ucitajTrenutniZadatak(self):
         n = 0
+        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.tableWidget.setSelectionMode(QAbstractItemView.SingleSelection);
         self.tableWidget.setRowCount(len(self.dataTrenutniZadatak))
         self.tableWidget.setColumnCount(4)
         self.tableWidget.setHorizontalHeaderLabels(['Komponenta', 'Bin', 'Zadato', 'Izmereno'])
