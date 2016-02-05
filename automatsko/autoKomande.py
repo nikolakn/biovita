@@ -75,14 +75,18 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         else:
             self.statustext.setText("start recepture: "+ime)
         #citaj komponente i odredi binove
+        self.dataTrenutniZadatak = []
         for komp in receptura.komponente:
-            k = zadatak.NkTrenutniZadatak()
-            k.komponenta = ime
-            k.bin = 0
-            k.zadato = 0
-            k.izmereno = 0
-            self.dataTrenutniZadatak.append(k)    
-        
+            komponenta = komp.ime
+            procenat = komp.procenat;
+            if(komponenta!='' and procenat!=0 and komponenta!=None):
+                k = zadatak.NkTrenutniZadatak()
+                k.komponenta = komponenta
+                k.bin = 0
+                k.zadato = 0
+                k.izmereno = 0
+                self.dataTrenutniZadatak.append(k)    
+        self.ucitajTrenutniZadatak();
         #print tzadatak
         self.isStart = True
         
