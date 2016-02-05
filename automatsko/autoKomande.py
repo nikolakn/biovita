@@ -63,10 +63,29 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def startZadatak(self):
         if(len(self.baza.zadaciList())==0):
             return
-        zadatak = self.baza.zadaciList()[0]
-        ime = zadatak.ime
-        print zadatak
+        tzadatak = self.baza.zadaciList()[0]
+        ime = tzadatak.ime
+        receptura = None
+        for rec in self.baza.receptureList():
+            if (rec.ime == ime):
+                receptura = rec
+        if(receptura == None):
+            self.statustext.setText("Receptura ne postoji!")
+            return;
+        else:
+            self.statustext.setText("start recepture: "+ime)
+        #citaj komponente i odredi binove
+        for komp in receptura.komponente:
+            k = zadatak.NkTrenutniZadatak()
+            k.komponenta = ime
+            k.bin = 0
+            k.zadato = 0
+            k.izmereno = 0
+            self.dataTrenutniZadatak.append(k)    
+        
+        #print tzadatak
         self.isStart = True
+        
     def stopZadatak(self):   
         self.isStart = False
     #ucitaj podatke iz baze
