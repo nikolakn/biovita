@@ -61,27 +61,27 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ucitajizBaze()
        
     def startZadatak(self):
-        if(len(self.baza.zadaciList())==0):
+        if(len(self.dataZadaci)==0):
             return
             
-        if(len(self.baza.dataTrenutniZadatak())==0):
-            self,_odvagaBroj = 0;
+        if(len(self.dataTrenutniZadatak)==0):
+            self._odvagaBroj = 0;
             self.pocetakOdvage();            
         else:
             self.pocetakKomponente();    
-        tzadatak = self.baza.zadaciList()[0]
+        tzadatak = self.dataZadaci[0]
         ime = tzadatak.ime
         receptura = None
-        for rec in self.baza.receptureList():
+        for rec in self.dataRecepture:
             if (rec.ime == ime):
                 receptura = rec
         if(receptura == None):
-            self.statustext.setText("Receptura ne postoji!")
+            self.status("Receptura ne postoji!")
             return;
         else:
-            self.statustext.setText("start recepture: "+ime)
+            self.status("start recepture: "+ime)
         #citaj komponente i odredi binove
-        self._trenutnaOdvaga = self.baza.zadaciList()[0].odradjeno
+        self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
         
         self.dataTrenutniZadatak = []
         for komp in receptura.komponente:
@@ -96,14 +96,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.dataTrenutniZadatak.append(k)    
         self.ucitajTrenutniZadatak();
         #print tzadatak
-        self.imerecepture.setText(self.baza.zadaciList()[0].ime)
-        self.brojodvagauz.setText(str(int(self.baza.zadaciList()[0].odvaga)))
+        self.imerecepture.setText(self.dataZadaci[0].ime)
+        self.brojodvagauz.setText(str(int(self.dataZadaci[0].odvaga)))
         self.lineEdit_5.setText(str(int(self._trenutnaOdvaga+1)))
         self.isStart = True
         #self.repaint() 
         
     def pocetakOdvage(self):
-        pass
+        self.status("Startovanje odvage")
 
     def pocetakKomponente(self):
         pass
@@ -260,4 +260,6 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
             self.vagamera_2.setPalette(palette)
             return str(self.mera)
-        
+
+    def status(self,msg):
+        self.statustext.setText(msg)
