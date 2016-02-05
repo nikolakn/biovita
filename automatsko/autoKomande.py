@@ -63,6 +63,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def startZadatak(self):
         if(len(self.baza.zadaciList())==0):
             return
+            
+        if(len(self.baza.dataTrenutniZadatak())==0):
+            self,_odvagaBroj = 0;
+            self.pocetakOdvage();            
+        else:
+            self.pocetakKomponente();    
         tzadatak = self.baza.zadaciList()[0]
         ime = tzadatak.ime
         receptura = None
@@ -75,6 +81,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         else:
             self.statustext.setText("start recepture: "+ime)
         #citaj komponente i odredi binove
+        self._trenutnaOdvaga = self.baza.zadaciList()[0].odradjeno
+        
         self.dataTrenutniZadatak = []
         for komp in receptura.komponente:
             komponenta = komp.ime
@@ -88,7 +96,17 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.dataTrenutniZadatak.append(k)    
         self.ucitajTrenutniZadatak();
         #print tzadatak
+        self.imerecepture.setText(self.baza.zadaciList()[0].ime)
+        self.brojodvagauz.setText(str(int(self.baza.zadaciList()[0].odvaga)))
+        self.lineEdit_5.setText(str(int(self._trenutnaOdvaga+1)))
         self.isStart = True
+        #self.repaint() 
+        
+    def pocetakOdvage(self):
+        pass
+
+    def pocetakKomponente(self):
+        pass
         
     def stopZadatak(self):   
         self.isStart = False
