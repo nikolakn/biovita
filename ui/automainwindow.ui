@@ -735,7 +735,7 @@ p, li { white-space: pre-wrap; }
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_10">
+         <widget class="QPushButton" name="dugmestopele">
           <property name="geometry">
            <rect>
             <x>600</x>
@@ -1313,7 +1313,7 @@ p, li { white-space: pre-wrap; }
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="startdugme">
              <property name="minimumSize">
               <size>
                <width>100</width>
@@ -1350,7 +1350,7 @@ p, li { white-space: pre-wrap; }
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_3">
+            <widget class="QPushButton" name="stopdugme">
              <property name="minimumSize">
               <size>
                <width>100</width>

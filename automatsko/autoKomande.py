@@ -27,6 +27,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 print("Greska seriski port ")
                 sys.exit(0)   
         self.state = state
+        self.isStart = False
         self.initUI()
         
     def initUI(self):
@@ -45,6 +46,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         self.dugme_brisizadatak.clicked.connect(lambda:self.brisiZadatak())
         self.dugme_novizadatak.clicked.connect(lambda:self.noviZadatak())
+        
+        self.startdugme.clicked.connect(lambda:self.startZadatak())
+        self.stopdugme.clicked.connect(lambda:self.stopZadatak())
         #baza
         self.baza = dbhelpers.db()
         self.baza.open()
@@ -56,7 +60,15 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         self.ucitajizBaze()
        
-        
+    def startZadatak(self):
+        if(len(self.baza.zadaciList())==0):
+            return
+        zadatak = self.baza.zadaciList()[0]
+        ime = zadatak.ime
+        print zadatak
+        self.isStart = True
+    def stopZadatak(self):   
+        self.isStart = False
     #ucitaj podatke iz baze
     def ucitajizBaze(self):    
         self.dataRecepture = self.baza.receptureList()
