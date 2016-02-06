@@ -193,8 +193,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
            self.vaganje = False
            self.zavrsenZadatak()
             
-    
+    # zavrsen zadatak
+    # pripremi za novu odvagu
     def zavrsenZadatak(self):
+        self.baza.upisiOdvagu(self.dataZadaci[0].ime,600,self.prethodnaMera )
         self.status("zadatak zavrsen!")
         self._isvaga2=False
         
@@ -206,6 +208,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
         self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
         self.prethodnaMera = mera
+        
          #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
@@ -356,7 +359,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             ch = self.port.readline();
             mera = self.vagaMera(ch);
         else:
-            self.simvag = self.simvag +1
+            self.simvag = self.simvag +3
             if (self.simvag>600):
                 self.simvag = 0
             m = "%08d" % (self.simvag,)

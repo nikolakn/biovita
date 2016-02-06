@@ -4,6 +4,7 @@ import sqlite3 as lite
 import sys
 import zadatak
 import data
+import time
 
 class db(object):
     '''
@@ -144,3 +145,15 @@ class db(object):
         except:
             print('greska , ne mogu da updatujem meru ',sys.exc_info())
             return False 
+            
+    def upisiOdvagu(self,ime,zad,mera):
+        try:
+            query = "INSERT INTO gotoveOdvage (imeRecepta,zadataKolicina,tezinaOdvage,vreme,datum) VALUES(?,?,?,?,?)"
+            args = (ime,zad,mera,time.strftime("%H:%M:%S"),time.strftime("%d/%m/%Y"))
+            self.cur.execute(query, args)
+            #self.cursor.executemany(query, books)
+            self.con.commit()
+            return True
+        except:
+            print('greska nije uspelo upisivanje u bazu',sys.exc_info())
+            return False     
