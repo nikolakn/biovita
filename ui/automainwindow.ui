@@ -593,7 +593,7 @@ p, li { white-space: pre-wrap; }
            </item>
           </layout>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_12">
+         <widget class="QLineEdit" name="vaga2edit">
           <property name="geometry">
            <rect>
             <x>250</x>

@@ -15,7 +15,7 @@ class NkBinovi:
         for b in range(0,12):
             self.binovi.append(Bin(str(b+1))) 
     def getBin(self,id):
-        return self.binovi[id-1]
+        return self.binovi[id]
         
     def setBin(self, id, artikl,kolicina,max,koef):
         self.binovi[id].artikl = artikl        

@@ -34,7 +34,7 @@ class NkTrenutniZadatak:
         self.bin = 0
         self.zadato = 0
         self.izmereno = 0
-
+        self.procenat = 0
         
     def set(self, id, komponenta,bin,zadato,izmereno):
         self.id = id

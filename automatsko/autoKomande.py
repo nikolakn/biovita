@@ -56,10 +56,33 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(100)
+        
+        self.vaga2timer = QTimer()
+        QObject.connect(self.vaga2timer, SIGNAL("timeout()"), self.vaga2timerUpdate)
+        self.vaga2timer.start(1000)
+        self._tvaga2 = 0
+        self._isvaga2 = False
+        self._tmlin = 0
+        self._istmlin = False
+        self._tmesaona = 0
+        self._istmesaona = False
         self.ex = None
         
         self.ucitajizBaze()
-       
+        
+    def vaga2timerUpdate(self): 
+        if(self._isvaga2==True):
+            self._tvaga2 = self._tvaga2 + 1
+            self.vaga2edit.setText(str(self._tvaga2))
+            
+        if(self._istmlin==True):
+            self._tmlin = self._tmlin + 1
+            self.vaga2edit.setText(str(self._tmlin))
+            
+        if(self._istmesaona==True):      
+            self._istmesaona = self._istmesaona + 1
+            self.vaga2edit.setText(str(self._istmesaona))
+            
     def startZadatak(self):
         if(len(self.dataZadaci)==0):
             return
@@ -69,7 +92,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.pocetakOdvage();            
         else:
             self.pocetakKomponente();    
+        
+        
+    def pocetakOdvage(self):
         tzadatak = self.dataZadaci[0]
+        self.status("Startovanje odvage")
+        self._isvaga2 = True
         ime = tzadatak.ime
         receptura = None
         for rec in self.dataRecepture:
@@ -93,20 +121,42 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 k.bin = 0
                 k.zadato = 0
                 k.izmereno = 0
-                self.dataTrenutniZadatak.append(k)    
+                k.procenat =  procenat
+                self.dataTrenutniZadatak.append(k)  
+                
+        self._ukupnaKolicina = self.dataZadaci[0].kolicina
+        if(self._ukupnaKolicina > 600):
+            self._ukupnaKolicina = 600
+            
+        self.odredjivanjeBinova();                
         self.ucitajTrenutniZadatak();
         #print tzadatak
+        #kolicina za merenje
+
+        
         self.imerecepture.setText(self.dataZadaci[0].ime)
         self.brojodvagauz.setText(str(int(self.dataZadaci[0].odvaga)))
         self.lineEdit_5.setText(str(int(self._trenutnaOdvaga+1)))
+        self.lineEdit_6.setText(str(self._ukupnaKolicina))
         self.isStart = True
-        #self.repaint() 
+        #self.repaint()        
         
-    def pocetakOdvage(self):
-        self.status("Startovanje odvage")
-
+            
     def pocetakKomponente(self):
         pass
+        
+    
+    def odredjivanjeBinova(self):
+        for z in self.dataTrenutniZadatak:
+            komp = z.komponenta
+            for b in range(0,12):
+                bin = self.dataBinovi.getBin(b)
+                if(bin.artikl == komp):
+                    z.bin = b+1
+                    koef = bin.koeficijent
+                    z.zadato = self._ukupnaKolicina * (z.procenat/100.0) - koef
+                    break;
+                    
         
     def stopZadatak(self):   
         self.isStart = False
@@ -126,7 +176,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                        self.label_bin7,self.label_bin8,self.label_bin9,
                        self.label_bin10,self.label_bin11,self.label_bin12]
         
-        index = 1;
+        index = 0;
         for bin in self.binlab:
             if(self.dataBinovi.getBin(index).artikl != None):
                 bin.setText(self.dataBinovi.getBin(index).artikl)
