@@ -99,6 +99,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         
     def pocetakOdvage(self):
+        self.zadataMera = 0
         self.baza.izbrisiTrenutneZadatke();
         tzadatak = self.dataZadaci[0]
         self.status("Startovanje odvage")
@@ -175,6 +176,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
                 self.tableWidget.selectRow(id);    
                 self._id = komp.id;
+                self.zadataMera = self.zadataMera + komp.zadato
+                
                 self.vaganje = True
                 break
             id = id + 1
@@ -347,7 +350,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.vagamera_2.setText(mera)
         self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
         self.labeldatum.setText('Datum: '+time.strftime("%d/%m/%Y"))
-        if(self.vaganje == True and mera>=self.zadataMera and self.dobramera == True):
+        if(self.vaganje == True and float(mera) >= float(self.zadataMera) and self.dobramera == True):
+            self.vaganje = False
             self.vaganjeZavrseno(mera);
         self.repaint()    
 
