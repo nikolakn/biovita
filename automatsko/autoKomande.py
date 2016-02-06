@@ -30,6 +30,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.isStart = False
         self.vaganje = False
         self.zadataMera = 0
+        self.prethodnaMera = 0
         self.initUI()
         
     def initUI(self):
@@ -194,8 +195,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def vaganjeZavrseno(self, mera):
         self.status("vaganje zavrseno")
         self.vaganje = False
-        self._trenutnaKomponenta.izmereno = mera
-        self.baza.updateIzmereno(self._id, mera)
+        self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
+        self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
+        self.prethodnaMera = mera
          #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
