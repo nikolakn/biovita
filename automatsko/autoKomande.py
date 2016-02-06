@@ -184,6 +184,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.zadataMera = self.prethodnaMera  + komp.zadato
                 
                 self.vaganje = True
+                self.ukljuciBin(komp.bin)
+
                 break
             id = id + 1
          #dali je ostalo komponenata za vaganje
@@ -398,3 +400,29 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
 
     def status(self,msg):
         self.statustext.setText(msg)
+
+    def ukljuciBin(self,bin):
+        if(bin == 1):
+            self.scrollAreaWidgetContents.bin1.on()
+        if(bin == 2):
+            self.scrollAreaWidgetContents.bin2.on()
+        if(bin == 3):
+            self.scrollAreaWidgetContents.bin3.on()
+        if(bin == 4):
+            self.scrollAreaWidgetContents.bin4.on()
+        if(bin == 5):
+            self.scrollAreaWidgetContents.bin5.on()
+        if(bin == 6):
+            self.scrollAreaWidgetContents.bin6.on()
+        if(bin == 7):
+            self.scrollAreaWidgetContents.bin7.on()
+        if(bin == 8):
+            self.scrollAreaWidgetContents.bin8.on()
+        if(bin == 9):
+            self.scrollAreaWidgetContents.bin9.on()
+        if(bin == 10):
+            self.scrollAreaWidgetContents.bin10.on()
+        if(bin == 11):
+            self.scrollAreaWidgetContents.bin11.on()
+        if(bin == 12):
+            self.scrollAreaWidgetContents.bin12.on()            
