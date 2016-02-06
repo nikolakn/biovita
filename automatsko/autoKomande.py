@@ -146,10 +146,28 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.lineEdit_6.setText(str(self._ukupnaKolicina))
         self.isStart = True
         #self.repaint()        
-        
+        self.pocetakKomponente()
             
     def pocetakKomponente(self):
-        pass
+    
+        id = 0
+        for komp in self.dataTrenutniZadatak:
+            if (komp.izmereno==0):
+                self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
+                self._ukupnaKolicina = self.dataZadaci[0].kolicina
+                if(self._ukupnaKolicina > 600):
+                    self._ukupnaKolicina = 600
+                self.lineEdit_3.setText(str(komp.bin));
+                self.lineEdit_4.setText(str(komp.zadato));
+                
+                self.imerecepture.setText(self.dataZadaci[0].ime)
+                self.brojodvagauz.setText(str(int(self.dataZadaci[0].odvaga)))
+                self.lineEdit_5.setText(str(int(self._trenutnaOdvaga+1)))
+                self.lineEdit_6.setText(str(self._ukupnaKolicina))
+        
+                self.tableWidget.selectRow(id);           
+                break
+            id = id + 1
         
     
     def odredjivanjeBinova(self):
@@ -250,15 +268,19 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.tableWidget.setHorizontalHeaderLabels(['Komponenta', 'Bin', 'Zadato', 'Izmereno'])
         for zad in self.dataTrenutniZadatak:  
             newitem2 = QTableWidgetItem(zad.komponenta)
+            newitem2.setFlags(newitem2.flags() ^ Qt.ItemIsEditable);
             self.tableWidget.setItem(n, 0, newitem2)
             
             newitem3 = QTableWidgetItem(str(zad.bin))
+            newitem3.setFlags(newitem3.flags() ^ Qt.ItemIsEditable);
             self.tableWidget.setItem(n, 1, newitem3)
             
             newitem4 = QTableWidgetItem(str(zad.zadato))
+            newitem4.setFlags(newitem4.flags() ^ Qt.ItemIsEditable);
             self.tableWidget.setItem(n, 2, newitem4)
             
             newitem5 = QTableWidgetItem(str(zad.izmereno))
+            newitem5.setFlags(newitem5.flags() ^ Qt.ItemIsEditable);           
             self.tableWidget.setItem(n, 3, newitem5)
             
             n += 1
