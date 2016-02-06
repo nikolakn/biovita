@@ -151,25 +151,32 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def pocetakKomponente(self):
     
         id = 0
+        zadatakZavrsen = True;
         for komp in self.dataTrenutniZadatak:
             if (komp.izmereno==0):
+                zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
                 self._ukupnaKolicina = self.dataZadaci[0].kolicina
-                if(self._ukupnaKolicina > 600):
-                    self._ukupnaKolicina = 600
+                ostalo = self._ukupnaKolicina-(self._trenutnaOdvaga*600)
+                if( ostalo > 600):
+                    ostalo = 600
                 self.lineEdit_3.setText(str(komp.bin));
                 self.lineEdit_4.setText(str(komp.zadato));
                 
                 self.imerecepture.setText(self.dataZadaci[0].ime)
                 self.brojodvagauz.setText(str(int(self.dataZadaci[0].odvaga)))
                 self.lineEdit_5.setText(str(int(self._trenutnaOdvaga+1)))
-                self.lineEdit_6.setText(str(self._ukupnaKolicina))
+                self.lineEdit_6.setText(str(ostalo))
         
                 self.tableWidget.selectRow(id);           
                 break
             id = id + 1
-        
+         #dali je ostalo komponenata za vaganje
+         if(zadatakZavrsen == True ):
+            self.zavrsenZadatak()
     
+    def zavrsenZadatak(self):
+        pass
     def odredjivanjeBinova(self):
         for z in self.dataTrenutniZadatak:
             komp = z.komponenta
