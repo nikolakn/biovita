@@ -95,6 +95,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         
     def pocetakOdvage(self):
+        self.baza.izbrisiTrenutneZadatke();
         tzadatak = self.dataZadaci[0]
         self.status("Startovanje odvage")
         self._isvaga2 = True
@@ -128,7 +129,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if(self._ukupnaKolicina > 600):
             self._ukupnaKolicina = 600
             
-        self.odredjivanjeBinova();                
+        self.odredjivanjeBinova(); 
+
+        for z in self.dataTrenutniZadatak:
+            self.baza.insertTrnutniZadatak(z);
+        
+        self.dataTrenutniZadatak = self.baza.trenutniZadatakList()
         self.ucitajTrenutniZadatak();
         #print tzadatak
         #kolicina za merenje

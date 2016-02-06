@@ -86,7 +86,7 @@ class db(object):
         row = self.cur.fetchone()
         while row is not None:
             data = zadatak.NkTrenutniZadatak()
-            data.set=(row[0],row[1],row[2],row[3],row[4])
+            data.set(row[0],row[1],row[2],row[3],row[4])
             list.append(data)
             row = self.cur.fetchone()   
         return list 
@@ -110,7 +110,30 @@ class db(object):
             return True
         except:
             print('greska nije uspelo upisivanje u bazu',sys.exc_info())
-            return False    
+            return False  
+
+
+    def insertTrnutniZadatak(self,zadatak):
+        try:
+            query = "INSERT INTO trenutniZadatak (komponenta,bin,zadato,izmereno) VALUES(?,?,?,?)"
+            args = (zadatak.komponenta,zadatak.bin,zadatak.zadato,zadatak.izmereno)
+            self.cur.execute(query, args)
+            #self.cursor.executemany(query, books)
+            self.con.commit()
+            return True
+        except:
+            print('greska nije uspelo upisivanje u bazu',sys.exc_info())
+            return False 
+
+    def izbrisiTrenutneZadatke(self):
+        try:
+            query = "DELETE FROM trenutniZadatak"
+            self.cur.execute(query)
+            self.con.commit() 
+            return True
+        except:
+            print('greska , ne mogu da obrisem zadatak ',sys.exc_info())
+            return False      
 '''     
     def login(self,ime,password):
         self.cur.execute("SELECT * FROM osoblje WHERE UNAME='"+ime+"'")
