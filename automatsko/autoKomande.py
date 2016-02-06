@@ -28,6 +28,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 sys.exit(0)   
         self.state = state
         self.isStart = False
+        self.vaganje = False
+        self.zadataMera = 0
         self.initUI()
         
     def initUI(self):
@@ -49,6 +51,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         self.startdugme.clicked.connect(lambda:self.startZadatak())
         self.stopdugme.clicked.connect(lambda:self.stopZadatak())
+        self.dugme_krajodvage.clicked.connect(lambda:self.krajOdvage())
+        self.pushButton.clicked.connect(lambda:self.ocistiTabelu())
         #baza
         self.baza = dbhelpers.db()
         self.baza.open()
@@ -149,11 +153,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.pocetakKomponente()
             
     def pocetakKomponente(self):
-    
+        self.status("Pocetak komponente")
         id = 0
         zadatakZavrsen = True;
         for komp in self.dataTrenutniZadatak:
             if (komp.izmereno==0):
+                self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
                 self._ukupnaKolicina = self.dataZadaci[0].kolicina
@@ -168,15 +173,40 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.lineEdit_5.setText(str(int(self._trenutnaOdvaga+1)))
                 self.lineEdit_6.setText(str(ostalo))
         
-                self.tableWidget.selectRow(id);           
+                self.tableWidget.selectRow(id);    
+                self._id = komp.id;
+                self.vaganje = True
                 break
             id = id + 1
          #dali je ostalo komponenata za vaganje
-         if(zadatakZavrsen == True ):
-            self.zavrsenZadatak()
+        if(zadatakZavrsen == True ):
+           self.vaganje = False
+           self.zavrsenZadatak()
+            
     
     def zavrsenZadatak(self):
-        pass
+        self.status("zadatak zavrsen!")
+        
+    #mera dostignuta    
+    def vaganjeZavrseno(self, mera):
+        self.status("vaganje zavrseno")
+        self.vaganje = False
+        self._trenutnaKomponenta.izmereno = mera
+        self.baza.updateIzmereno(self._id, mera)
+         #refesh tabelu
+        self.ucitajTrenutniZadatak()       
+        self.pocetakKomponente();
+        
+    def krajOdvage(self): 
+        if(self.isStart):
+            self.vaganjeZavrseno(10)
+     
+    def ocistiTabelu(self):
+        self.isStart = False
+        self.baza.izbrisiTrenutneZadatke();
+        self.dataTrenutniZadatak = []
+        self.ucitajTrenutniZadatak()
+        
     def odredjivanjeBinova(self):
         for z in self.dataTrenutniZadatak:
             komp = z.komponenta
@@ -197,10 +227,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.dataZadaci = self.baza.zadaciList()
         self.dataBinovi = self.baza.getBinovi() 
         self.dataTrenutniZadatak = self.baza.trenutniZadatakList()
-        
+
         self.ucitajBinove()
         self.ucitajZadatake()
         self.ucitajTrenutniZadatak() 
+        
     def ucitajBinove(self):
         self.binlab = [self.label_bin1,self.label_bin2,self.label_bin3,
                        self.label_bin4,self.label_bin5,self.label_bin6,
@@ -213,7 +244,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 bin.setText(self.dataBinovi.getBin(index).artikl)
             else:
                 bin.setText('')
-            index = index + 1    
+            index = index + 1   
+            
     def ucitajZadatake(self):
         n = 0
         self.tableWidget_2.setSelectionBehavior(QAbstractItemView.SelectRows)
@@ -315,6 +347,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.vagamera_2.setText(mera)
         self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
         self.labeldatum.setText('Datum: '+time.strftime("%d/%m/%Y"))
+        if(self.vaganje == True and mera>=self.zadataMera and self.dobramera == True):
+            self.vaganjeZavrseno(mera);
         self.repaint()    
 
     def vagaMera(self,st):

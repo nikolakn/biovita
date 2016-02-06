@@ -133,30 +133,14 @@ class db(object):
             return True
         except:
             print('greska , ne mogu da obrisem zadatak ',sys.exc_info())
-            return False      
-'''     
-    def login(self,ime,password):
-        self.cur.execute("SELECT * FROM osoblje WHERE UNAME='"+ime+"'")
-        rows = self.cur.fetchall()
-        if (self.cur.rowcount != 1):
-            return -1
-        sifra = rows[0][6]
-        pristup = rows[0][2]
-        if(sifra != password):
-            return -1
-        return pristup
+            return False   
 
-
-    def addNewOsoblje(self,ime,potpis,tip,password):
-        try:
-            query = "INSERT INTO osoblje(TIP,UNAME,PSW,POTPIS) VALUES(%s,%s,%s,%s)"
-            args = (tip, ime, password, potpis)
-            self.cur.execute(query, args)
-            #self.cursor.executemany(query, books)
-            self.cnx.commit()
+    def updateIzmereno(self, id, izmereno):
+        try:  
+            query ="UPDATE trenutniZadatak set izmereno = "+str(izmereno)+" where id="+str(id)
+            self.cur.execute(query)
+            self.con.commit()
             return True
-        except Error as error:
-            print(error)
-            return False
-'''
-
+        except:
+            print('greska , ne mogu da updatujem meru ',sys.exc_info())
+            return False 
