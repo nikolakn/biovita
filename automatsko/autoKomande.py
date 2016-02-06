@@ -200,6 +200,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):
+        self.iskljuciBinove()
         self.status("vaganje zavrseno")
         self.vaganje = False
         self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
@@ -214,6 +215,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.vaganjeZavrseno(0.1)
      
     def ocistiTabelu(self):
+        self.iskljuciBinove()
         self.isStart = False
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
@@ -233,6 +235,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
     def stopZadatak(self):   
         self.isStart = False
+        self.iskljuciBinove()
     #ucitaj podatke iz baze
     def ucitajizBaze(self):    
         self.dataRecepture = self.baza.receptureList()
@@ -425,4 +428,18 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if(bin == 11):
             self.scrollAreaWidgetContents.bin11.on()
         if(bin == 12):
-            self.scrollAreaWidgetContents.bin12.on()            
+            self.scrollAreaWidgetContents.bin12.on()   
+
+    def iskljuciBinove(self):
+        self.scrollAreaWidgetContents.bin1.off() 
+        self.scrollAreaWidgetContents.bin2.off()
+        self.scrollAreaWidgetContents.bin3.off() 
+        self.scrollAreaWidgetContents.bin4.off()
+        self.scrollAreaWidgetContents.bin5.off() 
+        self.scrollAreaWidgetContents.bin6.off()
+        self.scrollAreaWidgetContents.bin7.off() 
+        self.scrollAreaWidgetContents.bin8.off()
+        self.scrollAreaWidgetContents.bin9.off() 
+        self.scrollAreaWidgetContents.bin10.off()
+        self.scrollAreaWidgetContents.bin11.off() 
+        self.scrollAreaWidgetContents.bin12.off()        
