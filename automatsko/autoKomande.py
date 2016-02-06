@@ -29,6 +29,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.state = state
         self.isStart = False
         self.vaganje = False
+        self.simvag = 0
         self.zadataMera = 0
         self.prethodnaMera = 0
         self.initUI()
@@ -350,7 +351,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             ch = self.port.readline();
             mera = self.vagaMera(ch);
         else:
-            ch = chr(2)+"    43.2M"
+            self.simvag = self.simvag +1
+            if (self.simvag>600):
+                self.simvag = 0
+            m = "%08d" % (self.simvag,)
+            ch = chr(2)+m+"G"
             mera = self.vagaMera(ch);
         if(mera!=''):
             self.vagamera_2.setText(str(mera))

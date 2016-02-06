@@ -31,6 +31,8 @@ class NkGrafik(QtGui.QWidget):
         
     def add(self,x,y):
         self.dataT.append((x,y))
+        if(len(self.dataT)>998):
+            self.dataT.pop(0)
         self.repaint()
         
     def paintEvent(self, e):
