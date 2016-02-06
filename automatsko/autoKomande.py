@@ -78,6 +78,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def vaga2timerUpdate(self): 
         if(self._isvaga2==True):
             self._tvaga2 = self._tvaga2 + 1
+            self.widget_3.add(self.mera,self._tvaga2)
             self.vaga2edit.setText(str(self._tvaga2))
             
         if(self._istmlin==True):
@@ -101,6 +102,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
     def pocetakOdvage(self):
         self.zadataMera = 0
+        self.prethodnaMera = 0
         self.baza.izbrisiTrenutneZadatke();
         tzadatak = self.dataZadaci[0]
         self.status("Startovanje odvage")
@@ -158,6 +160,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.status("Pocetak komponente")
         id = 0
         zadatakZavrsen = True;
+        self._isvaga2=True
         for komp in self.dataTrenutniZadatak:
             if (komp.izmereno==0):
                 self._trenutnaKomponenta = komp
@@ -177,7 +180,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
                 self.tableWidget.selectRow(id);    
                 self._id = komp.id;
-                self.zadataMera = self.zadataMera + komp.zadato
+                self.zadataMera = self.prethodnaMera  + komp.zadato
                 
                 self.vaganje = True
                 break
@@ -190,6 +193,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
     def zavrsenZadatak(self):
         self.status("zadatak zavrsen!")
+        self._isvaga2=False
         
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):
@@ -204,7 +208,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
     def krajOdvage(self): 
         if(self.isStart):
-            self.vaganjeZavrseno(10)
+            self.vaganjeZavrseno(0.1)
      
     def ocistiTabelu(self):
         self.isStart = False
@@ -349,12 +353,13 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             ch = chr(2)+"    43.2M"
             mera = self.vagaMera(ch);
         if(mera!=''):
-            self.vagamera_2.setText(mera)
+            self.vagamera_2.setText(str(mera))
         self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
         self.labeldatum.setText('Datum: '+time.strftime("%d/%m/%Y"))
-        if(self.vaganje == True and float(mera) >= float(self.zadataMera) and self.dobramera == True):
-            self.vaganje = False
-            self.vaganjeZavrseno(mera);
+        if(self.dobramera == True):
+            if(self.vaganje == True and float(mera) >= float(self.zadataMera)):
+                self.vaganje = False
+                self.vaganjeZavrseno(mera);
         self.repaint()    
 
     def vagaMera(self,st):
@@ -379,12 +384,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.dobramera = True;
             palette.setColor(QPalette.Active, QPalette.Base, QColor(0, 255, 0))
             self.vagamera_2.setPalette(palette)
-            return str(self.mera)
+            return self.mera
         else:
             self.dobramera = False;
             palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
             self.vagamera_2.setPalette(palette)
-            return str(self.mera)
+            return self.mera
 
     def status(self,msg):
         self.statustext.setText(msg)
