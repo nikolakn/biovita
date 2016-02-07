@@ -79,7 +79,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def vaga2timerUpdate(self): 
         if(self._isvaga2==True):
             self._tvaga2 = self._tvaga2 + 1
-            self.widget_3.add(self.mera,self._tvaga2)
+            self.widget_3.add(self.mera)
             self.vaga2edit.setText(str(self._tvaga2))
             
         if(self._istmlin==True):

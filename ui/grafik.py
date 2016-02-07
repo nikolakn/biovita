@@ -24,13 +24,15 @@ class NkGrafik(QtGui.QWidget):
         self.pen3 = QtGui.QPen(QtCore.Qt.black, 1,QtCore.Qt.DashLine)
         self.pen2 = QtGui.QPen(QtCore.Qt.red, 2,QtCore.Qt.SolidLine)
         self.dataT =[]
+        self.vreme = 0
         #self.dataT = [(20,10),(30,20),(50,30),(70,40),(80,50),(120,offsetX),(230,70),(440,80),(5offsetX,90),(680,100)]
     def reset(self):
         self.dataT =[]
         self.repaint()
         
-    def add(self,x,y):
-        self.dataT.append((x,y))
+    def add(self,y):
+        self.vreme = self.vreme + 1
+        self.dataT.append(y)
         if(len(self.dataT)>998):
             self.dataT.pop(0)
         self.repaint()
@@ -79,9 +81,9 @@ class NkGrafik(QtGui.QWidget):
             duzinaY= (h-offsetY-20)
             pixelX = duzinaX/1000.0
             pixelY = duzinaY/1200.0
-            x1=offsetX+prva[1]*pixelX
-            y1= h-offsetY-prva[0]*pixelY
-            x2=offsetX+druga[1]*pixelX
-            y2= h-offsetY-druga[0]*pixelY  
+            x1=offsetX+x*pixelX
+            y1= h-offsetY-prva*pixelY
+            x2=offsetX+(x+1)*pixelX
+            y2= h-offsetY-druga*pixelY  
             qp.drawLine(x1, y1, x2, y2)                   
         qp.end()       
