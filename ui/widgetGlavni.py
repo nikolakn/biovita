@@ -78,7 +78,7 @@ class GlavniProzor(QWidget):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)    
-
+        self.vagaOn = False
     def timerUpdate(self):
         self.bin1.animate();
         self.bin2.animate();
@@ -107,8 +107,13 @@ class GlavniProzor(QWidget):
         paint.drawRect(180, 180, 100, 58);
         paint.setBrush(Qt.black);
         paint.drawRect(165, 245, 50, 15);
-        paint.setBrush(Qt.green); 
+        if(self.vagaOn):
+            paint.setBrush(Qt.green); 
+        else:
+            paint.setBrush(Qt.red);
         paint.drawRect(170, 225, 50, 25);
+        
+        
         paint.setBrush(Qt.transparent); 
         paint.setPen(Qt.black);
         paint.drawRect(140, 320, 100, 60);

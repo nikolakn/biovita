@@ -106,6 +106,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 return
         self.zadataMera = 0
         self.prethodnaMera = 0
+        self.scrollAreaWidgetContents.vagaOn = False
         self.baza.izbrisiTrenutneZadatke();
         tzadatak = self.dataZadaci[0]
         self.status("Startovanje odvage")
@@ -166,6 +167,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.pocetakKomponente()
             
     def pocetakKomponente(self):
+        self.scrollAreaWidgetContents.vagaOn = True
         self.status("Pocetak komponente")
         id = 0
         zadatakZavrsen = True;
@@ -227,10 +229,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.baza.updatePoslednja(self.dataZadaci[0].id,self.prethodnaMera)
             self.dataZadaci = self.baza.zadaciList()
             self.ucitajZadatake() 
-            
+        self.scrollAreaWidgetContents.vagaOn = False
         self.simvag = 0    
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
+        QMessageBox.about(self, "vaga", "Vaga je puna")
         self.pocetakOdvage();
             
         
@@ -250,6 +253,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def krajOdvage(self): 
         if(self.isStart):
             self.vaganjeZavrseno(0.1)
+            self.scrollAreaWidgetContents.vagaOn = False
      
     def ocistiTabelu(self):
         self.iskljuciBinove()
@@ -280,6 +284,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.isStart = False
         self.vaganje = False
         self.iskljuciBinove()
+        self.scrollAreaWidgetContents.vagaOn = False
         self.simvag = 0
         self.zadataMera = 0
         self.prethodnaMera = 0
