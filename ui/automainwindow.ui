@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1240</width>
+    <width>1249</width>
     <height>878</height>
    </rect>
   </property>
@@ -779,7 +779,7 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>10</x>
             <y>10</y>
-            <width>921</width>
+            <width>941</width>
             <height>33</height>
            </rect>
           </property>
@@ -851,6 +851,12 @@ p, li { white-space: pre-wrap; }
            <bool>true</bool>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
@@ -934,7 +940,7 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>10</x>
             <y>120</y>
-            <width>921</width>
+            <width>941</width>
             <height>33</height>
            </rect>
           </property>
@@ -1026,7 +1032,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label_bin8">
            <property name="geometry">
             <rect>
-             <x>200</x>
+             <x>220</x>
              <y>10</y>
              <width>82</width>
              <height>16</height>
@@ -1044,7 +1050,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label_bin9">
            <property name="geometry">
             <rect>
-             <x>360</x>
+             <x>380</x>
              <y>10</y>
              <width>82</width>
              <height>16</height>
@@ -1062,7 +1068,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label_bin10">
            <property name="geometry">
             <rect>
-             <x>510</x>
+             <x>530</x>
              <y>10</y>
              <width>82</width>
              <height>16</height>
@@ -1080,7 +1086,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label_bin11">
            <property name="geometry">
             <rect>
-             <x>680</x>
+             <x>690</x>
              <y>10</y>
              <width>82</width>
              <height>16</height>
@@ -1098,7 +1104,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label_bin12">
            <property name="geometry">
             <rect>
-             <x>820</x>
+             <x>840</x>
              <y>10</y>
              <width>82</width>
              <height>16</height>
@@ -1478,7 +1484,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1240</width>
+     <width>1249</width>
      <height>21</height>
     </rect>
    </property>

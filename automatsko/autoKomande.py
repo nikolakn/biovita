@@ -529,6 +529,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def on_bin_clicked(self,bin):
         art = self.dataBinovi.getBin(bin-1).artikl
         koe = self.dataBinovi.getBin(bin-1).koeficijent
+        if(art==None):
+            art = "PRAZAN"
+        if(koe==None):
+            koe = 0
         unos = dialogBin.dialogzaBin(self,art,koe)
         if( unos.exec_() == QDialog.Accepted): 
             self.dataBinovi.getBin(bin-1).artikl = unos.getArtikl()
