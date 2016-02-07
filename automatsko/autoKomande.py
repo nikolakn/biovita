@@ -32,6 +32,18 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.simvag = 0
         self.zadataMera = 0
         self.prethodnaMera = 0
+        self.scrollAreaWidgetContents.bin1.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin2.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin3.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin4.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin5.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin6.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin7.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin8.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin9.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin10.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin11.binklik.connect(self.on_bin_clicked)
+        self.scrollAreaWidgetContents.bin12.binklik.connect(self.on_bin_clicked)
         self.initUI()
         
     def initUI(self):
@@ -510,4 +522,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.scrollAreaWidgetContents.bin9.off() 
         self.scrollAreaWidgetContents.bin10.off()
         self.scrollAreaWidgetContents.bin11.off() 
-        self.scrollAreaWidgetContents.bin12.off()        
+        self.scrollAreaWidgetContents.bin12.off()    
+
+    def on_bin_clicked(self,bin):
+        print "click ",
+        print bin       

@@ -3,12 +3,13 @@ from PyQt4 import QtGui, QtCore
 
   
 class Bin(QtGui.QWidget):
-    
-    def __init__(self,parent):
+    binklik = QtCore.pyqtSignal(int)
+    def __init__(self,parent,bin):
         QtGui.QWidget.__init__(self, parent)
+        self.bin = bin
         self.plava = QtGui.QColor(216, 228, 248)
         self.crvena = QtGui.QColor(255, 0, 0)
-        self.bela = QtGui.QColor(255, 255, 255)
+        self.crna = QtGui.QColor(0, 0, 0)
         self.ukljuceno = False;
         self.dx = 10;
         self.dy = 10;
@@ -19,6 +20,9 @@ class Bin(QtGui.QWidget):
         self.loadedImage.load("images/bin.png")
         self.nivo = 15
         self.pen2 = QtGui.QPen(self.plava, 1,QtCore.Qt.SolidLine)
+        self.pen3 = QtGui.QPen(self.crna, 1,QtCore.Qt.SolidLine)
+    def mousePressEvent(self, event):
+        self.binklik.emit(self.bin)
     def on(self):
         self.ukljuceno = True; 
         self.repaint() 
@@ -39,8 +43,10 @@ class Bin(QtGui.QWidget):
         qp.setPen(self.pen2)
         qp.setBrush(self.plava);
         qp.drawRect(2,17,37,15)
+        
+        #self.bin
         if(self.ukljuceno==True):
             qp.drawRect(2,17,37,self.nivo)
-       
-   
+        qp.setPen(self.pen3)
+        qp.drawText(15,28,str(self.bin))
         qp.end()       
