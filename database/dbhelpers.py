@@ -174,4 +174,13 @@ class db(object):
             return True
          except:
             print('greska , ne mogu da updatujem meru ',sys.exc_info())
-            return False              
+            return False   
+    def updateBin(self,id,artikl,koef):
+         try:  
+            query ="UPDATE binovi set artikl = '"+str(artikl)+"', koeficijent="+str(koef)+" where id="+str(id)
+            self.cur.execute(query)
+            self.con.commit()
+            return True
+         except:
+            print('greska , ne mogu da updatujem bin ',sys.exc_info())
+            return False        

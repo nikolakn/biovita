@@ -282,6 +282,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             nasao = False
             for b in range(0,12):
                 bin = self.dataBinovi.getBin(b)
+                if(bin.artikl==None):
+                    continue;
                 if(bin.artikl.lower() == komp.lower()):
                     nasao = True
                     z.bin = b+1
@@ -534,7 +536,13 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if(koe==None):
             koe = 0
         unos = dialogBin.dialogzaBin(self,art,koe)
-        if( unos.exec_() == QDialog.Accepted): 
+        if( unos.exec_() == QDialog.Accepted):
+            k = 0
+            try:
+               k = float(unos.getKoeficijent())
+            except:
+               k = 0
             self.dataBinovi.getBin(bin-1).artikl = unos.getArtikl()
-            self.dataBinovi.getBin(bin-1).koeficijent = unos.getKoeficijent()
+            self.dataBinovi.getBin(bin-1).koeficijent = k
+            self.baza.updateBin(bin,unos.getArtikl(),k)
             self.ucitajBinove()
