@@ -136,7 +136,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 k.procenat =  procenat
                 self.dataTrenutniZadatak.append(k)  
                 
-        self._ukupnaKolicina = self.dataZadaci[0].kolicina
+        
+        kol = self.dataZadaci[0].kolicina
+        ostalo = kol-(self.dataZadaci[0].odradjeno*600)                
+        self._ukupnaKolicina = ostalo
         if(self._ukupnaKolicina > 600):
             self._ukupnaKolicina = 600
             
@@ -169,10 +172,13 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
-                self._ukupnaKolicina = self.dataZadaci[0].kolicina
-                ostalo = self._ukupnaKolicina-(self._trenutnaOdvaga*600)
+                kol = self.dataZadaci[0].kolicina
+                ostalo = kol-(self._trenutnaOdvaga*600)
+                self._ukupnaKolicina = ostalo
                 if( ostalo > 600):
                     ostalo = 600
+                    self._ukupnaKolicina = 600
+                #self.odredjivanjeBinova(); 
                 self.lineEdit_3.setText(str(komp.bin));
                 self.lineEdit_4.setText(str(komp.zadato));
                 
@@ -200,7 +206,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def zavrsenZadatak(self):
         self.status("zadatak zavrsen!")
         self._isvaga2=False
-        self.baza.upisiOdvagu(self.dataZadaci[0].ime,self._ukupnaKolicina,self.prethodnaMera )
+        
+        self.baza.upisiOdvagu(self.dataZadaci[0].ime,self._ukupnaKolicina,
+            self.prethodnaMera )
         self.dataZadaci[0].ime
         odradjeno = self.dataZadaci[0].odradjeno+1
         zadato = self.dataZadaci[0].odvaga
@@ -215,7 +223,6 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.baza.povecajOdradjeno(self.dataZadaci[0].id,self.dataZadaci[0].odradjeno)
             self.dataZadaci = self.baza.zadaciList()
             self.ucitajZadatake() 
-            self._odvagaBroj = self._odvagaBroj + 1;
             
         self.simvag = 0    
         self.baza.izbrisiTrenutneZadatke();

@@ -146,12 +146,11 @@ class db(object):
             print('greska , ne mogu da updatujem meru ',sys.exc_info())
             return False 
             
-    def upisiOdvagu(self,ime,zad,mera):
+    def upisiOdvagu(self,ime,zad,m):
         try:
             query = "INSERT INTO gotoveOdvage (imeRecepta,zadataKolicina,tezinaOdvage,vreme,datum) VALUES(?,?,?,?,?)"
-            args = (ime,zad,mera,time.strftime("%H:%M:%S"),time.strftime("%d/%m/%Y"))
+            args = (ime,zad,m,time.strftime("%H:%M:%S"),time.strftime("%d/%m/%Y"))
             self.cur.execute(query, args)
-            #self.cursor.executemany(query, books)
             self.con.commit()
             return True
         except:
