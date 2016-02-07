@@ -233,7 +233,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.simvag = 0    
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
-        QMessageBox.about(self, "vaga", "Vaga je puna")
+        QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
         self.pocetakOdvage();
             
         
@@ -437,6 +437,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         palette.setColor(QPalette.Active, QPalette.Text, QColor(255, 255, 255))
         try: 
             self.mera = float(mera);
+            if(self.vaganje == True and self.mera >= self.zadataMera):
+                self.iskljuciBinove()    
         except :
             #self.mera = 0         
             #palette.setColor(QPalette.Active, QPalette.Base, QColor(255, 0, 0))
@@ -459,31 +461,44 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
 
     def ukljuciBin(self,bin):
         if(bin == 1):
+            self.status('Bin1 aktiviran')
             self.scrollAreaWidgetContents.bin1.on()
         if(bin == 2):
+            self.status('Bin2 aktiviran')
             self.scrollAreaWidgetContents.bin2.on()
         if(bin == 3):
             self.scrollAreaWidgetContents.bin3.on()
+            self.status('Bin3 aktiviran')
         if(bin == 4):
             self.scrollAreaWidgetContents.bin4.on()
+            self.status('Bin4 aktiviran')
         if(bin == 5):
             self.scrollAreaWidgetContents.bin5.on()
+            self.status('Bin5 aktiviran')
         if(bin == 6):
             self.scrollAreaWidgetContents.bin6.on()
+            self.status('Bin6 aktiviran')
         if(bin == 7):
             self.scrollAreaWidgetContents.bin7.on()
+            self.status('Bin7 aktiviran')
         if(bin == 8):
             self.scrollAreaWidgetContents.bin8.on()
+            self.status('Bin8 aktiviran')
         if(bin == 9):
             self.scrollAreaWidgetContents.bin9.on()
+            self.status('Bin9 aktiviran')
         if(bin == 10):
             self.scrollAreaWidgetContents.bin10.on()
+            self.status('Bin10 aktiviran')
         if(bin == 11):
             self.scrollAreaWidgetContents.bin11.on()
+            self.status('Bin11 aktiviran')
         if(bin == 12):
-            self.scrollAreaWidgetContents.bin12.on()   
+            self.scrollAreaWidgetContents.bin12.on()
+            self.status('Bin12 aktiviran')            
 
     def iskljuciBinove(self):
+        self.status('Binovi iskljuceni')
         self.scrollAreaWidgetContents.bin1.off() 
         self.scrollAreaWidgetContents.bin2.off()
         self.scrollAreaWidgetContents.bin3.off() 
