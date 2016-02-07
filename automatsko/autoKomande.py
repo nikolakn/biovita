@@ -143,8 +143,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if(self._ukupnaKolicina > 600):
             self._ukupnaKolicina = 600
             
-        self.odredjivanjeBinova(); 
-
+        rez = self.odredjivanjeBinova(); 
+        if(rez == False):
+            self.dataTrenutniZadatak = []
+            self._isvaga2 = False
+            return;
         for z in self.dataTrenutniZadatak:
             self.baza.insertTrnutniZadatak(z);
         
@@ -221,6 +224,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             #odvaga gotova       
             self.dataZadaci[0].odradjeno = self.dataZadaci[0].odradjeno + 1
             self.baza.povecajOdradjeno(self.dataZadaci[0].id,self.dataZadaci[0].odradjeno)
+            self.baza.updatePoslednja(self.dataZadaci[0].id,self.prethodnaMera)
             self.dataZadaci = self.baza.zadaciList()
             self.ucitajZadatake() 
             
@@ -257,18 +261,28 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def odredjivanjeBinova(self):
         for z in self.dataTrenutniZadatak:
             komp = z.komponenta
+            nasao = False
             for b in range(0,12):
                 bin = self.dataBinovi.getBin(b)
                 if(bin.artikl == komp):
+                    nasao = True
                     z.bin = b+1
                     koef = bin.koeficijent
                     z.zadato = self._ukupnaKolicina * (z.procenat/100.0) - koef
                     break;
-                    
-        
+            if(nasao == False):
+                QMessageBox.about(self, "Greska", "Komponenta %s se ne nalazi ni u jednom binu" % (komp))
+                self.stopZadatak()
+                return False;
+        return True
+    #stoip dugme     
     def stopZadatak(self):   
         self.isStart = False
+        self.vaganje = False
         self.iskljuciBinove()
+        self.simvag = 0
+        self.zadataMera = 0
+        self.prethodnaMera = 0
     #ucitaj podatke iz baze
     def ucitajizBaze(self):    
         self.dataRecepture = self.baza.receptureList()
