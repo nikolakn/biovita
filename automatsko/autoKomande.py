@@ -102,6 +102,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         
     def pocetakOdvage(self):
+        if(len(self.dataZadaci)==0):
+                return
         self.zadataMera = 0
         self.prethodnaMera = 0
         self.baza.izbrisiTrenutneZadatke();
@@ -196,9 +198,30 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     # zavrsen zadatak
     # pripremi za novu odvagu
     def zavrsenZadatak(self):
-        self.baza.upisiOdvagu(self.dataZadaci[0].ime,600,self.prethodnaMera )
         self.status("zadatak zavrsen!")
         self._isvaga2=False
+        self.baza.upisiOdvagu(self.dataZadaci[0].ime,self._ukupnaKolicina,self.prethodnaMera )
+        self.dataZadaci[0].ime
+        odradjeno = self.dataZadaci[0].odradjeno+1
+        zadato = self.dataZadaci[0].odvaga
+        if(odradjeno == zadato):
+            #vaganje gotovo
+            self.baza.obrisiZadatak(self.dataZadaci[0].id)
+            self.dataZadaci = self.baza.zadaciList()
+            self.ucitajZadatake()
+        else:
+            #odvaga gotova       
+            self.dataZadaci[0].odradjeno = self.dataZadaci[0].odradjeno + 1
+            self.baza.povecajOdradjeno(self.dataZadaci[0].id,self.dataZadaci[0].odradjeno)
+            self.dataZadaci = self.baza.zadaciList()
+            self.ucitajZadatake() 
+            self._odvagaBroj = self._odvagaBroj + 1;
+            
+        self.simvag = 0    
+        self.baza.izbrisiTrenutneZadatke();
+        self.dataTrenutniZadatak = []
+        self.pocetakOdvage();
+            
         
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):

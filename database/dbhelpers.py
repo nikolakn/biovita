@@ -156,4 +156,14 @@ class db(object):
             return True
         except:
             print('greska nije uspelo upisivanje u bazu',sys.exc_info())
-            return False     
+            return False   
+
+    def povecajOdradjeno(self,id,odradjeno):
+         try:  
+            query ="UPDATE zadaci set odradjeno = "+str(odradjeno)+" where id="+str(id)
+            self.cur.execute(query)
+            self.con.commit()
+            return True
+         except:
+            print('greska , ne mogu da updatujem meru ',sys.exc_info())
+            return False    
