@@ -14,6 +14,8 @@ import time
 from rucne import rucneKomande
 from database import dbhelpers,data,zadatak
 import dialogRec
+import dialogBin
+
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
     def __init__(self,state, parent=None):
@@ -280,7 +282,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             nasao = False
             for b in range(0,12):
                 bin = self.dataBinovi.getBin(b)
-                if(bin.artikl == komp):
+                if(bin.artikl.lower() == komp.lower()):
                     nasao = True
                     z.bin = b+1
                     koef = bin.koeficijent
@@ -525,5 +527,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.scrollAreaWidgetContents.bin12.off()    
 
     def on_bin_clicked(self,bin):
-        print "click ",
-        print bin       
+        art = self.dataBinovi.getBin(bin-1).artikl
+        koe = self.dataBinovi.getBin(bin-1).koeficijent
+        unos = dialogBin.dialogzaBin(self,art,koe)
+        if( unos.exec_() == QDialog.Accepted): 
+            self.dataBinovi.getBin(bin-1).artikl = unos.getArtikl()
+            self.dataBinovi.getBin(bin-1).koeficijent = unos.getKoeficijent()
+            self.ucitajBinove()
