@@ -331,6 +331,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             newitem6 = QTableWidgetItem(str(zad.odradjeno))
             self.tableWidget_2.setItem(n, 4, newitem6)
             n += 1
+        self.tableWidget_2.resizeColumnsToContents()    
     def brisiZadatak(self):
         x = self.tableWidget_2.selectedIndexes ()
         if(len(x)==0):
