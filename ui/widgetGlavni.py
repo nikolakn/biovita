@@ -2,6 +2,7 @@
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import widgetBin 
+import widgetMasina
 
 class GlavniProzor(QWidget):
     
@@ -75,6 +76,10 @@ class GlavniProzor(QWidget):
         self.bin12 = widgetBin.Bin(self,12)
         self.bin12.move(self.x+self.y,40);
         
+        
+        self.vaga = widgetMasina.Masina(self)
+        self.vaga.move(180,160);
+        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)    
@@ -92,6 +97,7 @@ class GlavniProzor(QWidget):
         self.bin10.animate();
         self.bin11.animate();
         self.bin12.animate();
+        self.vaga.animate();
         self.slika1frame = self.slika1frame + 1
         if(self.slika1frame>=18):
             self.slika1frame = 0;
@@ -107,6 +113,7 @@ class GlavniProzor(QWidget):
         paint.drawRect(180, 180, 100, 58);
         paint.setBrush(Qt.black);
         paint.drawRect(165, 245, 50, 15);
+        
         if(self.vagaOn):
             paint.setBrush(Qt.green); 
         else:
