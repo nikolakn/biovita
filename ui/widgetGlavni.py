@@ -20,10 +20,8 @@ class GlavniProzor(QWidget):
                         ,QImage(),QImage(),QImage(),QImage(),QImage(),QImage()]              
         for i in range(0,18):
             self.slike1[i].load("images/el1_"+str(i+1)+".png")
-        #self.loadedImage2 = QImage()
         for i in range(0,9):
             self.slike2[i].load("images/el2_"+str(i+1)+".png")
-        #self.loadedImage2 = QImage()
         self.slika1frame = 0;
         self.slika2frame = 0;
         #self.loadedImage2.load("images/el2.png")
@@ -142,35 +140,5 @@ class GlavniProzor(QWidget):
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)
         paint.setPen(Qt.black);
-        #paint.setBrush(Qt.white);
-        '''
-        paint.drawRect(180, 180, 100, 58);
-        paint.setBrush(Qt.black);
-        paint.drawRect(165, 245, 50, 15);
-        
-        if(self.vagaOn):
-            paint.setBrush(Qt.green); 
-        else:
-            paint.setBrush(Qt.red);
-        paint.drawRect(170, 225, 50, 25);
-        '''
-        
-        #paint.setBrush(Qt.transparent); 
-        #paint.setPen(Qt.black);
-        #paint.drawRect(140, 320, 100, 60);
-        
-        #paint.drawRect(450, 180, 100, 60);
-        #paint.drawRect(450, 250, 100, 60);
-        #paint.drawRect(450, 335, 100, 60);
-        
-        #paint.drawLine(200, 395, 380, 395);
-        #paint.drawLine(380, 395, 380, 168);
-        #paint.drawLine(380, 168, 500, 168);
-        #paint.drawText(30,20,"Bin12")
         paint.drawImage(QPoint(150,158),self.slike1[self.slika1frame])
         paint.drawImage(QPoint(500,160),self.slike2[self.slika2frame])
-        #paint.drawRect(5, 110, 780, 25);
-        #paint.setBrush(Qt.green); 
-        #paint.drawRect(450, 245, 50, 15);
-        #paint.setBrush(Qt.black);
-        #paint.drawRect(450, 302, 50, 15);

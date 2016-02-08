@@ -18,6 +18,22 @@ class Masina(QtGui.QWidget):
         self.maxnivo = 0
         self.pen2 = QtGui.QPen(self.plava, 1,QtCore.Qt.SolidLine)
         self.pen3 = QtGui.QPen(self.crna, 2,QtCore.Qt.SolidLine)
+        self.isprazni()
+        #self.napuni();
+        #self.prazni();
+    def isprazni(self):
+        self.ukljuceno = False;
+        self.ispustanje = False;
+        self.nivo = 63-self.maxnivo
+    def napuni(self):
+        self.ukljuceno = False;
+        self.ispustanje = False;
+        self.nivo = 15
+    def puni(self):
+        self.ukljuceno = True;
+    def prazni(self):
+        self.ukljuceno = True;
+        self.ispustanje = True ;   
         
     def mousePressEvent(self, event):
         self.masinaklik.emit()
