@@ -54,6 +54,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.radioButton_12.clicked.connect(lambda:self.btn_ispusti_5()) 
         self.radioButton_13.clicked.connect(lambda:self.btn_ispusti_6()) 
         self.radioButton_14.clicked.connect(lambda:self.btn_ispusti_7()) 
+        
+        
         self.initUI()
         
     def initUI(self):
@@ -81,6 +83,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.checkBox_4.stateChanged.connect(self.ukljuciDotokMaterijala)
         self.checkBox_5.stateChanged.connect(self.ukljuciMlin)
         self.checkBox_6.stateChanged.connect(self.ukljuciElevatorMlina)
+        
+        self.pushButtonNapuni.clicked.connect(lambda:self.napuniMesaonuBut())
         #baza
         self.baza = dbhelpers.db()
         self.baza.open()
@@ -102,6 +106,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ex = None
         
         self.ucitajizBaze()
+        
+    def napuniMesaonuBut(self):
+        if(self._istmesaona == False):
+            
+            self._tmesaona = 0
+            self._istmesaona = True            
+            self.napuniMesaonu()
+            
     def stopelevator(self):
         self.state.iskljuciElevator3();
         self.scrollAreaWidgetContents.elevator2 = False
@@ -150,8 +162,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.lineEdit_13.setText(str(self._tmlin))
             
         if(self._istmesaona==True):      
-            self._istmesaona = self._istmesaona + 1
-            self.lineEdit_14.setText(str(self._istmesaona))
+            self._tmesaona = self._tmesaona + 1
+            self.napuniMesaonu()
      
     #start dugme    
     def startZadatak(self):
@@ -327,8 +339,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ucitajTrenutniZadatak()
         self.pocetakOdvage()
         
-    def napuniMesaonu(self):        
-        self
+    def napuniMesaonu(self): 
+        self.state.kreniMotorId(31);
+        if( self._tmesaona<28):
+            self.lineEdit_14.setText(str(self._tmesaona))
+        if( self._tmesaona>28):    
+            self.lineEdit_14.setText(str(421-self._tmesaona))
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):
         self.iskljuciBinove()

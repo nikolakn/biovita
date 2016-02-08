@@ -699,7 +699,7 @@ p, li { white-space: pre-wrap; }
            </item>
           </layout>
          </widget>
-         <widget class="QPushButton" name="pushButton_9">
+         <widget class="QPushButton" name="pushButtonNapuni">
           <property name="geometry">
            <rect>
             <x>560</x>
@@ -712,7 +712,7 @@ p, li { white-space: pre-wrap; }
            <string>NAPUNI</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_15">
+         <widget class="QLineEdit" name="mesaonaInfo">
           <property name="geometry">
            <rect>
             <x>450</x>
