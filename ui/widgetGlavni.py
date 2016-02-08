@@ -3,6 +3,7 @@ from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import widgetBin 
 import widgetMasina
+import widgetInfo
 
 class GlavniProzor(QWidget):
     
@@ -79,7 +80,16 @@ class GlavniProzor(QWidget):
         
         self.vaga = widgetMasina.Masina(self)
         self.vaga.move(180,160);
+
+        self.i1 = widgetInfo.Info(self)
+        self.i1.zelena()
+        self.i1.size(32)
+        self.i1.move(175,230);
         
+        self.i2 = widgetInfo.Info(self)
+        self.i2.crna()
+        self.i2.move(165,250);
+ 
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)    
@@ -110,6 +120,7 @@ class GlavniProzor(QWidget):
         paint = QPainter(self)
         paint.setPen(Qt.black);
         #paint.setBrush(Qt.white);
+        '''
         paint.drawRect(180, 180, 100, 58);
         paint.setBrush(Qt.black);
         paint.drawRect(165, 245, 50, 15);
@@ -119,7 +130,7 @@ class GlavniProzor(QWidget):
         else:
             paint.setBrush(Qt.red);
         paint.drawRect(170, 225, 50, 25);
-        
+        '''
         
         paint.setBrush(Qt.transparent); 
         paint.setPen(Qt.black);
