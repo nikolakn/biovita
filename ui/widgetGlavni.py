@@ -81,6 +81,9 @@ class GlavniProzor(QWidget):
         self.vaga = widgetMasina.Masina(self)
         self.vaga.move(180,160);
 
+        self.mlin = widgetMasina.Masina(self)
+        self.mlin.move(140,294);
+        
         self.i1 = widgetInfo.Info(self)
         self.i1.zelena()
         self.i1.size(32)
@@ -108,6 +111,7 @@ class GlavniProzor(QWidget):
         self.bin11.animate();
         self.bin12.animate();
         self.vaga.animate();
+        self.mlin.animate();
         self.slika1frame = self.slika1frame + 1
         if(self.slika1frame>=18):
             self.slika1frame = 0;
@@ -134,7 +138,7 @@ class GlavniProzor(QWidget):
         
         paint.setBrush(Qt.transparent); 
         paint.setPen(Qt.black);
-        paint.drawRect(140, 320, 100, 60);
+        #paint.drawRect(140, 320, 100, 60);
         
         paint.drawRect(450, 180, 100, 60);
         paint.drawRect(450, 250, 100, 60);
@@ -144,7 +148,7 @@ class GlavniProzor(QWidget):
         #paint.drawLine(380, 395, 380, 168);
         #paint.drawLine(380, 168, 500, 168);
         #paint.drawText(30,20,"Bin12")
-        paint.drawImage(QPoint(150,155),self.slike1[self.slika1frame])
+        paint.drawImage(QPoint(150,158),self.slike1[self.slika1frame])
         paint.drawImage(QPoint(500,155),self.slike2[self.slika2frame])
         #paint.drawRect(5, 110, 780, 25);
         paint.setBrush(Qt.green); 

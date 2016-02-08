@@ -334,7 +334,7 @@ class Ui_MainWindow(object):
         self.dugmestopele.setGeometry(QtCore.QRect(600, 370, 75, 23))
         self.dugmestopele.setObjectName(_fromUtf8("dugmestopele"))
         self.verticalLayoutWidget = QtGui.QWidget(self.scrollAreaWidgetContents)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(160, 270, 160, 51))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(160, 260, 160, 51))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout_11 = QtGui.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_11.setObjectName(_fromUtf8("verticalLayout_11"))
