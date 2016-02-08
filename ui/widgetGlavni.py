@@ -83,6 +83,15 @@ class GlavniProzor(QWidget):
 
         self.mlin = widgetMasina.Masina(self)
         self.mlin.move(140,294);
+ 
+
+        self.mesaonaUlaz = widgetMasina.Masina(self)
+        self.mesaonaUlaz.move(450,150);
+        self.mesaona = widgetMasina.Masina(self)
+        self.mesaona.setmax(25)
+        self.mesaona.move(450,230);
+        self.mesaonaIzalz = widgetMasina.Masina(self)
+        self.mesaonaIzalz.move(450,310);
         
         self.i1 = widgetInfo.Info(self)
         self.i1.zelena()
@@ -98,6 +107,9 @@ class GlavniProzor(QWidget):
         self.ctimer.start(150)    
         self.vagaOn = False
     def timerUpdate(self):
+        self.mesaonaUlaz.animate();
+        self.mesaona.animate();
+        self.mesaonaIzalz.animate();
         self.bin1.animate();
         self.bin2.animate();
         self.bin3.animate();
@@ -140,16 +152,16 @@ class GlavniProzor(QWidget):
         paint.setPen(Qt.black);
         #paint.drawRect(140, 320, 100, 60);
         
-        paint.drawRect(450, 180, 100, 60);
-        paint.drawRect(450, 250, 100, 60);
-        paint.drawRect(450, 335, 100, 60);
+        #paint.drawRect(450, 180, 100, 60);
+        #paint.drawRect(450, 250, 100, 60);
+        #paint.drawRect(450, 335, 100, 60);
         
         #paint.drawLine(200, 395, 380, 395);
         #paint.drawLine(380, 395, 380, 168);
         #paint.drawLine(380, 168, 500, 168);
         #paint.drawText(30,20,"Bin12")
         paint.drawImage(QPoint(150,158),self.slike1[self.slika1frame])
-        paint.drawImage(QPoint(500,155),self.slike2[self.slika2frame])
+        paint.drawImage(QPoint(500,160),self.slike2[self.slika2frame])
         #paint.drawRect(5, 110, 780, 25);
         paint.setBrush(Qt.green); 
         paint.drawRect(450, 245, 50, 15);
