@@ -144,10 +144,16 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
     def motori_state_changed(self,ii):
         sender = self.sender()
         if(sender.isChecked()==True):
-            self.state.ukljuciMotor(sender.getId())   
+            self.state.ukljuciMotor(sender.getId())
+            if(sender == self.srednji_25):
+                self.srednji_dugme_start.setEnabled(False)
+                self.srednji_dugme_stop.setEnabled(True)       
         else:
             self.state.iskljuciMotor(sender.getId()) 
-            
+            if(sender == self.srednji_25):
+  
+                self.srednji_dugme_start.setEnabled(True)
+                self.srednji_dugme_stop.setEnabled(False)                 
     def pne_state_changed(self,ii):
         sender = self.sender()
         if(sender.isChecked()==True):

@@ -69,7 +69,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.stopdugme.clicked.connect(lambda:self.stopZadatak())
         self.dugme_krajodvage.clicked.connect(lambda:self.krajOdvage())
         self.pushButton.clicked.connect(lambda:self.ocistiTabelu())
-        
+        self.dugmestopele.clicked.connect(lambda:self.stopelevator())
         self.checkBox_4.stateChanged.connect(self.ukljuciDotokMaterijala)
         self.checkBox_5.stateChanged.connect(self.ukljuciMlin)
         self.checkBox_6.stateChanged.connect(self.ukljuciElevatorMlina)
@@ -94,6 +94,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.ex = None
         
         self.ucitajizBaze()
+    def stopelevator(self):
+        self.state.iskljuciElevator3();
+        self.scrollAreaWidgetContents.elevator2 = False
         
     def ukljuciDotokMaterijala(self):
         sender = self.sender()

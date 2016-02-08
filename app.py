@@ -161,6 +161,11 @@ class AppState(QtCore.QObject):
         
     def iskljuciElevatorMlina(self):
         self.iskljuciMotor(15)  
+
+    def kreniElevator3(self):
+        self.ukljuciMotor(25) 
+    def iskljuciElevator3(self):
+        self.iskljuciMotor(25)        
         
     def iskljuciBinove(self):
         self.iskljuciMotor(11) 
