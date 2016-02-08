@@ -279,29 +279,36 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.dataZadaci[0].ime
         odradjeno = self.dataZadaci[0].odradjeno+1
         zadato = self.dataZadaci[0].odvaga
+        QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
+        
+        QMessageBox.about(self, "Informacija", "Mogu liu premiksi?")
+        self.scrollAreaWidgetContents.vagaPrazni()
+        QMessageBox.about(self, "Informacija", "Sacekati da se vaga isprazni!")
+        
         if(odradjeno == zadato):
             #vaganje gotovo
             self.baza.obrisiZadatak(self.dataZadaci[0].id)
             self.dataZadaci = self.baza.zadaciList()
             self.ucitajZadatake()
+            self.baza.izbrisiTrenutneZadatke(); 
+            self.dataTrenutniZadatak = []
+            QMessageBox.about(self, "Informacija", "Zadatak zavrsen!")
+            
         else:
             #odvaga gotova       
             self.dataZadaci[0].odradjeno = self.dataZadaci[0].odradjeno + 1
             self.baza.povecajOdradjeno(self.dataZadaci[0].id,self.dataZadaci[0].odradjeno)
             self.baza.updatePoslednja(self.dataZadaci[0].id,self.prethodnaMera)
             self.dataZadaci = self.baza.zadaciList()
-            self.ucitajZadatake() 
+            self.ucitajZadatake()
+          
+        self.baza.izbrisiTrenutneZadatke(); 
+        self.dataTrenutniZadatak = []             
         self.simvag = 0    
-        self.baza.izbrisiTrenutneZadatke();
-        self.dataTrenutniZadatak = []
         self.scrollAreaWidgetContents.vagaPuna()
         self._isvaga2 = False
-        QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
-        
-        QMessageBox.about(self, "Informacija", "Mogu liu premiksi?")
-        self.scrollAreaWidgetContents.vagaPrazni()
-        QMessageBox.about(self, "Informacija", "Sacekati da se vaga isprazni!")
-        self.pocetakOdvage();
+        self.ucitajTrenutniZadatak()
+        self.pocetakOdvage()
             
         
     #mera dostignuta    
@@ -352,12 +359,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         return True
         
     #stoip dugme     
-    def stopZadatak(self):   
+    def stopZadatak(self): 
         self.status("Stop!")
         self.isStart = False
+        self._tvaga2 = 0
+        self._isvaga2 = False
         self.vaganje = False
         self.iskljuciBinove()
-        self.scrollAreaWidgetContents.vagaOn = False
+        self.scrollAreaWidgetContents.vagaPuna()
         self.simvag = 0
         self.zadataMera = 0
         self.prethodnaMera = 0
