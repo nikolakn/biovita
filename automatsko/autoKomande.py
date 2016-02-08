@@ -80,6 +80,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.vaga2timer = QTimer()
         QObject.connect(self.vaga2timer, SIGNAL("timeout()"), self.vaga2timerUpdate)
         self.vaga2timer.start(1000)
+        #tajmeri    
         self._tvaga2 = 0
         self._isvaga2 = False
         self._tmlin = 0
@@ -103,7 +104,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if(self._istmesaona==True):      
             self._istmesaona = self._istmesaona + 1
             self.vaga2edit.setText(str(self._istmesaona))
-            
+     
+    #start dugme    
     def startZadatak(self):
         if(len(self.dataZadaci)==0):
             return
@@ -114,7 +116,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         else:
             self.pocetakKomponente();    
         
-        
+    #ulazi samo na pocetku zadatka kada je lista
+    #sa trenutnim zadatkom prazna
     def pocetakOdvage(self):
         if(len(self.dataZadaci)==0):
                 return
@@ -179,7 +182,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.isStart = True
         #self.repaint()        
         self.pocetakKomponente()
-            
+    
+    #za svaku komponentu posebno i ako lista trenutnih odvaga
+    #nija prazna pri startovanju
     def pocetakKomponente(self):
         self.scrollAreaWidgetContents.vagaOn = True
         self.status("Pocetak komponente")
@@ -258,13 +263,13 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.vaganje = False
         self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
         self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
-        self.prethodnaMera = mera
-        
-         #refesh tabelu
+        self.prethodnaMera = mera      
+        #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
         
     def krajOdvage(self): 
+        self.status("Kraj odvage!")
         if(self.isStart):
             self.vaganjeZavrseno(0.1)
             self.scrollAreaWidgetContents.vagaOn = False
@@ -275,8 +280,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
         self.ucitajTrenutniZadatak()
-        
+ 
+    #koja komponenta je u kom binu i dali postoji zadata komponenta
     def odredjivanjeBinova(self):
+        self.status("Odredjivanje binova!")
         for z in self.dataTrenutniZadatak:
             komp = z.komponenta
             nasao = False
@@ -295,8 +302,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.stopZadatak()
                 return False;
         return True
+        
     #stoip dugme     
     def stopZadatak(self):   
+        self.status("Stop!")
         self.isStart = False
         self.vaganje = False
         self.iskljuciBinove()
@@ -304,6 +313,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.simvag = 0
         self.zadataMera = 0
         self.prethodnaMera = 0
+        
     #ucitaj podatke iz baze
     def ucitajizBaze(self):    
         self.dataRecepture = self.baza.receptureList()
@@ -352,7 +362,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             newitem6 = QTableWidgetItem(str(zad.odradjeno))
             self.tableWidget_2.setItem(n, 4, newitem6)
             n += 1
-        self.tableWidget_2.resizeColumnsToContents()    
+        self.tableWidget_2.resizeColumnsToContents()  
+        
     def brisiZadatak(self):
         x = self.tableWidget_2.selectedIndexes ()
         if(len(x)==0):
