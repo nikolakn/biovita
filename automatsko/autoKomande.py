@@ -343,8 +343,69 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.state.kreniMotorId(31);
         if( self._tmesaona<28):
             self.lineEdit_14.setText(str(self._tmesaona))
+            
+        if( self._tmesaona == 4): 
+            #otvaram gornji zasun
+            self.scrollAreaWidgetContents.infoMesaonaGore.crvena();
+            self.mesaonaInfo.setText("Otvaram gornji zasun")
+            self.state.kreniMotorId(22) #gornji zasun
+            self.scrollAreaWidgetContents.mesaonaUlaz.prazni()
+        if( self._tmesaona == 4):
+            self.state.iskljuciMotorId(22) #gornji zasun
+            self.mesaonaInfo.setText("UTOVAR MATERIJALA");
+            
+        if( self._tmesaona == 20):
+            self.scrollAreaWidgetContents.infoMesaonaGore.zelena(); 
+            self.mesaonaInfo.setText("Zatvaram zasun gornji");
+            self.scrollAreaWidgetContents.mesaonaUlaz.isprazni()
+            self.state.kreniMotorId(26)
+
+        if( self._tmesaona == 28):
+            self.scrollAreaWidgetContents.infoMesaonaGore.crna();
+            self.mesaonaInfo.setText("MESANJE U TOKU");            
+            self.state.iskljuciMotorId(26) #gornji zasun;
+            self.scrollAreaWidgetContents.mesaona.puni()          
+            
+            
         if( self._tmesaona>28):    
             self.lineEdit_14.setText(str(421-self._tmesaona))
+            
+        if( self._tmesaona > 390):            
+            self.scrollAreaWidgetContents.infoMesaonaDole.crvena();
+            self.mesaonaInfo.setText("Otvaram donji zasun")
+            self.state.kreniMotorId(16) #donji zasun
+            self.scrollAreaWidgetContents.mesaona.prazni()
+    '''            
+    if vreme_mesanjaVAr>398 then
+                                 begin
+                                 PANEL10.Color := CLRED;
+                                            edit11.Text := 'otvoren zasun donji';
+                                            testform.C16.Checked := false;
+                                 end;
+    if vreme_mesanjaVAr>415 then
+                                 begin
+                                 PANEL10.Color := CLblack;
+                                            edit11.Text := 'zatv zasun donji';
+                                            testform.C17.Checked := true;  {donji zasun zatvaram }
+                                 end;
+    if vreme_mesanjaVAr>421 then
+                                 begin
+                                            PANEL10.Color := CLblack;
+
+                                            panel9.Color := clgreen ;
+                                            edit11.Text := 'SPREMNA';
+                                            animate8.Stop;
+                                            testform.C17.Checked := false;
+                                            vreme_mesanja.Enabled := false;
+                                            napuni_mes.Enabled:= true;
+                                            animate8.Play(1,20,0);
+                                            testform.Button30.Click;
+                                            if ibin5.Checked = true then testform.c32.Checked := true;
+                                             if ibin6.Checked = true then testform.c32.Checked := true;
+                                               if ibin3.Checked = true then testform.c32.Checked := true;
+                                            TESTFORM.c31.Checked:= false;
+                                 end;   
+    '''                             
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):
         self.iskljuciBinove()
