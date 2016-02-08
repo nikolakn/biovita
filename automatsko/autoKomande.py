@@ -647,17 +647,51 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.ucitajBinove()
             
     def btn_ispusti_1(self):
-        pass
+        self.state.iskljuciPId(19)
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.iskljuciMotorId(28)
+
     def btn_ispusti_2(self):
-        pass
+        self.state.kreniPId(19)
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.iskljuciMotorId(28)
     def btn_ispusti_3(self):
-        pass
+        self.state.kreniPId(19)    
+        self.state.kreniPId(23)  
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)
+
+
     def btn_ispusti_4(self):
-        pass
+        self.state.kreniPId(19)    
+        self.state.kreniPId(23) 
+        self.state.kreniPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)
+        
     def btn_ispusti_5(self):
         pass
     def btn_ispusti_6(self):
-        pass
+        self.state.kreniPId(19) 
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)
+        
     def btn_ispusti_7(self):
-        pass
-   
+        self.state.kreniPId(19)    
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.kreniPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)

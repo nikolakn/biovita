@@ -144,6 +144,18 @@ class AppState(QtCore.QObject):
     def kreniBin12(self):
         pass
         
+        
+    def kreniMotorId(self,id):    
+      self.ukljuciMotor(id) 
+    def iskljuciMotorId(self,id):    
+      self.iskljuciMotor(id) 
+      
+    def kreniPId(self,id):    
+      self.ukljuciPneumatiku(id) 
+      
+    def iskljuciPId(self,id):    
+      self.iskljuciPneumatiku(id)  
+      
     def krenidotokMat(self):
         self.ukljuciMotor(29) 
 
