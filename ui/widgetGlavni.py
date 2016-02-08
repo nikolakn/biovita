@@ -93,15 +93,22 @@ class GlavniProzor(QWidget):
         self.mesaonaIzalz = widgetMasina.Masina(self)
         self.mesaonaIzalz.move(450,310);
         
-        self.i1 = widgetInfo.Info(self)
-        self.i1.zelena()
-        self.i1.size(32)
-        self.i1.move(175,230);
+        self.infoVaga1 = widgetInfo.Info(self)
+        self.infoVaga1.zelena()
+        self.infoVaga1.size(32)
+        self.infoVaga1.move(175,230);
         
-        self.i2 = widgetInfo.Info(self)
-        self.i2.crna()
-        self.i2.move(165,250);
+        self.infoVaga2 = widgetInfo.Info(self)
+        self.infoVaga2.crna()
+        self.infoVaga2.move(165,250);
  
+        self.infoMesaonaGore = widgetInfo.Info(self)
+        self.infoMesaonaGore.crna()
+        self.infoMesaonaGore.move(445,241);
+        
+        self.infoMesaonaDole = widgetInfo.Info(self)
+        self.infoMesaonaDole.crna()
+        self.infoMesaonaDole.move(445,302);        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)    
@@ -148,8 +155,8 @@ class GlavniProzor(QWidget):
         paint.drawRect(170, 225, 50, 25);
         '''
         
-        paint.setBrush(Qt.transparent); 
-        paint.setPen(Qt.black);
+        #paint.setBrush(Qt.transparent); 
+        #paint.setPen(Qt.black);
         #paint.drawRect(140, 320, 100, 60);
         
         #paint.drawRect(450, 180, 100, 60);
@@ -163,7 +170,7 @@ class GlavniProzor(QWidget):
         paint.drawImage(QPoint(150,158),self.slike1[self.slika1frame])
         paint.drawImage(QPoint(500,160),self.slike2[self.slika2frame])
         #paint.drawRect(5, 110, 780, 25);
-        paint.setBrush(Qt.green); 
-        paint.drawRect(450, 245, 50, 15);
-        paint.setBrush(Qt.black);
-        paint.drawRect(450, 302, 50, 15);
+        #paint.setBrush(Qt.green); 
+        #paint.drawRect(450, 245, 50, 15);
+        #paint.setBrush(Qt.black);
+        #paint.drawRect(450, 302, 50, 15);
