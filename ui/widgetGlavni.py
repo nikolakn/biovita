@@ -9,10 +9,6 @@ class GlavniProzor(QWidget):
     
     def __init__(self,parent=None):
         QWidget.__init__(self, parent)
-        self.crna = QColor(0, 0, 0)
-        self.crvena = QColor(255, 0, 0)
-        self.bela = QColor(255, 255, 255)
-        self.ukljuceno = False;
         self.slike1 = [QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),QImage()
                       ,QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),QImage(),
                       QImage(),QImage(),QImage(),QImage()]
@@ -75,7 +71,7 @@ class GlavniProzor(QWidget):
         self.bin12 = widgetBin.Bin(self,12)
         self.bin12.move(self.x+self.y,40);
         
-        
+        #masine
         self.vaga = widgetMasina.Masina(self)
         self.vaga.move(180,160);
 
@@ -90,27 +86,31 @@ class GlavniProzor(QWidget):
         self.mesaona.move(450,230);
         self.mesaonaIzalz = widgetMasina.Masina(self)
         self.mesaonaIzalz.move(450,310);
-        
-        self.infoVaga1 = widgetInfo.Info(self)
-        self.infoVaga1.zelena()
-        self.infoVaga1.size(32)
-        self.infoVaga1.move(175,230);
-        
+        #info
         self.infoVaga2 = widgetInfo.Info(self)
         self.infoVaga2.crna()
         self.infoVaga2.move(165,250);
- 
+        
+        self.infoVaga1 = widgetInfo.Info(self)
+        self.infoVaga1.zelena()
+        self.infoVaga1.size(40)
+        self.infoVaga1.move(175,220);
+  
         self.infoMesaonaGore = widgetInfo.Info(self)
         self.infoMesaonaGore.crna()
         self.infoMesaonaGore.move(445,241);
-        
+
         self.infoMesaonaDole = widgetInfo.Info(self)
         self.infoMesaonaDole.crna()
         self.infoMesaonaDole.move(445,302);        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)    
-        self.vagaOn = False
+        
+    def vagaOn(self):
+        self.infoVaga1.zelena()
+        self.vaga.puni()
+        
     def timerUpdate(self):
         self.mesaonaUlaz.animate();
         self.mesaona.animate();

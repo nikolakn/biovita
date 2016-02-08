@@ -283,7 +283,7 @@ class Ui_MainWindow(object):
         self.vagamera_2.setObjectName(_fromUtf8("vagamera_2"))
         self.verticalLayout_9.addWidget(self.vagamera_2)
         self.vaga2edit = QtGui.QLineEdit(self.scrollAreaWidgetContents)
-        self.vaga2edit.setGeometry(QtCore.QRect(250, 220, 71, 20))
+        self.vaga2edit.setGeometry(QtCore.QRect(260, 230, 71, 20))
         self.vaga2edit.setReadOnly(True)
         self.vaga2edit.setObjectName(_fromUtf8("vaga2edit"))
         self.lineEdit_13 = QtGui.QLineEdit(self.scrollAreaWidgetContents)

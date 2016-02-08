@@ -186,7 +186,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     #za svaku komponentu posebno i ako lista trenutnih odvaga
     #nija prazna pri startovanju
     def pocetakKomponente(self):
-        self.scrollAreaWidgetContents.vagaOn = True
+        self.scrollAreaWidgetContents.vagaOn()
+ 
         self.status("Pocetak komponente")
         id = 0
         zadatakZavrsen = True;
@@ -252,6 +253,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.simvag = 0    
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
+        self.scrollAreaWidgetContents.infoVaga1.crvena()
         QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
         self.pocetakOdvage();
             

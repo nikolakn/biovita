@@ -27,6 +27,7 @@ class Info(QtGui.QWidget):
         self.boja = QtCore.Qt.green
     def size(self,s):
         self.visina = s
+        self.setMinimumSize(60, s)
     def paintEvent(self, e):
 
         qp = QtGui.QPainter()
@@ -34,6 +35,6 @@ class Info(QtGui.QWidget):
         self.pen2 = QtGui.QPen(self.boja, 1,QtCore.Qt.SolidLine)
         qp.setPen(self.pen2)
         qp.setBrush(self.boja);
-        qp.drawRect(0,0,60,self.visina )
+        qp.drawRect(0,0,70,self.visina )
 
         qp.end()       
