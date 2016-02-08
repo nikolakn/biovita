@@ -119,7 +119,61 @@ class AppState(QtCore.QObject):
         self.motori['m32']=0 
         self.c = Communicate()
         self.expanderi = expanderi.Expanderi()
+    def kreniBin1(self):
+        self.ukljuciMotor(11)    
+    def kreniBin2(self):
+        self.ukljuciMotor(14) 
+    def kreniBin3(self):
+        self.ukljuciMotor(2) 
+    def kreniBin4(self):
+        self.ukljuciMotor(8) 
+    def kreniBin5(self):
+        self.ukljuciMotor(13) 
+    def kreniBin6(self):
+        self.ukljuciMotor(6) 
+    def kreniBin7(self):
+        self.ukljuciMotor(7) 
+    def kreniBin8(self):
+        self.ukljuciMotor(10) 
+    def kreniBin9(self):
+        self.ukljuciMotor(4) 
+    def kreniBin10(self):
+        self.ukljuciMotor(12) 
+    def kreniBin11(self):
+        self.ukljuciMotor(13) 
+    def kreniBin12(self):
+        pass
         
+    def krenidotokMat(self):
+        self.ukljuciMotor(29) 
+
+    def kreniMlin(self):
+        self.ukljuciMotor(32) 
+        
+    def iskljucidotokMat(self):
+        self.iskljuciMotor(29) 
+
+    def iskljuciMlin(self):
+        self.iskljuciMotor(32)  
+
+    def kreniElevatorMlina(self):
+        self.ukljuciMotor(15)
+        
+    def iskljuciElevatorMlina(self):
+        self.iskljuciMotor(15)  
+        
+    def iskljuciBinove(self):
+        self.iskljuciMotor(11) 
+        self.iskljuciMotor(14)
+        self.iskljuciMotor(2)
+        self.iskljuciMotor(8)
+        self.iskljuciMotor(13)
+        self.iskljuciMotor(6)
+        self.iskljuciMotor(7)
+        self.iskljuciMotor(10)
+        self.iskljuciMotor(4)
+        self.iskljuciMotor(12)
+        self.iskljuciMotor(13)           
         
     def prijaviZaSignal(self,klasa):         
         self.c.updated.connect(klasa.komanda)
@@ -139,10 +193,13 @@ class AppState(QtCore.QObject):
                 self.ulazi[k] = 0
             n = n + 1;
         return self.ulazi.values()
+        
     def getMotori(self):
         return self.motori
+        
     def getPneumatike(self):
         return self.pneumatike
+        
     def getMotor(self,id):
         id = "m"+str(id)
         return self.motori[id];

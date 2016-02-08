@@ -20,6 +20,8 @@ class GlavniProzor(QWidget):
             self.slike2[i].load("images/el2_"+str(i+1)+".png")
         self.slika1frame = 0;
         self.slika2frame = 0;
+        self.elevator1=False
+        self.elevator2=False
         #self.loadedImage2.load("images/el2.png")
         self.x = 28; #start
         self.y = 47; #izmedju dve susedne
@@ -105,7 +107,15 @@ class GlavniProzor(QWidget):
         self.infoMesaonaDole.move(445,302);        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
-        self.ctimer.start(150)    
+        self.ctimer.start(150)   
+        
+    def MlinDotok(self): 
+        self.mlin.prazni()
+    def MlinDotokStop(self):         
+        self.mlin.isprazni()
+    def MlinPuni(self):         
+        self.mlin.isprazni()
+        self.mlin.puni()
         
     def vagaOn(self):
         self.vaga.isprazni()
@@ -139,12 +149,14 @@ class GlavniProzor(QWidget):
         self.bin12.animate();
         self.vaga.animate();
         self.mlin.animate();
-        self.slika1frame = self.slika1frame + 1
-        if(self.slika1frame>=18):
-            self.slika1frame = 0;
-        self.slika2frame = self.slika2frame + 1
-        if(self.slika2frame>=9):
-            self.slika2frame = 0;    
+        if(self.elevator1==True):
+            self.slika1frame = self.slika1frame + 1
+            if(self.slika1frame>=18):
+                self.slika1frame = 0;
+        if(self.elevator2==True):        
+            self.slika2frame = self.slika2frame + 1
+            if(self.slika2frame>=9):
+                self.slika2frame = 0;    
         self.repaint() 
         
     def paintEvent(self, QPaintEvent):

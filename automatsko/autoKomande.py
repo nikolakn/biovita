@@ -69,6 +69,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.stopdugme.clicked.connect(lambda:self.stopZadatak())
         self.dugme_krajodvage.clicked.connect(lambda:self.krajOdvage())
         self.pushButton.clicked.connect(lambda:self.ocistiTabelu())
+        
+        self.checkBox_4.stateChanged.connect(self.ukljuciDotokMaterijala)
+        self.checkBox_5.stateChanged.connect(self.ukljuciMlin)
+        self.checkBox_6.stateChanged.connect(self.ukljuciElevatorMlina)
         #baza
         self.baza = dbhelpers.db()
         self.baza.open()
@@ -91,6 +95,41 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         self.ucitajizBaze()
         
+    def ukljuciDotokMaterijala(self):
+        sender = self.sender()
+        if(sender.isChecked()==True):
+            self.state.krenidotokMat() 
+            self._tmlin = 0
+            self._istmlin = True
+            self.scrollAreaWidgetContents.MlinDotok()
+        else:
+            self.state.iskljucidotokMat()
+            self._istmlin = False
+            if(self.checkBox_5.isChecked()==False):
+                self.scrollAreaWidgetContents.MlinDotokStop()
+            else:
+                self.scrollAreaWidgetContents.MlinPuni()  
+            
+    def ukljuciMlin(self):
+        sender = self.sender()
+        if(sender.isChecked()==True):
+            self.state.kreniMlin()
+            self.scrollAreaWidgetContents.MlinPuni()            
+        else:
+            self.state.iskljuciMlin()
+            if(self.checkBox_4.isChecked()==False):
+                self.scrollAreaWidgetContents.MlinDotokStop()
+            else:
+                self.scrollAreaWidgetContents.MlinDotok()
+                
+    def ukljuciElevatorMlina(self):
+        sender = self.sender()
+        if(sender.isChecked()==True):
+            self.state.kreniElevatorMlina()
+            self.scrollAreaWidgetContents.elevator1 = True          
+        else:
+            self.state.iskljuciElevatorMlina()
+            self.scrollAreaWidgetContents.elevator1 = False 
     def vaga2timerUpdate(self): 
         if(self._isvaga2==True):
             self._tvaga2 = self._tvaga2 + 1
@@ -99,11 +138,11 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             
         if(self._istmlin==True):
             self._tmlin = self._tmlin + 1
-            self.vaga2edit.setText(str(self._tmlin))
+            self.lineEdit_13.setText(str(self._tmlin))
             
         if(self._istmesaona==True):      
             self._istmesaona = self._istmesaona + 1
-            self.vaga2edit.setText(str(self._istmesaona))
+            self.lineEdit_14.setText(str(self._istmesaona))
      
     #start dugme    
     def startZadatak(self):
@@ -496,38 +535,50 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if(bin == 1):
             self.status('Bin1 aktiviran')
             self.scrollAreaWidgetContents.bin1.on()
+            self.state.kreniBin1();
         if(bin == 2):
             self.status('Bin2 aktiviran')
             self.scrollAreaWidgetContents.bin2.on()
+            self.state.kreniBin2();
         if(bin == 3):
             self.scrollAreaWidgetContents.bin3.on()
+            self.state.kreniBin3();
             self.status('Bin3 aktiviran')
         if(bin == 4):
             self.scrollAreaWidgetContents.bin4.on()
+            self.state.kreniBin4();
             self.status('Bin4 aktiviran')
         if(bin == 5):
             self.scrollAreaWidgetContents.bin5.on()
+            self.state.kreniBin5();
             self.status('Bin5 aktiviran')
         if(bin == 6):
             self.scrollAreaWidgetContents.bin6.on()
+            self.state.kreniBin6();
             self.status('Bin6 aktiviran')
         if(bin == 7):
             self.scrollAreaWidgetContents.bin7.on()
+            self.state.kreniBin7();
             self.status('Bin7 aktiviran')
         if(bin == 8):
             self.scrollAreaWidgetContents.bin8.on()
+            self.state.kreniBin8();
             self.status('Bin8 aktiviran')
         if(bin == 9):
             self.scrollAreaWidgetContents.bin9.on()
+            self.state.kreniBin9();
             self.status('Bin9 aktiviran')
         if(bin == 10):
             self.scrollAreaWidgetContents.bin10.on()
+            self.state.kreniBin10();
             self.status('Bin10 aktiviran')
         if(bin == 11):
             self.scrollAreaWidgetContents.bin11.on()
+            self.state.kreniBin11();
             self.status('Bin11 aktiviran')
         if(bin == 12):
             self.scrollAreaWidgetContents.bin12.on()
+            self.state.kreniBin12();
             self.status('Bin12 aktiviran')            
 
     def iskljuciBinove(self):
@@ -543,7 +594,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.scrollAreaWidgetContents.bin9.off() 
         self.scrollAreaWidgetContents.bin10.off()
         self.scrollAreaWidgetContents.bin11.off() 
-        self.scrollAreaWidgetContents.bin12.off()    
+        self.scrollAreaWidgetContents.bin12.off()  
+        self.state.iskljuciBinove()       
 
     def on_bin_clicked(self,bin):
         art = self.dataBinovi.getBin(bin-1).artikl
