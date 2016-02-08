@@ -46,6 +46,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.scrollAreaWidgetContents.bin10.binklik.connect(self.on_bin_clicked)
         self.scrollAreaWidgetContents.bin11.binklik.connect(self.on_bin_clicked)
         self.scrollAreaWidgetContents.bin12.binklik.connect(self.on_bin_clicked)
+        
+        self.radioButton_8.clicked.connect(lambda:self.btn_ispusti_1()) 
+        self.radioButton_9.clicked.connect(lambda:self.btn_ispusti_2()) 
+        self.radioButton_10.clicked.connect(lambda:self.btn_ispusti_3()) 
+        self.radioButton_11.clicked.connect(lambda:self.btn_ispusti_4()) 
+        self.radioButton_12.clicked.connect(lambda:self.btn_ispusti_5()) 
+        self.radioButton_13.clicked.connect(lambda:self.btn_ispusti_6()) 
+        self.radioButton_14.clicked.connect(lambda:self.btn_ispusti_7()) 
         self.initUI()
         
     def initUI(self):
@@ -99,8 +107,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.scrollAreaWidgetContents.elevator2 = False
         
     def ukljuciDotokMaterijala(self):
-        sender = self.sender()
-        if(sender.isChecked()==True):
+        if(self.checkBox_4.isChecked()==True):
             self.state.krenidotokMat() 
             self._tmlin = 0
             self._istmlin = True
@@ -114,8 +121,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.scrollAreaWidgetContents.MlinPuni()  
             
     def ukljuciMlin(self):
-        sender = self.sender()
-        if(sender.isChecked()==True):
+        if(self.checkBox_5.isChecked()==True):
             self.state.kreniMlin()
             self.scrollAreaWidgetContents.MlinPuni()            
         else:
@@ -127,7 +133,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 
     def ukljuciElevatorMlina(self):
         sender = self.sender()
-        if(sender.isChecked()==True):
+        if(self.checkBox_6.isChecked()==True):
             self.state.kreniElevatorMlina()
             self.scrollAreaWidgetContents.elevator1 = True          
         else:
@@ -280,10 +286,21 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         odradjeno = self.dataZadaci[0].odradjeno+1
         zadato = self.dataZadaci[0].odvaga
         QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
+        #otvori vagu
+        self.ukljuciElevatorMlina()
+        self.ukljuciDotokMaterijala()
+        self.state.otvoriVagu()
+        #mesaona start
+        self.napuniMesaonu()
         
         QMessageBox.about(self, "Informacija", "Mogu liu premiksi?")
+        self.state.kreniPremix()
         self.scrollAreaWidgetContents.vagaPrazni()
+        
         QMessageBox.about(self, "Informacija", "Sacekati da se vaga isprazni!")
+        self.state.zatvoriVagu()
+        self.state.iskljuciP26()
+        self.state.iskljuciPremix()
         
         if(odradjeno == zadato):
             #vaganje gotovo
@@ -309,8 +326,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self._isvaga2 = False
         self.ucitajTrenutniZadatak()
         self.pocetakOdvage()
-            
         
+    def napuniMesaonu(self):        
+        self
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):
         self.iskljuciBinove()
@@ -627,3 +645,19 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.dataBinovi.getBin(bin-1).koeficijent = k
             self.baza.updateBin(bin,unos.getArtikl(),k)
             self.ucitajBinove()
+            
+    def btn_ispusti_1(self):
+        pass
+    def btn_ispusti_2(self):
+        pass
+    def btn_ispusti_3(self):
+        pass
+    def btn_ispusti_4(self):
+        pass
+    def btn_ispusti_5(self):
+        pass
+    def btn_ispusti_6(self):
+        pass
+    def btn_ispusti_7(self):
+        pass
+   

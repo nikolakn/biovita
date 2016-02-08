@@ -166,6 +166,21 @@ class AppState(QtCore.QObject):
         self.ukljuciMotor(25) 
     def iskljuciElevator3(self):
         self.iskljuciMotor(25)        
+
+    def otvoriVagu(self):
+        self.ukljuciPneumatiku(28) 
+    def zatvoriVagu(self):
+        self.iskljuciPneumatiku(28)        
+        
+    def kreniPremix(self):
+        self.ukljuciPneumatiku(27) 
+    def iskljuciPremix(self):
+        self.iskljuciPneumatiku(27) 
+
+    def kreniP26(self):
+        self.ukljuciPneumatiku(26) 
+    def iskljuciP26(self):
+        self.iskljuciPneumatiku(26) 
         
     def iskljuciBinove(self):
         self.iskljuciMotor(11) 

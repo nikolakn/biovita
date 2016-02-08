@@ -312,6 +312,7 @@ class Ui_MainWindow(object):
         self.radioButton_11.setObjectName(_fromUtf8("radioButton_11"))
         self.verticalLayout_10.addWidget(self.radioButton_11)
         self.radioButton_12 = QtGui.QRadioButton(self.groupBox_6)
+        self.radioButton_12.setCheckable(False)
         self.radioButton_12.setObjectName(_fromUtf8("radioButton_12"))
         self.verticalLayout_10.addWidget(self.radioButton_12)
         self.radioButton_13 = QtGui.QRadioButton(self.groupBox_6)

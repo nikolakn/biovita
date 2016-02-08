@@ -678,6 +678,9 @@ p, li { white-space: pre-wrap; }
              <property name="text">
               <string>Peletirka</string>
              </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
             </widget>
            </item>
            <item>
