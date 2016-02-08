@@ -89,12 +89,12 @@ class GlavniProzor(QWidget):
         #info
         self.infoVaga2 = widgetInfo.Info(self)
         self.infoVaga2.crna()
-        self.infoVaga2.move(165,250);
+        self.infoVaga2.move(155,250);
         
         self.infoVaga1 = widgetInfo.Info(self)
         self.infoVaga1.zelena()
         self.infoVaga1.size(40)
-        self.infoVaga1.move(175,220);
+        self.infoVaga1.move(160,220);
   
         self.infoMesaonaGore = widgetInfo.Info(self)
         self.infoMesaonaGore.crna()
@@ -108,8 +108,18 @@ class GlavniProzor(QWidget):
         self.ctimer.start(150)    
         
     def vagaOn(self):
+        self.vaga.isprazni()
         self.infoVaga1.zelena()
         self.vaga.puni()
+    def vagaOff(self):
+        self.infoVaga1.zelena()
+        self.vaga.isprazni()
+    def vagaPuna(self):
+        self.infoVaga1.crvena()
+        self.vaga.napuni() 
+    def vagaPrazni(self):
+        self.infoVaga1.crvena()
+        self.vaga.prazni()
         
     def timerUpdate(self):
         self.mesaonaUlaz.animate();

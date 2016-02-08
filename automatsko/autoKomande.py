@@ -123,7 +123,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 return
         self.zadataMera = 0
         self.prethodnaMera = 0
-        self.scrollAreaWidgetContents.vagaOn = False
+        self.scrollAreaWidgetContents.vagaOn()
         self.baza.izbrisiTrenutneZadatke();
         tzadatak = self.dataZadaci[0]
         self.status("Startovanje odvage")
@@ -249,12 +249,16 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.baza.updatePoslednja(self.dataZadaci[0].id,self.prethodnaMera)
             self.dataZadaci = self.baza.zadaciList()
             self.ucitajZadatake() 
-        self.scrollAreaWidgetContents.vagaOn = False
         self.simvag = 0    
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
-        self.scrollAreaWidgetContents.infoVaga1.crvena()
+        self.scrollAreaWidgetContents.vagaPuna()
+        self._isvaga2 = False
         QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
+        
+        QMessageBox.about(self, "Informacija", "Mogu liu premiksi?")
+        self.scrollAreaWidgetContents.vagaPrazni()
+        QMessageBox.about(self, "Informacija", "Sacekati da se vaga isprazni!")
         self.pocetakOdvage();
             
         
