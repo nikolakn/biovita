@@ -194,3 +194,26 @@ class db(object):
         except:
             print('greska , ne mogu da obrisem recepturu ',sys.exc_info())
             return False            
+            
+    def insertRecepturu(self,rec):
+        try:
+            query = "INSERT INTO recepture (ime"
+            for r in range(1,13):
+                query = query + ',komp'+str(r)+',proc'+str(r)
+            query = query +") VALUES(?" 
+            for z in range(0,24):
+                query = query + ",?" 
+            query = query + ")" 
+            l=[]
+            l.append(rec.ime)
+            for rr in range(0,12):
+                l.append(rec.komponente[rr].ime)
+                l.append(rec.komponente[rr].procenat)
+            args = tuple(l)
+            self.cur.execute(query, args)
+            #self.cursor.executemany(query, books)
+            self.con.commit()
+            return True
+        except:
+            print('greska nije uspelo upisivanje u bazu',sys.exc_info())
+            return False 

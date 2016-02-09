@@ -535,6 +535,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             zz = zadatak.NkZadatak()
             zz.ime = unos.getIme()
             zz.kolicina = unos.getKolicina()
+            if(zz.kolicina==0):
+                QMessageBox.about(self, "Greska", "Kolicina ne moze biti nula")
+                return;
             if(zz.kolicina%600 == 0):
                 zz.odvaga = int(zz.kolicina/600)
             else:    

@@ -8,6 +8,7 @@ from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import sys
 from ui import UiDialogRecepture
+from database import zadatak
 
 class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
     
@@ -63,8 +64,21 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
             c.setCurrentIndex(-1);
         for p in self.procenti:
             p.setText('')
+            
     def upisiRecepturu(self):
-        pass
+        unos = zadatak.NkReceptura(0,str(self.lineEditIme.text()))
+        for x in range(0,12):
+            unos.komponente[x].ime = str(self.komponente[x].currentText())
+            try:
+                if(self.procenti[x].text()!=None and self.procenti[x].text()!=''):
+                    unos.komponente[x].procenat = float(self.procenti[x].text())
+            except:
+                QMessageBox.about(self, "Greska", "Unesite ispravan broj")
+                return
+        self.baza.insertRecepturu(unos)
+        self.recepti = self.baza.receptureList()
+        self.ucitaj()
+        
     def obrisiRecepturu(self):   
         x = self.tableWidget.selectedIndexes ()
         if(len(x)==0):
