@@ -15,6 +15,8 @@ from rucne import rucneKomande
 from database import dbhelpers,data,zadatak
 import dialogRec
 import dialogBin
+import dialogGotove
+import dialogRecepture
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
@@ -63,8 +65,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('BIOVITA')
         self.show()
-        meniUnos = self.menubar.addAction("Unos i promena podataka")
-        meniUtovar = self.menubar.addAction("UTOVAR")
+        meniUnos = self.menubar.addAction("Recepture")
+        meniUtovar = self.menubar.addAction("Gotove Odvage")
         meniPretovar = self.menubar.addAction("PRETOVAR")
         meniRucne = self.menubar.addAction("RUCNE KOMANDE")
         meniProzori = self.menubar.addAction("PROZORI")
@@ -144,7 +146,6 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 self.scrollAreaWidgetContents.MlinDotok()
                 
     def ukljuciElevatorMlina(self):
-        sender = self.sender()
         if(self.checkBox_6.isChecked()==True):
             self.state.kreniElevatorMlina()
             self.scrollAreaWidgetContents.elevator1 = True          
@@ -299,12 +300,13 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         zadato = self.dataZadaci[0].odvaga
         QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
         #otvori vagu
-        self.ukljuciElevatorMlina()
-        self.ukljuciDotokMaterijala()
+        self.checkBox_4.setChecked(True);
+        self.checkBox_6.setChecked(True);
         self.state.otvoriVagu()
         #mesaona start
         self.napuniMesaonu()
-        
+        self._tmesaona = 0
+        self._istmesaona = True 
         QMessageBox.about(self, "Informacija", "Mogu liu premiksi?")
         self.state.kreniPremix()
         self.scrollAreaWidgetContents.vagaPrazni()
@@ -334,7 +336,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.baza.izbrisiTrenutneZadatke(); 
         self.dataTrenutniZadatak = []             
         self.simvag = 0    
-        self.scrollAreaWidgetContents.vagaPuna()
+        self.scrollAreaWidgetContents.vagaOff()
         self._isvaga2 = False
         self.ucitajTrenutniZadatak()
         self.pocetakOdvage()
@@ -349,7 +351,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.scrollAreaWidgetContents.infoMesaonaGore.crvena();
             self.mesaonaInfo.setText("Otvaram gornji zasun")
             self.state.kreniMotorId(22) #gornji zasun
-            self.scrollAreaWidgetContents.mesaonaUlaz.prazni()
+            self.scrollAreaWidgetContents.mesaonaUlaz.puni()
         if( self._tmesaona == 8):
             self.state.iskljuciMotorId(22) #gornji zasun
             self.mesaonaInfo.setText("UTOVAR MATERIJALA");
@@ -421,7 +423,6 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.status("Kraj odvage!")
         if(self.isStart):
             self.vaganjeZavrseno(0.1)
-            self.scrollAreaWidgetContents.vagaOn = False
      
     def ocistiTabelu(self):
         self.iskljuciBinove()
@@ -570,10 +571,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             
             n += 1
         self.tableWidget.resizeColumnsToContents()    
-    def unosWindow(self):
-        print("unos");
-    def utovarWindow(self):
-        print("utovar");        
+       
     def rucneWindow(self):
         if isinstance(self.ex, rucneKomande.rucneProzor):
             self.ex.close()
@@ -771,3 +769,12 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.state.kreniPId(9)
         self.state.iskljuciPId(18)
         self.state.kreniMotorId(28)
+
+    def unosWindow(self):
+        unos = dialogRecepture.dialogRecept()
+        unos.exec_();
+        
+    def utovarWindow(self):
+        unos = dialogGotove.dialogGotoveOdvage()
+        unos.exec_();        
+            
