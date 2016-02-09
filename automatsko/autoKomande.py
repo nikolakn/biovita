@@ -771,10 +771,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.state.kreniMotorId(28)
 
     def unosWindow(self):
-        unos = dialogRecepture.dialogRecept()
+        unos = dialogRecepture.dialogRecept(self.baza)
         unos.exec_();
         
     def utovarWindow(self):
-        unos = dialogGotove.dialogGotoveOdvage()
+        unos = dialogGotove.dialogGotoveOdvage(self.baza)
         unos.exec_();        
             

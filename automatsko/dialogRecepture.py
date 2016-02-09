@@ -11,7 +11,8 @@ from ui import UiDialogRecepture
 
 class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
     
-    def __init__(self):
+    def __init__(self, baza):
         super(dialogRecept,self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Recepture")
+        self.baza = baza;
