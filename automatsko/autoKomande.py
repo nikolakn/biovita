@@ -350,7 +350,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.mesaonaInfo.setText("Otvaram gornji zasun")
             self.state.kreniMotorId(22) #gornji zasun
             self.scrollAreaWidgetContents.mesaonaUlaz.prazni()
-        if( self._tmesaona == 4):
+        if( self._tmesaona == 8):
             self.state.iskljuciMotorId(22) #gornji zasun
             self.mesaonaInfo.setText("UTOVAR MATERIJALA");
             
@@ -375,37 +375,36 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.mesaonaInfo.setText("Otvaram donji zasun")
             self.state.kreniMotorId(16) #donji zasun
             self.scrollAreaWidgetContents.mesaona.prazni()
-    '''            
-    if vreme_mesanjaVAr>398 then
-                                 begin
-                                 PANEL10.Color := CLRED;
-                                            edit11.Text := 'otvoren zasun donji';
-                                            testform.C16.Checked := false;
-                                 end;
-    if vreme_mesanjaVAr>415 then
-                                 begin
-                                 PANEL10.Color := CLblack;
-                                            edit11.Text := 'zatv zasun donji';
-                                            testform.C17.Checked := true;  {donji zasun zatvaram }
-                                 end;
-    if vreme_mesanjaVAr>421 then
-                                 begin
-                                            PANEL10.Color := CLblack;
+            
+        if( self._tmesaona > 398): 
+            self.scrollAreaWidgetContents.infoMesaonaDole.crvena();
+            self.mesaonaInfo.setText("otvoren zasun donji")
+            self.state.iskljuciMotorId(16)
+            
+        if( self._tmesaona > 415):    
+            self.scrollAreaWidgetContents.infoMesaonaDole.crna();
+            self.mesaonaInfo.setText("zatv zasun donji")
+            self.state.kreniMotorId(17) 
 
-                                            panel9.Color := clgreen ;
-                                            edit11.Text := 'SPREMNA';
-                                            animate8.Stop;
-                                            testform.C17.Checked := false;
-                                            vreme_mesanja.Enabled := false;
-                                            napuni_mes.Enabled:= true;
-                                            animate8.Play(1,20,0);
-                                            testform.Button30.Click;
-                                            if ibin5.Checked = true then testform.c32.Checked := true;
-                                             if ibin6.Checked = true then testform.c32.Checked := true;
-                                               if ibin3.Checked = true then testform.c32.Checked := true;
-                                            TESTFORM.c31.Checked:= false;
-                                 end;   
-    '''                             
+        if( self._tmesaona > 421): 
+            self.scrollAreaWidgetContents.infoMesaonaDole.crna();
+            self.mesaonaInfo.setText("SPREMNA")
+            self.scrollAreaWidgetContents.infoMesaonaGore.zelena();
+            self.scrollAreaWidgetContents.mesaona.isprazni()
+            self.state.iskljuciMotorId(17)
+            self._tmesaona = 0
+            self._istmesaona = False
+            self.scrollAreaWidgetContents.mesaona.isprazni()
+            self.state.kreniElevator3()   
+            self.scrollAreaWidgetContents.elevator2 = True 
+            self.state.iskljuciMotorId(31);    
+            if(self.radioButton_10.isChecked()==True):
+                self.state.kreniMotorId(32)     
+            if(self.radioButton_13.isChecked()==True):
+                self.state.kreniMotorId(32)  
+            if(self.radioButton_14.isChecked()==True):
+                self.state.kreniMotorId(32)                  
+                            
     #mera dostignuta    
     def vaganjeZavrseno(self, mera):
         self.iskljuciBinove()
