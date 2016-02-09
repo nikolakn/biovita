@@ -183,4 +183,14 @@ class db(object):
             return True
          except:
             print('greska , ne mogu da updatujem bin ',sys.exc_info())
-            return False        
+            return False 
+
+    def obrisiRecepturu(self,id):
+        try:
+            query = "DELETE FROM recepture WHERE id ="+str(id)+""
+            self.cur.execute(query)
+            self.con.commit() 
+            return True
+        except:
+            print('greska , ne mogu da obrisem recepturu ',sys.exc_info())
+            return False            

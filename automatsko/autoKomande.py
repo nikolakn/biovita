@@ -773,6 +773,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def unosWindow(self):
         unos = dialogRecepture.dialogRecept(self.baza)
         unos.exec_();
+        self.dataRecepture = self.baza.receptureList()
         
     def utovarWindow(self):
         unos = dialogGotove.dialogGotoveOdvage(self.baza)
