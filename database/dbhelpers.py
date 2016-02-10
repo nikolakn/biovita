@@ -217,3 +217,18 @@ class db(object):
         except:
             print('greska nije uspelo upisivanje u bazu',sys.exc_info())
             return False 
+            
+    def updateRecepturu(self,rec):
+        try:
+            query = "UPDATE recepture SET ime='"+rec.ime+"'"
+            for r in range(1,13):
+                query = query + ",komp"+str(r)+"='" +str(rec.komponente[r-1].ime) + "'"
+                query = query + ",proc"+str(r)+"=" +str(rec.komponente[r-1].procenat)
+            query = query +" where id="+str(rec.id) 
+
+            self.cur.execute(query)
+            self.con.commit()
+            return True
+        except:
+            print('greska , ne mogu da updatujem recept ',sys.exc_info())
+            return False 

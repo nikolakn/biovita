@@ -32,7 +32,18 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
             self.lineEdit_9,self.lineEdit_10,self.lineEdit_11,
             self.lineEdit_12,self.lineEdit_13]   
         self.ucitaj()  
+        self.tableWidget.clicked.connect(self.viewClicked)
+        self.clickId = 0
         
+    def viewClicked(self):
+        x = self.tableWidget.selectionModel().selectedRows()[0].row();
+        rec = self.recepti[len(self.recepti)-x-1]
+        self.lineEditIme.setText(rec.ime)
+        self.clickId  = rec.id
+        for x in range(0,12):
+            self.komponente[x].setEditText(str(rec.komponente[x].ime))
+            self.procenti[x].setText(str(rec.komponente[x].procenat))      
+
     def ucitaj(self):
         n = 0
         
@@ -69,20 +80,36 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
             c.setCurrentIndex(-1);
         for p in self.procenti:
             p.setText('')
+        self.clickId = 0
             
     def upisiRecepturu(self):
-        unos = zadatak.NkReceptura(0,str(self.lineEditIme.text()))
-        for x in range(0,12):
-            unos.komponente[x].ime = str(self.komponente[x].currentText())
-            try:
-                if(self.procenti[x].text()!=None and self.procenti[x].text()!=''):
-                    unos.komponente[x].procenat = float(self.procenti[x].text())
-            except:
-                QMessageBox.about(self, "Greska", "Unesite ispravan broj")
-                return
-        self.baza.insertRecepturu(unos)
-        self.recepti = self.baza.receptureList()
-        self.ucitaj()
+        if(self.clickId == 0):
+            unos = zadatak.NkReceptura(0,str(self.lineEditIme.text()))
+            for x in range(0,12):
+                unos.komponente[x].ime = str(self.komponente[x].currentText())
+                try:
+                    if(self.procenti[x].text()!=None and self.procenti[x].text()!=''):
+                        unos.komponente[x].procenat = float(self.procenti[x].text())
+                except:
+                    QMessageBox.about(self, "Greska", "Unesite ispravan broj")
+                    return
+            self.baza.insertRecepturu(unos)
+            self.recepti = self.baza.receptureList()
+            self.ucitaj()
+        else:
+            unos = zadatak.NkReceptura(self.clickId,str(self.lineEditIme.text()))
+            for x in range(0,12):
+                unos.komponente[x].ime = str(self.komponente[x].currentText())
+                try:
+                    if(self.procenti[x].text()!=None and self.procenti[x].text()!=''):
+                        unos.komponente[x].procenat = float(self.procenti[x].text())
+                except:
+                    QMessageBox.about(self, "Greska", "Unesite ispravan broj")
+                    return  
+            self.baza.updateRecepturu(unos)
+            self.recepti = self.baza.receptureList()
+            self.ucitaj() 
+        self.novaReceptura()
         
     def obrisiRecepturu(self):   
         x = self.tableWidget.selectedIndexes ()
