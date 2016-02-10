@@ -413,9 +413,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.iskljuciBinove()
         self.status("vaganje zavrseno")
         self.vaganje = False
-        self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
-        self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
-        self.prethodnaMera = mera      
+        if(mera!=-1):
+            self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
+            self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
+            self.prethodnaMera = mera 
+        else:
+            self._trenutnaKomponenta.izmereno = 0.1
+            self.baza.updateIzmereno(0.1)
+            self.prethodnaMera = 0        
         #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
@@ -423,7 +428,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def krajOdvage(self): 
         self.status("Kraj odvage!")
         if(self.isStart):
-            self.vaganjeZavrseno(0.1)
+            self.vaganjeZavrseno(-1)
      
     def ocistiTabelu(self):
         self.iskljuciBinove()
