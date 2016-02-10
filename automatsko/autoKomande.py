@@ -181,6 +181,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     #ulazi samo na pocetku zadatka kada je lista
     #sa trenutnim zadatkom prazna
     def pocetakOdvage(self):
+        self.port.flushInput()
         if(len(self.dataZadaci)==0):
                 return
         self.zadataMera = 0

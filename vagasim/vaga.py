@@ -45,10 +45,10 @@ class sim(QMainWindow):
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(100)
-        self.moving=True
+        self.moving=False
     def l1Clicked(self):
         self.raste = True
-        self.moving=True
+        self.moving=False
     def l2Clicked(self):
         self.raste = False
         self.moving=False
@@ -58,7 +58,7 @@ class sim(QMainWindow):
         self.moving=False
     def timerUpdate(self):
         if (self.raste):
-            self.num = self.num + 1.33
+            self.num = self.num + 0.6
         s=chr(2)
         q=chr(71)
         e=chr(77)
