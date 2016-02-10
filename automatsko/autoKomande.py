@@ -33,6 +33,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.state = state
         self.isStart = False
         self.vaganje = False
+        self.mera = 0
         self.simvag = 0
         self.zadataMera = 0
         self.prethodnaMera = 0
