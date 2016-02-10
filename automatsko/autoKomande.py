@@ -249,7 +249,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     #za svaku komponentu posebno i ako lista trenutnih odvaga
     #nija prazna pri startovanju
     def pocetakKomponente(self):
-        self.port.flushInput()
+
         self.scrollAreaWidgetContents.vagaOn()
  
         self.status("Pocetak komponente")
@@ -588,6 +588,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         else:
             self.ex = rucneKomande.rucneProzor(self.state)
     def timerUpdate(self):
+        self.port.flushInput()
         ulazi = self.state.updateSensors();
         mera =''
         if _platform == "linux" or _platform == "linux2":
