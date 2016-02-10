@@ -181,7 +181,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     #ulazi samo na pocetku zadatka kada je lista
     #sa trenutnim zadatkom prazna
     def pocetakOdvage(self):
-        self.port.flushInput()
+        
         if(len(self.dataZadaci)==0):
                 return
         self.zadataMera = 0
@@ -249,6 +249,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     #za svaku komponentu posebno i ako lista trenutnih odvaga
     #nija prazna pri startovanju
     def pocetakKomponente(self):
+        self.port.flushInput()
         self.scrollAreaWidgetContents.vagaOn()
  
         self.status("Pocetak komponente")
