@@ -62,7 +62,7 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
         for x in range(0,12):
             self.komponente[x].clear()
             self.komponente[x].addItems(list1)
-
+            self.komponente[x].setCurrentIndex(-1);
     def novaReceptura(self):
         self.lineEditIme.setText('')
         for c in self.komponente:
