@@ -255,7 +255,6 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         zadatakZavrsen = True;
         self._isvaga2=True
         for komp in self.dataTrenutniZadatak:
-            print komp.izmereno
             if (komp.izmereno==0.0):
                 self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
