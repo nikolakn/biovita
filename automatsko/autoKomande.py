@@ -216,7 +216,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 k.procenat =  procenat
                 self.dataTrenutniZadatak.append(k)  
                 
-        
+        self._trenutnaKomponenta = self.dataTrenutniZadatak[0]
         kol = self.dataZadaci[0].kolicina
         ostalo = kol-(self.dataZadaci[0].odradjeno*600)                
         self._ukupnaKolicina = ostalo
@@ -255,7 +255,8 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         zadatakZavrsen = True;
         self._isvaga2=True
         for komp in self.dataTrenutniZadatak:
-            if (komp.izmereno==0):
+            print komp.izmereno
+            if (komp.izmereno==0.0):
                 self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
@@ -419,16 +420,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.prethodnaMera = mera 
         else:
             self._trenutnaKomponenta.izmereno = 0.1
-            self.baza.updateIzmereno(0.1)
-            self.prethodnaMera = 0        
+            self.baza.updateIzmereno(self._id,0.1)       
         #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
         
     def krajOdvage(self): 
         self.status("Kraj odvage!")
-        if(self.isStart):
-            self.vaganjeZavrseno(-1)
+        self.vaganjeZavrseno(-1)
      
     def ocistiTabelu(self):
         self.iskljuciBinove()
