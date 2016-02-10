@@ -22,7 +22,7 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
         self.pushButton_3.clicked.connect(lambda:self.novaReceptura()) 
         self.pushButton_2.clicked.connect(lambda:self.upisiRecepturu()) 
         self.pushButton.clicked.connect(lambda:self.obrisiRecepturu()) 
-        self.ucitaj()
+        
         self.komponente = [self.comboKomp1,self.comboKomp2,self.comboKomp3,self.comboKomp4,
             self.comboKomp5,self.comboKomp6,self.comboKomp7,self.comboKomp8,
             self.comboKomp9,self.comboKomp10,self.comboKomp11,self.comboKomp12]
@@ -30,7 +30,9 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
         self.procenti = [self.lineEdit_2,self.lineEdit_3,self.lineEdit_4,
             self.lineEdit_5,self.lineEdit_6,self.lineEdit_7,self.lineEdit_8,
             self.lineEdit_9,self.lineEdit_10,self.lineEdit_11,
-            self.lineEdit_12,self.lineEdit_13]    
+            self.lineEdit_12,self.lineEdit_13]   
+        self.ucitaj()  
+        
     def ucitaj(self):
         n = 0
         
@@ -55,8 +57,11 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
                 self.tableWidget.setItem(n, kolona, newitem7)
                 kolona = kolona + 1
             n += 1
-        self.tableWidget.resizeColumnsToContents()        
-
+        self.tableWidget.resizeColumnsToContents()  
+        list1 = ["KUKURUZ","SOJA"]
+        for x in range(0,12):
+            self.komponente[x].clear()
+            self.komponente[x].addItems(list1)
 
     def novaReceptura(self):
         self.lineEditIme.setText('')
