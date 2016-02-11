@@ -69,7 +69,8 @@ class dialogRecept(QDialog,UiDialogRecepture.Ui_Dialog):
                 kolona = kolona + 1
             n += 1
         self.tableWidget.resizeColumnsToContents()  
-        list1 = ["KUKURUZ","SOJA"]
+        list1 = ["KUKURUZ","SOJIN GRIZ","SOJIONA POGACA","SUNC SACMA 33%","SOJA",
+            "PREMIX","SUNCOKRET ZRNO","PSENICA","EXT KUK"]
         for x in range(0,12):
             self.komponente[x].clear()
             self.komponente[x].addItems(list1)
