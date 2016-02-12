@@ -1231,7 +1231,7 @@ p, li { white-space: pre-wrap; }
        </layout>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_7">
+       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="1,1,1,1">
         <property name="sizeConstraint">
          <enum>QLayout::SetMaximumSize</enum>
         </property>
