@@ -1,0 +1,8 @@
+tvservice -d edid
+edidparser edid
+
+nano /boot/config.txt
+Find the section about HDMI, uncomment it and set the right group and mode from step 2. If your mode description contains “DMT”, the group should be 2, and if it contains “CEA”, it should be 1, so for me that was:
+
+hdmi_group=2
+hdmi_mode=82
