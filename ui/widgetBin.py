@@ -7,7 +7,7 @@ class Bin(QtGui.QWidget):
     def __init__(self,parent,bin):
         QtGui.QWidget.__init__(self, parent)
         self.bin = bin
-        self.plava = QtGui.QColor(216, 228, 248)
+        self.plava = QtGui.QColor(175, 249, 250)
         self.crvena = QtGui.QColor(255, 0, 0)
         self.crna = QtGui.QColor(0, 0, 0)
         self.ukljuceno = False;
