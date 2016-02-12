@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'automainwindow.ui'
 #
-# Created: Fri Feb 12 16:52:23 2016
-#      by: PyQt4 UI code generator 4.9.3
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,24 +11,33 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1249, 878)
+        MainWindow.resize(1368, 878)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setMargin(0)
+        self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
-        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setContentsMargins(-1, -1, 0, -1)
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.verticalWidget = QtGui.QWidget(self.centralwidget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Preferred)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.verticalWidget.sizePolicy().hasHeightForWidth())
@@ -40,7 +48,6 @@ class Ui_MainWindow(object):
         self.verticalWidget.setObjectName(_fromUtf8("verticalWidget"))
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.verticalWidget)
         self.verticalLayout_2.setMargin(2)
-        self.verticalLayout_2.setMargin(0)
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
         self.groupBox_3 = QtGui.QGroupBox(self.verticalWidget)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
@@ -332,7 +339,6 @@ class Ui_MainWindow(object):
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout_11 = QtGui.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout_11.setSpacing(3)
-        self.verticalLayout_11.setMargin(0)
         self.verticalLayout_11.setObjectName(_fromUtf8("verticalLayout_11"))
         self.checkBox_4 = QtGui.QCheckBox(self.verticalLayoutWidget)
         self.checkBox_4.setObjectName(_fromUtf8("checkBox_4"))
@@ -368,7 +374,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(0, -1, 0, -1)
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
-        self.horizontalLayout_2.setMargin(0)
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         self.label_bin1 = QtGui.QLabel(self.widget)
         font = QtGui.QFont()
@@ -546,7 +551,6 @@ class Ui_MainWindow(object):
         self.widget_2.setAutoFillBackground(True)
         self.widget_2.setObjectName(_fromUtf8("widget_2"))
         self.horizontalLayout_11 = QtGui.QHBoxLayout(self.widget_2)
-        self.horizontalLayout_11.setMargin(0)
         self.horizontalLayout_11.setObjectName(_fromUtf8("horizontalLayout_11"))
         spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem1)
@@ -575,7 +579,6 @@ class Ui_MainWindow(object):
         self.widget_4.setMaximumSize(QtCore.QSize(1200, 16777215))
         self.widget_4.setObjectName(_fromUtf8("widget_4"))
         self.horizontalLayout_12 = QtGui.QHBoxLayout(self.widget_4)
-        self.horizontalLayout_12.setMargin(0)
         self.horizontalLayout_12.setObjectName(_fromUtf8("horizontalLayout_12"))
         self.label_10 = QtGui.QLabel(self.widget_4)
         font = QtGui.QFont()
@@ -611,7 +614,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1249, 19))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1368, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuPregledi_i_izvestaji = QtGui.QMenu(self.menubar)
         self.menuPregledi_i_izvestaji.setObjectName(_fromUtf8("menuPregledi_i_izvestaji"))
@@ -622,57 +625,57 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "MainWindow", None, QtGui.QApplication.UnicodeUTF8))
-        self.labelvreme.setText(QtGui.QApplication.translate("MainWindow", "vreme", None, QtGui.QApplication.UnicodeUTF8))
-        self.labeldatum.setText(QtGui.QApplication.translate("MainWindow", "datum", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("MainWindow", "Trenutni zadatak:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("MainWindow", "Ime recepture:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("MainWindow", "Broj odvaga u zadatku:", None, QtGui.QApplication.UnicodeUTF8))
-        self.trenutnibinzasipanje.setText(QtGui.QApplication.translate("MainWindow", "Trenutni bin za sipanje:", None, QtGui.QApplication.UnicodeUTF8))
-        self.kolicinazavaganje.setText(QtGui.QApplication.translate("MainWindow", "Kolicina za vaganje komponente:", None, QtGui.QApplication.UnicodeUTF8))
-        self.brojtrenutneodvage.setText(QtGui.QApplication.translate("MainWindow", "Broj trenutne odvage:", None, QtGui.QApplication.UnicodeUTF8))
-        self.krajnjavrednostodvage.setText(QtGui.QApplication.translate("MainWindow", "Krajnja vrednost odvage:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_8.setText(QtGui.QApplication.translate("MainWindow", "kg", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "Isprazni tabelu", None, QtGui.QApplication.UnicodeUTF8))
-        self.groupBox_5.setTitle(QtGui.QApplication.translate("MainWindow", "Trenutna merena vrednost", None, QtGui.QApplication.UnicodeUTF8))
-        self.vagamera_2.setHtml(QtGui.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+        self.labelvreme.setText(_translate("MainWindow", "vreme", None))
+        self.labeldatum.setText(_translate("MainWindow", "datum", None))
+        self.label.setText(_translate("MainWindow", "Trenutni zadatak:", None))
+        self.label_2.setText(_translate("MainWindow", "Ime recepture:", None))
+        self.label_3.setText(_translate("MainWindow", "Broj odvaga u zadatku:", None))
+        self.trenutnibinzasipanje.setText(_translate("MainWindow", "Trenutni bin za sipanje:", None))
+        self.kolicinazavaganje.setText(_translate("MainWindow", "Kolicina za vaganje komponente:", None))
+        self.brojtrenutneodvage.setText(_translate("MainWindow", "Broj trenutne odvage:", None))
+        self.krajnjavrednostodvage.setText(_translate("MainWindow", "Krajnja vrednost odvage:", None))
+        self.label_8.setText(_translate("MainWindow", "kg", None))
+        self.pushButton.setText(_translate("MainWindow", "Isprazni tabelu", None))
+        self.groupBox_5.setTitle(_translate("MainWindow", "Trenutna merena vrednost", None))
+        self.vagamera_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Times New Roman\'; font-size:16pt; font-weight:600; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">-</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_6.setText(QtGui.QApplication.translate("MainWindow", "ELEVATOR MLINA", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_8.setText(QtGui.QApplication.translate("MainWindow", "Vaga 1", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_9.setText(QtGui.QApplication.translate("MainWindow", "Vaga 2", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_10.setText(QtGui.QApplication.translate("MainWindow", "Vaga 3", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_11.setText(QtGui.QApplication.translate("MainWindow", "Vaga 4", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_12.setText(QtGui.QApplication.translate("MainWindow", "Peletirka", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_13.setText(QtGui.QApplication.translate("MainWindow", "Ekstruder bin5", None, QtGui.QApplication.UnicodeUTF8))
-        self.radioButton_14.setText(QtGui.QApplication.translate("MainWindow", "Ekstruder bin 6", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButtonNapuni.setText(QtGui.QApplication.translate("MainWindow", "NAPUNI", None, QtGui.QApplication.UnicodeUTF8))
-        self.mesaonaInfo.setText(QtGui.QApplication.translate("MainWindow", "Spremna", None, QtGui.QApplication.UnicodeUTF8))
-        self.dugmestopele.setText(QtGui.QApplication.translate("MainWindow", "STOP", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_4.setText(QtGui.QApplication.translate("MainWindow", "DOTOK MATERIJALA", None, QtGui.QApplication.UnicodeUTF8))
-        self.checkBox_5.setText(QtGui.QApplication.translate("MainWindow", "MLIN", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin1.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin2.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin3.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin4.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin5.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin6.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin7.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin8.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin9.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin10.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin11.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_bin12.setText(QtGui.QApplication.translate("MainWindow", "SOJINA POGACA", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_9.setText(QtGui.QApplication.translate("MainWindow", "Status:", None, QtGui.QApplication.UnicodeUTF8))
-        self.startdugme.setText(QtGui.QApplication.translate("MainWindow", "START", None, QtGui.QApplication.UnicodeUTF8))
-        self.stopdugme.setText(QtGui.QApplication.translate("MainWindow", "STOP", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_10.setText(QtGui.QApplication.translate("MainWindow", "Zadaci:", None, QtGui.QApplication.UnicodeUTF8))
-        self.dugme_krajodvage.setText(QtGui.QApplication.translate("MainWindow", "Kraj odvage", None, QtGui.QApplication.UnicodeUTF8))
-        self.dugme_novizadatak.setText(QtGui.QApplication.translate("MainWindow", "Novi zadatak", None, QtGui.QApplication.UnicodeUTF8))
-        self.dugme_brisizadatak.setText(QtGui.QApplication.translate("MainWindow", "Brisi zadatak", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuPregledi_i_izvestaji.setTitle(QtGui.QApplication.translate("MainWindow", "Pregledi i izvestaji", None, QtGui.QApplication.UnicodeUTF8))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">-</p></body></html>", None))
+        self.checkBox_6.setText(_translate("MainWindow", "ELEVATOR MLINA", None))
+        self.radioButton_8.setText(_translate("MainWindow", "Vaga 1", None))
+        self.radioButton_9.setText(_translate("MainWindow", "Vaga 2", None))
+        self.radioButton_10.setText(_translate("MainWindow", "Vaga 3", None))
+        self.radioButton_11.setText(_translate("MainWindow", "Vaga 4", None))
+        self.radioButton_12.setText(_translate("MainWindow", "Peletirka", None))
+        self.radioButton_13.setText(_translate("MainWindow", "Ekstruder bin5", None))
+        self.radioButton_14.setText(_translate("MainWindow", "Ekstruder bin 6", None))
+        self.pushButtonNapuni.setText(_translate("MainWindow", "NAPUNI", None))
+        self.mesaonaInfo.setText(_translate("MainWindow", "Spremna", None))
+        self.dugmestopele.setText(_translate("MainWindow", "STOP", None))
+        self.checkBox_4.setText(_translate("MainWindow", "DOTOK MATERIJALA", None))
+        self.checkBox_5.setText(_translate("MainWindow", "MLIN", None))
+        self.label_bin1.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin2.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin3.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin4.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin5.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin6.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin7.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin8.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin9.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin10.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin11.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_bin12.setText(_translate("MainWindow", "SOJINA POGACA", None))
+        self.label_9.setText(_translate("MainWindow", "Status:", None))
+        self.startdugme.setText(_translate("MainWindow", "START", None))
+        self.stopdugme.setText(_translate("MainWindow", "STOP", None))
+        self.label_10.setText(_translate("MainWindow", "Zadaci:", None))
+        self.dugme_krajodvage.setText(_translate("MainWindow", "Kraj odvage", None))
+        self.dugme_novizadatak.setText(_translate("MainWindow", "Novi zadatak", None))
+        self.dugme_brisizadatak.setText(_translate("MainWindow", "Brisi zadatak", None))
+        self.menuPregledi_i_izvestaji.setTitle(_translate("MainWindow", "Pregledi i izvestaji", None))
 
 from grafik import NkGrafik
 from widgetGlavni import GlavniProzor
