@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'automainwindow.ui'
 #
-# Created: Fri Feb 12 16:34:50 2016
+# Created: Fri Feb 12 16:52:23 2016
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -228,13 +228,13 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = GlavniProzor()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 950, 505))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 950, 600))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.scrollAreaWidgetContents.sizePolicy().hasHeightForWidth())
         self.scrollAreaWidgetContents.setSizePolicy(sizePolicy)
-        self.scrollAreaWidgetContents.setMinimumSize(QtCore.QSize(950, 460))
+        self.scrollAreaWidgetContents.setMinimumSize(QtCore.QSize(950, 600))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -512,7 +512,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
         self.widget_3.setSizePolicy(sizePolicy)
-        self.widget_3.setMinimumSize(QtCore.QSize(600, 300))
+        self.widget_3.setMinimumSize(QtCore.QSize(600, 250))
         self.widget_3.setObjectName(_fromUtf8("widget_3"))
         self.verticalLayout_6.addWidget(self.widget_3)
         self.horizontalLayout_3.addLayout(self.verticalLayout_6)

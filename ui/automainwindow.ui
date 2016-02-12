@@ -441,7 +441,7 @@
            <x>0</x>
            <y>0</y>
            <width>950</width>
-           <height>505</height>
+           <height>600</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -453,7 +453,7 @@
          <property name="minimumSize">
           <size>
            <width>950</width>
-           <height>460</height>
+           <height>600</height>
           </size>
          </property>
          <property name="palette">
@@ -1202,7 +1202,7 @@ p, li { white-space: pre-wrap; }
           <property name="minimumSize">
            <size>
             <width>600</width>
-            <height>300</height>
+            <height>250</height>
            </size>
           </property>
          </widget>
