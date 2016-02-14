@@ -22,6 +22,7 @@ class GlavniProzor(QWidget):
         self.slika2frame = 0;
         self.elevator1=False
         self.elevator2=False
+        
         #self.loadedImage2.load("images/el2.png")
         self.x = 28; #start
         self.y = 47; #izmedju dve susedne
@@ -74,21 +75,23 @@ class GlavniProzor(QWidget):
         self.bin12.move(self.x+self.y,40);
         
         #masine
+        mdy = 25;
         self.vaga = widgetMasina.Masina(self)
         self.vaga.move(180,160);
 
         self.mlin = widgetMasina.Masina(self)
-        self.mlin.move(140,294);
+        self.mlin.move(140,294+mdy);
  
-
+        mdy =mdy + 20;
         self.mesaonaUlaz = widgetMasina.Masina(self)
-        self.mesaonaUlaz.move(450,150);
+        self.mesaonaUlaz.move(450,150+mdy);
         self.mesaona = widgetMasina.Masina(self)
         self.mesaona.setmax(25)
-        self.mesaona.move(450,230);
+        self.mesaona.move(450,230+mdy);
         self.mesaonaIzalz = widgetMasina.Masina(self)
-        self.mesaonaIzalz.move(450,310);
+        self.mesaonaIzalz.move(450,310+mdy);
         #info
+        
         self.infoVaga2 = widgetInfo.Info(self)
         self.infoVaga2.crna()
         self.infoVaga2.move(155,250);
@@ -100,11 +103,11 @@ class GlavniProzor(QWidget):
   
         self.infoMesaonaGore = widgetInfo.Info(self)
         self.infoMesaonaGore.crna()
-        self.infoMesaonaGore.move(445,241);
+        self.infoMesaonaGore.move(445,241+mdy);
 
         self.infoMesaonaDole = widgetInfo.Info(self)
         self.infoMesaonaDole.crna()
-        self.infoMesaonaDole.move(445,302);        
+        self.infoMesaonaDole.move(445,302+mdy);        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)   
@@ -162,5 +165,5 @@ class GlavniProzor(QWidget):
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)
         paint.setPen(Qt.black);
-        paint.drawImage(QPoint(150,158),self.slike1[self.slika1frame])
-        paint.drawImage(QPoint(500,160),self.slike2[self.slika2frame])
+        paint.drawImage(QPoint(150,158+25),self.slike1[self.slika1frame])
+        paint.drawImage(QPoint(500,160+50),self.slike2[self.slika2frame])
