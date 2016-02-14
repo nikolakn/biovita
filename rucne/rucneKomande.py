@@ -92,7 +92,7 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.srednji_dugme_iskljuci.clicked.connect(lambda:self.btn_iskljuci())
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
-        self.setWindowState(Qt.WindowMaximized)
+        #self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('Biovita')
         self.show()
         self.ctimer = QTimer()
