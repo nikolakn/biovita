@@ -6,3 +6,4 @@ sudo pyuic4 -o UiDialog1.py dialog1.ui
 sudo pyuic4 -o UiDialogBin.py dialogbin.ui
 sudo pyuic4 -o UiDialogGotove.py gotove.ui
 sudo pyuic4 -o UiDialogRecepture.py recepture.ui
+sudo pyuic4 -o UiDialogVreme.py vreme.ui

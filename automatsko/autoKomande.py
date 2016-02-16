@@ -7,6 +7,7 @@ Created on Jan 15, 2016
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 import sys
+import datetime
 from ui import UiAuto
 from sys import platform as _platform
 import serial 
@@ -17,6 +18,7 @@ import dialogRec
 import dialogBin
 import dialogGotove
 import dialogRecepture
+import dialogVreme
 
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
@@ -66,6 +68,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('BIOVITA')
         self.show()
+        meniVreme = self.menubar.addAction("Podesi Vreme")
         meniUnos = self.menubar.addAction("Recepture")
         meniUtovar = self.menubar.addAction("Gotove Odvage")
         meniPretovar = self.menubar.addAction("PRETOVAR")
@@ -74,7 +77,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         meniRucne.triggered.connect(self.rucneWindow)
         meniUnos.triggered.connect(self.unosWindow)
         meniUtovar.triggered.connect(self.utovarWindow)
-        
+        meniVreme.triggered.connect(self.podesiVremeWindow)
         self.dugme_brisizadatak.clicked.connect(lambda:self.brisiZadatak())
         self.dugme_novizadatak.clicked.connect(lambda:self.noviZadatak())
         
@@ -788,5 +791,51 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
     def utovarWindow(self):
         unos = dialogGotove.dialogGotoveOdvage(self.baza)
-        unos.exec_();        
-            
+        unos.exec_();   
+
+    def podesiVremeWindow(self):
+        unos = dialogVreme.dialogzaVreme()
+        unos.exec_();             
+        time_tuple = ( int(unos.godina.text()), # Year
+                       int(unos.mesec.text()), # Month
+                       int(unos.dan.text()), # Day
+                       int(unos.sati.text()), # Hour
+                       int(unos.minuti.text()), # Minute
+                          0, # Second
+                          0, # Millisecond
+                      )
+        if sys.platform=='linux2':
+            self._linux_set_time(time_tuple)   
+
+
+
+
+    def _linux_set_time(self,time_tuple):
+        import ctypes
+        import ctypes.util
+        import time
+
+        # /usr/include/linux/time.h:
+        #
+        # define CLOCK_REALTIME                     0
+        CLOCK_REALTIME = 0
+
+        # /usr/include/time.h
+        #
+        # struct timespec
+        #  {
+        #    __time_t tv_sec;            /* Seconds.  */
+        #    long int tv_nsec;           /* Nanoseconds.  */
+        #  };
+        class timespec(ctypes.Structure):
+            _fields_ = [("tv_sec", ctypes.c_long),
+                        ("tv_nsec", ctypes.c_long)]
+
+        librt = ctypes.CDLL(ctypes.util.find_library("rt"))
+
+        ts = timespec()
+        ts.tv_sec = int( time.mktime( datetime.datetime( *time_tuple[:6]).timetuple() ) )
+        ts.tv_nsec = time_tuple[6] * 1000000 # Millisecond to nanosecond
+
+        # http://linux.die.net/man/3/clock_settime
+        librt.clock_settime(CLOCK_REALTIME, ctypes.byref(ts))
