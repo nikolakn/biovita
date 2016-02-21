@@ -46,3 +46,4 @@ class Novi(QMainWindow,UiNovi.Ui_MainWindow):
 
     def status(self,msg):
         pass
+        
