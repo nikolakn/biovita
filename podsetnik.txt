@@ -32,6 +32,3 @@ wsgiref==0.1.2
 
 ## kom
 update database
-- stanje u binovima
-- da ne mogu dva programa u isto vreme
-

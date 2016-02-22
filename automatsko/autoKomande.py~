@@ -217,6 +217,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 k.bin = 0
                 k.zadato = 0
                 k.izmereno = 0
+                k.zakljucen = 0
                 k.procenat =  procenat
                 self.dataTrenutniZadatak.append(k)  
                 
@@ -260,7 +261,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         zadatakZavrsen = True;
         self._isvaga2=True
         for komp in self.dataTrenutniZadatak:
-            if (komp.izmereno==0.0):
+            print "pocetak komponente"
+            if (komp.zakljucen==0):
+                print "pocetak ulazi"
                 self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
@@ -418,13 +421,17 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.iskljuciBinove()
         self.status("vaganje zavrseno")
         self.vaganje = False
+        print "ulzi u vaganjezavrseno"
         if(mera!=-1):
             self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
-            self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
+            self._trenutnaKomponenta.zakljucen==1
+            self.baza.updateIzmereno(self._id, mera-self.prethodnaMera,1)
             self.prethodnaMera = mera 
+            print "ulzi u vaganjezavrseno 1"
         else:
             self._trenutnaKomponenta.izmereno = 0.1
-            self.baza.updateIzmereno(self._id,0.1)       
+            self._trenutnaKomponenta.zakljucen==0
+            self.baza.updateIzmereno(self._id,0.1,0)       
         #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
@@ -591,8 +598,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         else:
             self.ex = rucneKomande.rucneProzor(self.state)
     def timerUpdate(self):
-        self.port.flushInput()
-        time.sleep(0.1)
+        if _platform == "linux" or _platform == "linux2":
+            self.port.flushInput()
+            time.sleep(0.1)
         ulazi = self.state.updateSensors();
         mera =''
         if _platform == "linux" or _platform == "linux2":
@@ -609,10 +617,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.vagamera_2.setText(str(mera))
         self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
         self.labeldatum.setText('Datum: '+time.strftime("%d/%m/%Y"))
-        if(self.dobramera == True):
-            if(self.vaganje == True and float(mera) >= float(self.zadataMera)):
+        #if(self.dobramera == True):
+        try:
+            tm = float(mera) 
+            if(self.vaganje == True and tm >= float(self.zadataMera)):
                 self.vaganje = False
                 self.vaganjeZavrseno(mera);
+        except:
+            pass;
         self.repaint()    
 
     def vagaMera(self,st):
@@ -794,23 +806,25 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         unos.exec_();   
 
     def podesiVremeWindow(self):
-        unos = dialogVreme.dialogzaVreme()
-        unos.exec_();             
-        time_tuple = ( int(unos.godina.text()), # Year
-                       int(unos.mesec.text()), # Month
-                       int(unos.dan.text()), # Day
-                       int(unos.sati.text()), # Hour
-                       int(unos.minuti.text()), # Minute
-                          0, # Second
-                          0, # Millisecond
-                      )
-        if sys.platform=='linux2':
-            _linux_set_time(time_tuple)   
+        try:
+            unos = dialogVreme.dialogzaVreme()
+            unos.exec_();             
+            time_tuple = ( int(unos.godina.text()), # Year
+                           int(unos.mesec.text()), # Month
+                           int(unos.dan.text()), # Day
+                           int(unos.sati.text()), # Hour
+                           int(unos.minuti.text()), # Minute
+                              0, # Second
+                              0, # Millisecond
+                          )
+            if sys.platform=='linux2':
+                self._linux_set_time(time_tuple)   
+        except:
+            pass
 
 
 
-
-    def _linux_set_time(time_tuple):
+    def _linux_set_time(self,time_tuple):
         import ctypes
         import ctypes.util
         import time

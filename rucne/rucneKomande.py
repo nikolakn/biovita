@@ -94,13 +94,15 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         #self.setWindowState(Qt.WindowMaximized)
         self.setWindowTitle('Biovita')
+        
         self.show()
+        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.ulaziUpdate)
         self.ctimer.start(200)
         self.ctimer2 = QTimer()
         QObject.connect(self.ctimer2, SIGNAL("timeout()"), self.updateKomande)
-        self.ctimer2.start(1000)
+        self.ctimer2.start(300)
         
     @pyqtSlot(int, str)
     def komanda(self, id, name):

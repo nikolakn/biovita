@@ -136,7 +136,7 @@ class db(object):
             print('greska , ne mogu da obrisem zadatak ',sys.exc_info())
             return False   
 
-    def updateIzmereno(self, id, izmereno,zakljucen):
+    def updateIzmereno(self, id, izmereno,zakljuceno):
         try:  
             query ="UPDATE trenutniZadatak set izmereno = "+str(izmereno)+" where id="+str(id)
             self.cur.execute(query)

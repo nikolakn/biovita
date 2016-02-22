@@ -217,6 +217,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
                 k.bin = 0
                 k.zadato = 0
                 k.izmereno = 0
+                k.zakljucen = 0
                 k.procenat =  procenat
                 self.dataTrenutniZadatak.append(k)  
                 
@@ -254,13 +255,15 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def pocetakKomponente(self):
 
         self.scrollAreaWidgetContents.vagaOn()
- 
+        self.dataTrenutniZadatak = self.baza.trenutniZadatakList()      
         self.status("Pocetak komponente")
         id = 0
         zadatakZavrsen = True;
         self._isvaga2=True
         for komp in self.dataTrenutniZadatak:
-            if (komp.izmereno==0.0):
+            print "pocetak komponente"
+            if (komp.zakljucen==0):
+                print "pocetak ulazi"
                 self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
@@ -295,16 +298,27 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             
     # zavrsen zadatak
     # pripremi za novu odvagu
+    def msgbtn(i):
+        print "Button pressed is:"
     def zavrsenZadatak(self):
         self.status("zadatak zavrsen!")
         self._isvaga2=False
         
-        self.baza.upisiOdvagu(self.dataZadaci[0].ime,self._ukupnaKolicina,
-            self.prethodnaMera )
-        self.dataZadaci[0].ime
-        odradjeno = self.dataZadaci[0].odradjeno+1
-        zadato = self.dataZadaci[0].odvaga
-        QMessageBox.about(self, "Informacija", "Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+
+        msg.setText("Vaga zavrsila i puna! SACEKATI DA MLIN ZAVRSI!")
+        msg.setWindowTitle("Informacija")
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msg.buttonClicked.connect(self.msgbtn)
+	
+        result = msg.exec_()
+        if result == QMessageBox.Ok:
+            # do yes-action
+            print 'da'
+        else:
+            self.stopZadatak()
+            return
         #otvori vagu
         self.checkBox_4.setChecked(True);
         self.checkBox_6.setChecked(True);
@@ -313,14 +327,51 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.napuniMesaonu()
         self._tmesaona = 0
         self._istmesaona = True 
-        QMessageBox.about(self, "Informacija", "Mogu liu premiksi?")
+ 
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+
+        msg.setText("Mogu liu premiksi?")
+        msg.setWindowTitle("Informacija")
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msg.buttonClicked.connect(self.msgbtn)
+	
+        result = msg.exec_()
+        if result == QMessageBox.Ok:
+            # do yes-action
+            print 'da'
+        else:
+            self.stopZadatak()
+            return        
+
         self.state.kreniPremix()
         self.scrollAreaWidgetContents.vagaPrazni()
         
-        QMessageBox.about(self, "Informacija", "Sacekati da se vaga isprazni!")
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+
+        msg.setText("Sacekati da se vaga isprazni!")
+        msg.setWindowTitle("Informacija")
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msg.buttonClicked.connect(self.msgbtn)
+	
+        result = msg.exec_()
+        if result == QMessageBox.Ok:
+            # do yes-action
+            print 'da'
+        else:
+            self.stopZadatak()
+            return         
+        
+        
         self.state.zatvoriVagu()
         self.state.iskljuciP26()
         self.state.iskljuciPremix()
+
+        self.baza.upisiOdvagu(self.dataZadaci[0].ime,self._ukupnaKolicina,self.prethodnaMera )
+        self.dataZadaci[0].ime
+        odradjeno = self.dataZadaci[0].odradjeno+1
+        zadato = self.dataZadaci[0].odvaga
         
         if(odradjeno == zadato):
             #vaganje gotovo
@@ -418,13 +469,17 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.iskljuciBinove()
         self.status("vaganje zavrseno")
         self.vaganje = False
+        print "ulzi u vaganjezavrseno"
         if(mera!=-1):
             self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
-            self.baza.updateIzmereno(self._id, mera-self.prethodnaMera)
+            self._trenutnaKomponenta.zakljucen==1
+            self.baza.updateIzmereno(self._id, mera-self.prethodnaMera,1)
             self.prethodnaMera = mera 
+            print "ulzi u vaganjezavrseno 1"
         else:
             self._trenutnaKomponenta.izmereno = 0.1
-            self.baza.updateIzmereno(self._id,0.1)       
+            self._trenutnaKomponenta.zakljucen==0
+            self.baza.updateIzmereno(self._id,0.1,0)       
         #refesh tabelu
         self.ucitajTrenutniZadatak()       
         self.pocetakKomponente();
@@ -436,6 +491,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def ocistiTabelu(self):
         self.iskljuciBinove()
         self.isStart = False
+        try:
+            self.baza.upisiOdvagu(self.dataZadaci[0].ime,self._ukupnaKolicina,self.prethodnaMera+self._trenutnaKomponenta.izmereno)
+        except:
+            pass
         self.baza.izbrisiTrenutneZadatke();
         self.dataTrenutniZadatak = []
         self.ucitajTrenutniZadatak()
@@ -470,10 +529,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self._isvaga2 = False
         self.vaganje = False
         self.iskljuciBinove()
+        self._trenutnaKomponenta.izmereno = self.mera-self.prethodnaMera
         self.scrollAreaWidgetContents.vagaPuna()
         self.simvag = 0
-        self.zadataMera = 0
-        self.prethodnaMera = 0
         
     #ucitaj podatke iz baze
     def ucitajizBaze(self):    
@@ -610,10 +668,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.vagamera_2.setText(str(mera))
         self.labelvreme.setText('Vreme: '+time.strftime("%H:%M:%S"))
         self.labeldatum.setText('Datum: '+time.strftime("%d/%m/%Y"))
-        if(self.dobramera == True):
-            if(self.vaganje == True and float(mera) >= float(self.zadataMera)):
+        #if(self.dobramera == True):
+        try:
+            tm = float(mera) 
+            if(self.vaganje == True and tm >= float(self.zadataMera)):
                 self.vaganje = False
                 self.vaganjeZavrseno(mera);
+        except:
+            pass;
         self.repaint()    
 
     def vagaMera(self,st):
