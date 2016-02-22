@@ -261,9 +261,9 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         zadatakZavrsen = True;
         self._isvaga2=True
         for komp in self.dataTrenutniZadatak:
-            print "pocetak komponente"
+            #print "pocetak komponente"
             if (komp.zakljucen==0):
-                print "pocetak ulazi"
+                #print "pocetak ulazi"
                 self._trenutnaKomponenta = komp
                 zadatakZavrsen = False;
                 self._trenutnaOdvaga = self.dataZadaci[0].odradjeno
@@ -299,7 +299,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     # zavrsen zadatak
     # pripremi za novu odvagu
     def msgbtn(i):
-        print "Button pressed is:"
+        pass;
     def zavrsenZadatak(self):
         self.status("zadatak zavrsen!")
         self._isvaga2=False
@@ -315,7 +315,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         result = msg.exec_()
         if result == QMessageBox.Ok:
             # do yes-action
-            print 'da'
+            pass
         else:
             self.stopZadatak()
             return
@@ -339,7 +339,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         result = msg.exec_()
         if result == QMessageBox.Ok:
             # do yes-action
-            print 'da'
+            pass
         else:
             self.stopZadatak()
             return        
@@ -358,7 +358,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         result = msg.exec_()
         if result == QMessageBox.Ok:
             # do yes-action
-            print 'da'
+            pass
         else:
             self.stopZadatak()
             return         
@@ -469,13 +469,16 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.iskljuciBinove()
         self.status("vaganje zavrseno")
         self.vaganje = False
-        print "ulzi u vaganjezavrseno"
+        #print "ulzi u vaganjezavrseno"
         if(mera!=-1):
             self._trenutnaKomponenta.izmereno = mera-self.prethodnaMera
+            iz = self.dataBinovi.getBin(self._trenutnaKomponenta.bin-1).kolicina - self._trenutnaKomponenta.izmereno
+            self.dataBinovi.getBin(self._trenutnaKomponenta.bin-1).kolicina = iz
+            #print self.dataBinovi.getBin(self._trenutnaKomponenta.bin-1).artikl
             self._trenutnaKomponenta.zakljucen==1
             self.baza.updateIzmereno(self._id, mera-self.prethodnaMera,1)
             self.prethodnaMera = mera 
-            print "ulzi u vaganjezavrseno 1"
+            #print "ulzi u vaganjezavrseno 1"
         else:
             self._trenutnaKomponenta.izmereno = 0.1
             self._trenutnaKomponenta.zakljucen==0
@@ -781,20 +784,26 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     def on_bin_clicked(self,bin):
         art = self.dataBinovi.getBin(bin-1).artikl
         koe = self.dataBinovi.getBin(bin-1).koeficijent
+        q = self.dataBinovi.getBin(bin-1).kolicina
+        #print q
         if(art==None):
             art = "PRAZAN"
         if(koe==None):
             koe = 0
-        unos = dialogBin.dialogzaBin(self,art,koe)
+        if(q==None):
+            q = 0
+        unos = dialogBin.dialogzaBin(self,art,koe,q)
         if( unos.exec_() == QDialog.Accepted):
             k = 0
             try:
                k = float(unos.getKoeficijent())
+               qq = float(unos.getKolicina())
             except:
                k = 0
             self.dataBinovi.getBin(bin-1).artikl = unos.getArtikl()
             self.dataBinovi.getBin(bin-1).koeficijent = k
-            self.baza.updateBin(bin,unos.getArtikl(),k)
+            self.dataBinovi.getBin(bin-1).kolicina = qq
+            self.baza.updateBin(bin,unos.getArtikl(),k,q)
             self.ucitajBinove()
             
     def btn_ispusti_1(self):

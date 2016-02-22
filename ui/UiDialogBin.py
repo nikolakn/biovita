@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'dialogbin.ui'
 #
-# Created: Tue Feb 16 18:44:33 2016
-#      by: PyQt4 UI code generator 4.9.3
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,12 +11,21 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(247, 157)
+        Dialog.resize(247, 202)
         self.verticalLayout = QtGui.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.label = QtGui.QLabel(Dialog)
@@ -32,6 +40,12 @@ class Ui_Dialog(object):
         self.koeficijent = QtGui.QLineEdit(Dialog)
         self.koeficijent.setObjectName(_fromUtf8("koeficijent"))
         self.verticalLayout.addWidget(self.koeficijent)
+        self.label_3 = QtGui.QLabel(Dialog)
+        self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.verticalLayout.addWidget(self.label_3)
+        self.kolicina = QtGui.QLineEdit(Dialog)
+        self.kolicina.setObjectName(_fromUtf8("kolicina"))
+        self.verticalLayout.addWidget(self.kolicina)
         self.buttonBox = QtGui.QDialogButtonBox(Dialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
@@ -44,7 +58,8 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QtGui.QApplication.translate("Dialog", "Dialog", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("Dialog", "Artikl:", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_2.setText(QtGui.QApplication.translate("Dialog", "Koeficijent:", None, QtGui.QApplication.UnicodeUTF8))
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
+        self.label.setText(_translate("Dialog", "Artikl:", None))
+        self.label_2.setText(_translate("Dialog", "Koeficijent:", None))
+        self.label_3.setText(_translate("Dialog", "Kolicina", None))
 

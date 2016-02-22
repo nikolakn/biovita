@@ -178,9 +178,9 @@ class db(object):
          except:
             print('greska , ne mogu da updatujem meru ',sys.exc_info())
             return False   
-    def updateBin(self,id,artikl,koef):
+    def updateBin(self,id,artikl,koef,kol):
          try:  
-            query ="UPDATE binovi set artikl = '"+str(artikl)+"', koeficijent="+str(koef)+" where id="+str(id)
+            query ="UPDATE binovi set artikl = '"+str(artikl)+"', koeficijent="+str(koef)+" Kolicina="+str(kol)+" where id="+str(id)
             self.cur.execute(query)
             self.con.commit()
             return True
