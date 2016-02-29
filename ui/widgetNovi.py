@@ -7,6 +7,8 @@ class noviWidget(QWidget):
     
     def __init__(self,parent=None):
         QWidget.__init__(self, parent)
+        self.slike1 = QImage()
+        self.slike1.load("images/skica4.png")
         
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
@@ -21,6 +23,7 @@ class noviWidget(QWidget):
         paint.setPen(Qt.black);
         #paint.drawImage(QPoint(150,158+25),self.slike1[self.slika1frame])
         #paint.drawImage(QPoint(500,160+50),self.slike2[self.slika2frame])
+        paint.drawImage(QPoint(0,0),self.slike1)
         for i in range(0,2500,50):
             paint.drawLine(i, 40, i, 60)
             paint.drawLine(i+25, 40, i+25, 60)

@@ -12,3 +12,5 @@ call "C:/Python27/Lib/site-packages/PyQt4/pyuic4.bat" -o UiDialogGotove.py gotov
 call "C:/Python27/Lib/site-packages/PyQt4/pyuic4.bat" -o UiDialogRecepture.py recepture.ui
 
 call "C:/Python27/Lib/site-packages/PyQt4/pyuic4.bat" -o UiDialogVreme.py vreme.ui
+
+call "C:/Python27/Lib/site-packages/PyQt4/pyuic4.bat" -o UiNovi.py noviwindow.ui

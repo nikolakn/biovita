@@ -40,14 +40,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>2500</width>
-         <height>2000</height>
+         <width>2000</width>
+         <height>1500</height>
         </rect>
        </property>
        <property name="minimumSize">
         <size>
-         <width>2500</width>
-         <height>2000</height>
+         <width>2000</width>
+         <height>1500</height>
         </size>
        </property>
       </widget>
