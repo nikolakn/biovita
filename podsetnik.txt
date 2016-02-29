@@ -32,3 +32,21 @@ wsgiref==0.1.2
 
 ## kom
 update database
+
+
+sudo apt-get install libsqlite3-dev
+sudo pip install pysqlite
+sudo apt-get install python-dev libxml2-dev
+sudo apt-get install sqlitebrowser
+sudo pip install wiringpi2
+sudo apt-get install python-dev python-pip
+ sudo apt-get install qt4-designer 
+ sudo apt-get install qt4-default 
+sudo apt-get install qt4-qmake 
+ sudo apt-get install pyqt4-dev-tools 
+
+
+
+
+
+
