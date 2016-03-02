@@ -2,6 +2,7 @@
 from PyQt4.QtGui import * # @UnusedWildImport
 from PyQt4.QtCore import * # @UnusedWildImport
 from motor import Motor
+from ventil import Ventil
 
 class noviWidget(QWidget):
     
@@ -13,6 +14,9 @@ class noviWidget(QWidget):
         
         
         self.motori = {1: Motor(520,15), 2 : Motor(693,15)}
+        
+        self.ventili = {1: Ventil(125,174)}
+        
         
         self.motori[2].on()
         self.motori[2].senzorOn()
@@ -33,7 +37,8 @@ class noviWidget(QWidget):
         
         for key, value in self.motori.iteritems():
             value.nacrtaj(paint)
-        
+        for key, value in self.ventili.iteritems():
+            value.nacrtaj(paint)        
         pen = QPen(Qt.black, 7, Qt.SolidLine)
         paint.setPen(pen)
         
