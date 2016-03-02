@@ -6,7 +6,7 @@ from PyQt4.QtCore import * # @UnusedWildImport
 class Ventil():
     
 
-    def __init__(self,x,y):
+    def __init__(self,x,y,naziv=''):
         self.crna = QColor(0, 0, 0)
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)

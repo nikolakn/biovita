@@ -16,7 +16,7 @@ NKzelena = QColor(0, 255, 0)
       
 class Motor():
 
-    def __init__(self,x,y,rot):
+    def __init__(self,x,y,rot,naziv=''):
 
         self.ukljuceno = False;
 
