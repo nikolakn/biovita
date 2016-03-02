@@ -15,7 +15,8 @@ class noviWidget(QWidget):
         
         self.motori = {1: Motor(520,15), 2 : Motor(693,15)}
         
-        self.ventili = {1: Ventil(125,174)}
+        self.ventili = {1: Ventil(125,174),2: Ventil(262,174),3: Ventil(401,174),
+                        4: Ventil(125,383),5: Ventil(262,383),6: Ventil(401,383)}
         
         
         self.motori[2].on()
@@ -39,8 +40,8 @@ class noviWidget(QWidget):
             value.nacrtaj(paint)
         for key, value in self.ventili.iteritems():
             value.nacrtaj(paint)        
-        pen = QPen(Qt.black, 7, Qt.SolidLine)
-        paint.setPen(pen)
+        #pen = QPen(Qt.black, 7, Qt.SolidLine)
+        #paint.setPen(pen)
         
         #paint.drawLine(10, 40, 500, 40)
         #paint.drawLine( 500, 40, 500, 500)
