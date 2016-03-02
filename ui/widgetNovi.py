@@ -9,7 +9,7 @@ class noviWidget(QWidget):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         
-        self.slike1.load("images/skica3.png")
+        self.slike1.load("images/skica4.png")
         
         
         self.motori = {1: Motor(520,15), 2 : Motor(693,15)}
