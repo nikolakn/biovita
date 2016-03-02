@@ -10,11 +10,12 @@ class noviWidget(QWidget):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         
-        self.slike1.load("images/skica4.png")
+        self.slike1.load("images/skica3.png")
         
         
         self.motori = {1: Motor(520,15,0), 2 : Motor(693,15,0),
-        3: Motor(500,200,0), 4 : Motor(500,200,1),5: Motor(500,200,2), 6 : Motor(500,200,3)}
+        #3: Motor(500,200,0), 4 : Motor(500,200,1),5: Motor(500,200,2), 6 : Motor(500,200,3),
+        3: Motor(426,505,3),4: Motor(426,898,3),5: Motor(106,492,1)}
         
         self.ventili = {1: Ventil(125,174),2: Ventil(262,174),3: Ventil(401,174),
                         4: Ventil(125,383),5: Ventil(262,383),6: Ventil(401,383),

@@ -40,7 +40,7 @@ class Motor():
                 paint.drawImage(QPoint(self.x,self.y),NKmotorUkljucen)    
             else:
                 paint.drawImage(QPoint(self.x,self.y),NKmotor)       
-            if(self.senzor == True):
+            if(self.senzor == False):
                 paint.setBrush(QColor(255, 0, 0))
                 paint.setPen(QColor(255, 0, 0))
                 paint.drawRect(self.dx,self.dy,9,9)
@@ -50,10 +50,10 @@ class Motor():
                 paint.drawImage(QPoint(self.y,-self.x),NKmotorUkljucen)    
             else:
                 paint.drawImage(QPoint(self.y,-self.x),NKmotor)       
-            if(self.senzor == True):
+            if(self.senzor == False):
                 paint.setBrush(QColor(255, 0, 0))
                 paint.setPen(QColor(255, 0, 0))
-                paint.drawRect(self.dx,self.dy,9,9)
+                paint.drawRect(self.dy,-self.dx+30,9,9)
         if(self.rotacija == 2):
             #paint.translate(self.x,self.y);
             paint.rotate(180.0)
@@ -61,10 +61,10 @@ class Motor():
                 paint.drawImage(QPoint(-self.x,-self.y),NKmotorUkljucen)    
             else:
                 paint.drawImage(QPoint(-self.x,-self.y),NKmotor)       
-            if(self.senzor == True):
+            if(self.senzor == False):
                 paint.setBrush(QColor(255, 0, 0))
                 paint.setPen(QColor(255, 0, 0))
-                paint.drawRect(self.dx,self.dy,9,9)  
+                paint.drawRect(-self.dx+30,-self.dy+30,9,9)  
         if(self.rotacija == 3):
             #paint.translate(self.x,self.y);
             paint.rotate(270)
@@ -72,8 +72,8 @@ class Motor():
                 paint.drawImage(QPoint(-self.y,self.x),NKmotorUkljucen)    
             else:
                 paint.drawImage(QPoint(-self.y,self.x),NKmotor)       
-            if(self.senzor == True):
+            if(self.senzor == False):
                 paint.setBrush(QColor(255, 0, 0))
                 paint.setPen(QColor(255, 0, 0))
-                paint.drawRect(self.dx,self.dy,9,9)                 
+                paint.drawRect(-self.dy+30,self.dx,9,9)                 
         paint.restore()
