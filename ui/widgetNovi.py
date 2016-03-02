@@ -11,10 +11,12 @@ class noviWidget(QWidget):
         
         self.slike1.load("images/skica3.png")
         
-        self.m1 = Motor(520,15)
-        self.m2 = Motor(693,15)
-        self.m2.on()
-        self.m2.senzorOn()
+        
+        self.motori = {1: Motor(520,15), 2 : Motor(693,15)}
+        
+        self.motori[2].on()
+        self.motori[2].senzorOn()
+        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(200)   
@@ -29,8 +31,9 @@ class noviWidget(QWidget):
 
         paint.drawImage(QPoint(0,0),self.slike1)
         
-        self.m1.nacrtaj(paint)
-        self.m2.nacrtaj(paint)
+        for key, value in self.motori.iteritems():
+            value.nacrtaj(paint)
+        
         pen = QPen(Qt.black, 7, Qt.SolidLine)
         paint.setPen(pen)
         
