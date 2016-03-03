@@ -49,7 +49,10 @@ class noviWidget(QWidget):
             if(value.click(event.x(),event.y())==True):
                 self.repaint()
                 break
-
+        for key, value in self.ventili.iteritems():
+            if(value.click(event.x(),event.y())==True):
+                self.repaint()
+                break
             
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)

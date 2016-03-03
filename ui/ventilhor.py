@@ -28,6 +28,18 @@ class VentilHor():
         self.senzor = True;
     def senzorOff(self):
         self.senzor = False;
+
+    def click(self,x,y):
+        okvir = QRect(self.x,self.y,30,30)
+        okvir2 = QRect(self.x+15-12,self.y-27,25,30)
+        
+        if(okvir.contains(x,y)==True or okvir2.contains(x,y)==True):
+            if(self.ukljuceno==True):
+                self.ukljuceno = False;
+            else:
+                self.ukljuceno = True;
+            return True;
+        return False 
         
     def nacrtaj(self, paint):
         paint.setRenderHint(QPainter.Antialiasing)

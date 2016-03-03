@@ -28,10 +28,24 @@ class Ventil():
     def senzorOff(self):
         self.senzor = False;
         
+    def click(self,x,y): 
+        okvir = QRect(self.x,self.y,30,30)
+        okvir2 = QRect(self.x-27,self.y+15-12,30,25)
+        
+        if(okvir.contains(x,y)==True or okvir2.contains(x,y)==True):
+            if(self.ukljuceno==True):
+                self.ukljuceno = False;
+            else:
+                self.ukljuceno = True;
+            return True;
+        return False  
+        
     def nacrtaj(self, paint):
+
         paint.setRenderHint(QPainter.Antialiasing)
         pen = QPen(Qt.black, 1, Qt.SolidLine)
         paint.setPen(pen)
+        
         needle =QPolygon(self.points)  
         if (self.ukljuceno == True):
             paint.setBrush(Qt.green)        
