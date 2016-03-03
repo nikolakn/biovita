@@ -12,7 +12,7 @@ class noviWidget(QWidget):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         
-        self.slike1.load("images/skica3.png")
+        self.slike1.load("images/skica4.png")
         
         
         self.motori = {1: Motor(520,15,0,'e1'), 2 : Motor(693,15,0,'e2'),
@@ -35,7 +35,7 @@ class noviWidget(QWidget):
                         16: Ventil(1167,106,'pextruder'),
                         17: VentilHor(1504,274,'got_ka_bin7'),18: VentilHor(1636,274,'pel_velika'),
                         19: VentilHor(1534,196,'pel_mala'),
-                        20: Pneumatika(520,15,'ppppp')}
+                        20: Pneumatika(617,74,'ppppp')}
 
         
         self.ctimer = QTimer()
@@ -58,7 +58,9 @@ class noviWidget(QWidget):
                 break
             
     def paintEvent(self, QPaintEvent):
+        
         paint = QPainter(self)
+        paint.setRenderHint(QPainter.Antialiasing)
         paint.setPen(Qt.black);
 
         paint.drawImage(QPoint(0,0),self.slike1)

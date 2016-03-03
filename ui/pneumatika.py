@@ -81,15 +81,16 @@ class Pneumatika():
         if line.dy() >= 0:
             angle = Pneumatika.TwoPi - angle
 
-        sourceArrowP1 = prva + QPointF(math.sin(angle + Pneumatika.Pi / 3) * self.arrowSize,
-                                                          math.cos(angle + Pneumatika.Pi / 3) * self.arrowSize)
-        sourceArrowP2 = prva + QPointF(math.sin(angle + Pneumatika.Pi - Pneumatika.Pi / 3) * self.arrowSize,
-                                                          math.cos(angle + Pneumatika.Pi - Pneumatika.Pi / 3) * self.arrowSize);   
+        #sourceArrowP1 = prva + QPointF(math.sin(angle + Pneumatika.Pi / 3) * self.arrowSize,
+        #                                                  math.cos(angle + Pneumatika.Pi / 3) * self.arrowSize)
+        #sourceArrowP2 = prva + QPointF(math.sin(angle + Pneumatika.Pi - Pneumatika.Pi / 3) * self.arrowSize,
+        #                                                  math.cos(angle + Pneumatika.Pi - Pneumatika.Pi / 3) * #self.arrowSize);   
+
         destArrowP1 = druga + QPointF(math.sin(angle - Pneumatika.Pi / 3) * self.arrowSize,
                                                       math.cos(angle - Pneumatika.Pi / 3) * self.arrowSize)
         destArrowP2 = druga + QPointF(math.sin(angle - Pneumatika.Pi + Pneumatika.Pi / 3) * self.arrowSize,
                                                       math.cos(angle - Pneumatika.Pi + Pneumatika.Pi / 3) * self.arrowSize)
 
         paint.setBrush(Qt.red)
-        paint.drawPolygon(QPolygonF([line.p1(), sourceArrowP1, sourceArrowP2]))
+        #paint.drawPolygon(QPolygonF([line.p1(), sourceArrowP1, sourceArrowP2]))
         paint.drawPolygon(QPolygonF([line.p2(), destArrowP1, destArrowP2]))

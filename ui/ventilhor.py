@@ -42,7 +42,7 @@ class VentilHor():
         return False 
         
     def nacrtaj(self, paint):
-        paint.setRenderHint(QPainter.Antialiasing)
+        
         pen = QPen(Qt.black, 1, Qt.SolidLine)
         paint.setPen(pen)
         needle =QPolygon(self.points)  
