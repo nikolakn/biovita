@@ -4,13 +4,15 @@ from PyQt4.QtCore import * # @UnusedWildImport
 from motor import Motor
 from ventil import Ventil
 from ventilhor import VentilHor
+from pneumatika import Pneumatika
+
 class noviWidget(QWidget):
     
     def __init__(self,parent=None):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         
-        self.slike1.load("images/skica4.png")
+        self.slike1.load("images/skica3.png")
         
         
         self.motori = {1: Motor(520,15,0,'e1'), 2 : Motor(693,15,0,'e2'),
@@ -32,7 +34,8 @@ class noviWidget(QWidget):
                         13: Ventil(907,282,'p1/6'),14: Ventil(1037,282,'p2/5'),15: Ventil(1170,282,'p2/4'),
                         16: Ventil(1167,106,'pextruder'),
                         17: VentilHor(1504,274,'got_ka_bin7'),18: VentilHor(1636,274,'pel_velika'),
-                        19: VentilHor(1534,196,'pel_mala')}
+                        19: VentilHor(1534,196,'pel_mala'),
+                        20: Pneumatika(520,15,'ppppp')}
 
         
         self.ctimer = QTimer()
