@@ -46,11 +46,12 @@ class noviWidget(QWidget):
                 34: PneumatikaDupla(1634,418,20,1,'Pvaga1/vaga2'),35: PneumatikaDupla(1603,153,20,2,'Pext/ext')}
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
-        self.ctimer.start(200)   
+        #self.ctimer.start(400)   
         
 
     def timerUpdate(self):
-        self.repaint() 
+        pass
+        #self.repaint() 
         
     def mousePressEvent(self, event):
         print 'x:'+str(event.x())+'y:'+str(event.y())
