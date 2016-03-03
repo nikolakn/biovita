@@ -13,7 +13,7 @@ class noviWidget(QWidget):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         
-        self.slike1.load("images/skica3.png")
+        self.slike1.load("images/skica4.png")
         
         
         self.motori = {1: Motor(520,15,0,'e1'), 2 : Motor(693,15,0,'e2'),
@@ -39,7 +39,9 @@ class noviWidget(QWidget):
                 20: Pneumatika(617,74,'Pne_e1_na_redler_iznadsil'),21: Pneumatika(644,74,'Pne_e1_utovarna_ramp'),
                 22: Pneumatika(785,70,'Pne_e2_silos5'),23: Pneumatika(812,70,'Pne_e2_silos4'),
                 24: Pneumatika(875,70,'Pne_e2_puz_binovi'),25: Pneumatika(904,70,'Pne_e2_extru'),
-                26: PneumatikaDupla(677,74,0,'Pne_e1_binovi/asp'),28: PneumatikaDupla(842,70,1,'Pne_e1_binovi/asp')}
+                26: PneumatikaDupla(677,74,10,0,'Pne_e1_binovi/asp'),28: PneumatikaDupla(842,70,10,1,'Pne_e1_binovi/asp'),
+                29: PneumatikaDupla(922,339,20,1,'P1/6'), 30: PneumatikaDupla(1053,339,20,1,'P2/5'),
+                31: PneumatikaDupla(1185,339,20,1,'P3/4')}
         
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)

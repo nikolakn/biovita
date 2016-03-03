@@ -7,7 +7,7 @@ class PneumatikaDupla():
     
     Pi = math.pi
     TwoPi = 2.0 * Pi
-    def __init__(self,x,y,pol=0,naziv=''):
+    def __init__(self,x,y,raz=10,pol=0,naziv=''):
         self.crna = QColor(0, 0, 0)
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)
@@ -19,6 +19,7 @@ class PneumatikaDupla():
         self.dx = self.x-28;
         self.dy = self.y+15-25/2;
         self.pol = pol
+        self.raz = raz
         self.senzor = False
     def on(self):
         self.ukljuceno = True;  
@@ -51,18 +52,18 @@ class PneumatikaDupla():
             paint.setBrush(Qt.green) 
             if (self.pol == 0):
                 paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
-                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-10, self.y+24))
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-self.raz, self.y+24))
             if (self.pol == 1):
                 paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
-                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+10, self.y+24))            
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+self.raz, self.y+24))            
         else: 
             paint.setBrush(Qt.green) 
             if (self.pol == 0):
                 paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
-                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+10, self.y+24)) 
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+self.raz, self.y+24)) 
             if (self.pol == 1): 
                 paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
-                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-10, self.y+24))             
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-self.raz, self.y+24))             
         if (self.senzor == True):
             paint.setPen(pen)
             paint.setBrush(Qt.green) 
