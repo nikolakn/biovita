@@ -15,7 +15,7 @@ class noviWidget(QWidget):
         
         self.motori = {1: Motor(520,15,0,'e1'), 2 : Motor(693,15,0,'e2'),
         #3: Motor(500,200,0), 4 : Motor(500,200,1),5: Motor(500,200,2), 6 : Motor(500,200,3),
-        3: Motor(426,505,3,'traka2'),4: Motor(426,898,3,'redler_izn_silosa'),5: Motor(106,492,1,'traka1'),
+        3: Motor(426,505,3,'traka2'),4: Motor(426,898,3,'traka1'),5: Motor(106,492,1,'redler_izn_silosa'),
         6: Motor(372,956,0,'red_u_jami'),7: Motor(656,996,3,'puz_jama'), 8: Motor(868,226,0,'iznad_binova'),
         9: Motor(1364,311,2,'puz_89'),
         10: Motor(912,520,1,'bin1'),11: Motor(960,500,1,'bin6'),12: Motor(1045,520,1,'bin2'),
@@ -33,10 +33,7 @@ class noviWidget(QWidget):
                         16: Ventil(1167,106,'pextruder'),
                         17: VentilHor(1504,274,'got_ka_bin7'),18: VentilHor(1636,274,'pel_velika'),
                         19: VentilHor(1534,196,'pel_mala')}
-        
-        
-        self.motori[2].on()
-        self.motori[2].senzorOn()
+
         
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
@@ -45,9 +42,15 @@ class noviWidget(QWidget):
 
     def timerUpdate(self):
         self.repaint() 
+        
     def mousePressEvent(self, event):
         print 'x:'+str(event.x())+'y:'+str(event.y())
-      
+        for key, value in self.motori.iteritems():
+            if(value.click(event.x(),event.y())==True):
+                self.repaint()
+                break
+
+            
     def paintEvent(self, QPaintEvent):
         paint = QPainter(self)
         paint.setPen(Qt.black);
