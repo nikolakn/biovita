@@ -55,7 +55,10 @@ class PneumatikaDupla():
                 self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-self.raz, self.y+24))
             if (self.pol == 1):
                 paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
-                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+self.raz, self.y+24))            
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+self.raz, self.y+24)) 
+            if (self.pol == 2):
+                paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+self.raz, self.y-24))                
         else: 
             paint.setBrush(Qt.green) 
             if (self.pol == 0):
@@ -63,7 +66,10 @@ class PneumatikaDupla():
                 self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x+self.raz, self.y+24)) 
             if (self.pol == 1): 
                 paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
-                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-self.raz, self.y+24))             
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-self.raz, self.y+24))   
+            if (self.pol == 2): 
+                paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x-self.raz, self.y-24))                  
         if (self.senzor == True):
             paint.setPen(pen)
             paint.setBrush(Qt.green) 
