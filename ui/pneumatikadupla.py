@@ -31,8 +31,10 @@ class PneumatikaDupla():
         self.senzor = False;
         
     def click(self,x,y): 
+    
         okvir = QRect(self.x-8, self.y-8,16,34)
-        
+        if (self.pol == 2):
+            okvir = QRect(self.x-8, self.y-26,16,34)    
         if(okvir.contains(x,y)==True):
             if(self.ukljuceno==True):
                 self.ukljuceno = False;
