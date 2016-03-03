@@ -30,10 +30,9 @@ class Pneumatika():
         self.senzor = False;
         
     def click(self,x,y): 
-        okvir = QRect(self.x,self.y,30,30)
-        okvir2 = QRect(self.x-27,self.y+15-12,30,25)
+        okvir = QRect(self.x-8, self.y-8,16,34)
         
-        if(okvir.contains(x,y)==True or okvir2.contains(x,y)==True):
+        if(okvir.contains(x,y)==True):
             if(self.ukljuceno==True):
                 self.ukljuceno = False;
             else:
@@ -49,10 +48,12 @@ class Pneumatika():
         
         #needle =QPolygon(self.points)  
         if (self.ukljuceno == True):
-            paint.setBrush(Qt.green)        
+            paint.setBrush(Qt.green) 
+            paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
             self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))
         else: 
             paint.setBrush(Qt.red) 
+            paint.setPen(QPen(Qt.red, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
             self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))             
         if (self.senzor == True):
             paint.setPen(pen)
@@ -70,12 +71,9 @@ class Pneumatika():
 
         if line.length() == 0.0:
             return
-        paint.setPen(QPen(Qt.red, 2, Qt.SolidLine))
+            
+        #paint.setPen(QPen(Qt.red, 2, Qt.SolidLine))
         paint.drawLine(line)
-        paint.setPen(QPen(Qt.red, 1, Qt.SolidLine,
-                Qt.RoundCap, Qt.RoundJoin))
-       
-
         # Draw the arrows if there's enough room.
         angle = math.acos(line.dx() / line.length())
         if line.dy() >= 0:
@@ -91,6 +89,5 @@ class Pneumatika():
         destArrowP2 = druga + QPointF(math.sin(angle - Pneumatika.Pi + Pneumatika.Pi / 3) * self.arrowSize,
                                                       math.cos(angle - Pneumatika.Pi + Pneumatika.Pi / 3) * self.arrowSize)
 
-        paint.setBrush(Qt.red)
         #paint.drawPolygon(QPolygonF([line.p1(), sourceArrowP1, sourceArrowP2]))
         paint.drawPolygon(QPolygonF([line.p2(), destArrowP1, destArrowP2]))

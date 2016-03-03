@@ -28,14 +28,16 @@ class noviWidget(QWidget):
         25: Motor(1500,792,2,'mesaona'),26: Motor(1590,367,3,'gotov_mat')}
         
         self.ventili = {1: Ventil(125,174,'sil6gore'),2: Ventil(262,174,'sil5gore'),3: Ventil(401,174,'sil4gore'),
-                        4: Ventil(125,383,'sil6dole'),5: Ventil(262,383,'sil5dole'),6: Ventil(401,383,'sil4dole'),
-                        7: Ventil(125,566,'sil1gore'),8: Ventil(262,566,'sil2gore'),9: Ventil(401,566,'sil3gore'),
-                        10: Ventil(125,775,'sil1dole'),11: Ventil(262,775,'sil2dole'),12: Ventil(401,775,'sil3dole'),
-                        13: Ventil(907,282,'p1/6'),14: Ventil(1037,282,'p2/5'),15: Ventil(1170,282,'p2/4'),
-                        16: Ventil(1167,106,'pextruder'),
-                        17: VentilHor(1504,274,'got_ka_bin7'),18: VentilHor(1636,274,'pel_velika'),
-                        19: VentilHor(1534,196,'pel_mala'),
-                        20: Pneumatika(617,74,'ppppp')}
+                4: Ventil(125,383,'sil6dole'),5: Ventil(262,383,'sil5dole'),6: Ventil(401,383,'sil4dole'),
+                7: Ventil(125,566,'sil1gore'),8: Ventil(262,566,'sil2gore'),9: Ventil(401,566,'sil3gore'),
+                10: Ventil(125,775,'sil1dole'),11: Ventil(262,775,'sil2dole'),12: Ventil(401,775,'sil3dole'),
+                13: Ventil(907,282,'p1/6'),14: Ventil(1037,282,'p2/5'),15: Ventil(1170,282,'p2/4'),
+                16: Ventil(1167,106,'pextruder'),
+                17: VentilHor(1504,274,'got_ka_bin7'),18: VentilHor(1636,274,'pel_velika'),
+                19: VentilHor(1534,196,'pel_mala'),
+                20: Pneumatika(617,74,'Pne_e1_na_redler_iznadsil'),21: Pneumatika(644,74,'Pne_e1_utovarna_ramp'),
+                22: Pneumatika(785,70,'Pne_e2_silos5'),23: Pneumatika(812,70,'Pne_e2_silos4'),
+                24: Pneumatika(875,70,'Pne_e2_puz_binovi'),25: Pneumatika(904,70,'Pne_e2_extru')}
 
         
         self.ctimer = QTimer()
