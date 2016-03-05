@@ -28,6 +28,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         if _platform == "linux" or _platform == "linux2":
             try:
                 self.port = serial.Serial("/dev/ttyAMA0" ,9600 , parity=serial.PARITY_NONE , stopbits =serial.STOPBITS_ONE , bytesize=serial.EIGHTBITS,timeout=0)
+                self.port.close()
                 self.port.open()
             except:
                 print("Greska seriski port ")
