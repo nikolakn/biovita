@@ -456,9 +456,9 @@
         <widget class="GlavniProzor" name="scrollAreaWidgetContents">
          <property name="geometry">
           <rect>
-           <x>0</x>
+           <x>-345</x>
            <y>0</y>
-           <width>955</width>
+           <width>1300</width>
            <height>600</height>
           </rect>
          </property>
@@ -470,7 +470,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>950</width>
+           <width>1300</width>
            <height>600</height>
           </size>
          </property>
@@ -1125,6 +1125,16 @@ p, li { white-space: pre-wrap; }
             <string>SOJINA POGACA</string>
            </property>
           </widget>
+         </widget>
+         <widget class="QWidget" name="widget_6" native="true">
+          <property name="geometry">
+           <rect>
+            <x>970</x>
+            <y>120</y>
+            <width>291</width>
+            <height>381</height>
+           </rect>
+          </property>
          </widget>
         </widget>
        </widget>
