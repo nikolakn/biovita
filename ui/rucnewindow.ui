@@ -1713,6 +1713,9 @@ PREMA EXTRUDERU</string>
        </layout>
       </item>
       <item>
+       <widget class="SenzMotori" name="widget_3" native="true"/>
+      </item>
+      <item>
        <spacer name="horizontalSpacer_5">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -3051,6 +3054,12 @@ PREMA EXTRUDERU</string>
    <class>idQCheckBox</class>
    <extends>QCheckBox</extends>
    <header>idcheckbox</header>
+  </customwidget>
+  <customwidget>
+   <class>SenzMotori</class>
+   <extends>QWidget</extends>
+   <header>widgetSenzMotori</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

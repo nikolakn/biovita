@@ -770,6 +770,9 @@ class Ui_MainWindow(object):
         spacerItem19 = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
         self.verticalLayout_33.addItem(spacerItem19)
         self.srednji.addLayout(self.verticalLayout_33)
+        self.widget_3 = SenzMotori(self.glavni)
+        self.widget_3.setObjectName(_fromUtf8("widget_3"))
+        self.srednji.addWidget(self.widget_3)
         spacerItem20 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.srednji.addItem(spacerItem20)
         self.verticalLayout_2.addLayout(self.srednji)
@@ -1457,3 +1460,4 @@ class Ui_MainWindow(object):
 
 from idcheckbox import idQCheckBox
 from led import Led
+from widgetSenzMotori import SenzMotori

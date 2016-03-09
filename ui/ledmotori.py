@@ -9,6 +9,7 @@ class LedMotor(QtGui.QWidget):
         self.crna = QtGui.QColor(0, 0, 0)
         self.crvena = QtGui.QColor(255, 0, 0)
         self.bela = QtGui.QColor(255, 255, 255)
+        self.zelena = QtGui.QColor(0, 255, 0)
         self.ukljuceno = False;
         self.dx = 10;
         self.dy = 10;
@@ -33,7 +34,7 @@ class LedMotor(QtGui.QWidget):
         qp.begin(self)
         if (self.ukljuceno == True):
             qp.setPen(self.crna)
-            qp.setBrush(self.crvena)
+            qp.setBrush(self.zelena)
             qp.drawEllipse(self.dx/2-self.x, self.dy/2-5, self.dx, self.dy)
         else:
             qp.setPen(self.bela)
