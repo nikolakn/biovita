@@ -4,7 +4,7 @@ from PyQt4.QtCore import * # @UnusedWildImport
 import widgetBin 
 import widgetMasina
 import widgetInfo
-
+from ledmotori import LedMotor
 class GlavniProzor(QWidget):
     
     def __init__(self,parent=None):
@@ -109,6 +109,15 @@ class GlavniProzor(QWidget):
         self.infoMesaonaDole.crna()
         self.infoMesaonaDole.move(445,302+mdy);        
         self.ctimer = QTimer()
+        
+        ledx = 1000
+        ledy = 200
+        self.senz_motori = []
+        tt = LedMotor(self,"BIN 1")
+        tt.move(ledx,ledy)
+        self.senz_motori.append(tt)
+        
+        
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         self.ctimer.start(150)   
         
