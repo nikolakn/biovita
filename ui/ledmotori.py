@@ -14,8 +14,8 @@ class LedMotor(QtGui.QWidget):
         self.dy = 10;
         self.x = 4;
         self.y = 0;
-        self.text= text
-        self.setMinimumSize(self.dx, self.dy+13)
+        self.text=text
+        self.setMinimumSize(self.dx+len(text)*6.5, self.dy+13)
     def on(self):
         self.ukljuceno = True; 
         self.repaint() 
