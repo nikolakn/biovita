@@ -148,13 +148,15 @@ class SenzMotori(QWidget):
         
     def timerUpdate(self):
         i = self.state.getIndikator()
-        for x in self.senz_motori:
-            x.off();
         n=0
         for ind in i:
             if(ind==1):
                 self.senz_motori[n].on() 
+            else:
+                self.senz_motori[n].off()
             n=n+1
+            if(n>=30):
+                break;
         self.repaint();    
             
         
