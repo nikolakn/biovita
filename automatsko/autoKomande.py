@@ -23,6 +23,7 @@ import dialogVreme
 class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
     
     def __init__(self,state, parent=None):
+        self.state = state
         super(autoProzor,self).__init__()
         self.setupUi(self)
         if _platform == "linux" or _platform == "linux2":
@@ -33,7 +34,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             except:
                 print("Greska seriski port ")
                 sys.exit(0)   
-        self.state = state
+        
         self.isStart = False
         self.vaganje = False
         self.mera = 0
@@ -63,6 +64,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         
         
         self.initUI()
+        self.scrollAreaWidgetContents.senzMot.start(self.state)
         
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))

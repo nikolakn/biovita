@@ -90,6 +90,8 @@ class rucneProzor(QMainWindow,UiRucne.Ui_MainWindow):
         
         self.srednji_dugme_ukljuci.clicked.connect(lambda:self.btn_ukljuci()) 
         self.srednji_dugme_iskljuci.clicked.connect(lambda:self.btn_iskljuci())
+        
+        self.indikatori.start(self.state)
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         #self.setWindowState(Qt.WindowMaximized)

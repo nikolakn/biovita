@@ -23,23 +23,37 @@ class Expanderi:
         self.input_pins2 = [145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160]  
         
         self.led_pins1 = [161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176]  
+        self.led_pins2 = [177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192] 
         
         self.ulazi = []
         for i in range(32):
             self.ulazi.append(0);
         
-        
+        self.indikatori = []
+        for i in range(32):
+            self.indikatori.append(0);
+                
         self.svi = []
         self.svi =self.svi+ self.output_pins1 
         self.svi =self.svi+ self.output_pins2 
         self.svi =self.svi+ self.output_pins3 
         self.svi =self.svi+ self.output_pins4 
         self.svi =self.svi+ self.led_pins1        
+        self.svi =self.svi+ self.led_pins2 
+        
+        self.svi_motori = []
+        self.svi_motori = self.svi_motori + self.output_pins1 
+        self.svi_motori = self.svi_motori + self.output_pins2 
+        self.svi_motori = self.svi_motori + self.output_pins3 
+        self.svi_motori = self.svi_motori + self.output_pins4 
         
         self.svi_ulazi = []
         self.svi_ulazi=self.svi_ulazi + self.input_pins1 
         self.svi_ulazi =self.svi_ulazi + self.input_pins2
         
+        self.svi_indikatori = []
+        self.svi_indikatori = self.svi_indikatori + self.led_pins1
+        self.svi_indikatori = self.svi_indikatori + self.led_pins2
         
         wiringpi.wiringPiSetup()
         wiringpi.mcp23s17Setup(65,0,0) # first pin,spi port,i2c address
@@ -51,11 +65,24 @@ class Expanderi:
         wiringpi.mcp23s17Setup(145,1,1)
         #indikatori
         wiringpi.mcp23s17Setup(161,1,2) # za led na drugoj liniji
+        wiringpi.mcp23s17Setup(177,1,3) # za led na drugoj liniji
         
-        for i in self.svi:
+        for i in self.svi_motori:
             wiringpi.pinMode(int(i),1)     # sets pin of mcp23s17-0 to output
         for i in self.svi_ulazi:
             wiringpi.pinMode(int(i),0)    
+        for i in self.svi_indikatori:
+            wiringpi.pinMode(int(i),0) 
+            
+    def getIndikatori(self):
+        self.proveriIndikatore();
+        return self.indikatori;
+        
+    def proveriIndikatore(self):
+        n = 0;
+        for i in self.svi_indikatori:
+            self.indikatori[n] = wiringpi.digitalRead(i);
+            n = n + 1;
             
     def getUlazi(self):
         self.proveriUlaze();

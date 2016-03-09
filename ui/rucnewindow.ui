@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1173</width>
+    <width>1179</width>
     <height>787</height>
    </rect>
   </property>
@@ -1713,7 +1713,7 @@ PREMA EXTRUDERU</string>
        </layout>
       </item>
       <item>
-       <widget class="SenzMotori" name="widget_3" native="true"/>
+       <widget class="SenzMotori" name="indikatori" native="true"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_5">

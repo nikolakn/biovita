@@ -544,4 +544,7 @@ class AppState(QtCore.QObject):
         if (id=='p31'):
             self.expanderi.iskljuci(33)
         if (id=='p32'):
-            self.expanderi.iskljuci(32)              
+            self.expanderi.iskljuci(32)   
+            
+    def getIndikator(self):
+        return self.expanderi.getIndikatori()

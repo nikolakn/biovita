@@ -16,7 +16,6 @@ class SenzMotori(QWidget):
         hbox.addLayout(l1)
         hbox.addLayout(l2)
         
-        
         self.senz_motori = []
         
         tt = LedMotor(self,"BIN 1")
@@ -141,3 +140,22 @@ class SenzMotori(QWidget):
         self.senz_motori.append(tt)
         l2.addWidget(tt)          
         self.setLayout(hbox) 
+    def start(self,state):
+        self.ctimer = QTimer()  
+        QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
+        self.state = state
+        self.ctimer.start(330)
+        
+    def timerUpdate(self):
+        i = self.state.getIndikator()
+        for x in self.senz_motori:
+            x.off();
+        n=0
+        for ind in i:
+            if(ind==1):
+                self.senz_motori[n].on() 
+            n=n+1
+        self.repaint();    
+            
+        
+    

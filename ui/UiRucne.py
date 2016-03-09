@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1173, 787)
+        MainWindow.resize(1179, 787)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -770,9 +770,9 @@ class Ui_MainWindow(object):
         spacerItem19 = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
         self.verticalLayout_33.addItem(spacerItem19)
         self.srednji.addLayout(self.verticalLayout_33)
-        self.widget_3 = SenzMotori(self.glavni)
-        self.widget_3.setObjectName(_fromUtf8("widget_3"))
-        self.srednji.addWidget(self.widget_3)
+        self.indikatori = SenzMotori(self.glavni)
+        self.indikatori.setObjectName(_fromUtf8("indikatori"))
+        self.srednji.addWidget(self.indikatori)
         spacerItem20 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.srednji.addItem(spacerItem20)
         self.verticalLayout_2.addLayout(self.srednji)

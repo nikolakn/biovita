@@ -23,7 +23,6 @@ class GlavniProzor(QWidget):
         self.slika2frame = 0;
         self.elevator1=False
         self.elevator2=False
-        
         #self.loadedImage2.load("images/el2.png")
         self.x = 28; #start
         self.y = 47; #izmedju dve susedne
@@ -111,8 +110,8 @@ class GlavniProzor(QWidget):
         self.infoMesaonaDole.move(445,302+mdy);        
         self.ctimer = QTimer()
         
-        senzMot = SenzMotori(self)
-        senzMot.move(970,20)
+        self.senzMot = SenzMotori(self)
+        self.senzMot.move(970,20)
       
         
         
