@@ -180,7 +180,7 @@ class db(object):
             return False   
     def updateBin(self,id,artikl,koef,kol):
          try:  
-            query ="UPDATE binovi set artikl = '"+str(artikl)+"', koeficijent="+str(koef)+" Kolicina="+str(kol)+" where id="+str(id)
+            query ="UPDATE binovi set artikl = '"+str(artikl)+"', koeficijent="+str(koef)+", Kolicina="+str(kol)+" where id="+str(id)
             self.cur.execute(query)
             self.con.commit()
             return True

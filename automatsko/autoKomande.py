@@ -806,7 +806,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.dataBinovi.getBin(bin-1).artikl = unos.getArtikl()
             self.dataBinovi.getBin(bin-1).koeficijent = k
             self.dataBinovi.getBin(bin-1).kolicina = qq
-            self.baza.updateBin(bin,unos.getArtikl(),k,q)
+            self.baza.updateBin(bin,unos.getArtikl(),k,qq)
             self.ucitajBinove()
             
     def btn_ispusti_1(self):
