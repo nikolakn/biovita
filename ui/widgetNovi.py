@@ -9,7 +9,7 @@ from pneumatikadupla import PneumatikaDupla
 from aspirater import Aspirater
 from ventilatoraspiratera import VentilatorAspiratera
 from ledmotori import LedMotor
-
+from cevi import Cevi
 
 class noviWidget(QWidget):
     
@@ -17,7 +17,7 @@ class noviWidget(QWidget):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         
-        self.slike1.load("images/skica4.png")
+        self.slike1.load("images/skica5.png")
         self.is_klapna_gore_otvorena = False;
         self.is_klapna_gore_zatvorena = False;
         self.is_klapna_dole_otvorena = False;
@@ -83,6 +83,9 @@ class noviWidget(QWidget):
         self.kdo_senz.move(1390,824)
         self.kdz_senz = LedMotor(self,"")
         self.kdz_senz.move(1390,854)
+        
+        self.cevi = Cevi()
+        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         #self.ctimer.start(400)   
@@ -139,13 +142,15 @@ class noviWidget(QWidget):
         paint = QPainter(self)
         paint.setRenderHint(QPainter.Antialiasing)
         paint.setPen(Qt.black);
-
-        paint.drawImage(QPoint(0,0),self.slike1)
         
+        paint.drawImage(QPoint(0,0),self.slike1)
+        self.cevi.nacrtaj(paint)
         for key, value in self.motori.iteritems():
             value.nacrtaj(paint)
         for key, value in self.ventili.iteritems():
-            value.nacrtaj(paint)        
+            value.nacrtaj(paint) 
+
+                
         #pen = QPen(Qt.black, 7, Qt.SolidLine)
         #paint.setPen(pen)
         
