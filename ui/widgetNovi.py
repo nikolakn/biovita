@@ -16,7 +16,10 @@ class noviWidget(QWidget):
         self.slike1 = QImage()
         
         self.slike1.load("images/skica4.png")
-        
+        self.is_klapna_gore_otvorena = False;
+        self.is_klapna_gore_zatvorena = False;
+        self.is_klapna_dole_otvorena = False;
+        self.is_klapna_dole_zatvorena = False;
         
         self.motori = {1: Motor(520,15,0,'e1'), 2 : Motor(693,15,0,'e2'),
         #3: Motor(500,200,0), 4 : Motor(500,200,1),5: Motor(500,200,2), 6 : Motor(500,200,3),
@@ -51,19 +54,48 @@ class noviWidget(QWidget):
         
 
         self.b1 = QPushButton("Otvori",self)
+        self.b1.setStyleSheet("background-color: gray")
         self.b1.move(1325,670)
+        self.b1.clicked.connect(lambda:self.btn_gornja_klapna_otvori()) 
         self.b2 = QPushButton("Zatvori",self)
+        self.b2.setStyleSheet("background-color: gray")
         self.b2.move(1325,700)
+        self.b2.clicked.connect(lambda:self.btn_gornja_klapna_zatvori()) 
         self.b3 = QPushButton("Otvori",self)
+        self.b3.setStyleSheet("background-color: gray")
+        self.b3.clicked.connect(lambda:self.btn_donja_klapna_otvori()) 
         self.b3.move(1325,820)
         self.b4 = QPushButton("Zatvori",self)
+        self.b4.setStyleSheet("background-color: gray")
         self.b4.move(1325,850)
         
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         #self.ctimer.start(400)   
         
-
+    def btn_gornja_klapna_otvori(self):
+        if(self.is_klapna_gore_otvorena==True):
+            self.b1.setStyleSheet("background-color: gray")
+            self.is_klapna_gore_otvorena=False
+        else:
+            self.b1.setStyleSheet("background-color: green")
+            self.is_klapna_gore_otvorena=True
+            
+    def btn_gornja_klapna_zatvori(self):
+        if(self.is_klapna_gore_zatvorena==True):
+            self.b2.setStyleSheet("background-color: gray")
+            self.is_klapna_gore_zatvorena=False
+        else:
+            self.b2.setStyleSheet("background-color: green")
+            self.is_klapna_gore_zatvorena=True   
+            
+    def btn_donja_klapna_otvori(self):
+        if(self.is_klapna_dole_otvorena==True):
+            self.b3.setStyleSheet("background-color: gray")
+            self.is_klapna_dole_otvorena=False
+        else:
+            self.b3.setStyleSheet("background-color: green")
+            self.is_klapna_dole_otvorena=True    
     def timerUpdate(self):
         pass
         #self.repaint() 
