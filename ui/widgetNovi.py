@@ -47,6 +47,18 @@ class noviWidget(QWidget):
                 31: PneumatikaDupla(1185,339,20,1,'P3/4'),
                 32: PneumatikaDupla(1292,320,20,1,'P8/9'), 33: PneumatikaDupla(1362,254,20,1,'P7/puz'),
                 34: PneumatikaDupla(1634,418,20,1,'Pvaga1/vaga2'),35: PneumatikaDupla(1603,153,20,2,'Pext/ext')}
+        
+        
+
+        self.b1 = QPushButton("Otvori",self)
+        self.b1.move(1325,670)
+        self.b2 = QPushButton("Zatvori",self)
+        self.b2.move(1325,700)
+        self.b3 = QPushButton("Otvori",self)
+        self.b3.move(1325,820)
+        self.b4 = QPushButton("Zatvori",self)
+        self.b4.move(1325,850)
+        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         #self.ctimer.start(400)   
