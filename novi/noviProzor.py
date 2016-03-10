@@ -39,7 +39,7 @@ class Novi(QMainWindow,UiNovi.Ui_MainWindow):
         QObject.connect(self.vaga2timer, SIGNAL("timeout()"), self.secundaTimerUpdate)
         self.vaga2timer.start(1000)
         #tajmeri    
-
+        self.scrollArea.horizontalScrollBar().setValue(60);
     def secundaTimerUpdate(self): 
         pass
      

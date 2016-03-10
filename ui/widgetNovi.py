@@ -6,6 +6,8 @@ from ventil import Ventil
 from ventilhor import VentilHor
 from pneumatika import Pneumatika
 from pneumatikadupla import PneumatikaDupla
+from aspirater import Aspirater
+from ventilatoraspiratera import VentilatorAspiratera
 
 class noviWidget(QWidget):
     
@@ -26,7 +28,8 @@ class noviWidget(QWidget):
         16: Motor(1286,435,1,'bin9'),17: Motor(1323,435,1,'bin8'),18: Motor(1392,512,1,'bin7'),
         19: Motor(966,756,0,'vagapuz'),20: Motor(962,913,0,'mlin'),21: Motor(1168,618,0,'mlin_elevator'),
         22: Motor(1280,903,0,'mesaonapuz'),23: Motor(1458,377,0,'e3'),24: Motor(1191,753,2,'e_vaga'),
-        25: Motor(1500,792,2,'mesaona'),26: Motor(1590,367,3,'gotov_mat')}
+        25: Motor(1500,792,2,'mesaona'),26: Motor(1590,367,3,'gotov_mat'),27 : Aspirater(626,327,'aspirater'),
+        28 : VentilatorAspiratera(678,277,"vent_asp")}
         
         self.ventili = {1: Ventil(125,174,'sil6gore'),2: Ventil(262,174,'sil5gore'),3: Ventil(401,174,'sil4gore'),
                 4: Ventil(125,383,'sil6dole'),5: Ventil(262,383,'sil5dole'),6: Ventil(401,383,'sil4dole'),
