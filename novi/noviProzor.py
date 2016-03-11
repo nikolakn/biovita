@@ -21,9 +21,9 @@ class Novi(QMainWindow,UiNovi.Ui_MainWindow):
     def __init__(self,state, parent=None):
         super(Novi,self).__init__()
         self.setupUi(self)
-
+        self.state = state
         self.initUI()
-        
+        self.scrollAreaWidgetContents.set_sate(state)
     def initUI(self):
         self.setWindowIcon(QIcon('images/gear_blue.ico'))
         self.setWindowState(Qt.WindowMaximized)

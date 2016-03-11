@@ -13,6 +13,7 @@ from sys import platform as _platform
 import serial 
 import time
 from rucne import rucneKomande
+from novi import noviProzor
 from database import dbhelpers,data,zadatak
 import dialogRec
 import dialogBin
@@ -76,8 +77,10 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         meniUtovar = self.menubar.addAction("Gotove Odvage")
         meniPretovar = self.menubar.addAction("PRETOVAR")
         meniRucne = self.menubar.addAction("RUCNE KOMANDE")
+        meniGraf = self.menubar.addAction("Graficki prikaz")
         meniProzori = self.menubar.addAction("PROZORI")
         meniRucne.triggered.connect(self.rucneWindow)
+        meniGraf.triggered.connect(self.grafWindow)
         meniUnos.triggered.connect(self.unosWindow)
         meniUtovar.triggered.connect(self.utovarWindow)
         meniVreme.triggered.connect(self.podesiVremeWindow)
@@ -113,7 +116,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self._tmesaona = 0
         self._istmesaona = False
         self.ex = None
-        
+        self.gr = None
         self.ucitajizBaze()
         
     def napuniMesaonuBut(self):
@@ -654,6 +657,14 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
             self.ex = rucneKomande.rucneProzor(self.state)
         else:
             self.ex = rucneKomande.rucneProzor(self.state)
+            
+    def grafWindow(self):
+        if isinstance(self.gr, noviProzor.Novi):
+            self.gr.close()
+            self.gr = noviProzor.Novi(self.state)
+        else:
+            self.gr = noviProzor.Novi(self.state)  
+            
     def timerUpdate(self):
         if _platform == "linux" or _platform == "linux2":
             self.port.flushInput()

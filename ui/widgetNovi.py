@@ -18,25 +18,31 @@ class noviWidget(QWidget):
     def __init__(self,parent=None):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
-        
+        self.state = None
         self.slike1.load("images/skica5.png")
         self.is_klapna_gore_otvorena = False;
-        self.is_klapna_gore_zatvorena = False;
+        self.is_klapna_gore_zatvorena = True;
         self.is_klapna_dole_otvorena = False;
-        self.is_klapna_dole_zatvorena = False;
+        self.is_klapna_dole_zatvorena = True;
         
-        self.motori = {1: Motor(520,15,0,'e1'), 2 : Motor(693,15,0,'e2'),
-        #3: Motor(500,200,0), 4 : Motor(500,200,1),5: Motor(500,200,2), 6 : Motor(500,200,3),
-        3: Motor(426,505,3,'traka2'),4: Motor(426,898,3,'traka1'),5: Motor(106,492,1,'redler_izn_silosa'),
-        6: Motor(372,956,0,'red_u_jami'),7: Motor(656,996,3,'puz_jama'), 8: Motor(868,226,0,'iznad_binova'),
-        9: Motor(1364,311,2,'puz_89'),
-        10: Motor(912,520,1,'bin1'),11: Motor(960,500,1,'bin6'),12: Motor(1045,520,1,'bin2'),
-        13 : Motor(1095,500,1,'bin5'),14: Motor(1173,520,1,'bin3'),15: Motor(1223,500,1,'bin4'),
-        16: Motor(1286,435,1,'bin9'),17: Motor(1323,435,1,'bin8'),18: Motor(1392,512,1,'bin7'),
-        19: Motor(966,756,0,'vagapuz'),20: Motor(962,913,0,'mlin'),21: Motor(1168,618,0,'mlin_elevator'),
-        22: Motor(1280,903,0,'mesaonapuz'),23: Motor(1458,377,0,'e3'),24: Motor(1191,753,2,'e_vaga'),
-        25: Motor(1500,792,2,'mesaona'),26: Motor(1590,367,3,'gotov_mat'),27 : Aspirater(626,327,'aspirater'),
-        28 : VentilatorAspiratera(678,277,"vent_asp")}
+        self.motori = {1:  Motor(372,956,0,'red_u_jami'), 2 : Motor(1173,520,1,'bin3'),
+        3: Motor(656,996,3,'puz_jama'),4: Motor(1286,435,1,'bin9'),5: Motor(106,492,1,'redler_izn_silosa'),
+        6: Motor(960,500,1,'bin6'),7: Motor(1392,512,1,'bin7'),8: Motor(1223,500,1,'bin4'),
+        9 : Aspirater(626,327,'aspirater'),10: Motor(1323,435,1,'bin8'),11: Motor(912,520,1,'bin1'),
+        12: Motor(-500,-520,1,'bin12'),13 : Motor(1095,500,1,'bin5'),14: Motor(1045,520,1,'bin2'),
+        15: Motor(1168,618,0,'mlin_elevator'),18:Motor(693,15,0,'e2'),19: Motor(1364,311,2,'puz_89'),
+        20: Motor(426,505,3,'traka2'),21 : VentilatorAspiratera(678,277,"vent_asp"),
+        23: Motor(520,15,0,'e1'),24: Motor(426,898,3,'traka1'),25: Motor(1458,377,0,'e3'),
+        28: Motor(1590,367,3,'gotov_mat'),29: Motor(1191,753,2,'e_vaga'),
+        30: Motor(868,226,0,'iznad_binova'),31: Motor(1500,792,2,'mesaona'),32: Motor(962,913,0,'mlin'),
+
+        33: Motor(966,756,0,'vagapuz'),
+        
+        34: Motor(1280,903,0,'mesaonapuz')
+
+        }
+        
+        self.map_motori=[]
         
         self.ventili = {1: Ventil(125,174,'sil6gore'),2: Ventil(262,174,'sil5gore'),3: Ventil(401,174,'sil4gore'),
                 4: Ventil(125,383,'sil6dole'),5: Ventil(262,383,'sil5dole'),6: Ventil(401,383,'sil4dole'),
@@ -63,7 +69,7 @@ class noviWidget(QWidget):
         #self.b1.move(1325,670)
         self.b1.clicked.connect(lambda:self.btn_gornja_klapna_otvori()) 
         self.b2 = QPushButton("Zatvori",self)
-        self.b2.setStyleSheet("background-color: gray")
+        self.b2.setStyleSheet("background-color: green")
         self.b2.setGeometry(QRect(1325,700, 60, 20))
         #self.b2.move(1325,700)
         self.b2.clicked.connect(lambda:self.btn_gornja_klapna_zatvori()) 
@@ -73,7 +79,7 @@ class noviWidget(QWidget):
         self.b3.setGeometry(QRect(1325,820, 60, 20))
         #self.b3.move(1325,820)
         self.b4 = QPushButton("Zatvori",self)
-        self.b4.setStyleSheet("background-color: gray")
+        self.b4.setStyleSheet("background-color: green")
         self.b4.clicked.connect(lambda:self.btn_donja_klapna_zatvori()) 
         self.b4.setGeometry(QRect(1325,850, 60, 20))
         #self.b4.move(1325,850)
@@ -90,39 +96,32 @@ class noviWidget(QWidget):
         self.silosi = Silosi()
         self.binovi = Binovi()
         self.binovi89 = Binovi89()
+        
+        
+        
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         #self.ctimer.start(400)   
-        
+    def set_sate(self,state):
+        self.state= state
+        self.ucitajMotore()
     def btn_gornja_klapna_otvori(self):
-        if(self.is_klapna_gore_otvorena==True):
-            self.b1.setStyleSheet("background-color: gray")
-            self.is_klapna_gore_otvorena=False
-        else:
             self.b1.setStyleSheet("background-color: green")
+            self.b2.setStyleSheet("background-color: gray")
             self.is_klapna_gore_otvorena=True
             
     def btn_gornja_klapna_zatvori(self):
-        if(self.is_klapna_gore_zatvorena==True):
-            self.b2.setStyleSheet("background-color: gray")
-            self.is_klapna_gore_zatvorena=False
-        else:
             self.b2.setStyleSheet("background-color: green")
+            self.b1.setStyleSheet("background-color: gray")
             self.is_klapna_gore_zatvorena=True   
             
     def btn_donja_klapna_otvori(self):
-        if(self.is_klapna_dole_otvorena==True):
-            self.b3.setStyleSheet("background-color: gray")
-            self.is_klapna_dole_otvorena=False
-        else:
+            self.b4.setStyleSheet("background-color: gray")
             self.b3.setStyleSheet("background-color: green")
             self.is_klapna_dole_otvorena=True 
 
     def btn_donja_klapna_zatvori(self):
-        if(self.is_klapna_dole_zatvorena==True):
-            self.b4.setStyleSheet("background-color: gray")
-            self.is_klapna_dole_zatvorena=False
-        else:
+            self.b3.setStyleSheet("background-color: gray")
             self.b4.setStyleSheet("background-color: green")
             self.is_klapna_dole_zatvorena=True 
             
@@ -173,3 +172,74 @@ class noviWidget(QWidget):
             paint.drawLine(40, i+25, 60, i+25)
             paint.drawText(50, i ,str(i)) 
         '''  
+        
+    def ucitajMotore(self):
+        if(self.state.motori['m1']==1):
+            self.motori[1].ukljuceno = True;
+        if(self.state.motori['m2']==1):
+            self.motori[2].ukljuceno = True;
+        if(self.state.motori['m3']==1):
+            self.motori[3].ukljuceno = True;
+        if(self.state.motori['m4']==1):
+            self.motori[4].ukljuceno = True;
+        if(self.state.motori['m5']==1):
+            self.motori[5].ukljuceno = True;
+        if(self.state.motori['m6']==1):
+            self.motori[6].ukljuceno = True;
+        if(self.state.motori['m7']==1):
+            self.motori[7].ukljuceno = True;
+        if(self.state.motori['m8']==1):
+            self.motori[8].ukljuceno = True;
+        if(self.state.motori['m9']==1):
+            self.motori[9].ukljuceno = True;
+        if(self.state.motori['m10']==1):
+            self.motori[10].ukljuceno = True;
+        if(self.state.motori['m11']==1):
+            self.motori[11].ukljuceno = True;
+        if(self.state.motori['m12']==1):
+            self.motori[12].ukljuceno = True;                        
+        if(self.state.motori['m13']==1):
+            self.motori[13].ukljuceno = True;
+        if(self.state.motori['m14']==1):
+            self.motori[14].ukljuceno = True;
+        if(self.state.motori['m15']==1):
+            self.motori[15].ukljuceno = True;
+        if(self.state.motori['m16']==1):
+            self.btn_donja_klapna_otvori()
+        if(self.state.motori['m17']==1):
+            self.btn_donja_klapna_zatvori()
+        if(self.state.motori['m18']==1):
+            self.motori[18].ukljuceno = True;                                                
+        if(self.state.motori['m19']==1):
+            self.motori[19].ukljuceno = True;
+        if(self.state.motori['m20']==1):
+            self.motori[20].ukljuceno = True;
+        if(self.state.motori['m21']==1):
+            self.motori[21].ukljuceno = True;
+        if(self.state.motori['m22']==1):
+            self.btn_gornja_klapna_otvori()
+        if(self.state.motori['m23']==1):
+            self.motori[23].ukljuceno = True;
+        if(self.state.motori['m24']==1):
+            self.motori[24].ukljuceno = True;            
+        if(self.state.motori['m25']==1):
+            self.motori[25].ukljuceno = True;
+            self.motori[34].ukljuceno = True;
+        if(self.state.motori['m26']==1):
+            self.btn_gornja_klapna_zatvori()
+        if(self.state.motori['m27']==1):
+            pass####
+        if(self.state.motori['m28']==1):
+            self.motori[28].ukljuceno = True;
+        if(self.state.motori['m29']==1):
+            self.motori[29].ukljuceno = True;
+            self.motori[33].ukljuceno = True;
+        if(self.state.motori['m30']==1):
+            self.motori[30].ukljuceno = True;            
+        if(self.state.motori['m31']==1):
+            self.motori[31].ukljuceno = True;
+        if(self.state.motori['m32']==1):
+            self.motori[32].ukljuceno = True;
+           
+            
+            
