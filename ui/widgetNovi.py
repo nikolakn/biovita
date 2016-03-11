@@ -10,6 +10,8 @@ from aspirater import Aspirater
 from ventilatoraspiratera import VentilatorAspiratera
 from ledmotori import LedMotor
 from cevi import Cevi
+from cevi import Silosi
+from cevi import Binovi
 
 class noviWidget(QWidget):
     
@@ -85,7 +87,8 @@ class noviWidget(QWidget):
         self.kdz_senz.move(1390,854)
         
         self.cevi = Cevi()
-        
+        self.silosi = Silosi()
+        self.binovi = Binovi()
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         #self.ctimer.start(400)   
@@ -145,6 +148,8 @@ class noviWidget(QWidget):
         
         paint.drawImage(QPoint(0,0),self.slike1)
         self.cevi.nacrtaj(paint)
+        self.silosi.nacrtaj(paint)
+        self.binovi.nacrtaj(paint)
         for key, value in self.motori.iteritems():
             value.nacrtaj(paint)
         for key, value in self.ventili.iteritems():

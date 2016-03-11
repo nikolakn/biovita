@@ -13,6 +13,7 @@ class Cevi():
     plava = QColor(0, 175, 239)
     nar = QColor(245, 134, 52)
     braon = QColor(164, 94, 77)
+    zuta = QColor(255, 242, 18)
     def __init__(self):
 
         self.list_cevi = [Cev_E2_S5(),Cev_E2_R_iznad_S(),Cev_Ka_Elevatoru5(),Cev_E2_S4(),Cev_E1_R_iznad_S(),Cev_E1_URampa(),
@@ -553,4 +554,80 @@ class Cev_gotova_bin7():
            paint.drawLine(1505,288,1397,288)
            paint.drawLine(1397,288,1397,382)
         else:        
-            pass              
+            pass     
+
+class SilosData():
+    def __init__(self,x,y):
+        self.anim = False;
+        self.nivo = 20;
+        self.x = x
+        self.y = y
+class Silosi():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        self.sil=[SilosData(170,642),SilosData(308,642),SilosData(448,642),
+                  SilosData(448,247),SilosData(308,247), SilosData(170,247)]
+                    
+    def start(self,silos):
+        self.sil[silos+1].animn = True
+        self.sil[silos+1].nivo = 20
+    def stop(self,silos):
+        self.sil[silos+1].animn = False
+        self.sil[silos+1].nivo = 20
+        
+    def animate(self):
+        for x in  self.sil:  
+            if(x.anim == True):
+                x.nivo=x.nivo + 1
+                if(x.nivo>=120):
+                    x.nivo = 20
+    def nacrtaj(self,paint):
+        self.animate()
+        if(self.radi == False):
+           for x in  self.sil:
+               paint.setPen(QPen(Cevi.crna, 1, Qt.SolidLine))
+               paint.setBrush(Qt.gray)               
+               paint.drawRect(x.x,x.y,14,120)
+               paint.setBrush(QColor(255, 242, 18))
+               paint.drawRect(x.x,x.y+x.nivo,14,120-x.nivo)
+           
+        else:        
+            pass  
+
+class Binovi():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        self.sil=[SilosData(906,401),SilosData(1039,401),SilosData(1167,401),
+            SilosData(1217,383),SilosData(1089,383),SilosData(956,383),SilosData(1390,390)]
+                    
+    def start(self,silos):
+        self.sil[silos+1].animn = True
+        self.sil[silos+1].nivo = 20
+    def stop(self,silos):
+        self.sil[silos+1].animn = False
+        self.sil[silos+1].nivo = 20
+        
+    def animate(self):
+        for x in  self.sil:  
+            if(x.anim == True):
+                x.nivo=x.nivo + 1
+                if(x.nivo>=100):
+                    x.nivo = 20
+    def nacrtaj(self,paint):
+        self.animate()
+        if(self.radi == False):
+           for x in  self.sil:
+               paint.setPen(QPen(Cevi.crna, 1, Qt.SolidLine))
+               paint.setBrush(Qt.gray)               
+               paint.drawRect(x.x,x.y,12,100)
+               paint.setBrush(QColor(255, 242, 18))
+               paint.drawRect(x.x,x.y+x.nivo,12,100-x.nivo)
+           
+        else:        
+            pass             

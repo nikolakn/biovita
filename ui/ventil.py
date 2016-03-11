@@ -42,10 +42,10 @@ class Ventil():
         
     def nacrtaj(self, paint):
 
-        paint.setRenderHint(QPainter.Antialiasing)
+        
         pen = QPen(Qt.black, 1, Qt.SolidLine)
         paint.setPen(pen)
-        
+        paint.setRenderHint(QPainter.Antialiasing)
         needle =QPolygon(self.points)  
         if (self.ukljuceno == True):
             paint.setBrush(Qt.green)        
