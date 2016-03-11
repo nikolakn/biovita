@@ -17,7 +17,8 @@ class Cevi():
         self.list_cevi = [Cev_E2_S5(),Cev_E2_R_iznad_S(),Cev_Ka_Elevatoru5(),Cev_E2_S4(),Cev_E1_R_iznad_S(),Cev_E1_URampa(),
             Cev_E1_Aspirater(),Cev_E1_binovi(),Cev_E2_aspirater(),Cev_E2_binovi(),Cev_E2_bin_ext(),
             Cev_Aspirater_E2(),Cev_Traka2_E2(),Cev_Traka2_E1(),Cev_puz_jama_E1(),Cev_redJama_puz(),
-            Cev_puziznadbinova()]
+            Cev_puziznadbinova(),Cev_P1_6(), Cev_P2_5(),Cev_P3_4(),Cev_bin7(),Cev_zasun1(),Cev_zasun6(),
+            Cev_zasun2(),Cev_zasun5(),Cev_zasun3(),Cev_zasun4()]
         
     def nacrtaj(self, paint):
         for c in self.list_cevi:
@@ -335,3 +336,156 @@ class Cev_puziznadbinova():
 
         else:
             pass              
+            
+class Cev_P1_6():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 5, Qt.SolidLine))   
+           paint.drawLine(921,255,921,283)
+           paint.drawLine(921,309,921,333)
+        else:
+            pass  
+
+class Cev_P2_5():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 5, Qt.SolidLine))   
+           paint.drawLine(1053,255,1053,283)
+           paint.drawLine(1053,309,1053,333)
+        else:
+            pass  
+
+class Cev_P3_4():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 5, Qt.SolidLine))   
+           paint.drawLine(1184,255,1184,283)
+           paint.drawLine(1184,309,1184,333)
+        else:
+            pass    
+
+class Cev_bin7():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 5, Qt.SolidLine))   
+           paint.drawLine(1383,284,1383,381)
+        else:
+            pass 
+
+class Cev_zasun1():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(898,365,898,391)
+        else:
+            pass    
+
+class Cev_zasun6():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(945,366,945,370)
+        else:
+            pass  
+
+class Cev_zasun2():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(1030,365,1030,391)
+        else:
+            pass   
+
+class Cev_zasun5():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(1078,367,1078,370)
+        else:
+            pass    
+
+class Cev_zasun3():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(1161,366,1161,391)
+        else:
+            pass   
+
+class Cev_zasun4():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(1207,367,1207,370)
+        else:
+            pass             

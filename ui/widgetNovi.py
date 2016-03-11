@@ -48,7 +48,7 @@ class noviWidget(QWidget):
                 22: Pneumatika(785,70,'Pne_e2_silos5'),23: Pneumatika(812,70,'Pne_e2_silos4'),
                 24: Pneumatika(875,70,'Pne_e2_puz_binovi'),25: Pneumatika(904,70,'Pne_e2_extru'),
                 26: PneumatikaDupla(677,74,10,0,'Pne_e1_binovi/asp'),28: PneumatikaDupla(842,70,10,1,'Pne_e1_binovi/asp'),
-                29: PneumatikaDupla(922,339,20,1,'P1/6'), 30: PneumatikaDupla(1053,339,20,1,'P2/5'),
+                29: PneumatikaDupla(922,339,20,1,'P1/6'), 30: PneumatikaDupla(1054,339,20,1,'P2/5'),
                 31: PneumatikaDupla(1185,339,20,1,'P3/4'),
                 32: PneumatikaDupla(1292,320,20,1,'P8/9'), 33: PneumatikaDupla(1362,254,20,1,'P7/puz'),
                 34: PneumatikaDupla(1634,418,20,1,'Pvaga1/vaga2'),35: PneumatikaDupla(1603,153,20,2,'Pext/ext')}
