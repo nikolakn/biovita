@@ -12,7 +12,7 @@ from ledmotori import LedMotor
 from cevi import Cevi
 from cevi import Silosi
 from cevi import Binovi
-
+from cevi import Binovi89
 class noviWidget(QWidget):
     
     def __init__(self,parent=None):
@@ -89,6 +89,7 @@ class noviWidget(QWidget):
         self.cevi = Cevi()
         self.silosi = Silosi()
         self.binovi = Binovi()
+        self.binovi89 = Binovi89()
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
         #self.ctimer.start(400)   
@@ -150,6 +151,7 @@ class noviWidget(QWidget):
         self.cevi.nacrtaj(paint)
         self.silosi.nacrtaj(paint)
         self.binovi.nacrtaj(paint)
+        self.binovi89.nacrtaj(paint)
         for key, value in self.motori.iteritems():
             value.nacrtaj(paint)
         for key, value in self.ventili.iteritems():

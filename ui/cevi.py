@@ -558,7 +558,7 @@ class Cev_gotova_bin7():
 
 class SilosData():
     def __init__(self,x,y):
-        self.anim = False;
+        self.anim = True;
         self.nivo = 20;
         self.x = x
         self.y = y
@@ -628,6 +628,40 @@ class Binovi():
                paint.drawRect(x.x,x.y,12,100)
                paint.setBrush(QColor(255, 242, 18))
                paint.drawRect(x.x,x.y+x.nivo,12,100-x.nivo)
+           
+        else:        
+            pass    
+
+class Binovi89():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.crna
+        self.sil=[SilosData(1278,354),SilosData(1314,354)]
+                    
+    def start(self,silos):
+        self.sil[silos+1].animn = True
+        self.sil[silos+1].nivo = 20
+    def stop(self,silos):
+        self.sil[silos+1].animn = False
+        self.sil[silos+1].nivo = 20
+        
+    def animate(self):
+        for x in  self.sil:  
+            if(x.anim == True):
+                x.nivo=x.nivo + 1
+                if(x.nivo>=60):
+                    x.nivo = 20
+    def nacrtaj(self,paint):
+        self.animate()
+        if(self.radi == False):
+           for x in  self.sil:
+               paint.setPen(QPen(Cevi.crna, 1, Qt.SolidLine))
+               paint.setBrush(Qt.gray)               
+               paint.drawRect(x.x,x.y,10,60)
+               paint.setBrush(QColor(255, 242, 18))
+               paint.drawRect(x.x,x.y+x.nivo,10,60-x.nivo)
            
         else:        
             pass             
