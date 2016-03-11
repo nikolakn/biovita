@@ -19,7 +19,8 @@ class Cevi():
             Cev_E1_Aspirater(),Cev_E1_binovi(),Cev_E2_aspirater(),Cev_E2_binovi(),Cev_E2_bin_ext(),
             Cev_Aspirater_E2(),Cev_Traka2_E2(),Cev_Traka2_E1(),Cev_puz_jama_E1(),Cev_redJama_puz(),
             Cev_puziznadbinova(),Cev_P1_6(), Cev_P2_5(),Cev_P3_4(),Cev_bin7(),Cev_zasun1(),Cev_zasun6(),
-            Cev_zasun2(),Cev_zasun5(),Cev_zasun3(),Cev_zasun4(),Cev_vaga_binovi(),Cev_vaga1(),Cev_vaga2()]
+            Cev_zasun2(),Cev_zasun5(),Cev_zasun3(),Cev_zasun4(),Cev_vaga_binovi(),Cev_vaga1(),Cev_vaga2(),
+            Cev_gotova_bin7()]
         
     def nacrtaj(self, paint):
         for c in self.list_cevi:
@@ -535,4 +536,21 @@ class Cev_vaga2():
            paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
            paint.drawLine(1653,447,1653,562)
         else:        
-            pass             
+            pass  
+
+class Cev_gotova_bin7():
+
+    
+    def __init__(self): 
+        self.radi = False
+        self.boja = Cevi.braon
+        
+    def nacrtaj(self,paint):
+        if(self.radi == False):
+            
+           paint.setPen(QPen(self.boja, 6, Qt.SolidLine))   
+           paint.drawLine(1535,288,1590,288)
+           paint.drawLine(1505,288,1397,288)
+           paint.drawLine(1397,288,1397,382)
+        else:        
+            pass              
