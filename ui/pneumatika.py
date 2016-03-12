@@ -7,7 +7,7 @@ class Pneumatika():
     
     Pi = math.pi
     TwoPi = 2.0 * Pi
-    def __init__(self,x,y,naziv=''):
+    def __init__(self,x,y,motor,naziv=''):
         self.crna = QColor(0, 0, 0)
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)
@@ -18,7 +18,7 @@ class Pneumatika():
         self.y = y;
         self.dx = self.x-28;
         self.dy = self.y+15-25/2;
-  
+        self.motor = motor
         self.senzor = False
     def on(self):
         self.ukljuceno = True;  

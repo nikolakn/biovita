@@ -45,29 +45,29 @@ class noviWidget(QWidget):
         self.map_motori=[]
         
         self.ventili = {
-                1: PneumatikaDupla(677,74,10,0,'Pne_e1_binovi/asp'),
-                2: PneumatikaDupla(842,70,10,1,'Pne_e2_red/asp'),
-                3: Pneumatika(644,74,'Pne_e1_utovarna_ramp'),4: Pneumatika(875,70,'Pne_e2_puz_binovi'),
-                5: Pneumatika(812,70,'Pne_e2_silos4'),6: Ventil(125,383,'sil6dole'),
-                7: Pneumatika(785,70,'Pne_e2_silos5'),8: Pneumatika(904,70,'Pne_e2_extru'),
-                9: Ventil(1167,106,'pextruder'),10: Ventil(1037,282,'Reg2/5'),
-                11: Pneumatika(617,74,'Pne_e1_na_redler_iznadsil'),12: Ventil(401,383,'sil4dole'),
-                13: Ventil(262,174,'sil5gore'),14: Ventil(125,775,'sil1dole'),
-                15: Ventil(262,775,'sil2dole'),16: Ventil(401,775,'sil3dole'),
-                17: Ventil(907,282,'reg1/6'),18: VentilHor(1636,274,'pel_velika'),
-                20: PneumatikaDupla(1054,339,20,1,'P2/5'),
-                21: Ventil(262,566,'sil2gore'),22: Ventil(125,566,'sil1gore'),25: Ventil(401,566,'sil3gore'),
-                28: PneumatikaDupla(1634,418,20,1,'Pvaga1/vaga2'),29: PneumatikaDupla(1292,320,20,1,'P8/9'),
-                30: PneumatikaDupla(1185,339,20,1,'P3/4'),31: Ventil(1170,282,'reg3/4'),
-                32: PneumatikaDupla(922,339,20,1,'P1/6'), 
+                1: PneumatikaDupla(677,74,10,0,1,'Pne_e1_binovi/asp'),
+                2: PneumatikaDupla(842,70,10,1,2,'Pne_e2_red/asp'),
+                3: Pneumatika(644,74,3,'Pne_e1_utovarna_ramp'),4: Pneumatika(875,70,4,'Pne_e2_puz_binovi'),
+                5: Pneumatika(812,70,5,'Pne_e2_silos4'),6: Ventil(125,383,6,'sil6dole'),
+                7: Pneumatika(785,70,7,'Pne_e2_silos5'),8: Pneumatika(904,70,8,'Pne_e2_extru'),
+                9: Ventil(1167,106,9,'pextruder'),10: Ventil(1037,282,10,'Reg2/5'),
+                11: Pneumatika(617,74,11,'Pne_e1_na_redler_iznadsil'),12: Ventil(401,383,12,'sil4dole'),
+                13: Ventil(262,383,13,'sil5dole'),14: Ventil(125,775,14,'sil1dole'),
+                15: Ventil(262,775,15,'sil2dole'),16: Ventil(401,775,16,'sil3dole'),
+                17: Ventil(907,282,17,'reg1/6'),18: VentilHor(1636,274,18,'pel_velika'),
+                20: PneumatikaDupla(1054,339,20,1,20,'P2/5'),
+                21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),25: Ventil(401,566,25,'sil3gore'),
+                28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'),29: PneumatikaDupla(1292,320,20,1,29,'P8/9'),
+                30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
+                32: PneumatikaDupla(922,339,20,1,32,'P1/6'), 
                 
-                33: PneumatikaDupla(1362,254,20,1,'P7/puz') ## treba 
+                33: PneumatikaDupla(1362,254,20,1,0,'P7/puz'), ## treba 
 
-                37: Ventil(125,174,'sil6gore'),38: Ventil(401,174,'sil4gore'), #ne treba
-                42: Ventil(262,383,'sil5dole'),  #ne treba
-                62: VentilHor(1504,274,'got_ka_bin7'),
-                64: VentilHor(1534,196,'pel_mala'),
-                35: PneumatikaDupla(1603,153,20,2,'Pext/ext')}
+                37: Ventil(125,174,0,'sil6gore'),38: Ventil(401,174,0,'sil4gore'), #ne treba
+                42: Ventil(262,174,0,'sil5gore'),  #ne treba
+                62: VentilHor(1504,274,0,'got_ka_bin7'),
+                64: VentilHor(1534,196,0,'pel_mala'),
+                35: PneumatikaDupla(1603,153,20,2,0,'Pext/ext')}
         
         
 
@@ -162,15 +162,18 @@ class noviWidget(QWidget):
             if(value.click(event.x(),event.y())==True):
                 m = value.motor
                 if(value.ukljuceno==True):
-                    print "ukljuci "+str(m)
                     self.state.ukljuciMotor(m)
                 else:
-                    print "iskljuci "+str(m)
                     self.state.iskljuciMotor(m)
                 self.repaint()
                 break
         for key, value in self.ventili.iteritems():
             if(value.click(event.x(),event.y())==True):
+                v = value.motor
+                if(value.ukljuceno==True):
+                    self.state.ukljuciPneumatiku(v)
+                else:
+                    self.state.iskljuciPneumatiku(v)
                 self.repaint()
                 break
             

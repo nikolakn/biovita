@@ -6,12 +6,12 @@ from PyQt4.QtCore import * # @UnusedWildImport
 class Ventil():
     
 
-    def __init__(self,x,y,naziv=''):
+    def __init__(self,x,y,motor,naziv=''):
         self.crna = QColor(0, 0, 0)
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)
         self.ukljuceno = False;
-        
+        self.motor = motor       
         self.points = [QPoint(x, y), QPoint(x+30, y), QPoint(x, y+30), QPoint(x+30, y+30)]
         self.x = x;
         self.y = y;
