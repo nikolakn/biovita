@@ -144,6 +144,13 @@ class noviWidget(QWidget):
         print 'x:'+str(event.x())+'y:'+str(event.y())
         for key, value in self.motori.iteritems():
             if(value.click(event.x(),event.y())==True):
+                m = value.motor
+                if(value.ukljuceno==True):
+                    print "ukljuci "+str(m)
+                    self.state.ukljuciMotor(m)
+                else:
+                    print "iskljuci "+str(m)
+                    self.state.iskljuciMotor(m)
                 self.repaint()
                 break
         for key, value in self.ventili.iteritems():

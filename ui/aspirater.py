@@ -10,7 +10,7 @@ class Aspirater():
         self.bela = QColor(255, 255, 255)
         self.ukljuceno = False;
         
-        self.mtor = motor
+        self.motor = motor
         self.x = x;
         self.y = y;
         self.senzor = False
