@@ -114,10 +114,11 @@ class noviWidget(QWidget):
         
         self.ctimer = QTimer()
         QObject.connect(self.ctimer, SIGNAL("timeout()"), self.timerUpdate)
-        #self.ctimer.start(400)   
+  
     def set_sate(self,state):
         self.state= state
         self.ucitajMotore()
+        self.ctimer.start(400)
     def btn_gornja_klapna_otvori(self):
         if(self.is_klapna_gore_otvorena==False):
             self.b1.setStyleSheet("background-color: green")
@@ -156,10 +157,7 @@ class noviWidget(QWidget):
             self.b4.setStyleSheet("background-color: gray")
             self.state.iskljuciMotor(17)
             self.is_klapna_dole_zatvorena=False        
-            
-    def timerUpdate(self):
-        pass
-        #self.repaint() 
+
         
     def mousePressEvent(self, event):
         print 'x:'+str(event.x())+'y:'+str(event.y())
@@ -342,4 +340,162 @@ class noviWidget(QWidget):
         if(self.state.pneumatike['p31']==1):
             self.ventili[31].ukljuceno = True;             
         if(self.state.pneumatike['p32']==1):
-            self.ventili[32].ukljuceno = True;             
+            self.ventili[32].ukljuceno = True;  
+
+            
+    def timerUpdate(self):
+        i = self.state.getIndikator()
+        if(i[0]==1):
+            self.motori[11].senzorOn()
+        else:
+            self.motori[11].senzorOff()
+        if(i[1]==1):
+            self.motori[14].senzorOn()
+        else:
+            self.motori[14].senzorOff()
+        #bin3    
+        if(i[2]==1):
+            self.motori[2].senzorOn()
+        else:
+            self.motori[2].senzorOff()
+        #bin4    
+        if(i[3]==1):
+            self.motori[8].senzorOn()
+        else:
+            self.motori[8].senzorOff()
+        #bin5    
+        if(i[4]==1):
+            self.motori[13].senzorOn()
+        else:
+            self.motori[13].senzorOff()
+        #bin6    
+        if(i[5]==1):
+            self.motori[6].senzorOn()
+        else:
+            self.motori[6].senzorOff()
+        #bin7
+        if(i[6]==1):
+            self.motori[7].senzorOn()
+        else:
+            self.motori[7].senzorOff()
+        #bin8
+        if(i[7]==1):
+            self.motori[10].senzorOn()
+        else:
+            self.motori[10].senzorOff()
+        #bin9    
+        if(i[8]==1):
+            self.motori[4].senzorOn()
+        else:
+            self.motori[4].senzorOff()
+        #premix na vagu
+        if(i[9]==1):
+            self.motori[12].senzorOn()
+        else:
+            self.motori[12].senzorOff()
+        #mesaona gore otvorena    
+        if(i[10]==1):
+            self.kgo_senz.on()
+        else:
+            self.kgo_senz.off()
+        #mesaona gore zat  
+        if(i[11]==1):
+            self.kgz_senz.on()
+        else:
+            self.kgz_senz.off()
+        #mesaona dole otvorena  
+        if(i[12]==1):
+            self.kdo_senz.on()
+        else:
+            self.kdo_senz.off()
+        #mesaona dole zat 
+        if(i[13]==1):
+            self.kdz_senz.on()
+        else:
+            self.kdz_senz.off()
+            
+            
+        #Redler u istovarnoj jami
+        if(i[14]==1):
+            self.motori[1].senzorOn()
+        else:
+            self.motori[1].senzorOff()
+        #Puz u istovarnoj jami
+        if(i[15]==1):
+            self.motori[3].senzorOn()
+        else:
+            self.motori[3].senzorOff()
+        #e1
+        if(i[16]==1):
+            self.motori[23].senzorOn()
+        else:
+            self.motori[23].senzorOff()
+        #e2
+        if(i[17]==1):
+            self.motori[18].senzorOn()
+        else:
+            self.motori[18].senzorOff()
+            
+        #Ventilator aspiratera
+        if(i[18]==1):
+            self.motori[21].senzorOn()
+        else:
+            self.motori[21].senzorOff()
+        #aspirater
+        if(i[19]==1):
+            self.motori[9].senzorOn()
+        else:
+            self.motori[9].senzorOff()
+            
+        #Redler iznad silosa
+        if(i[20]==1):
+            self.motori[5].senzorOn()
+        else:
+            self.motori[5].senzorOff()
+        #puz za punjenje binova
+        if(i[21]==1):
+            self.motori[30].senzorOn()
+        else:
+            self.motori[30].senzorOff()
+        #t1
+        if(i[22]==1):
+            self.motori[24].senzorOn()
+        else:
+            self.motori[24].senzorOff()
+        #t2
+        if(i[23]==1):
+            self.motori[20].senzorOn()
+        else:
+            self.motori[20].senzorOff()
+        #mlin
+        if(i[24]==1):
+            self.motori[32].senzorOn()
+        else:
+            self.motori[32].senzorOff()
+        #elevator mlina
+        if(i[25]==1):
+            self.motori[15].senzorOn()
+        else:
+            self.motori[15].senzorOff()
+        #Dotok mat.u mlin
+        if(i[26]==1):
+            self.motori[29].senzorOn()
+        else:
+            self.motori[29].senzorOff()
+        #mesalica
+        if(i[27]==1):
+            self.motori[31].senzorOn()
+        else:
+            self.motori[31].senzorOff()
+        #Gotova roba iz mesalice
+        if(i[28]==1):
+            self.motori[25].senzorOn()
+        else:
+            self.motori[25].senzorOff()
+        #Gotova roba prema ekst.
+        if(i[29]==1):
+            self.motori[28].senzorOn()
+        else:
+            self.motori[28].senzorOff()
+
+        self.repaint()             

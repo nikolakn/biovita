@@ -558,7 +558,7 @@ class Cev_gotova_bin7():
 
 class SilosData():
     def __init__(self,x,y):
-        self.anim = True;
+        self.anim = False;
         self.nivo = 20;
         self.x = x
         self.y = y
