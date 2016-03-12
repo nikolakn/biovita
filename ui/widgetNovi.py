@@ -498,4 +498,137 @@ class noviWidget(QWidget):
         else:
             self.motori[28].senzorOff()
 
+            
+        #pneumatike
+        ulazi = self.state.updateSensors();
+        if(ulazi[0]==1):
+            self.ventili[1].senzorOn();
+        else:
+            self.ventili[1].senzorOff();
+        if(ulazi[1]==1):
+            self.ventili[2].senzorOn();
+        else:
+            self.ventili[2].senzorOff();
+        if(ulazi[2]==1):
+            self.ventili[3].senzorOn();
+        else:
+            self.ventili[3].senzorOff();
+        if(ulazi[3]==1):
+            self.ventili[4].senzorOn();
+        else:
+            self.ventili[4].senzorOff();
+        if(ulazi[4]==1):
+            self.ventili[5].senzorOn();
+        else:
+            self.ventili[5].senzorOff();
+        if(ulazi[5]==1):
+            self.ventili[6].senzorOn();
+        else:
+            self.ventili[6].senzorOff();
+        if(ulazi[6]==1):
+            self.ventili[7].senzorOn();
+        else:
+            self.ventili[7].senzorOff();
+        if(ulazi[7]==1):
+            self.ventili[8].senzorOn();
+        else:
+            self.ventili[8].senzorOff();
+        if(ulazi[8]==1):
+            self.ventili[9].senzorOn();
+        else:
+            self.ventili[9].senzorOff();
+        if(ulazi[9]==1):
+            self.ventili[10].senzorOn();
+        else:
+            self.ventili[10].senzorOff();
+        if(ulazi[10]==1):
+            self.ventili[11].senzorOn();
+        else:
+            self.ventili[11].senzorOff();
+        if(ulazi[11]==1):
+            self.ventili[12].senzorOn();
+        else:
+            self.ventili[12].senzorOff();
+        if(ulazi[12]==1):
+            self.ventili[13].senzorOn();
+        else:
+            self.ventili[13].senzorOff();
+        if(ulazi[13]==1):
+            self.ventili[14].senzorOn();
+        else:
+            self.ventili[14].senzorOff();
+        if(ulazi[14]==1):
+            self.ventili[15].senzorOn();
+        else:
+            self.ventili[15].senzorOff();
+        if(ulazi[15]==1):
+            self.ventili[16].senzorOn();
+        else:
+            self.ventili[16].senzorOff();
+        if(ulazi[16]==1):
+            self.ventili[17].senzorOn();
+        else:
+            self.ventili[17].senzorOff();
+        if(ulazi[17]==1):
+            self.ventili[18].senzorOn();
+        else:
+            self.ventili[18].senzorOff();
+        #if(ulazi[18]==1):
+        #    self.ventili[1].senzorOn();
+        #else:
+        #    self.ventili[1].senzorOff();
+        if(ulazi[19]==1):
+            self.ventili[20].senzorOn();
+        else:
+            self.ventili[20].senzorOff();
+        if(ulazi[20]==1):
+            self.ventili[21].senzorOn();
+        else:
+            self.ventili[21].senzorOff();
+        if(ulazi[21]==1):
+            self.ventili[22].senzorOn();
+        else:
+            self.ventili[22].senzorOff();
+            
+        #if(ulazi[22]==1):
+        #    self.ventili[1].senzorOn();
+        #else:
+        #    self.ventili[1].senzorOff();
+        #if(ulazi[23]==1):
+        #    self.ventili[1].senzorOn();
+        #else:
+        #    self.ventili[1].senzorOff();
+        if(ulazi[24]==1):
+            self.ventili[25].senzorOn();
+        else:
+            self.ventili[25].senzorOff();
+        #if(ulazi[25]==1):
+        #    self.ventili[1].senzorOn();
+        #else:
+        #    self.ventili[1].senzorOff();
+        #if(ulazi[26]==1):
+        #    self.ventili[1].senzorOn();
+        #else:
+        #    self.ventili[1].senzorOff();
+        if(ulazi[27]==1):
+            self.ventili[28].senzorOn();
+        else:
+            self.ventili[28].senzorOff();
+        if(ulazi[28]==1):
+            self.ventili[29].senzorOn();
+        else:
+            self.ventili[29].senzorOff();
+        if(ulazi[29]==1):
+            self.ventili[30].senzorOn();
+        else:
+            self.ventili[30].senzorOff();  
+        if(ulazi[30]==1):
+            self.ventili[31].senzorOn();
+        else:
+            self.ventili[31].senzorOff();
+        if(ulazi[31]==1):
+            self.ventili[32].senzorOn();
+        else:
+            self.ventili[32].senzorOff();
+            
         self.repaint()             
