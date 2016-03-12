@@ -408,7 +408,7 @@ class AppState(QtCore.QObject):
     def ukljuciPneumatiku(self,id):
         id = "p"+str(id)
         self.pneumatike[id] = 1
-        
+        print id
         if (id=='p1'):
             self.expanderi.ukljuci(63)
         if (id=='p2'):

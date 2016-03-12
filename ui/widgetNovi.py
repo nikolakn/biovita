@@ -24,7 +24,7 @@ class noviWidget(QWidget):
         self.is_klapna_gore_zatvorena = False;
         self.is_klapna_dole_otvorena = False;
         self.is_klapna_dole_zatvorena = False;
-        
+        #motori koordinate,orjentacija,motor,naziv
         self.motori = {1:  Motor(372,956,0,1,'red_u_jami'), 2 : Motor(1173,520,1,2,'bin3'),
         3: Motor(656,996,3,3,'puz_jama'),4: Motor(1286,435,1,4,'bin9'),5: Motor(106,492,1,5,'redler_izn_silosa'),
         6: Motor(960,500,1,6,'bin6'),7: Motor(1392,512,1,7,'bin7'),8: Motor(1223,500,1,8,'bin4'),
@@ -44,22 +44,30 @@ class noviWidget(QWidget):
         
         self.map_motori=[]
         
-        self.ventili = {1: Ventil(125,174,'sil6gore'),2: Ventil(262,174,'sil5gore'),3: Ventil(401,174,'sil4gore'),
-                4: Ventil(125,383,'sil6dole'),5: Ventil(262,383,'sil5dole'),6: Ventil(401,383,'sil4dole'),
-                7: Ventil(125,566,'sil1gore'),8: Ventil(262,566,'sil2gore'),9: Ventil(401,566,'sil3gore'),
-                10: Ventil(125,775,'sil1dole'),11: Ventil(262,775,'sil2dole'),12: Ventil(401,775,'sil3dole'),
-                13: Ventil(907,282,'p1/6'),14: Ventil(1037,282,'p2/5'),15: Ventil(1170,282,'p2/4'),
-                16: Ventil(1167,106,'pextruder'),
-                17: VentilHor(1504,274,'got_ka_bin7'),18: VentilHor(1636,274,'pel_velika'),
-                19: VentilHor(1534,196,'pel_mala'),
-                20: Pneumatika(617,74,'Pne_e1_na_redler_iznadsil'),21: Pneumatika(644,74,'Pne_e1_utovarna_ramp'),
-                22: Pneumatika(785,70,'Pne_e2_silos5'),23: Pneumatika(812,70,'Pne_e2_silos4'),
-                24: Pneumatika(875,70,'Pne_e2_puz_binovi'),25: Pneumatika(904,70,'Pne_e2_extru'),
-                26: PneumatikaDupla(677,74,10,0,'Pne_e1_binovi/asp'),28: PneumatikaDupla(842,70,10,1,'Pne_e1_binovi/asp'),
-                29: PneumatikaDupla(922,339,20,1,'P1/6'), 30: PneumatikaDupla(1054,339,20,1,'P2/5'),
-                31: PneumatikaDupla(1185,339,20,1,'P3/4'),
-                32: PneumatikaDupla(1292,320,20,1,'P8/9'), 33: PneumatikaDupla(1362,254,20,1,'P7/puz'),
-                34: PneumatikaDupla(1634,418,20,1,'Pvaga1/vaga2'),35: PneumatikaDupla(1603,153,20,2,'Pext/ext')}
+        self.ventili = {
+                1: PneumatikaDupla(677,74,10,0,'Pne_e1_binovi/asp'),
+                2: PneumatikaDupla(842,70,10,1,'Pne_e2_red/asp'),
+                3: Pneumatika(644,74,'Pne_e1_utovarna_ramp'),4: Pneumatika(875,70,'Pne_e2_puz_binovi'),
+                5: Pneumatika(812,70,'Pne_e2_silos4'),6: Ventil(125,383,'sil6dole'),
+                7: Pneumatika(785,70,'Pne_e2_silos5'),8: Pneumatika(904,70,'Pne_e2_extru'),
+                9: Ventil(1167,106,'pextruder'),10: Ventil(1037,282,'Reg2/5'),
+                11: Pneumatika(617,74,'Pne_e1_na_redler_iznadsil'),12: Ventil(401,383,'sil4dole'),
+                13: Ventil(262,174,'sil5gore'),14: Ventil(125,775,'sil1dole'),
+                15: Ventil(262,775,'sil2dole'),16: Ventil(401,775,'sil3dole'),
+                17: Ventil(907,282,'reg1/6'),18: VentilHor(1636,274,'pel_velika'),
+                20: PneumatikaDupla(1054,339,20,1,'P2/5'),
+                21: Ventil(262,566,'sil2gore'),22: Ventil(125,566,'sil1gore'),25: Ventil(401,566,'sil3gore'),
+                28: PneumatikaDupla(1634,418,20,1,'Pvaga1/vaga2'),29: PneumatikaDupla(1292,320,20,1,'P8/9'),
+                30: PneumatikaDupla(1185,339,20,1,'P3/4'),31: Ventil(1170,282,'reg3/4'),
+                32: PneumatikaDupla(922,339,20,1,'P1/6'), 
+                
+                33: PneumatikaDupla(1362,254,20,1,'P7/puz') ## treba 
+
+                37: Ventil(125,174,'sil6gore'),38: Ventil(401,174,'sil4gore'), #ne treba
+                42: Ventil(262,383,'sil5dole'),  #ne treba
+                62: VentilHor(1504,274,'got_ka_bin7'),
+                64: VentilHor(1534,196,'pel_mala'),
+                35: PneumatikaDupla(1603,153,20,2,'Pext/ext')}
         
         
 
