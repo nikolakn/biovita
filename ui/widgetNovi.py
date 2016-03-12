@@ -25,16 +25,16 @@ class noviWidget(QWidget):
         self.is_klapna_dole_otvorena = False;
         self.is_klapna_dole_zatvorena = False;
         
-        self.motori = {1:  Motor(372,956,0,'red_u_jami'), 2 : Motor(1173,520,1,'bin3'),
-        3: Motor(656,996,3,'puz_jama'),4: Motor(1286,435,1,'bin9'),5: Motor(106,492,1,'redler_izn_silosa'),
-        6: Motor(960,500,1,'bin6'),7: Motor(1392,512,1,'bin7'),8: Motor(1223,500,1,'bin4'),
-        9 : Aspirater(626,327,'aspirater'),10: Motor(1323,435,1,'bin8'),11: Motor(912,520,1,'bin1'),
-        12: Motor(-500,-520,1,'bin12'),13 : Motor(1095,500,1,'bin5'),14: Motor(1045,520,1,'bin2'),
-        15: Motor(1168,618,0,'mlin_elevator'),18:Motor(693,15,0,'e2'),19: Motor(1364,311,2,'puz_89'),
-        20: Motor(426,505,3,'traka2'),21 : VentilatorAspiratera(678,277,"vent_asp"),
-        23: Motor(520,15,0,'e1'),24: Motor(426,898,3,'traka1'),25: Motor(1458,377,0,'e3'),
-        28: Motor(1590,367,3,'gotov_mat'),29: Motor(1191,753,2,'e_vaga'),
-        30: Motor(868,226,0,'iznad_binova'),31: Motor(1500,792,2,'mesaona'),32: Motor(962,913,0,'mlin'),
+        self.motori = {1:  Motor(372,956,0,1,'red_u_jami'), 2 : Motor(1173,520,1,2,'bin3'),
+        3: Motor(656,996,3,3,'puz_jama'),4: Motor(1286,435,1,4,'bin9'),5: Motor(106,492,1,5,'redler_izn_silosa'),
+        6: Motor(960,500,1,6,'bin6'),7: Motor(1392,512,1,7,'bin7'),8: Motor(1223,500,1,8,'bin4'),
+        9 : Aspirater(626,327,9,'aspirater'),10: Motor(1323,435,1,10,'bin8'),11: Motor(912,520,1,11,'bin1'),
+        12: Motor(-500,-520,1,12,'bin12'),13 : Motor(1095,500,1,13,'bin5'),14: Motor(1045,520,1,14,'bin2'),
+        15: Motor(1168,618,0,15,'mlin_elevator'),18:Motor(693,15,0,18,'e2'),19: Motor(1364,311,2,19,'puz_89'),
+        20: Motor(426,505,3,20,'traka2'),21 : VentilatorAspiratera(678,277,21,"vent_asp"),
+        23: Motor(520,15,0,23,'e1'),24: Motor(426,898,3,24,'traka1'),25: Motor(1458,377,0,25,'e3'),
+        28: Motor(1590,367,3,28,'gotov_mat'),29: Motor(1191,753,2,29,'e_vaga'),
+        30: Motor(868,226,0,30,'iznad_binova'),31: Motor(1500,792,2,31,'mesaona'),32: Motor(962,913,0,32,'mlin'),
 
         33: Motor(966,756,0,'vagapuz'),
         

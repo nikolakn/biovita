@@ -6,7 +6,7 @@ from PyQt4.QtCore import * # @UnusedWildImport
 class VentilatorAspiratera():
     
 
-    def __init__(self,x,y,naziv=''):
+    def __init__(self,x,y,motor,naziv=''):
         self.crna = QColor(0, 0, 0)
         self.crvena = QColor(255, 0, 0)
         self.bela = QColor(255, 255, 255)
@@ -16,7 +16,7 @@ class VentilatorAspiratera():
         self.x = x;
         self.y = y;
         self.senzor = False
-        
+        self.motor = motor
     def on(self):
         self.ukljuceno = True;  
     def off(self):
