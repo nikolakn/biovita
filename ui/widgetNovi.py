@@ -108,32 +108,40 @@ class noviWidget(QWidget):
     def btn_gornja_klapna_otvori(self):
         if(self.is_klapna_gore_otvorena==False):
             self.b1.setStyleSheet("background-color: green")
+            self.state.ukljuciMotor(22)
             self.is_klapna_gore_otvorena=True
         else:    
             self.b1.setStyleSheet("background-color: gray")
+            self.state.iskljuciMotor(22)
             self.is_klapna_gore_otvorena=False            
     def btn_gornja_klapna_zatvori(self):
         if(self.is_klapna_gore_zatvorena==False):
             self.b2.setStyleSheet("background-color: green")
+            self.state.ukljuciMotor(26)
             self.is_klapna_gore_zatvorena=True 
         else:
             self.b2.setStyleSheet("background-color: gray")
+            self.state.iskljuciMotor(26)
             self.is_klapna_gore_zatvorena=False        
             
     def btn_donja_klapna_otvori(self):
         if(self.is_klapna_dole_otvorena==False):    
             self.b3.setStyleSheet("background-color: green")
+            self.state.ukljuciMotor(16)
             self.is_klapna_dole_otvorena=True 
         else:
             self.b3.setStyleSheet("background-color: gray")
+            self.state.iskljuciMotor(16)
             self.is_klapna_dole_otvorena=False 
             
     def btn_donja_klapna_zatvori(self):
         if(self.is_klapna_dole_zatvorena==False):    
+            self.state.ukljuciMotor(17)
             self.b4.setStyleSheet("background-color: green")
             self.is_klapna_dole_zatvorena=True 
         else:
             self.b4.setStyleSheet("background-color: gray")
+            self.state.iskljuciMotor(17)
             self.is_klapna_dole_zatvorena=False        
             
     def timerUpdate(self):
