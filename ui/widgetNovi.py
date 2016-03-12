@@ -21,9 +21,9 @@ class noviWidget(QWidget):
         self.state = None
         self.slike1.load("images/skica5.png")
         self.is_klapna_gore_otvorena = False;
-        self.is_klapna_gore_zatvorena = True;
+        self.is_klapna_gore_zatvorena = False;
         self.is_klapna_dole_otvorena = False;
-        self.is_klapna_dole_zatvorena = True;
+        self.is_klapna_dole_zatvorena = False;
         
         self.motori = {1:  Motor(372,956,0,'red_u_jami'), 2 : Motor(1173,520,1,'bin3'),
         3: Motor(656,996,3,'puz_jama'),4: Motor(1286,435,1,'bin9'),5: Motor(106,492,1,'redler_izn_silosa'),
@@ -69,7 +69,7 @@ class noviWidget(QWidget):
         #self.b1.move(1325,670)
         self.b1.clicked.connect(lambda:self.btn_gornja_klapna_otvori()) 
         self.b2 = QPushButton("Zatvori",self)
-        self.b2.setStyleSheet("background-color: green")
+        self.b2.setStyleSheet("background-color: gray")
         self.b2.setGeometry(QRect(1325,700, 60, 20))
         #self.b2.move(1325,700)
         self.b2.clicked.connect(lambda:self.btn_gornja_klapna_zatvori()) 
@@ -79,7 +79,7 @@ class noviWidget(QWidget):
         self.b3.setGeometry(QRect(1325,820, 60, 20))
         #self.b3.move(1325,820)
         self.b4 = QPushButton("Zatvori",self)
-        self.b4.setStyleSheet("background-color: green")
+        self.b4.setStyleSheet("background-color: gray")
         self.b4.clicked.connect(lambda:self.btn_donja_klapna_zatvori()) 
         self.b4.setGeometry(QRect(1325,850, 60, 20))
         #self.b4.move(1325,850)
@@ -106,24 +106,35 @@ class noviWidget(QWidget):
         self.state= state
         self.ucitajMotore()
     def btn_gornja_klapna_otvori(self):
+        if(self.is_klapna_gore_otvorena==False):
             self.b1.setStyleSheet("background-color: green")
-            self.b2.setStyleSheet("background-color: gray")
             self.is_klapna_gore_otvorena=True
-            
-    def btn_gornja_klapna_zatvori(self):
-            self.b2.setStyleSheet("background-color: green")
+        else:    
             self.b1.setStyleSheet("background-color: gray")
-            self.is_klapna_gore_zatvorena=True   
+            self.is_klapna_gore_otvorena=False            
+    def btn_gornja_klapna_zatvori(self):
+        if(self.is_klapna_gore_zatvorena==False):
+            self.b2.setStyleSheet("background-color: green")
+            self.is_klapna_gore_zatvorena=True 
+        else:
+            self.b2.setStyleSheet("background-color: gray")
+            self.is_klapna_gore_zatvorena=False        
             
     def btn_donja_klapna_otvori(self):
-            self.b4.setStyleSheet("background-color: gray")
+        if(self.is_klapna_dole_otvorena==False):    
             self.b3.setStyleSheet("background-color: green")
             self.is_klapna_dole_otvorena=True 
-
-    def btn_donja_klapna_zatvori(self):
+        else:
             self.b3.setStyleSheet("background-color: gray")
+            self.is_klapna_dole_otvorena=False 
+            
+    def btn_donja_klapna_zatvori(self):
+        if(self.is_klapna_dole_zatvorena==False):    
             self.b4.setStyleSheet("background-color: green")
             self.is_klapna_dole_zatvorena=True 
+        else:
+            self.b4.setStyleSheet("background-color: gray")
+            self.is_klapna_dole_zatvorena=False        
             
     def timerUpdate(self):
         pass
