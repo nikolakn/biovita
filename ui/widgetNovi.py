@@ -32,6 +32,7 @@ class noviWidget(QWidget):
         12: Motor(-500,-520,1,12,'bin12'),13 : Motor(1095,500,1,13,'bin5'),14: Motor(1045,520,1,14,'bin2'),
         15: Motor(1168,618,0,15,'mlin_elevator'),18:Motor(693,15,0,18,'e2'),19: Motor(1364,311,2,19,'puz_89'),
         20: Motor(426,505,3,20,'traka2'),21 : VentilatorAspiratera(678,277,21,"vent_asp"),
+        
         23: Motor(520,15,0,23,'e1'),24: Motor(426,898,3,24,'traka1'),25: Motor(1458,377,0,25,'e3'),
         28: Motor(1590,367,3,28,'gotov_mat'),29: Motor(1191,753,2,29,'e_vaga'),
         30: Motor(868,226,0,30,'iznad_binova'),31: Motor(1500,792,2,31,'mesaona'),32: Motor(962,913,0,32,'mlin'),
@@ -55,8 +56,12 @@ class noviWidget(QWidget):
                 13: Ventil(262,383,13,'sil5dole'),14: Ventil(125,775,14,'sil1dole'),
                 15: Ventil(262,775,15,'sil2dole'),16: Ventil(401,775,16,'sil3dole'),
                 17: Ventil(907,282,17,'reg1/6'),18: VentilHor(1636,274,18,'pel_velika'),
+                
                 20: PneumatikaDupla(1054,339,20,1,20,'P2/5'),
-                21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),25: Ventil(401,566,25,'sil3gore'),
+                21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),
+                
+                25: Ventil(401,566,25,'sil3gore'),
+                
                 28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'),29: PneumatikaDupla(1292,320,20,1,29,'P8/9'),
                 30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
                 32: PneumatikaDupla(922,339,20,1,32,'P1/6'), 
@@ -170,10 +175,11 @@ class noviWidget(QWidget):
         for key, value in self.ventili.iteritems():
             if(value.click(event.x(),event.y())==True):
                 v = value.motor
-                if(value.ukljuceno==True):
-                    self.state.ukljuciPneumatiku(v)
-                else:
-                    self.state.iskljuciPneumatiku(v)
+                if(v!=0):
+                    if(value.ukljuceno==True):
+                        self.state.ukljuciPneumatiku(v)
+                    else:
+                        self.state.iskljuciPneumatiku(v)
                 self.repaint()
                 break
             
@@ -278,5 +284,62 @@ class noviWidget(QWidget):
         if(self.state.motori['m32']==1):
             self.motori[32].ukljuceno = True;
            
+        #pneumatike
+        if(self.state.pneumatike['p1']==1):
+            self.ventili[1].ukljuceno = True;       
+        if(self.state.pneumatike['p2']==1):
+            self.ventili[2].ukljuceno = True;            
+        if(self.state.pneumatike['p3']==1):
+            self.ventili[3].ukljuceno = True;       
+        if(self.state.pneumatike['p4']==1):
+            self.ventili[4].ukljuceno = True;  
+        if(self.state.pneumatike['p5']==1):
+            self.ventili[5].ukljuceno = True;       
+        if(self.state.pneumatike['p6']==1):
+            self.ventili[6].ukljuceno = True;            
+        if(self.state.pneumatike['p7']==1):
+            self.ventili[7].ukljuceno = True;       
+        if(self.state.pneumatike['p8']==1):
+            self.ventili[8].ukljuceno = True;  
+        if(self.state.pneumatike['p9']==1):
+            self.ventili[9].ukljuceno = True;       
+        if(self.state.pneumatike['p10']==1):
+            self.ventili[10].ukljuceno = True;            
+        if(self.state.pneumatike['p11']==1):
+            self.ventili[11].ukljuceno = True;       
+        if(self.state.pneumatike['p12']==1):
+            self.ventili[12].ukljuceno = True;  
+        if(self.state.pneumatike['p13']==1):
+            self.ventili[13].ukljuceno = True;       
+        if(self.state.pneumatike['p14']==1):
+            self.ventili[14].ukljuceno = True;            
+        if(self.state.pneumatike['p15']==1):
+            self.ventili[15].ukljuceno = True;       
+        if(self.state.pneumatike['p16']==1):
+            self.ventili[16].ukljuceno = True; 
+        if(self.state.pneumatike['p17']==1):
+            self.ventili[17].ukljuceno = True;       
+        if(self.state.pneumatike['p18']==1):
+            self.ventili[18].ukljuceno = True;        
+
             
-            
+        if(self.state.pneumatike['p20']==1):
+            self.ventili[20].ukljuceno = True;  
+        if(self.state.pneumatike['p21']==1):
+            self.ventili[21].ukljuceno = True;  
+        if(self.state.pneumatike['p22']==1):
+            self.ventili[22].ukljuceno = True;  
+
+        if(self.state.pneumatike['p25']==1):
+            self.ventili[25].ukljuceno = True; 
+
+        if(self.state.pneumatike['p28']==1):
+            self.ventili[28].ukljuceno = True;  
+        if(self.state.pneumatike['p29']==1):
+            self.ventili[29].ukljuceno = True; 
+        if(self.state.pneumatike['p30']==1):
+            self.ventili[30].ukljuceno = True; 
+        if(self.state.pneumatike['p31']==1):
+            self.ventili[31].ukljuceno = True;             
+        if(self.state.pneumatike['p32']==1):
+            self.ventili[32].ukljuceno = True;             
