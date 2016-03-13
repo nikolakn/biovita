@@ -60,7 +60,7 @@ class noviWidget(QWidget):
                 20: PneumatikaDupla(1054,339,20,1,20,'P2/5'),
                 21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),
                 
-                25: Ventil(401,566,25,'sil3gore'),
+                24: Ventil(401,566,24,'sil3gore'),
                 
                 28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'),29: PneumatikaDupla(1292,320,20,1,29,'P8/9'),
                 30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
@@ -598,10 +598,10 @@ class noviWidget(QWidget):
         #    self.ventili[1].senzorOn();
         #else:
         #    self.ventili[1].senzorOff();
-        if(ulazi[24]==1):
-            self.ventili[25].senzorOn();
+        if(ulazi[23]==1):
+            self.ventili[24].senzorOn();
         else:
-            self.ventili[25].senzorOff();
+            self.ventili[24].senzorOff();
         #if(ulazi[25]==1):
         #    self.ventili[1].senzorOn();
         #else:
