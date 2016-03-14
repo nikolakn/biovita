@@ -79,6 +79,13 @@ class noviWidget(QWidget):
                 42: Ventil(262,174,0,'sil5gore'),  #ne treba
                 35: Ventil(1167,106,9,'pextruder')}
         
+        self.bv1 = QPushButton("Vaga1",self)
+        self.bv2 = QPushButton("Vaga2",self)
+        self.bv1.setGeometry(QRect(1590,717, 60, 20))
+        self.bv2.setGeometry(QRect(1625,594, 60, 20))
+        self.bv1.clicked.connect(lambda:self.btn_vaga1()) 
+        self.bv2.clicked.connect(lambda:self.btn_vaga2()) 
+        
         self.b1 = QPushButton("Otvori",self)
         self.b1.setStyleSheet("background-color: gray")
         self.b1.setGeometry(QRect(1325,670, 60, 20))
@@ -316,6 +323,10 @@ class noviWidget(QWidget):
         '''  
         
     def ucitajMotore(self):
+        for key, value in self.motori.iteritems():
+            value.ukljuceno = False;
+        for key, value in self.ventili.iteritems():
+            value.ukljuceno = False;
         if(self.state.motori['m1']==1):
             self.motori[1].ukljuceno = True;
         if(self.state.motori['m2']==1):
@@ -739,3 +750,23 @@ class noviWidget(QWidget):
             self.ventili[32].senzorOff();
             
         self.repaint()             
+        
+    def btn_vaga1(self):
+        self.state.iskljuciPId(19)
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.iskljuciMotorId(28) 
+        self.ucitajMotore() 
+        self.repaint()     
+        
+    def btn_vaga2(self):
+        self.state.kreniPId(19)
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.kreniPId(18)
+        self.state.iskljuciMotorId(28)
+        self.ucitajMotore() 
+        self.repaint()   
