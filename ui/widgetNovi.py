@@ -62,11 +62,13 @@ class noviWidget(QWidget):
                 
                 24: Ventil(401,566,24,'sil3gore'),
                 
-                28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'),29: PneumatikaDupla(1292,320,20,1,29,'P8/9'),
+                28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), # ne treba
+                29: PneumatikaDupla(1292,320,20,1,29,'P8/9'),
                 30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
                 32: PneumatikaDupla(922,339,20,1,32,'P1/6'), 
                 
-                33: PneumatikaDupla(1362,254,20,1,0,'P7/puz'), ## treba 
+                
+                33: PneumatikaDupla(1362,254,20,0,33,'P7/puz'), ## treba 
 
                 37: Ventil(125,174,0,'sil6gore'),38: Ventil(401,174,0,'sil4gore'), #ne treba
                 42: Ventil(262,174,0,'sil5gore'),  #ne treba
@@ -176,7 +178,9 @@ class noviWidget(QWidget):
                     if(m==29):
                         self.motori[33].ukljuceno = True; 
                     if(m==25):
-                        self.motori[34].ukljuceno = True;                          
+                        self.motori[34].ukljuceno = True; 
+                    if(m==19):
+                        self.ventili[33].ukljuceno = True;
                 else:
                     if(m==33):
                         m=29
@@ -188,7 +192,9 @@ class noviWidget(QWidget):
                     if(m==29):
                         self.motori[33].ukljuceno = False; 
                     if(m==25):
-                        self.motori[34].ukljuceno = False;            
+                        self.motori[34].ukljuceno = False;    
+                    if(m==19):
+                        self.ventili[33].ukljuceno = False;                        
                 self.repaint()
                 break
         for key, value in self.ventili.iteritems():
@@ -274,6 +280,7 @@ class noviWidget(QWidget):
             self.motori[18].ukljuceno = True;                                                
         if(self.state.motori['m19']==1):
             self.motori[19].ukljuceno = True;
+            self.ventili[33].ukljuceno = True;
         if(self.state.motori['m20']==1):
             self.motori[20].ukljuceno = True;
         if(self.state.motori['m21']==1):
@@ -352,8 +359,8 @@ class noviWidget(QWidget):
         if(self.state.pneumatike['p25']==1):
             self.ventili[25].ukljuceno = True; 
 
-        if(self.state.pneumatike['p28']==1):
-            self.ventili[28].ukljuceno = True;  
+        #if(self.state.pneumatike['p28']==1):
+        #    self.ventili[28].ukljuceno = True;  
         if(self.state.pneumatike['p29']==1):
             self.ventili[29].ukljuceno = True; 
         if(self.state.pneumatike['p30']==1):
@@ -631,10 +638,10 @@ class noviWidget(QWidget):
         #    self.ventili[1].senzorOn();
         #else:
         #    self.ventili[1].senzorOff();
-        if(ulazi[27]==1):
-            self.ventili[28].senzorOn();
-        else:
-            self.ventili[28].senzorOff();
+        #if(ulazi[27]==1):
+        #    self.ventili[28].senzorOn();
+        #else:
+        #    self.ventili[28].senzorOff();
         if(ulazi[28]==1):
             self.ventili[29].senzorOn();
         else:
