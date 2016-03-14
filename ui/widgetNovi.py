@@ -84,25 +84,47 @@ class noviWidget(QWidget):
         self.bv1.setGeometry(QRect(1590,717, 60, 20))
         self.bv2.setGeometry(QRect(1625,594, 60, 20))
         self.bv1.clicked.connect(lambda:self.btn_vaga1()) 
-        self.bv2.clicked.connect(lambda:self.btn_vaga2()) 
+        self.bv2.clicked.connect(lambda:self.btn_vaga2())
+
+        self.bpeletirkavelika = QPushButton("Peletirka velika",self) 
+        self.bpeletirkavelika.setGeometry(QRect(1405,190, 100, 40))        
+        self.bextruderveliki = QPushButton("Ekstruder veliki",self) 
+        self.bextruderveliki.setGeometry(QRect(1380,84, 100, 40))  
+        self.bextrudermali = QPushButton("Ekstruder mali",self) 
+        self.bextrudermali.setGeometry(QRect(1690,110, 100, 40)) 
+        self.bpeletirkamala = QPushButton("Peletirka malia",self) 
+        self.bpeletirkamala.setGeometry(QRect(1700,179, 90, 40)) 
+        self.bv1.setStyleSheet("background-color: lightgray")
+        self.bv2.setStyleSheet("background-color: lightgray")
+        self.bpeletirkavelika.setStyleSheet("background-color: lightgray")
+        self.bextruderveliki.setStyleSheet("background-color: lightgray")
+        self.bextrudermali.setStyleSheet("background-color: lightgray")
+        self.bpeletirkamala.setStyleSheet("background-color: lightgray")
         
+        self.bpeletirkavelika.clicked.connect(lambda:self.btn_peletirkavelika()) 
+        self.bextruderveliki.clicked.connect(lambda:self.btn_extruderveliki()) 
+        self.bextrudermali.clicked.connect(lambda:self.btn_extrudermali()) 
+        self.bpeletirkamala.clicked.connect(lambda:self.btn_peletirkamala()) 
+        
+        
+        self.bextrudermali.setGeometry(QRect(1690,110, 100, 40))           
         self.b1 = QPushButton("Otvori",self)
-        self.b1.setStyleSheet("background-color: gray")
+        self.b1.setStyleSheet("background-color: lightgray")
         self.b1.setGeometry(QRect(1325,670, 60, 20))
         #self.b1.move(1325,670)
         self.b1.clicked.connect(lambda:self.btn_gornja_klapna_otvori()) 
         self.b2 = QPushButton("Zatvori",self)
-        self.b2.setStyleSheet("background-color: gray")
+        self.b2.setStyleSheet("background-color: lightgray")
         self.b2.setGeometry(QRect(1325,700, 60, 20))
         #self.b2.move(1325,700)
         self.b2.clicked.connect(lambda:self.btn_gornja_klapna_zatvori()) 
         self.b3 = QPushButton("Otvori",self)
-        self.b3.setStyleSheet("background-color: gray")
+        self.b3.setStyleSheet("background-color: lightgray")
         self.b3.clicked.connect(lambda:self.btn_donja_klapna_otvori()) 
         self.b3.setGeometry(QRect(1325,820, 60, 20))
         #self.b3.move(1325,820)
         self.b4 = QPushButton("Zatvori",self)
-        self.b4.setStyleSheet("background-color: gray")
+        self.b4.setStyleSheet("background-color: lightgray")
         self.b4.clicked.connect(lambda:self.btn_donja_klapna_zatvori()) 
         self.b4.setGeometry(QRect(1325,850, 60, 20))
         #self.b4.move(1325,850)
@@ -135,7 +157,7 @@ class noviWidget(QWidget):
             self.state.ukljuciMotor(22)
             self.is_klapna_gore_otvorena=True
         else:    
-            self.b1.setStyleSheet("background-color: gray")
+            self.b1.setStyleSheet("background-color: lightgray")
             self.state.iskljuciMotor(22)
             self.is_klapna_gore_otvorena=False            
     def btn_gornja_klapna_zatvori(self):
@@ -144,7 +166,7 @@ class noviWidget(QWidget):
             self.state.ukljuciMotor(26)
             self.is_klapna_gore_zatvorena=True 
         else:
-            self.b2.setStyleSheet("background-color: gray")
+            self.b2.setStyleSheet("background-color: lightgray")
             self.state.iskljuciMotor(26)
             self.is_klapna_gore_zatvorena=False        
             
@@ -154,7 +176,7 @@ class noviWidget(QWidget):
             self.state.ukljuciMotor(16)
             self.is_klapna_dole_otvorena=True 
         else:
-            self.b3.setStyleSheet("background-color: gray")
+            self.b3.setStyleSheet("background-color: lightgray")
             self.state.iskljuciMotor(16)
             self.is_klapna_dole_otvorena=False 
             
@@ -164,7 +186,7 @@ class noviWidget(QWidget):
             self.b4.setStyleSheet("background-color: green")
             self.is_klapna_dole_zatvorena=True 
         else:
-            self.b4.setStyleSheet("background-color: gray")
+            self.b4.setStyleSheet("background-color: lightgray")
             self.state.iskljuciMotor(17)
             self.is_klapna_dole_zatvorena=False        
 
@@ -752,6 +774,14 @@ class noviWidget(QWidget):
         self.repaint()             
         
     def btn_vaga1(self):
+    
+        self.bv1.setStyleSheet("background-color: green")
+        self.bv2.setStyleSheet("background-color: lightgray")
+        self.bpeletirkavelika.setStyleSheet("background-color: lightgray")
+        self.bextruderveliki.setStyleSheet("background-color: lightgray")
+        self.bextrudermali.setStyleSheet("background-color: lightgray")
+        self.bpeletirkamala.setStyleSheet("background-color: lightgray")
+        
         self.state.iskljuciPId(19)
         self.state.iskljuciPId(23)
         self.state.iskljuciPId(26)
@@ -762,6 +792,13 @@ class noviWidget(QWidget):
         self.repaint()     
         
     def btn_vaga2(self):
+        self.bv1.setStyleSheet("background-color: lightgray")
+        self.bv2.setStyleSheet("background-color: green")
+        self.bpeletirkavelika.setStyleSheet("background-color: lightgray")
+        self.bextruderveliki.setStyleSheet("background-color: lightgray")
+        self.bextrudermali.setStyleSheet("background-color: lightgray")
+        self.bpeletirkamala.setStyleSheet("background-color: lightgray")
+        
         self.state.kreniPId(19)
         self.state.iskljuciPId(23)
         self.state.iskljuciPId(26)
@@ -770,3 +807,59 @@ class noviWidget(QWidget):
         self.state.iskljuciMotorId(28)
         self.ucitajMotore() 
         self.repaint()   
+
+    def btn_peletirkavelika(self):
+        self.bv1.setStyleSheet("background-color: lightgray")
+        self.bv2.setStyleSheet("background-color: lightgray")
+        self.bpeletirkavelika.setStyleSheet("background-color: green")
+        self.bextruderveliki.setStyleSheet("background-color: lightgray")
+        self.bextrudermali.setStyleSheet("background-color: lightgray")
+        self.bpeletirkamala.setStyleSheet("background-color: lightgray")
+        self.state.kreniPId(19)    
+        self.state.kreniPId(23)  
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)      
+        self.ucitajMotore() 
+        self.repaint() 
+    def btn_peletirkamala(self):
+        self.bv1.setStyleSheet("background-color: lightgray")
+        self.bv2.setStyleSheet("background-color: lightgray")
+        self.bpeletirkavelika.setStyleSheet("background-color: lightgray")
+        self.bextruderveliki.setStyleSheet("background-color: lightgray")
+        self.bextrudermali.setStyleSheet("background-color: lightgray")
+        self.bpeletirkamala.setStyleSheet("background-color: green")
+        
+        
+    def btn_extruderveliki(self):
+        self.bv1.setStyleSheet("background-color: lightgray")
+        self.bv2.setStyleSheet("background-color: lightgray")
+        self.bpeletirkavelika.setStyleSheet("background-color: lightgray")
+        self.bextruderveliki.setStyleSheet("background-color: green")
+        self.bextrudermali.setStyleSheet("background-color: lightgray")
+        self.bpeletirkamala.setStyleSheet("background-color: lightgray")
+        self.state.kreniPId(19) 
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.iskljuciPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)
+        self.ucitajMotore() 
+        self.repaint()         
+    def btn_extrudermali(self):    
+        self.bv1.setStyleSheet("background-color: lightgray")
+        self.bv2.setStyleSheet("background-color: lightgray")
+        self.bpeletirkavelika.setStyleSheet("background-color: lightgray")
+        self.bextruderveliki.setStyleSheet("background-color: lightgray")
+        self.bextrudermali.setStyleSheet("background-color: green")
+        self.bpeletirkamala.setStyleSheet("background-color: lightgray")
+        self.state.kreniPId(19)    
+        self.state.iskljuciPId(23)
+        self.state.iskljuciPId(26)
+        self.state.kreniPId(9)
+        self.state.iskljuciPId(18)
+        self.state.kreniMotorId(28)  
+        self.ucitajMotore() 
+        self.repaint() 
+        
