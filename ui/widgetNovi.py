@@ -81,8 +81,8 @@ class noviWidget(QWidget):
         
         self.bv1 = QPushButton("Vaga1",self)
         self.bv2 = QPushButton("Vaga2",self)
-        self.bv1.setGeometry(QRect(1590,717, 60, 20))
-        self.bv2.setGeometry(QRect(1625,594, 60, 20))
+        self.bv1.setGeometry(QRect(1590,717, 60, 40))
+        self.bv2.setGeometry(QRect(1625,594, 60, 40))
         self.bv1.clicked.connect(lambda:self.btn_vaga1()) 
         self.bv2.clicked.connect(lambda:self.btn_vaga2())
 
@@ -193,6 +193,110 @@ class noviWidget(QWidget):
         
     def mousePressEvent(self, event):
         print 'x:'+str(event.x())+'y:'+str(event.y())
+        okvirBin1 = QRect(868,393,52,108)
+        okvirBin2 = QRect(1005,393,52,108)
+        okvirBin3 = QRect(1133,393,52,108)
+        
+        okvirBin7 = QRect(1356,385,52,108)
+        
+        okvirBin6 = QRect(930,375,45,110)
+        okvirBin5 = QRect(1064,375,45,110)
+        okvirBin4 = QRect(1190,375,45,110)
+        
+        okvirBin8 = QRect(1260,348,30,75)
+        okvirBin9 = QRect(1296,348,30,75)
+                 
+        
+        if(okvirBin1.contains(event.x(),event.y())==True):
+            self.state.kreniPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin2.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.kreniPId(10)
+            self.state.iskljuciPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin3.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.kreniPId(31)
+            self.state.iskljuciPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin4.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.kreniPId(31)
+            self.state.kreniPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin5.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.kreniPId(10)
+            self.state.kreniPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin6.contains(event.x(),event.y())==True):
+            self.state.kreniPId(17) 
+            self.state.kreniPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin7.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.iskljuciMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
+        if(okvirBin8.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.kreniMotorId(19)
+            self.state.kreniPId(29)
+            self.ucitajMotore()
+        if(okvirBin9.contains(event.x(),event.y())==True):
+            self.state.iskljuciPId(17) 
+            self.state.iskljuciPId(32)
+            self.state.iskljuciPId(10)
+            self.state.iskljuciPId(20)
+            self.state.iskljuciPId(31)
+            self.state.iskljuciPId(30)
+            self.state.kreniMotorId(19)
+            self.state.iskljuciPId(29)
+            self.ucitajMotore()
         for key, value in self.motori.iteritems():
             if(value.click(event.x(),event.y())==True):
                 m = value.motor
@@ -317,6 +421,8 @@ class noviWidget(QWidget):
         paint.setRenderHint(QPainter.Antialiasing)
         paint.setPen(Qt.black);
         
+
+        
         paint.drawImage(QPoint(0,0),self.slike1)
         self.cevi.nacrtaj(paint)
         self.silosi.nacrtaj(paint)
@@ -343,6 +449,8 @@ class noviWidget(QWidget):
             paint.drawLine(40, i+25, 60, i+25)
             paint.drawText(50, i ,str(i)) 
         '''  
+
+        
         
     def ucitajMotore(self):
         for key, value in self.motori.iteritems():
