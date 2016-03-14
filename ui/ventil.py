@@ -47,12 +47,13 @@ class Ventil():
         paint.setPen(pen)
         paint.setRenderHint(QPainter.Antialiasing)
         needle =QPolygon(self.points)  
+
         if (self.ukljuceno == True):
             paint.setBrush(Qt.green)        
             paint.drawPolygon(needle)
         else: 
             paint.setBrush(Qt.red) 
-            paint.drawPolygon(needle)             
+            paint.drawPolygon(needle)          
         if (self.senzor == True):
             paint.setBrush(Qt.green) 
             paint.drawEllipse(self.dx, self.dy, 25, 25)

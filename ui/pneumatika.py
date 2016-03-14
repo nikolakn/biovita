@@ -47,14 +47,28 @@ class Pneumatika():
         
         
         #needle =QPolygon(self.points)  
-        if (self.ukljuceno == True):
-            paint.setBrush(Qt.green) 
-            paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
-            self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))
-        else: 
-            paint.setBrush(Qt.red) 
-            paint.setPen(QPen(Qt.red, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
-            self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))             
+        if(self.motor==19):
+
+
+            if (self.ukljuceno == True):
+                paint.setBrush(Qt.red) 
+                paint.setPen(QPen(Qt.red, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))
+            else: 
+                paint.setBrush(Qt.green) 
+                paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))   
+        else:
+
+            if (self.ukljuceno == True):
+                paint.setBrush(Qt.green) 
+                paint.setPen(QPen(Qt.green, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin))            
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))
+            else: 
+                paint.setBrush(Qt.red) 
+                paint.setPen(QPen(Qt.red, 1, Qt.SolidLine,Qt.RoundCap, Qt.RoundJoin)) 
+                self.strelica(paint,QPointF(self.x, self.y),QPointF(self.x, self.y+24))  
+            
         if (self.senzor == True):
             paint.setPen(pen)
             paint.setBrush(Qt.green) 
