@@ -37,9 +37,9 @@ class noviWidget(QWidget):
         28: Motor(1590,367,3,28,'gotov_mat'),29: Motor(1191,753,2,29,'e_vaga'),
         30: Motor(868,226,0,30,'iznad_binova'),31: Motor(1500,792,2,31,'mesaona'),32: Motor(962,913,0,32,'mlin'),
 
-        33: Motor(966,756,0,'vagapuz'),
+        33: Motor(966,756,0,33,'vagapuz'),
         
-        34: Motor(1280,903,0,'mesaonapuz')
+        34: Motor(1280,903,0,34,'mesaonapuz')
 
         }
         
@@ -165,9 +165,30 @@ class noviWidget(QWidget):
             if(value.click(event.x(),event.y())==True):
                 m = value.motor
                 if(value.ukljuceno==True):
-                    self.state.ukljuciMotor(m)
+                    if(m==33):
+                        m=29
+                        self.motori[m].ukljuceno = True
+                    if(m==34):
+                        m=25
+                        self.motori[m].ukljuceno = True
+                        
+                    self.state.ukljuciMotor(m)  #komanda motoru
+                    if(m==29):
+                        self.motori[33].ukljuceno = True; 
+                    if(m==25):
+                        self.motori[34].ukljuceno = True;                          
                 else:
-                    self.state.iskljuciMotor(m)
+                    if(m==33):
+                        m=29
+                        self.motori[m].ukljuceno = False
+                    if(m==34):
+                        m=25
+                        self.motori[m].ukljuceno = False 
+                    self.state.iskljuciMotor(m) #komanda mototru
+                    if(m==29):
+                        self.motori[33].ukljuceno = False; 
+                    if(m==25):
+                        self.motori[34].ukljuceno = False;            
                 self.repaint()
                 break
         for key, value in self.ventili.iteritems():
