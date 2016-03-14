@@ -44,7 +44,7 @@ class noviWidget(QWidget):
         }
         
         self.map_motori=[]
-        
+
         self.ventili = {
                 1: PneumatikaDupla(677,74,10,0,1,'Pne_e1_binovi/asp'),
                 2: PneumatikaDupla(842,70,10,1,2,'Pne_e2_red/asp'),
@@ -121,7 +121,7 @@ class noviWidget(QWidget):
     def set_sate(self,state):
         self.state= state
         self.ucitajMotore()
-        self.ctimer.start(400)
+        self.ctimer.start(300)
     def btn_gornja_klapna_otvori(self):
         if(self.is_klapna_gore_otvorena==False):
             self.b1.setStyleSheet("background-color: green")
@@ -182,6 +182,29 @@ class noviWidget(QWidget):
                         self.motori[34].ukljuceno = True; 
                     if(m==19):
                         self.ventili[33].ukljuceno = True;
+                    #binovi
+                    if(m==11):
+                        self.binovi.start(1)
+                    if(m==14):
+                        self.binovi.start(2)   
+          
+                    if(m==2):
+                        self.binovi.start(3)   
+          
+                    if(m==8):
+                        self.binovi.start(4)   
+          
+                    if(m==13):
+                        self.binovi.start(5)   
+          
+                    if(m==6):
+                        self.binovi.start(6) 
+                    if(m==7):
+                        self.binovi.start(7)
+                    if(m==10):
+                        self.binovi89.start(2)
+                    if(m==4):
+                        self.binovi89.start(1)
                 else:
                     if(m==33):
                         m=29
@@ -195,7 +218,32 @@ class noviWidget(QWidget):
                     if(m==25):
                         self.motori[34].ukljuceno = False;    
                     if(m==19):
-                        self.ventili[33].ukljuceno = False;                        
+                        self.ventili[33].ukljuceno = False;        
+                    #binovi
+                    if(m==11):
+                        self.binovi.stop(1)   
+                    if(m==14):
+                        self.binovi.stop(2)   
+          
+                    if(m==2):
+                        self.binovi.stop(3)   
+          
+                    if(m==8):
+                        self.binovi.stop(4)   
+          
+                    if(m==13):
+                        self.binovi.stop(5)   
+          
+                    if(m==6):
+                        self.binovi.stop(6)   
+          
+                    if(m==7):
+                        self.binovi.stop(7)   
+          
+                    if(m==10):
+                        self.binovi89.stop(2)
+                    if(m==4):
+                        self.binovi89.stop(1)
                 self.repaint()
                 break
         for key, value in self.ventili.iteritems():
@@ -204,8 +252,33 @@ class noviWidget(QWidget):
                 if(v!=0):
                     if(value.ukljuceno==True):
                         self.state.ukljuciPneumatiku(v)
+                        if(v==14):
+                            self.silosi.start(1)   
+                        if(v==15):
+                            self.silosi.start(2)   
+                        if(v==16):
+                            self.silosi.start(3) 
+                        if(v==12):
+                            self.silosi.start(4) 
+                        if(v==13):
+                            self.silosi.start(5) 
+                        if(v==6):
+                            self.silosi.start(6) 
+                       
                     else:
                         self.state.iskljuciPneumatiku(v)
+                        if(v==14):
+                            self.silosi.stop(1)   
+                        if(v==15):
+                            self.silosi.stop(2)   
+                        if(v==16):
+                            self.silosi.stop(3) 
+                        if(v==12):
+                            self.silosi.stop(4) 
+                        if(v==13):
+                            self.silosi.stop(5) 
+                        if(v==6):
+                            self.silosi.stop(6) 
                 self.repaint()
                 break
             
@@ -382,6 +455,9 @@ class noviWidget(QWidget):
 
             
     def timerUpdate(self):
+        self.binovi.animate()
+        self.binovi89.animate()
+        self.silosi.animate()
         i = self.state.getIndikator()
         if(i[0]==1):
             self.motori[11].senzorOn()
