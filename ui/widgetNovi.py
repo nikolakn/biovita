@@ -55,15 +55,19 @@ class noviWidget(QWidget):
                 11: Pneumatika(617,74,11,'Pne_e1_na_redler_iznadsil'),12: Ventil(401,383,12,'sil4dole'),
                 13: Ventil(262,383,13,'sil5dole'),14: Ventil(125,775,14,'sil1dole'),
                 15: Ventil(262,775,15,'sil2dole'),16: Ventil(401,775,16,'sil3dole'),
-                17: Ventil(907,282,17,'reg1/6'),18: VentilHor(1636,274,18,'pel_velika'),
+                17: Ventil(907,282,17,'reg1/6'),
+                
+                18: Pneumatika(1653,418,18,'Pne_vaga2'),
+                19: Pneumatika(1614,418,19,'Pne_vaga1'),
                 
                 20: PneumatikaDupla(1054,339,20,1,20,'P2/5'),
                 21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),
                 
                 24: Ventil(401,566,24,'sil3gore'),
+
+                #28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), # ne treba
                 
-                28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), # ne treba
-                29: PneumatikaDupla(1292,320,20,1,29,'P8/9'),
+                29: PneumatikaDupla(1292,320,20,0,29,'P8/9'),
                 30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
                 32: PneumatikaDupla(922,339,20,1,32,'P1/6'), 
                 
@@ -74,6 +78,7 @@ class noviWidget(QWidget):
                 42: Ventil(262,174,0,'sil5gore'),  #ne treba
                 62: VentilHor(1504,274,0,'got_ka_bin7'),
                 64: VentilHor(1534,196,0,'pel_mala'),
+                34: VentilHor(1636,274,18,'pel_velika'),
                 35: PneumatikaDupla(1603,153,20,2,0,'Pext/ext')}
         
         
@@ -346,7 +351,10 @@ class noviWidget(QWidget):
         if(self.state.pneumatike['p17']==1):
             self.ventili[17].ukljuceno = True;       
         if(self.state.pneumatike['p18']==1):
-            self.ventili[18].ukljuceno = True;        
+            self.ventili[18].ukljuceno = True;  
+            
+        if(self.state.pneumatike['p19']==1):
+            self.ventili[19].ukljuceno = True;        
 
             
         if(self.state.pneumatike['p20']==1):
@@ -601,10 +609,10 @@ class noviWidget(QWidget):
             self.ventili[18].senzorOn();
         else:
             self.ventili[18].senzorOff();
-        #if(ulazi[18]==1):
-        #    self.ventili[1].senzorOn();
-        #else:
-        #    self.ventili[1].senzorOff();
+        if(ulazi[18]==1):
+            self.ventili[19].senzorOn();
+        else:
+            self.ventili[19].senzorOff();
         if(ulazi[19]==1):
             self.ventili[20].senzorOn();
         else:
