@@ -20,8 +20,8 @@ class Cevi():
             Cev_E1_Aspirater(),Cev_E1_binovi(),Cev_E2_aspirater(),Cev_E2_binovi(),Cev_E2_bin_ext(),
             Cev_Aspirater_E2(),Cev_Traka2_E2(),Cev_Traka2_E1(),Cev_puz_jama_E1(),Cev_redJama_puz(),
             Cev_puziznadbinova(),Cev_P1_6(), Cev_P2_5(),Cev_P3_4(),Cev_bin7(),Cev_zasun1(),Cev_zasun6(),
-            Cev_zasun2(),Cev_zasun5(),Cev_zasun3(),Cev_zasun4(),Cev_vaga_binovi(),Cev_vaga1(),Cev_vaga2(),
-            Cev_gotova_bin7()]
+            Cev_zasun2(),Cev_zasun5(),Cev_zasun3(),Cev_zasun4(),Cev_vaga_binovi(),Cev_vaga1(),Cev_vaga2()]
+            #Cev_gotova_bin7()
         
     def nacrtaj(self, paint):
         for c in self.list_cevi:

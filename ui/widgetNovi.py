@@ -19,7 +19,7 @@ class noviWidget(QWidget):
         QWidget.__init__(self, parent)
         self.slike1 = QImage()
         self.state = None
-        self.slike1.load("images/skica5.png")
+        self.slike1.load("images/skica6.png")
         self.is_klapna_gore_otvorena = False;
         self.is_klapna_gore_zatvorena = False;
         self.is_klapna_dole_otvorena = False;
@@ -51,7 +51,7 @@ class noviWidget(QWidget):
                 3: Pneumatika(644,74,3,'Pne_e1_utovarna_ramp'),4: Pneumatika(875,70,4,'Pne_e2_puz_binovi'),
                 5: Pneumatika(812,70,5,'Pne_e2_silos4'),6: Ventil(125,383,6,'sil6dole'),
                 7: Pneumatika(785,70,7,'Pne_e2_silos5'),8: Pneumatika(904,70,8,'Pne_e2_extru'),
-                9: Ventil(1167,106,9,'pextruder'),10: Ventil(1037,282,10,'Reg2/5'),
+                9: PneumatikaDupla(1603,153,20,2,9,'Pext/ext'),10: Ventil(1037,282,10,'Reg2/5'),
                 11: Pneumatika(617,74,11,'Pne_e1_na_redler_iznadsil'),12: Ventil(401,383,12,'sil4dole'),
                 13: Ventil(262,383,13,'sil5dole'),14: Ventil(125,775,14,'sil1dole'),
                 15: Ventil(262,775,15,'sil2dole'),16: Ventil(401,775,16,'sil3dole'),
@@ -62,10 +62,12 @@ class noviWidget(QWidget):
                 
                 20: PneumatikaDupla(1054,339,20,1,20,'P2/5'),
                 21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),
-                
-                24: Ventil(401,566,24,'sil3gore'),
-
-                #28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), # ne treba
+                23: VentilHor(1538,286,23,'got_ka_bin7'), #!!!!!
+                24: VentilHor(1634,196,24,'pel_mala'), #!!!!!
+                25: Ventil(401,566,25,'sil3gore'),   
+                26: PneumatikaDupla(1481,300,20,3,26,'p26zasun iznad vage'), #!!!!!
+                #27????     #premiks ne treba
+                #28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), # ne treba vaga
                 
                 29: PneumatikaDupla(1292,320,20,0,29,'P8/9'),
                 30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
@@ -73,16 +75,10 @@ class noviWidget(QWidget):
                 
                 
                 33: PneumatikaDupla(1362,254,20,0,33,'P7/puz'), ## treba 
-
                 37: Ventil(125,174,0,'sil6gore'),38: Ventil(401,174,0,'sil4gore'), #ne treba
                 42: Ventil(262,174,0,'sil5gore'),  #ne treba
-                62: VentilHor(1504,274,0,'got_ka_bin7'),
-                64: VentilHor(1534,196,0,'pel_mala'),
-                34: VentilHor(1636,274,18,'pel_velika'),
-                35: PneumatikaDupla(1603,153,20,2,0,'Pext/ext')}
+                35: Ventil(1167,106,9,'pextruder')}
         
-        
-
         self.b1 = QPushButton("Otvori",self)
         self.b1.setStyleSheet("background-color: gray")
         self.b1.setGeometry(QRect(1325,670, 60, 20))
@@ -363,10 +359,16 @@ class noviWidget(QWidget):
             self.ventili[21].ukljuceno = True;  
         if(self.state.pneumatike['p22']==1):
             self.ventili[22].ukljuceno = True;  
+        if(self.state.pneumatike['p23']==1):
+            self.ventili[23].ukljuceno = True;  
+        if(self.state.pneumatike['p24']==1):
+            self.ventili[24].ukljuceno = True;  
 
         if(self.state.pneumatike['p25']==1):
-            self.ventili[25].ukljuceno = True; 
-
+            self.ventili[25].ukljuceno = True;
+            
+        if(self.state.pneumatike['p26']==1):
+            self.ventili[26].ukljuceno = True; 
         #if(self.state.pneumatike['p28']==1):
         #    self.ventili[28].ukljuceno = True;  
         if(self.state.pneumatike['p29']==1):
@@ -626,30 +628,23 @@ class noviWidget(QWidget):
         else:
             self.ventili[22].senzorOff();
             
-        #if(ulazi[22]==1):
-        #    self.ventili[1].senzorOn();
-        #else:
-        #    self.ventili[1].senzorOff();
-        #if(ulazi[23]==1):
-        #    self.ventili[1].senzorOn();
-        #else:
-        #    self.ventili[1].senzorOff();
+        if(ulazi[22]==1):
+            self.ventili[23].senzorOn();
+        else:
+            self.ventili[23].senzorOff();
         if(ulazi[23]==1):
             self.ventili[24].senzorOn();
         else:
             self.ventili[24].senzorOff();
-        #if(ulazi[25]==1):
-        #    self.ventili[1].senzorOn();
-        #else:
-        #    self.ventili[1].senzorOff();
-        #if(ulazi[26]==1):
-        #    self.ventili[1].senzorOn();
-        #else:
-        #    self.ventili[1].senzorOff();
-        #if(ulazi[27]==1):
-        #    self.ventili[28].senzorOn();
-        #else:
-        #    self.ventili[28].senzorOff();
+        if(ulazi[24]==1):
+            self.ventili[25].senzorOn();
+        else:
+            self.ventili[25].senzorOff();
+        if(ulazi[25]==1):
+            self.ventili[26].senzorOn();
+        else:
+            self.ventili[26].senzorOff();
+
         if(ulazi[28]==1):
             self.ventili[29].senzorOn();
         else:

@@ -833,7 +833,7 @@ class autoProzor(QMainWindow,UiAuto.Ui_MainWindow):
         self.state.iskljuciPId(23)
         self.state.iskljuciPId(26)
         self.state.iskljuciPId(9)
-        self.state.iskljuciPId(18)
+        self.state.kreniPId(18)
         self.state.iskljuciMotorId(28)
     def btn_ispusti_3(self):
         self.state.kreniPId(19)    
