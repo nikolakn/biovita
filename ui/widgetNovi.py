@@ -150,7 +150,7 @@ class noviWidget(QWidget):
     def set_sate(self,state):
         self.state= state
         self.ucitajMotore()
-        self.ctimer.start(300)
+        self.ctimer.start(400)
     def btn_gornja_klapna_otvori(self):
         if(self.is_klapna_gore_otvorena==False):
             self.b1.setStyleSheet("background-color: green")
