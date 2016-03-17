@@ -25,21 +25,36 @@ class noviWidget(QWidget):
         self.is_klapna_dole_otvorena = False;
         self.is_klapna_dole_zatvorena = False;
         #motori koordinate,orjentacija,motor,naziv
-        self.motori = {1:  Motor(372,956,0,1,'red_u_jami'), 2 : Motor(1173,520,1,2,'bin3'),
-        3: Motor(656,996,3,3,'puz_jama'),4: Motor(1286,435,1,4,'bin9'),5: Motor(106,492,1,5,'redler_izn_silosa'),
-        6: Motor(960,500,1,6,'bin6'),7: Motor(1392,512,1,7,'bin7'),8: Motor(1223,500,1,8,'bin4'),
-        9 : Aspirater(626,327,9,'aspirater'),10: Motor(1323,435,1,10,'bin8'),11: Motor(912,520,1,11,'bin1'),
-        12: Motor(-500,-520,1,12,'bin12'),13 : Motor(1095,500,1,13,'bin5'),14: Motor(1045,520,1,14,'bin2'),
-        15: Motor(1168,618,0,15,'mlin_elevator'),18:Motor(693,15,0,18,'e2'),19: Motor(1364,311,2,19,'puz_89'),
-        20: Motor(426,505,3,20,'traka2'),21 : VentilatorAspiratera(678,277,21,"vent_asp"),
-        
-        23: Motor(520,15,0,23,'e1'),24: Motor(426,898,3,24,'traka1'),25: Motor(1458,377,0,25,'e3'),
-        28: Motor(1590,367,3,28,'gotov_mat'),29: Motor(1191,753,2,29,'e_vaga'),
-        30: Motor(868,226,0,30,'iznad_binova'),31: Motor(1500,792,2,31,'mesaona'),32: Motor(962,913,0,32,'mlin'),
-
-        33: Motor(966,756,0,33,'vagapuz'),
-        
-        34: Motor(1280,903,0,34,'mesaonapuz')
+        self.motori = { 1:  Motor(372,956,0,1,'red_u_jami'), 
+                        2: Motor(1173,520,1,2,'bin3'), 
+                        3: Motor(656,996,3,3,'puz_jama'),
+                        4: Motor(1286,435,1,4,'bin9'),
+                        5: Motor(106,492,1,5,'redler_izn_silosa'),
+                        6: Motor(960,500,1,6,'bin6'),
+                        7: Motor(1392,512,1,7,'bin7'),
+                        8: Motor(1223,500,1,8,'bin4'),
+                        9: Aspirater(626,327,9,'aspirater'),
+                        10: Motor(1323,435,1,10,'bin8'),
+                        11: Motor(912,520,1,11,'bin1'),
+                        12: Motor(-500,-520,1,12,'bin12'),
+                        13: Motor(1095,500,1,13,'bin5'),
+                        14: Motor(1045,520,1,14,'bin2'),
+                        15: Motor(1168,618,0,15,'mlin_elevator'),
+                        18: Motor(693,15,0,18,'e2'),
+                        19: Motor(1364,311,2,19,'puz_89'),
+                        20: Motor(426,505,3,20,'traka2'),
+                        21: VentilatorAspiratera(678,277,21,"vent_asp"),
+                        23: Motor(520,15,0,23,'e1'),
+                        24: Motor(426,898,3,24,'traka1'),
+                        25: Motor(1458,377,0,25,'e3'),
+                        28: Motor(1590,367,3,28,'gotov_mat'),
+                        29: Motor(1191,753,2,29,'e_vaga'),
+                        30: Motor(868,226,0,30,'iznad_binova'),
+                        31: Motor(1500,792,2,31,'mesaona'),
+                        32: Motor(962,913,0,32,'mlin'),
+                        #povezani dupli
+                        33: Motor(966,756,0,33,'vagapuz'),
+                        34: Motor(1280,903,0,34,'mesaonapuz')
 
         }
         
@@ -48,34 +63,40 @@ class noviWidget(QWidget):
         self.ventili = {
                 1: PneumatikaDupla(677,74,10,0,1,'Pne_e1_binovi/asp'),
                 2: PneumatikaDupla(842,70,10,1,2,'Pne_e2_red/asp'),
-                3: Pneumatika(644,74,3,'Pne_e1_utovarna_ramp'),4: Pneumatika(875,70,4,'Pne_e2_puz_binovi'),
-                5: Pneumatika(812,70,5,'Pne_e2_silos4'),6: Ventil(125,383,6,'sil6dole'),
-                7: Pneumatika(785,70,7,'Pne_e2_silos5'),8: Pneumatika(904,70,8,'Pne_e2_extru'),
-                9: PneumatikaDupla(1603,153,20,2,9,'Pext/ext'),10: Ventil(1037,282,10,'Reg2/5'),
-                11: Pneumatika(617,74,11,'Pne_e1_na_redler_iznadsil'),12: Ventil(401,383,12,'sil4dole'),
-                13: Ventil(262,383,13,'sil5dole'),14: Ventil(125,775,14,'sil1dole'),
-                15: Ventil(262,775,15,'sil2dole'),16: Ventil(401,775,16,'sil3dole'),
+                3: Pneumatika(644,74,3,'Pne_e1_utovarna_ramp'),
+                4: Pneumatika(875,70,4,'Pne_e2_puz_binovi'),
+                5: Pneumatika(812,70,5,'Pne_e2_silos4'),
+                6: Ventil(125,383,6,'sil6dole'),
+                7: Pneumatika(785,70,7,'Pne_e2_silos5'),
+                8: Pneumatika(904,70,8,'Pne_e2_extru'),
+                9: PneumatikaDupla(1603,153,20,2,9,'Pext/ext'),
+                10: Ventil(1037,282,10,'Reg2/5'),
+                11: Pneumatika(617,74,11,'Pne_e1_na_redler_iznadsil'),
+                12: Ventil(401,383,12,'sil4dole'),
+                13: Ventil(262,383,13,'sil5dole'),
+                14: Ventil(125,775,14,'sil1dole'),
+                15: Ventil(262,775,15,'sil2dole'),
+                16: Ventil(401,775,16,'sil3dole'),
                 17: Ventil(907,282,17,'reg1/6'),
-                
                 18: Pneumatika(1653,418,18,'Pne_vaga2'),
                 19: Pneumatika(1614,418,19,'Pne_vaga1'),
-                
                 20: PneumatikaDupla(1054,339,20,1,20,'P2/5'),
-                21: Ventil(262,566,21,'sil2gore'),22: Ventil(125,566,22,'sil1gore'),
+                21: Ventil(262,566,21,'sil2gore'),
+                22: Ventil(125,566,22,'sil1gore'),
                 23: VentilHor(1538,286,23,'got_ka_bin7'), #!!!!!
                 24: VentilHor(1634,196,24,'pel_mala'), #!!!!!
                 25: Ventil(401,566,25,'sil3gore'),   
-                26: PneumatikaDupla(1481,300,20,3,26,'p26zasun iznad vage'), #!!!!!
+                26: PneumatikaDupla(1481,300,20,3,26,'p26zasun iznad vage'), #!
                 #27????     #premiks ne treba
-                #28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), # ne treba vaga
-                
+                #28: PneumatikaDupla(1634,418,20,1,28,'Pvaga1/vaga2'), #vaga
                 29: PneumatikaDupla(1292,320,20,0,29,'P8/9'),
-                30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),31: Ventil(1170,282,31,'reg3/4'),
+                30: PneumatikaDupla(1185,339,20,1,30,'P3/4'),
+                31: Ventil(1170,282,31,'reg3/4'),
                 32: PneumatikaDupla(922,339,20,1,32,'P1/6'), 
-                
-                
                 33: PneumatikaDupla(1362,254,20,0,33,'P7/puz'), ## treba 
-                37: Ventil(125,174,0,'sil6gore'),38: Ventil(401,174,0,'sil4gore'), #ne treba
+                #ne koristi se
+                37: Ventil(125,174,0,'sil6gore'),
+                38: Ventil(401,174,0,'sil4gore'),
                 42: Ventil(262,174,0,'sil5gore'),  #ne treba
                 35: Ventil(1167,106,9,'pextruder')}
         
@@ -492,7 +513,7 @@ class noviWidget(QWidget):
         if(self.state.motori['m17']==1):
             self.btn_donja_klapna_zatvori()
         if(self.state.motori['m18']==1):
-            self.motori[18].ukljuceno = True;                                                
+            self.motori[18].ukljuceno = True;           
         if(self.state.motori['m19']==1):
             self.motori[19].ukljuceno = True;
             self.ventili[33].ukljuceno = True;
