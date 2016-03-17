@@ -318,6 +318,7 @@ class noviWidget(QWidget):
             self.state.kreniMotorId(19)
             self.state.iskljuciPId(29)
             self.ucitajMotore()
+            
         for key, value in self.motori.iteritems():
             if(value.click(event.x(),event.y())==True):
                 m = value.motor
@@ -398,7 +399,7 @@ class noviWidget(QWidget):
                         self.binovi89.stop(2)
                     if(m==4):
                         self.binovi89.stop(1)
-                self.repaint()
+                
                 break
         for key, value in self.ventili.iteritems():
             if(value.click(event.x(),event.y())==True):
@@ -433,8 +434,8 @@ class noviWidget(QWidget):
                             self.silosi.stop(5) 
                         if(v==6):
                             self.silosi.stop(6) 
-                self.repaint()
                 break
+	self.repaint()
             
     def paintEvent(self, QPaintEvent):
         
