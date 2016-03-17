@@ -22,9 +22,15 @@ class VentilatorAspiratera():
     def off(self):
         self.ukljuceno = False; 
     def senzorOn(self):
+        if(self.senzor==True):
+            return False;
         self.senzor = True;
+        return True;
     def senzorOff(self):
+        if(self.senzor==False):
+            return False;         
         self.senzor = False;
+        return True;
         
     def click(self,x,y): 
         okvir = QRect(self.x,self.y,102,80)

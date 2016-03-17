@@ -24,10 +24,15 @@ class Ventil():
     def off(self):
         self.ukljuceno = False; 
     def senzorOn(self):
+        if(self.senzor==True):
+            return False;
         self.senzor = True;
+        return True;
     def senzorOff(self):
+        if(self.senzor==False):
+            return False;         
         self.senzor = False;
-        
+        return True;
     def click(self,x,y): 
         okvir = QRect(self.x,self.y,30,30)
         okvir2 = QRect(self.x-27,self.y+15-12,30,25)

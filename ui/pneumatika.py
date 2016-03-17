@@ -25,9 +25,15 @@ class Pneumatika():
     def off(self):
         self.ukljuceno = False; 
     def senzorOn(self):
+        if(self.senzor==True):
+            return False;
         self.senzor = True;
+        return True;
     def senzorOff(self):
+        if(self.senzor==False):
+            return False;         
         self.senzor = False;
+        return True;
         
     def click(self,x,y): 
         okvir = QRect(self.x-8, self.y-8,16,34)

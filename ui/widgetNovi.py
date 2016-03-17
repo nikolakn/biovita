@@ -596,290 +596,532 @@ class noviWidget(QWidget):
 
             
     def timerUpdate(self):
+        osvezi = False
         self.binovi.animate()
         self.binovi89.animate()
         self.silosi.animate()
         i = self.state.getIndikator()
         if(i[0]==1):
-            self.motori[11].senzorOn()
+            r=self.motori[11].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[11].senzorOff()
+            r=self.motori[11].senzorOff()
+            if(r==True):
+                osvezi=True
         if(i[1]==1):
-            self.motori[14].senzorOn()
+            r=self.motori[14].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[14].senzorOff()
+            r=self.motori[14].senzorOff()            
+            if(r==True):
+                osvezi=True
         #bin3    
         if(i[2]==1):
-            self.motori[2].senzorOn()
+            r=self.motori[2].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[2].senzorOff()
+            r=self.motori[2].senzorOff()
+            if(r==True):
+                osvezi=True
         #bin4    
         if(i[3]==1):
-            self.motori[8].senzorOn()
+            r=self.motori[8].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[8].senzorOff()
+            r=self.motori[8].senzorOff()
+            if(r==True):
+                osvezi=True
         #bin5    
         if(i[4]==1):
-            self.motori[13].senzorOn()
+            r=self.motori[13].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[13].senzorOff()
+            r=self.motori[13].senzorOff()
+            if(r==True):
+                osvezi=True
         #bin6    
         if(i[5]==1):
-            self.motori[6].senzorOn()
+            r=self.motori[6].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[6].senzorOff()
+            r=self.motori[6].senzorOff()
+            if(r==True):
+                osvezi=True
         #bin7
         if(i[6]==1):
-            self.motori[7].senzorOn()
+            r=self.motori[7].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[7].senzorOff()
+            r=self.motori[7].senzorOff()
+            if(r==True):
+                osvezi=True
         #bin8
         if(i[7]==1):
-            self.motori[10].senzorOn()
+            r=self.motori[10].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[10].senzorOff()
+            r=self.motori[10].senzorOff()
+            if(r==True):
+                osvezi=True
         #bin9    
         if(i[8]==1):
-            self.motori[4].senzorOn()
+            r=self.motori[4].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[4].senzorOff()
+            r=self.motori[4].senzorOff()
+            if(r==True):
+                osvezi=True
         #premix na vagu
         if(i[9]==1):
-            self.motori[12].senzorOn()
+            r=self.motori[12].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[12].senzorOff()
+            r=self.motori[12].senzorOff()
+            if(r==True):
+                osvezi=True
         #mesaona gore otvorena    
         if(i[10]==1):
-            self.kgo_senz.on()
+            r=self.kgo_senz.on()
+            if(r==True):
+                osvezi=True
         else:
-            self.kgo_senz.off()
+            r=self.kgo_senz.off()
+            if(r==True):
+                osvezi=True
         #mesaona gore zat  
         if(i[11]==1):
-            self.kgz_senz.on()
+            r=self.kgz_senz.on()
+            if(r==True):
+                osvezi=True
         else:
-            self.kgz_senz.off()
+            r=self.kgz_senz.off()
+            if(r==True):
+                osvezi=True
         #mesaona dole otvorena  
         if(i[12]==1):
-            self.kdo_senz.on()
+            r=self.kdo_senz.on()
+            if(r==True):
+                osvezi=True
         else:
-            self.kdo_senz.off()
+            r=self.kdo_senz.off()
+            if(r==True):
+                osvezi=True
         #mesaona dole zat 
         if(i[13]==1):
-            self.kdz_senz.on()
+            r=self.kdz_senz.on()
+            if(r==True):
+                osvezi=True
         else:
-            self.kdz_senz.off()
+            r=self.kdz_senz.off()
+            if(r==True):
+                osvezi=True
             
             
         #Redler u istovarnoj jami
         if(i[14]==1):
-            self.motori[1].senzorOn()
+            r=self.motori[1].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[1].senzorOff()
+            r=self.motori[1].senzorOff()
+            if(r==True):
+                osvezi=True
         #Puz u istovarnoj jami
         if(i[15]==1):
-            self.motori[3].senzorOn()
+            r=self.motori[3].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[3].senzorOff()
+            r=self.motori[3].senzorOff()
+            if(r==True):
+                osvezi=True
         #e1
         if(i[16]==1):
-            self.motori[23].senzorOn()
+            r=self.motori[23].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[23].senzorOff()
+            r=self.motori[23].senzorOff()
+            if(r==True):
+                osvezi=True
         #e2
         if(i[17]==1):
-            self.motori[18].senzorOn()
+            r=self.motori[18].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[18].senzorOff()
+            r=self.motori[18].senzorOff()
+            if(r==True):
+                osvezi=True
             
         #Ventilator aspiratera
         if(i[18]==1):
-            self.motori[21].senzorOn()
+            r=self.motori[21].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[21].senzorOff()
+            r=self.motori[21].senzorOff()
+            if(r==True):
+                osvezi=True
         #aspirater
         if(i[19]==1):
-            self.motori[9].senzorOn()
+            r=self.motori[9].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[9].senzorOff()
+            r=self.motori[9].senzorOff()
+            if(r==True):
+                osvezi=True
             
         #Redler iznad silosa
         if(i[20]==1):
-            self.motori[5].senzorOn()
+            r=self.motori[5].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[5].senzorOff()
+            r=self.motori[5].senzorOff()
+            if(r==True):
+                osvezi=True
         #puz za punjenje binova
         if(i[21]==1):
-            self.motori[30].senzorOn()
+            r=self.motori[30].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[30].senzorOff()
+            r=self.motori[30].senzorOff()
+            if(r==True):
+                osvezi=True
         #t1
         if(i[22]==1):
-            self.motori[24].senzorOn()
+            r=self.motori[24].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[24].senzorOff()
+            r=self.motori[24].senzorOff()
+            if(r==True):
+                osvezi=True
         #t2
         if(i[23]==1):
-            self.motori[20].senzorOn()
+            r=self.motori[20].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[20].senzorOff()
+            r=self.motori[20].senzorOff()
+            if(r==True):
+                osvezi=True
         #mlin
         if(i[24]==1):
-            self.motori[32].senzorOn()
+            r=self.motori[32].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[32].senzorOff()
+            r=self.motori[32].senzorOff()
+            if(r==True):
+                osvezi=True
         #elevator mlina
         if(i[25]==1):
-            self.motori[15].senzorOn()
+            r=self.motori[15].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[15].senzorOff()
+            r=self.motori[15].senzorOff()
+            if(r==True):
+                osvezi=True
         #Dotok mat.u mlin
         if(i[26]==1):
-            self.motori[29].senzorOn()
+            r=self.motori[29].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[29].senzorOff()
+            r=self.motori[29].senzorOff()
+            if(r==True):
+                osvezi=True
         #mesalica
         if(i[27]==1):
-            self.motori[31].senzorOn()
+            r=self.motori[31].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[31].senzorOff()
+            r=self.motori[31].senzorOff()
+            if(r==True):
+                osvezi=True
         #Gotova roba iz mesalice
         if(i[28]==1):
-            self.motori[25].senzorOn()
+            r=self.motori[25].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[25].senzorOff()
+            r=self.motori[25].senzorOff()
+            if(r==True):
+                osvezi=True
         #Gotova roba prema ekst.
         if(i[29]==1):
-            self.motori[28].senzorOn()
+            r=self.motori[28].senzorOn()
+            if(r==True):
+                osvezi=True
         else:
-            self.motori[28].senzorOff()
+            r=self.motori[28].senzorOff()
+            if(r==True):
+                osvezi=True
 
             
         #pneumatike
         ulazi = self.state.updateSensors();
         if(ulazi[0]==1):
             self.ventili[1].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[1].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[1]==1):
             self.ventili[2].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[2].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[2]==1):
             self.ventili[3].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[3].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[3]==1):
             self.ventili[4].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[4].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[4]==1):
             self.ventili[5].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[5].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[5]==1):
             self.ventili[6].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[6].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[6]==1):
             self.ventili[7].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[7].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[7]==1):
             self.ventili[8].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[8].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[8]==1):
             self.ventili[9].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[9].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[9]==1):
             self.ventili[10].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[10].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[10]==1):
             self.ventili[11].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[11].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[11]==1):
             self.ventili[12].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[12].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[12]==1):
             self.ventili[13].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[13].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[13]==1):
             self.ventili[14].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[14].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[14]==1):
             self.ventili[15].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[15].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[15]==1):
             self.ventili[16].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[16].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[16]==1):
             self.ventili[17].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[17].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[17]==1):
             self.ventili[18].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[18].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[18]==1):
             self.ventili[19].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[19].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[19]==1):
             self.ventili[20].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[20].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[20]==1):
             self.ventili[21].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[21].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[21]==1):
             self.ventili[22].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[22].senzorOff();
+            if(r==True):
+                osvezi=True
             
         if(ulazi[22]==1):
             self.ventili[23].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[23].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[23]==1):
             self.ventili[24].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[24].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[24]==1):
             self.ventili[25].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[25].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[25]==1):
             self.ventili[26].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[26].senzorOff();
+            if(r==True):
+                osvezi=True
 
         if(ulazi[28]==1):
             self.ventili[29].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[29].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[29]==1):
             self.ventili[30].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[30].senzorOff();  
+            if(r==True):
+                osvezi=True
         if(ulazi[30]==1):
             self.ventili[31].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[31].senzorOff();
+            if(r==True):
+                osvezi=True
         if(ulazi[31]==1):
             self.ventili[32].senzorOn();
+            if(r==True):
+                osvezi=True
         else:
             self.ventili[32].senzorOff();
-            
-        self.repaint()             
+            if(r==True):
+                osvezi=True
+
+        if(osvezi==False): 
+            self.repaint()             
         
     def btn_vaga1(self):
     
